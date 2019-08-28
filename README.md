@@ -121,6 +121,7 @@ A parity bit is only guaranteed to detect an odd number of bit errors.
 If an even number of bits have errors, the parity bit records the correct number of ones, 
 even though the data is corrupt.
 ```
+- XOR . (both different show "1" )
 
 ### online resource
 - https://visualgo.net/en
