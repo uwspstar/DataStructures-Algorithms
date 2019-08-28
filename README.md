@@ -46,7 +46,7 @@
   dynamic  algorithms use the output of a smaller sub-problem and 
   then try to optimize a bigger sub-problem. 
   Dynamic algorithms use Memoization to remember the output of already solved sub-problems.
-```
+  ```
 ### sort
 - merge sort
 - bobble sort
