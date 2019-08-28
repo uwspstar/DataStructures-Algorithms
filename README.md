@@ -51,9 +51,11 @@
     print
    ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
+https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-linked-list-fd77cbbd367d/
   - Simple Linked List (link, next)
   - Doubly Linked List (link, next, prev)
   - Circular Linked List
+  
 - tree
 - graph
 - greedy
