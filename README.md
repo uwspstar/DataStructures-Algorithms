@@ -24,6 +24,10 @@
 - link list
 - tree
 - graph
+- greedy
+```
+generally greedy algorithms do not provide globally optimized solutions.
+```
 
 ### sort
 - merge sort
