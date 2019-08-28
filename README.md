@@ -22,7 +22,20 @@
 - dictory
 - stack
 - queue
-- node
+- node (data , next)
+ ```
+ class daynames:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+    e1 = daynames('Mon')
+    e2 = daynames('Tue')
+    e3 = daynames('Wed')
+
+    e1.next = e3
+    e3.next = e2
+ ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
   - link
   - next
@@ -61,6 +74,13 @@
 - Deletion
 - Sorting
 - Merging
+
+### Basic Operations of the list
+- Insertion − Adds an element at the beginning of the list.
+- Deletion − Deletes an element at the beginning of the list.
+- Display − Displays the complete list.
+- Search − Searches an element using the given key.
+- Delete − Deletes an element using the given key.
 
 ### sort
 - merge sort
