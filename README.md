@@ -1,5 +1,25 @@
 # DataStructures-Algorithms
 
+### Basic
+- list
+- tuple
+- set
+- dictory
+- stack
+- queue
+- node
+- link list
+- tree
+- graph
+
+### sort
+- merge sort
+- bobble sort
+
+### search
+- DFS
+- BFS
+
 ### online resource
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
