@@ -20,8 +20,12 @@
 - set
 - hash table
 - dictory
-- stack
-- queue
+- stack ```(LIFO) , caculater, Match parentheses stack, computer command````
+  - push() 
+  - pop()
+  - peek()
+  - isEmpty()
+- queue ```(FIFO)```
 - node (data , next)
    ```
    class daynames:
@@ -43,12 +47,9 @@
     print
    ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
-  - link
-  - next
-  - linkedList 
-    - Simple Linked List
-    - Doubly Linked List
-    - Circular Linked List
+  - Simple Linked List (link, next)
+  - Doubly Linked List (link, next, prev)
+  - Circular Linked List
 - tree
 - graph
 - greedy
@@ -87,6 +88,9 @@
 - Display − Displays the complete list.
 - Search − Searches an element using the given key.
 - Delete − Deletes an element using the given key.
+- Insert Last − Adds an element at the end of the list.
+- Delete Last − Deletes an element from the end of the list.
+- Insert After − Adds an element after an item of the list.
 
 ### sort
 - merge sort
