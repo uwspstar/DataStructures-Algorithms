@@ -36,6 +36,17 @@
   Quick Sort
   Binary Search
   ```
+- Dynamic programming 
+  ```
+  In contrast to greedy algorithms, where local optimization is addressed, dynamic algorithms 
+  are motivated for an overall optimization of the problem.
+
+  In contrast to divide and conquer algorithms, 
+  where solutions are combined to achieve an overall solution,
+  dynamic  algorithms use the output of a smaller sub-problem and 
+  then try to optimize a bigger sub-problem. 
+  Dynamic algorithms use Memoization to remember the output of already solved sub-problems.
+```
 ### sort
 - merge sort
 - bobble sort
