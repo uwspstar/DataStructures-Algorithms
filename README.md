@@ -14,7 +14,7 @@
   polynomial  #	nΟ(1)
   exponential # 2Ο(n)
   ```
-- list
+- list , array
 - tuple
 - set
 - dictory
