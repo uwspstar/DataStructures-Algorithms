@@ -115,7 +115,12 @@
 ### others
 - A parity bit, or check bit
 https://en.wikipedia.org/wiki/Parity_bit
-
+```
+There is a limitation to parity schemes. 
+A parity bit is only guaranteed to detect an odd number of bit errors. 
+If an even number of bits have errors, the parity bit records the correct number of ones, 
+even though the data is corrupt.
+```
 
 ### online resource
 - https://visualgo.net/en
