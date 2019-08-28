@@ -14,14 +14,19 @@
   polynomial  #	nΟ(1)
   exponential # 2Ο(n)
   ```
-- list , array
+- list 
+- array
 - tuple
 - set
+- hash table
 - dictory
 - stack
 - queue
 - node
-- link list
+- linked list
+  - link
+  - next
+  - linkedList 
 - tree
 - graph
 - greedy
