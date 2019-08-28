@@ -27,6 +27,9 @@
   - link
   - next
   - linkedList 
+    - Simple Linked List
+    - Doubly Linked List
+    - Circular Linked List
 - tree
 - graph
 - greedy
