@@ -1,6 +1,6 @@
 # DataStructures-Algorithms
 
-### Basic
+### Basic key words
 - bigO (Best Case, Average Case, Worst Case)
   - speed
   - space
