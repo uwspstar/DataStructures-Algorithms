@@ -1,6 +1,9 @@
 # DataStructures-Algorithms
 
 ### Basic
+- bigO
+  - speed
+  - space
 - list
 - tuple
 - set
