@@ -23,19 +23,25 @@
 - stack
 - queue
 - node (data , next)
- ```
- class daynames:
-    def __init__(self, data=None):
-        self.data = data
-        self.next = None
+   ```
+   class daynames:
+      def __init__(self, data=None):
+          self.data = data
+          self.next = None
 
-    e1 = daynames('Mon')
-    e2 = daynames('Tue')
-    e3 = daynames('Wed')
+      e1 = daynames('Mon')
+      e2 = daynames('Tue')
+      e3 = daynames('Wed')
 
-    e1.next = e3
-    e3.next = e2
- ```
+      e1.next = e3
+      e3.next = e2
+      
+    def print_list(node):
+    while node:
+        print node,
+        node = node.next
+    print
+   ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
   - link
   - next
