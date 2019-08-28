@@ -23,7 +23,7 @@
 - stack
 - queue
 - node
-- linked list
+- linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
   - link
   - next
   - linkedList 
