@@ -20,7 +20,7 @@
 - set
 - hash table
 - dictory
-- stack ```(LIFO) , caculater, Match parentheses stack, computer command````
+- stack ```(LIFO) , caculater, Match parentheses stack, computer command```
   - push() 
   - pop()
   - peek()
