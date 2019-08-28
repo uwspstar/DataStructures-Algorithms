@@ -25,10 +25,17 @@
 - tree
 - graph
 - greedy
-```
-generally greedy algorithms do not provide globally optimized solutions.
-```
-
+  ```
+  * Most networking algorithms use the greedy approach
+  generally greedy algorithms do not provide globally optimized solutions.
+  ```
+- divide and conquer (Divide/Break, Conquer/Solve, Merge/Combine)
+  ```
+  *** based on divide-and-conquer 
+  Merge Sort
+  Quick Sort
+  Binary Search
+  ```
 ### sort
 - merge sort
 - bobble sort
