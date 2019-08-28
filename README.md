@@ -25,6 +25,10 @@
   - pop()
   - peek()
   - isEmpty()
+  ```
+  infix notations are first converted into either postfix or prefix notations and then computed.
+  - https://www.tutorialspoint.com/data_structures_algorithms/expression_parsing.htm
+  ```
 - queue ```(FIFO)```
 - node (data , next)
    ```
@@ -107,6 +111,12 @@
   - All pair shortest path by Floyd-Warshall
   - Shortest path by Dijkstra
   - Project scheduling
+ 
+### others
+- A parity bit, or check bit
+https://en.wikipedia.org/wiki/Parity_bit
+
+
 ### online resource
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
