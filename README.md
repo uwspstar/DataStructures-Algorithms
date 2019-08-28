@@ -36,7 +36,7 @@
   Quick Sort
   Binary Search
   ```
-- Dynamic programming 
+- dynamic programming 
   ```
   In contrast to greedy algorithms, where local optimization is addressed, dynamic algorithms 
   are motivated for an overall optimization of the problem.
@@ -47,6 +47,13 @@
   then try to optimize a bigger sub-problem. 
   Dynamic algorithms use Memoization to remember the output of already solved sub-problems.
   ```
+- Traversing
+- Searching
+- Insertion
+- Deletion
+- Sorting
+- Merging
+
 ### sort
 - merge sort
 - bobble sort
@@ -55,6 +62,13 @@
 - DFS
 - BFS
 
+### typic computer problems
+  - Fibonacci number series
+  - Knapsack problem
+  - Tower of Hanoi
+  - All pair shortest path by Floyd-Warshall
+  - Shortest path by Dijkstra
+  - Project scheduling
 ### online resource
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
