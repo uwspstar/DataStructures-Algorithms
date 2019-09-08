@@ -15,7 +15,11 @@
   exponential # 2Ο(n)
   ```
 - list 
-- array
+- array (list in Python3)
+  - 1. Two Sum
+  - 2. Maximum Subarray
+  - 3. Move Zeroes
+  - 4. Contains Duplicate
 - tuple
 - set
 - hash table
