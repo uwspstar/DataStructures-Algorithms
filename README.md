@@ -36,6 +36,7 @@
 - queue ```(FIFO)```
 - node (data , next)
    ```python3
+   # python3
    class daynames:
       def __init__(self, data=None):
           self.data = data
@@ -55,6 +56,7 @@
     print
    ```
    ```javascript
+   # javascript
    class Node {
     constructor (data, next = null) {
       this.data = data;
