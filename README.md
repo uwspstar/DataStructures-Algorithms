@@ -56,7 +56,7 @@
     print
    ```
    ```javascript
-   # javascript
+   // javascript
    class Node {
     constructor (data, next = null) {
       this.data = data;
@@ -65,10 +65,22 @@
    }
    ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
+  ```javascript
+  // javascript
+  class LinkedList {
+    constructor() {
+      this.head = null;
+    }
+    insert(data) { 
+      this.head = new Node(data, th;is.head);
+    }
+  }
+  ```
 https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-linked-list-fd77cbbd367d/
   - Simple Linked List (link, next)
   - Doubly Linked List (link, next, prev)
   - Circular Linked List
+  
   
 - tree
 - graph
