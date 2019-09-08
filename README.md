@@ -35,7 +35,7 @@
   ```
 - queue ```(FIFO)```
 - node (data , next)
-   ```
+   ```python3
    class daynames:
       def __init__(self, data=None):
           self.data = data
@@ -53,6 +53,14 @@
         print node,
         node = node.next
     print
+   ```
+   ```javascript
+   class Node {
+    constructor (data, next = null) {
+      this.data = data;
+      this.next = null;
+    }
+   }
    ```
 - linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
 https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-linked-list-fd77cbbd367d/
