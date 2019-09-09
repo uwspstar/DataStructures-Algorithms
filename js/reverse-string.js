@@ -1,4 +1,3 @@
-```javascript
 
 const reverse = function (str) {
   let result = '';
@@ -10,8 +9,6 @@ const reverse = function (str) {
 
 console.dir(reverse("abc"));
 
-```
 
-```
-console.log vs console.dir
-```
+// console.log vs console.dir
+
