@@ -144,6 +144,7 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   y storing the results of expensive function calls 
   and returning the cached result when the same inputs occur again
   ```
+  https://www.python-course.eu/python3_memoization.php
 - bottom-up
 
 ### typic computer problems
