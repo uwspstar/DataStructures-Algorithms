@@ -1,5 +1,6 @@
 ```javascript
-//Given nums = [2, 7, 11, 15], target = 9, 
+
+// Given nums = [2, 7, 11, 15], target = 9, 
 // return index
 // hasOwnProperty 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
