@@ -1,4 +1,3 @@
-```javascript
 
 // Given nums = [2, 7, 11, 15], target = 9, 
 // return index
@@ -61,4 +60,4 @@ const twoSum = function(nums, target) {
 }
 
 console.log(twoSum([2, 7, 11, 15],13));
-```
+
