@@ -15,7 +15,7 @@ const firstRepeat = function (arr) {
       }
     }
   }
-  return null;
+  return undefined;
 }
 
 console.dir(firstRepeat([2,1,3,2,5,4,1,3]));
