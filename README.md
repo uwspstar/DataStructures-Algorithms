@@ -16,13 +16,13 @@
   ```
 - list 
 - array (list in Python3)
-```
-  - 1. Two Sum
-  - 2. Maximum Subarray
-  - 3. Move Zeroes
-  - 4. Contains Duplicate
-  - 5. Longest Word
-```
+  ```
+    - 1. Two Sum
+    - 2. Maximum Subarray
+    - 3. Move Zeroes
+    - 4. Contains Duplicate
+    - 5. Longest Word
+  ```
 - tuple
 - set
 - hash table
