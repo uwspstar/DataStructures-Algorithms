@@ -135,6 +135,8 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
 - DFS
 - BFS
 
+### Dynamic Programming
+
 ### typic computer problems
   - Fibonacci number series
   - Knapsack problem
