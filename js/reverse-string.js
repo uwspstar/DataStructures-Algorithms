@@ -13,5 +13,5 @@ console.dir(reverse("abc"));
 ```
 
 ```
-consle.log vs console.dir
+console.log vs console.dir
 ```
