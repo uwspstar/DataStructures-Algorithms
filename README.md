@@ -136,6 +136,15 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
 - BFS
 
 ### Dynamic Programming
+- recursion
+- store (```memoize```) // NOT (```memorize```)
+  ```
+  In computing, memoization or memoisation is an optimization technique 
+  used primarily to speed up computer programs b
+  y storing the results of expensive function calls 
+  and returning the cached result when the same inputs occur again
+  ```
+- bottom-up
 
 ### typic computer problems
   - Fibonacci number series
