@@ -11,4 +11,4 @@ console.dir(reverse("abc"));
 
 
 // console.log vs console.dir
-
+// log only prints out a toString representation, whereas dir prints out a navigable tree.
