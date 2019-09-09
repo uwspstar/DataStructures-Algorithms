@@ -165,7 +165,7 @@ If an even number of bits have errors, the parity bit records the correct number
 even though the data is corrupt.
 ```
 - XOR . (both different show "1" )
-
+- console.log vs console.dir
 ### online resource
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
