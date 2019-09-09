@@ -166,6 +166,9 @@ even though the data is corrupt.
 ```
 - XOR . (both different show "1" )
 - console.log vs console.dir
+  ```
+  log only prints out a toString representation, whereas dir prints out a navigable tree.
+  ```
 ### online resource
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
