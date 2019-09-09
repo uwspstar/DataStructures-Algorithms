@@ -19,3 +19,8 @@ const firstRepeat = function (arr) {
 }
 
 console.dir(firstRepeat([2,1,3,2,5,4,1,3]));
+console.dir(firstRepeat([2,1,3,5,4]));
+
+
+
+
