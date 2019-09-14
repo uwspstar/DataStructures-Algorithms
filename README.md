@@ -173,6 +173,7 @@ even though the data is corrupt.
 - https://visualgo.net/en
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 - https://www.tutorialspoint.com/data_structures_algorithms/index.htm
+- https://www.techiedelight.com/list-of-problems/
 
 ### book
 - Elements of Programming Interviews in Python: The Insiders' Guide
