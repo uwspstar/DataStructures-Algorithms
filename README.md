@@ -86,6 +86,23 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   
   
 - tree
+  ```
+  A data structure that consists of nodes in a parent / child relationship
+  Lists - linear but Trees - nonlinear
+  Root - The top node in a tree.
+  Child - A node directly connected to another node when moving away from the Root.
+  Parent - The converse notion of a child.
+  Siblings -A group of nodes with the same parent.
+  Leaf - A node with no children.
+  Edge - The connection between one node and another.
+  ```
+- Trees
+- Binary Trees
+- Binary Search Trees
+  ```
+  Every parent node has at most two children
+  Every node to the left of a parent node is always less than the parent
+  ```
 - graph
 - greedy
   ```
