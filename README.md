@@ -102,6 +102,20 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   ```
   Every parent node has at most two children
   Every node to the left of a parent node is always less than the parent
+  
+  class BinarySearchTree {
+    constructor(){
+        this.root = null;
+    }
+  }
+  
+  class Node {
+    constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+  }
   ```
 - graph
 - greedy
