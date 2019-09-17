@@ -12,7 +12,7 @@
   quadratic   # Ο(n2)
   cubic       # Ο(n3)
   polynomial  #	nΟ(1)
-  exponential # 2Ο(n)
+  exponential # Ο(n^2)
   ```
 - list 
 - array (list in Python3)
