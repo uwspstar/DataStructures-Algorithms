@@ -129,6 +129,12 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
 - BFS
 - DFS
 - graph
+  ```
+  Vertex - a node
+  Edge - connection between nodes
+  Weighted/Unweighted - values assigned to distances between vertices
+  Directed/Undirected - directions assigned to distanced between vertices
+  ```
 - greedy
   ```
   * Most networking algorithms use the greedy approach
