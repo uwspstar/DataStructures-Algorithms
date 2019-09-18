@@ -135,6 +135,23 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   Weighted/Unweighted - values assigned to distances between vertices
   Directed/Undirected - directions assigned to distanced between vertices
   ```
+  ```
+  class Graph {
+    constructor(){
+        this.adjacencyList = {}
+    }
+  }
+  ```
+- GRAPH TRAVERSAL USES
+  ```  
+  Peer to peer networking
+  Web crawlers
+  Finding "closest" matches/recommendations
+  Shortest path problems
+  GPS Navigation
+  Solving mazes
+  AI (shortest path to win the game)
+  ```
 - greedy
   ```
   * Most networking algorithms use the greedy approach
