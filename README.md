@@ -239,6 +239,8 @@ even though the data is corrupt.
 - https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 - https://www.tutorialspoint.com/data_structures_algorithms/index.htm
 - https://www.techiedelight.com/list-of-problems/
+- Data Structures Easy to Advanced - Full Tutorial Course by freeCodeCamp.org
+https://www.youtube.com/watch?v=RBSGKlAvoiM&feature=em-uploademail
 
 ### book
 - Elements of Programming Interviews in Python: The Insiders' Guide
