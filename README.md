@@ -36,6 +36,12 @@
   infix notations are first converted into either postfix or prefix notations and then computed.
   - https://www.tutorialspoint.com/data_structures_algorithms/expression_parsing.htm
   ```
+  - when you use stack 
+    - used by undo mechanisms in text editors
+    - used in comiler syntax checking for matching brackets and braces
+    - can be used to model a pile of books or plates.
+    - used behind the scenes to support recursion by keep track of previous function calls.
+    - can be used to d a Depth First Search (DFS) on a graph
 - queue ```(FIFO)```
 - node (data , next)
    ```python3
