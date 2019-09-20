@@ -1,7 +1,6 @@
 # DataStructures-Algorithms
 
-### Basic key words
-- bigO (Best Case, Average Case, Worst Case)
+### bigO (Best Case, Average Case, Worst Case)
   - speed
   - space
   ```
@@ -14,8 +13,8 @@
   polynomial  #	nΟ(1)
   exponential # Ο(n^2)
   ```
-- list 
-- array (list in Python3)
+### list 
+### array (list in Python3)
   ```
     - 1. Two Sum
     - 2. Maximum Subarray
@@ -31,11 +30,11 @@
     - 5) can be used to return multiple values from a function
     - 6) Used in dynamic programming to cache answers to
     
-- tuple
-- set
-- hash table
-- dictory
-- stack ```(LIFO) , caculater, Match parentheses stack, computer command```
+### tuple
+### set
+### hash table
+### dictory
+### stack ```(LIFO) , caculater, Match parentheses stack, computer command```
   - push() 
   - pop()
   - peek()
@@ -50,8 +49,8 @@
     - can be used to model a pile of books or plates.
     - used behind the scenes to support recursion by keep track of previous function calls.
     - can be used to d a Depth First Search (DFS) on a graph
-- queue ```(FIFO)```
-- node (data , next)
+###  queue ```(FIFO)```
+###  node (data , next)
    ```python3
    # python3
    class daynames:
@@ -81,7 +80,7 @@
     }
    }
    ```
-- linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
+###  linked list```(can be visualized as a chain of nodes, where every node points to the next node.)```
   ```javascript
   // javascript
   class LinkedList {
@@ -104,7 +103,7 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   - used in separate chining which is persnet certain hashtable implementations to deal with hashing collisions.
   - ofter used in the implementation of adjacency lists for graphs
   
-- tree
+###  tree
   ```
   A data structure that consists of nodes in a parent / child relationship
   Lists - linear but Trees - nonlinear
@@ -115,9 +114,9 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   Leaf - A node with no children.
   Edge - The connection between one node and another.
   ```
-- Trees
-- Binary Trees
-- Binary Search Trees
+### Trees
+### Binary Trees
+### Binary Search Trees
   ```
   Every parent node has at most two children
   Every node to the left of a parent node is always less than the parent
@@ -136,7 +135,7 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
     }
   }
   ```
-- Trees vs Binary Trees vs Binary Search Trees
+### Trees vs Binary Trees vs Binary Search Trees
   ```
   Trees are non-linear data structures that contain a root and child nodes
   Binary Trees can have values of any type, but at most two children for each parent
@@ -145,9 +144,9 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   
   We can search through Trees using BFS and DFS
   ```
-- BFS
-- DFS
-- graph
+### BFS
+### DFS
+### graph
   ```
   Vertex - a node
   Edge - connection between nodes
@@ -161,7 +160,7 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
     }
   }
   ```
-- GRAPH TRAVERSAL USES
+### GRAPH TRAVERSAL USES
   ```  
   Peer to peer networking
   Web crawlers
@@ -171,19 +170,19 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   Solving mazes
   AI (shortest path to win the game)
   ```
-- greedy
+### greedy
   ```
   * Most networking algorithms use the greedy approach
   generally greedy algorithms do not provide globally optimized solutions.
   ```
-- divide and conquer (Divide/Break, Conquer/Solve, Merge/Combine)
+### divide and conquer (Divide/Break, Conquer/Solve, Merge/Combine)
   ```
   *** based on divide-and-conquer 
   Merge Sort
   Quick Sort
   Binary Search
   ```
-- dynamic programming 
+### dynamic programming 
   ```
   In contrast to greedy algorithms, where local optimization is addressed, dynamic algorithms 
   are motivated for an overall optimization of the problem.
