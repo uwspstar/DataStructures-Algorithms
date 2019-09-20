@@ -23,6 +23,14 @@
     - 4. Contains Duplicate
     - 5. Longest Word
   ```
+### When and where is a static Array Used ?
+    - 1) storing and accessing sequential data
+    - 2) Temporarily storing objects
+    - 3) Used by IO routines as buffers
+    - 4) Lookup tables and inverse lookup tables
+    - 5) can be used to return multiple values from a function
+    - 6) Used in dynamic programming to cache answers to
+    
 - tuple
 - set
 - hash table
@@ -36,7 +44,7 @@
   infix notations are first converted into either postfix or prefix notations and then computed.
   - https://www.tutorialspoint.com/data_structures_algorithms/expression_parsing.htm
   ```
-  - when you use stack 
+### when you use stack 
     - used by undo mechanisms in text editors
     - used in comiler syntax checking for matching brackets and braces
     - can be used to model a pile of books or plates.
@@ -89,7 +97,12 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   - Simple Linked List (link, next)
   - Doubly Linked List (link, next, prev)
   - Circular Linked List
-  
+### when you use linked lists?  
+  - used in many List, Queue, Stack implementations
+  - Great for creating circular lists
+  - Can easily model real world objects such as trains.
+  - used in separate chining which is persnet certain hashtable implementations to deal with hashing collisions.
+  - ofter used in the implementation of adjacency lists for graphs
   
 - tree
   ```
