@@ -16,7 +16,7 @@ var lengthOfLongestSubstring = function(s) {
     
     for (i = 0; i < arr.length; i++) {
 
-        let current = map[arr[i]]; //value is index
+        let current = map[arr[i]]; //value is index, ???? have duplicate key
 
         if (current != null && start <= current) {
             start = current + 1;
