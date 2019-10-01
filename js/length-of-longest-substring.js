@@ -11,7 +11,7 @@ var lengthOfLongestSubstring = function(s) {
 
     let map = {};
     let start = 0; // index
-    let maxLen = 0;
+    let maxLen = 1;
     let arr = s.split(''); //let arr = [...str];
     
     for (i = 0; i < arr.length; i++) {
