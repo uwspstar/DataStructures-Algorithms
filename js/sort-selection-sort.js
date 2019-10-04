@@ -16,7 +16,7 @@ const selectionSort = function (arr) {
   for (let i = 0; i < arr.length; i++) {
     let smallIdx = i;
     for (let j = smallIdx; j < arr.length; j++) {
-      if (arr[smallIdx] > arr[j]) {
+      if (arr[j] < arr[smallIdx]) {
         smallIdx = j;
       }
     }
