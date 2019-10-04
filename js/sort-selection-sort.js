@@ -20,7 +20,9 @@ const selectionSort = function (arr) {
         smallIdx = j;
       }
     }
-    [arr[i], arr[smallIdx]] = [arr[smallIdx], arr[i]];
+    if(i !== smallIdx) {
+      [arr[i], arr[smallIdx]] = [arr[smallIdx], arr[i]];
+    }
   }
   return arr;
 }
