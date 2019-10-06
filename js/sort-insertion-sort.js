@@ -9,10 +9,25 @@ Continue to the next element and if it is in the incorrect order, iterate throug
 Repeat until the array is sorted
 
 */
+const insertSort = function (arr) {
+  let i, j;
+  for ( i = 1; i < arr.length; i++) {
+    let current = arr[i];
+    for ( j = i - 1; j >= 0; j--) {
+      if (current < arr[j]) {
+        arr[j+1] = arr[j];
+      } else break;
+    }
+    arr[j+1] = current;
+  }
+  return arr;
+}
+console.log(insertSort([5,4,3,2,1]));
+
 
 
 function insertionSort(arr) {
-	var currentVal;
+    var currentVal;
     for(var i = 1; i < arr.length; i++) {
         currentVal = arr[i];
         for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
