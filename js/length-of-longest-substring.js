@@ -25,7 +25,7 @@ var lengthOfLongestSubstring = function(s) {
             maxLen = Math.max(maxLen, i - start + 1);
         }
         
-        map[arr[i]] = i
+        map[arr[i]] = i;
     }
     
     return maxLen 
