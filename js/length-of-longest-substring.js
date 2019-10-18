@@ -28,7 +28,7 @@ var lengthOfLongestSubstring = function(s) {
         map[arr[i]] = i;
     }
     
-    return maxLen 
+    return maxLen; 
 };
 
 console.log(lengthOfLongestSubstring(s));
