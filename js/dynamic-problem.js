@@ -8,6 +8,8 @@
 // 3) Bottom-up
 const fibBottonUp = function (n) {
 
+  if n < 3 return 1;
+  
   let arr = [1, 1];
 
   for(let i = 2; i < n; i++) {
