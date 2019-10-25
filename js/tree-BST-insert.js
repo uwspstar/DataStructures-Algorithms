@@ -13,6 +13,7 @@ class BinarySearchTree {
     insert(value){
         var newNode = new Node(value);
         if(this.root === null){
+            // if it is root
             this.root = newNode;
             return this;
         }
