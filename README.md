@@ -114,6 +114,15 @@ https://www.freecodecamp.org/news/python-interview-question-guide-how-to-code-a-
   Leaf - A node with no children.
   Edge - The connection between one node and another.
   ```
+### Tree example
+  ```
+  - HTML DOM
+  - Network Routing
+  - Abstract Syntax Tree
+  - Artificial Intelligence
+  - Folders in Operating Systems
+  - Computer File Systems
+  ```
 ### Trees
 ### Binary Trees
 ### Binary Search Trees
