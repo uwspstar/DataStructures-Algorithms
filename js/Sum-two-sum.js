@@ -4,6 +4,18 @@
 // hasOwnProperty 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
+const twoSum = function (arr, target) {
+  let mySet = new Set();
+  for (let i = 0; i < arr.length; i++) {
+    if(mySet.has(target - arr[i])) return true;
+    mySet.add(arr[i]);
+  }
+  return false;
+}
+console.log(twoSum([-1, 7, 11, 15], 14));
+console.log(twoSum([-1, 7, 11, 15], 13));
+console.log(twoSum([2, 7, 11, 15], 13)); 
+
 var twoSum = function(nums, target) {
     
     let hashmap = {}; 
