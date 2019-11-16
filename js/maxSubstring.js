@@ -1,5 +1,6 @@
-const maxSubstring = function (arr) {
+// maxSubstring
 
+const maxSubstring = function (arr) {
   let maxSum = arr[0];
   let maxCurrent = arr[0];
   //[1,2,-3,4,-5,6]
