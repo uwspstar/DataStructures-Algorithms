@@ -45,7 +45,8 @@ function fib2 (n) {
   function fib_memo (n) {
     if (memo[n] != undefined) return memo[n];
     if(n < 3) return 1; 
-    return memo[n] = fib_memo (n - 1) + fib_memo (n - 2);
+    return memo[n] = fib_memo (n - 1) + fib_memo (n - 2); // NOT fib_memo[n-1] + fib_meno[n-2]
+
   }
   return fib_memo (n);
 }
