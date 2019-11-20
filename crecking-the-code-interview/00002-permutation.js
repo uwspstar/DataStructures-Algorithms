@@ -4,11 +4,7 @@ Check Permutation:
 Given two strings, 
 write a method to decide if one is a permutation of the other.
 
-
-		
-	
-	
-		the definition of a permutation-two words with the same character counts
+definition of a permutation-two words with the same character counts
 
 */
 
