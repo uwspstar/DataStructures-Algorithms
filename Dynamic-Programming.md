@@ -1,0 +1,2 @@
+- https://blog.usejournal.com/top-50-dynamic-programming-practice-problems-4208fed71aa3
+- Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'
