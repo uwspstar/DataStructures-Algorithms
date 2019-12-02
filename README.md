@@ -268,6 +268,8 @@ even though the data is corrupt.
 - https://www.techiedelight.com/list-of-problems/
 - Data Structures Easy to Advanced - Full Tutorial Course by freeCodeCamp.org
 https://www.youtube.com/watch?v=RBSGKlAvoiM&feature=em-uploademail
+- 500+ Data Structures and Algorithms Interview Questions & Practice Problems by Coding Freak
+https://blog.usejournal.com/500-data-structures-and-algorithms-practice-problems-35afe8a1e222
 
 ### book
 - Elements of Programming Interviews in Python: The Insiders' Guide
