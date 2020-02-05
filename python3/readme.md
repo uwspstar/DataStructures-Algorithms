@@ -1,4 +1,5 @@
 # Python 3
+- Python ZTM Cheatsheet https://github.com/aneagoie/ztm-python-cheat-sheet
 - https://nicedoc.io/aneagoie/ztm-python-cheat-sheet
 - https://repl.it/@uwspstar/python
 - https://www.udemy.com/course/complete-python-developer-zero-to-mastery/learn/lecture/15593156#overview
