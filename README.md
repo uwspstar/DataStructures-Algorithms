@@ -1,5 +1,6 @@
 # DataStructures-Algorithms
 - https://www.youtube.com/watch?v=v4cd1O4zkGw&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt
+- https://adrianmejia.com/how-you-can-change-the-world-learning-data-structures-algorithms-free-online-course-tutorial/
 
 ### bigO (Best Case, Average Case, Worst Case)
   - speed
