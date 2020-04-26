@@ -4,6 +4,10 @@
 ### Set (Uniqu value) 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 
+### JavaScript Bitwise Operators
+- https://www.w3schools.com/jsref/jsref_operators.asp
+- https://www.youtube.com/watch?v=mesu75PTDC8
+
 ### bigO (Best Case, Average Case, Worst Case)
 - speed
 - space
