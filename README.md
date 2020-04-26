@@ -7,6 +7,17 @@
 ### JavaScript Bitwise Operators
 - https://www.w3schools.com/jsref/jsref_operators.asp
 - https://www.youtube.com/watch?v=mesu75PTDC8
+- user permission
+- https://www.youtube.com/watch?v=RRyxCmLX_ag
+```
+AND &
+OR |
+XOR ^
+NOT ~
+shift left <<
+shift right >>
+```
+
 
 ### bigO (Best Case, Average Case, Worst Case)
 - speed
