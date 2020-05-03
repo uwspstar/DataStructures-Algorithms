@@ -5,6 +5,7 @@
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 
 ### JavaScript Bitwise Operators
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_AND
 - https://www.w3schools.com/jsref/jsref_operators.asp
 - https://www.youtube.com/watch?v=mesu75PTDC8
 - user permission
