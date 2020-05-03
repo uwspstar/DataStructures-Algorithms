@@ -1,5 +1,8 @@
 # DataStructures-Algorithms
 - https://www.youtube.com/watch?v=v4cd1O4zkGw&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt
+### Objects vs. Maps
+
+- Object is similar to Map—both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and because there were no built-in alternatives), ```Objects have been used as Maps historically```
 
 ### Set (Uniqu value) 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
