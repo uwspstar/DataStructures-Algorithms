@@ -1,9 +1,10 @@
 # DataStructures-Algorithms
 - https://www.youtube.com/watch?v=v4cd1O4zkGw&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt
 - https://github.com/trekhleb/javascript-algorithms
+- https://medium.com/outco/the-algorithm-of-an-algorithm-28043fe47b51
+- https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
 
 ### Objects vs. Maps
-
 - Object is similar to Map—both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and because there were no built-in alternatives), ```Objects have been used as Maps historically```
 - However, there are important differences that make Map preferable in certain cases:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
