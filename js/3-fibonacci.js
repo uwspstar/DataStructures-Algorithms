@@ -41,7 +41,7 @@ function fibonacciRecursive(n) { //O(2^n)
 
 // memo recurcive
 function fib2 (n) {
-  let memo = {};
+  let memo = [];
   function fib_memo (n) {
     if (memo[n] != undefined) return memo[n];
     if(n < 3) return 1; 
