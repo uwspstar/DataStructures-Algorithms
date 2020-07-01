@@ -1,3 +1,12 @@
+/*
+https://www.geeksforgeeks.org/quick-sort/
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.
+
+Always pick first element as pivot.
+Always pick last element as pivot (implemented below)
+Pick a random element as pivot.
+Pick median as pivot.
+*/
 
 function pivot(arr, start = 0, end = arr.length - 1) {
   const swap = (arr, idx1, idx2) => {
