@@ -4,6 +4,7 @@
 - https://medium.com/outco/the-algorithm-of-an-algorithm-28043fe47b51
 - https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
 - https://adrianmejia.com/analysis-of-recursive-algorithms/
+- https://humanwhocodes.com/blog/2019/01/computer-science-in-javascript-linked-list/
 
 ### Objects vs. Maps
 - Object is similar to Map—both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and because there were no built-in alternatives), ```Objects have been used as Maps historically```
