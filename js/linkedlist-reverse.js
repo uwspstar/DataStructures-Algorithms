@@ -1,3 +1,4 @@
+// https://humanwhocodes.com/blog/2019/01/computer-science-in-javascript-linked-list/
 class Node{
     constructor(val){
         this.val = val;
