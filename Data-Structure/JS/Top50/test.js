@@ -17,11 +17,20 @@ var findKthLargest = function (arr, k) {
 // O (NlogN)
 const findKthLargestNumWithQuickSort = function (arr, k) {
     if (arr.length < k) return undefined;
+    //[1, 3, 5, 2]
+    const getPivotIndex = function (arr, low, high) {
+        let pivot = arr[high];
+        let pivotIndex = low;
 
-    const getPivotIndex = function (arr) {
-        let pivot = arr[arr.length - 1];
-        let pivotIndex = 0;
+        const swap = (arr, i, j) => { [arr[i], arr[j]] = [arr[j], arr[i]] };
 
+        for (let i = low; i < high; i++) {
+            if (arr[i] < pivot) {
+                swap(arr, i, pivotIndex)
+                pivotIndex++;
+            }
+        }
+        swap(arr, pivotIndex, high);
 
         return pivotIndex;
     }
@@ -29,10 +38,11 @@ const findKthLargestNumWithQuickSort = function (arr, k) {
         if (arr.length < 2) return arr; // base case, always need
 
         if (start < end) {
-            let pi = getPivotIndex(arr);
+            let pi = getPivotIndex(arr, start, end);
             quickSort(arr, start, pi - 1);
             quickSort(arr, pi + 1, end);
         }
+        return arr;
     }
 
     return quickSort(arr).slice(-k)[0];
