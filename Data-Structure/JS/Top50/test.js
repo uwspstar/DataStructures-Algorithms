@@ -10,32 +10,33 @@ var findKthLargest = function (arr, k) {
     }
     return arr.slice(-k)[0]
 };
+
 //console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2));
 //console.log(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
 
 // O (NlogN)
-const findKthLargestNum = function (arr, k) {
+const findKthLargestNumWithQuickSort = function (arr, k) {
     if (arr.length < k) return undefined;
 
-    const merge = function (left, right) {
-        if (left.length === 0) return right;
-        if (right.length === 0) return left;
-        let result = [];
-        while (left.length > 0 && right.length > 0) {
-            left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift())
-        }
-        return result.concat(left, right);
+    const getPivotIndex = function (arr) {
+        let pivot = arr[arr.length - 1];
+        let pivotIndex = 0;
+
+
+        return pivotIndex;
     }
-    const mergeSort = function (arr) {
+    const quickSort = function (arr, start = 0, end = arr.length - 1) {
         if (arr.length < 2) return arr; // base case, always need
-        let mid = (arr.length) >> 1;
-        let left = mergeSort(arr.slice(0, mid));
-        let right = mergeSort(arr.slice(mid));
-        return merge(left, right);
+
+        if (start < end) {
+            let pi = getPivotIndex(arr);
+            quickSort(arr, start, pi - 1);
+            quickSort(arr, pi + 1, end);
+        }
     }
 
-    return mergeSort(arr).slice(-k)[0];
+    return quickSort(arr).slice(-k)[0];
 }
-console.log(findKthLargestNum([3, 2, 1, 5, 6, 4], 4)); // 3
-console.log(findKthLargestNum([3, 2, 1, 5, 6, 4], 2)); // 5
-console.log(findKthLargestNum([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)); // 4
+console.log(findKthLargestNumWithQuickSort([3, 2, 1, 5, 6, 4], 4)); // 3
+console.log(findKthLargestNumWithQuickSort([3, 2, 1, 5, 6, 4], 2)); // 5
+console.log(findKthLargestNumWithQuickSort([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)); // 4
