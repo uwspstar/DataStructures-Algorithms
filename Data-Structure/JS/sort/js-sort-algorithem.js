@@ -56,4 +56,10 @@ Radix sort - O(nk)
 - Radix sort is a fast sorting algorithm for numbers
 - Radix sort exploits place value to sort numbers in linear time (for a fixed number of digits)
 
+// bubbleSort : out loop i--; inner loop j++; swap
+// selectionSort : out loop i++; inner loop j++; smallIdx; swap
+// insertingSort : left side sorted, out loop i++, i = 1;  inner loop j--, j= i-1
+// mergeSort : merge(left,right), sort(arr), no swap
+// quickSort : pivot, swap
+
 */
