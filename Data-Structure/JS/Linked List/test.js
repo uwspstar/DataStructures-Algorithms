@@ -63,9 +63,10 @@ class LinkedList {
             pre = current;
             current = next;
         }
-        this.head = pre; // very important
+        this.head = pre;
         return this;
     }
+
     findMid() {
         if (this.head === null) return undefined;
         let fast = this.head;
@@ -76,6 +77,7 @@ class LinkedList {
         }
         return slow.value;
     }
+
     isCircular() {
         if (this.head === null) return true;
         let current = this.head;
@@ -91,14 +93,31 @@ linkedList.append(10);
 linkedList.append(20);
 linkedList.append(30);
 linkedList.append(40);
+console.log(JSON.stringify(linkedList.reverse()));
+
+/*
 console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
 console.log(JSON.stringify(linkedList.isCircularFastSlow()));
 console.log(JSON.stringify(linkedList.isCircular()));
-/*
+
 
 console.log(JSON.stringify(linkedList));
 console.log(JSON.stringify(linkedList.findMid()));
 console.log(JSON.stringify(linkedList.reverse()));
 console.log(JSON.stringify(linkedList.findMid()));
+
+reverse() {
+        let current = this.head;
+        let pre = null;
+        let next = null;
+        while (current !== null) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre; // very important
+        return this;
+    }
 */
 

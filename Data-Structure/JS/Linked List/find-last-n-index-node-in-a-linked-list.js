@@ -2,7 +2,7 @@
 
 Fast & Slow strategy
 
-Program for n’th node from the end of a Linked List
+Program for nth node from the end of a Linked List
 Given a Linked List and a number n, write a function that returns the value at the n’th node from the end of the Linked List.
 For example, if the input is below list and n = 3, then output is “B”
 
