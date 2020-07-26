@@ -76,6 +76,8 @@ data structures: new Object, new Array, new Map, new Set, new WeakMap, new WeakS
 - Function non data structure, though it also answers for typeof operator: typeof instance === "function".
 
 ### data structures:
+- https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/
+
 - new Object, 
 - new Array, 
 - new Map, 

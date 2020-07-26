@@ -2,6 +2,10 @@
 - https://www.youtube.com/watch?v=RBSGKlAvoiM&feature=em-uploademail
 - https://github.com/williamfiset/Algorithms
 
+### Data Structures
+- https://docs.python.org/3/tutorial/datastructures.html
+- ```Lists```
+
 - Abstract Data Type (ADT)
 ```
 An abstract data type is an abstraction of a data structure 
