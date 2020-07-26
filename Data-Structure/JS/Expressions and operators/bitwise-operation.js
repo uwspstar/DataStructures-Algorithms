@@ -1,7 +1,11 @@
 // https://blog.logrocket.com/interesting-use-cases-for-javascript-bitwise-operators/
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators
 
+
+
 /*
+// *** is this for integers only ?
+
 ------------------------------------------------------------------------
 Operator	    Description	Example	        Same as	Result	Decimal
 &	AND	        x = 5 & 1	0101 & 0001	    0001	 1
