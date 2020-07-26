@@ -6,9 +6,9 @@
 - https://www.geeksforgeeks.org/
 
 ### key words
-- ```duplicate```
+- ```duplicate``` : haspMap, key value; Map(), Set()
 - ```sorted```
-- ```binary```
+- ```binary``` : sorted
 
 
 ### Code clarity here is more important than saving a few lines on the whiteboard.
