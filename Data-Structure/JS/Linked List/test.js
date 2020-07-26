@@ -71,11 +71,11 @@ class LinkedList {
         if (this.head === null) return undefined;
         let fast = this.head;
         let slow = this.head;
-        if (fast !== null) {
+        if (fast.next !== null && fast.next.next !== null) { // not if(fast !== null)
             fast = fast.next.next;
             slow = slow.next;
         }
-        return slow.val;
+        return slow.value;
     }
 
     isCircular() {
@@ -90,9 +90,9 @@ class LinkedList {
 
 let linkedList = new LinkedList(5);
 linkedList.append(10);
-linkedList.append(20);
-linkedList.append(30);
-linkedList.append(40);
+//linkedList.append(20);
+//linkedList.append(30);
+//linkedList.append(40);
 
 console.log(JSON.stringify(linkedList.findMid()));
 /*
