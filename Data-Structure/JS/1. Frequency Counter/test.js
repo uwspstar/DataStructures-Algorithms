@@ -4,13 +4,14 @@ Implement a function called, areThereDuplicates which accepts a variable number 
 
 */
 const areThereAnyDuplicates = function (...arr) {
-    if (arr.length < 2) return false
-    let set = new Set()
+    if (arr.length < 2) return false;
+    let set = new Set();
+
     for (let i = 0; i < arr.length; i++) {
-        if (set.has(arr[i])) return true
-        else set.add(arr[i])
+        if (set.has(arr[i])) return true;
+        else set.add(arr[i]);
     }
-    return false
+    return false;
 }
 
 console.log(areThereAnyDuplicates(1, 2, 3)) // false

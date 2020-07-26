@@ -1,15 +1,20 @@
-/*Frequency Counter - sameFrequency
+/*
+Frequency Counter - sameFrequency
+
 Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
 
 Your solution MUST have the following complexities:
 
 Time: O(N)
 
-Sample Input:
+*** more single loops better than nest loop
+
 */
+// (212341, 143212)
 const sameFrequency = function (num1, num2) {
     let str1 = num1.toString();
     let str2 = num2.toString();
+
     if (str1.length !== str2.length) return false;
 
     let map1 = new Map();
@@ -22,9 +27,11 @@ const sameFrequency = function (num1, num2) {
         map1.get(k1) ? map1.set(k1, map1.get(k1) + 1) : map1.set(k1, 1);
         map2.get(k2) ? map2.set(k2, map2.get(k2) + 1) : map2.set(k2, 1);
     }
+
     for (let key of map1.keys()) {
         if (map1.get(key) !== map2.get(key)) return false;
     }
+    
     return true;
 }
 console.log(sameFrequency(182, 281)); // true
