@@ -1,4 +1,6 @@
 # ordered
+# two pointers, start and end, move to mid
+
 def binary_search(nums, num):
     if num < nums[0] or num > nums[-1]:
         return False
@@ -16,7 +18,7 @@ def binary_search(nums, num):
     return False
 
 
-print(binary_search([1, 2, 3, 4, 5], 6)) # False
-print(binary_search([2, 3, 4, 5], 1)) # True
-print(binary_search([1, 2, 3, 4, 5], 3)) # False
-print(binary_search([1, 2, 4, 5], 3)) # False
+print(binary_search([1, 2, 3, 4, 5], 6))  # False
+print(binary_search([2, 3, 4, 5], 1))  # True
+print(binary_search([1, 2, 3, 4, 5], 3))  # False
+print(binary_search([1, 2, 4, 5], 3))  # False
