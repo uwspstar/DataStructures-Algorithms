@@ -9,6 +9,7 @@
 - ```duplicate``` : haspMap, key value; Map(), Set()
 - ```sorted```
 - ```binary``` : sorted
+- ```Arrays```, ```Maps```, ```Sets```, ```Stacks```, and ```Queues```, ```Lists```, ```Trees```, ```Graphs```
 
 
 ### Code clarity here is more important than saving a few lines on the whiteboard.
