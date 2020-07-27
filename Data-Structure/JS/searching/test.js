@@ -1,4 +1,13 @@
+const findMissingNumber = (arr) => {
+    if (arr.length === 0) return 1;
 
+}
+
+
+console.log(findMissingNumber([1, 2, 4, 6, 3, 7, 8]));
+
+
+console.log(searchMatchStr("lorie loled", "lol"));
 // ordered array
 const binarySearch = (arr, num) => {
     if (arr.length === 0) return -1;

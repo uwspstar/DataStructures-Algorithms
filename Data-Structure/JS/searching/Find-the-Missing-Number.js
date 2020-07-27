@@ -27,31 +27,24 @@ const findMissingNumber = (arr) => {
 
     return sumTotal - sum;
 }
+console.log(findMissingNumber([1, 2, 4, 6, 3, 7, 8]));
 
-console.log(findMissingNumber([1, 2, 4, 6, 3, 7, 8])) //[1, 2, 3, 4, 5, 6, 7] //sum = 28
-
-const findMissingNum = function (arr) {
+const findMissingNum = (arr) => {
     if (arr.length === 0) return -1;
-    //1+2+3+...+n = n/2 * (1+n)
+
     let n = arr.length + 1;
-    let sum = n * (1 + n) >> 1;
+    let sum = n * (1 + n) >> 1; //1+2+3+...+n = n/2 * (1+n)
     let total = 0;
     for (let i = 0; i < arr.length; i++) {
         total += arr[i];
     }
-    //console.log('n=', n, 'sum=', sum, 'total=', total)
     return sum - total;
 }
-console.log(findMissingNum([1, 2, 4, 5]))
-console.log(findMissingNum([1, 2, 3, 4, 6, 7, 8]))
-
 // 2: ask if the arr is sorted, if it is sorted, O(N) + O(N)
-const findMissingNumberSorted = function (arr) {
+const findMissingNumberSorted = (arr) => {
     if (arr.length === 0) return 1;
-    //if (arr.length === 1) return arr[0] === 1 ? 0 : 1 
     let arrSort = arr.sort();  // ON(NlogN)
     if (arrSort[0] !== 1) return 1;
-    // after sort, we can use binary search O(logN)
     for (let i = 1; i < arrSort.length; i++) {
         if (arrSort[i] !== (i + 1)) return arrSort[i - 1] + 1;
     }
