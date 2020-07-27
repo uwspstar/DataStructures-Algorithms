@@ -5,6 +5,7 @@
 // O(log n) ( the best sort, will be nlogn)
 const binarySearch = function (arr, num) {
   if (arr.length === 0) return -1;
+  if (arr.length === 1) return arr[0] === num;
   if (arr[0] > num) return -1;
   if (arr[arr.length - 1] < num) return -1;
 
@@ -34,7 +35,7 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
   if (arr.length === 1) return arr[0] === num;
   if (arr[start] > num) return -1;
   if (arr[end] < num) return -1;
-  
+
   while (start < end) {
     let mid = (start + end) >> 1;
     if (arr[mid] === num) return 1;

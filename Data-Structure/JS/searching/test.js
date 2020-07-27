@@ -15,10 +15,10 @@ const binarySearch = (arr, num) => {
     }
     return -1;
 }
-
-console.log('binarySearch', binarySearch([1, 2, 4, 5], 2)); // 1
-console.log('binarySearch', binarySearch([1, 2, 4, 5], 0)); // -1
-console.log('binarySearch', binarySearch([1, 2, 3, 4, 5], 3)); // 1
+console.log('binarySearch', binarySearch([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
+// console.log('binarySearch', binarySearch([1, 2, 4, 5], 2)); // 1
+// console.log('binarySearch', binarySearch([1, 2, 4, 5], 0)); // -1
+// console.log('binarySearch', binarySearch([1, 2, 3, 4, 5], 3)); // 1
 
 const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
     if (arr.length === 0) return -1;
@@ -35,6 +35,6 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
     }
     return -1;
 }
-console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 4, 5], 2)); // 1
-console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 4, 5], 0)); // -1
-console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 3, 4, 5], 3)); // 1
+// console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 4, 5], 2)); // 1
+// console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 4, 5], 0)); // -1
+// console.log('binarySearchRecursive', binarySearchRecursive([1, 2, 3, 4, 5], 3)); // 1
