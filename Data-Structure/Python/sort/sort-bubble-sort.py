@@ -1,31 +1,28 @@
-"""
-def bubbleSort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-"""
-"""
-arr = [5, 4, 3, 2, 1]
-n = len(arr)
-print(f"n = {n}")
-for i in range(n-1, -1, -1):
-    print(i)
-"""
+# O(N^2)
+# two pointers, each loop find the biggest one, and put on the right
+# outloop i--
+# inner loop j++, j <i
+# swap
 
 
-def bubbleSort(arr):
+def swap(list, i, j):
+    list[i], list[j] = list[j], list[i]
+    return list
+
+
+def bubble_sort(arr):
     n = len(arr)
-    for i in range(n-1, -1, -1):
+    for i in range(n-1, -1, -1):  # range(stat, end, step)
+        isSwap = False
         for j in range(0, i):
-            # print(f"j={j}")
             if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swap(arr, j, j+1)
+                isSwap = True
+        if isSwap == False:
+            break
+
+    return arr
 
 
 arr = [5, 4, 3, 2, 1]
-bubbleSort(arr)
-
-for i in range(len(arr)):
-    print(f"{arr[i]}")
+print('bubbleSort', bubble_sort(arr))
