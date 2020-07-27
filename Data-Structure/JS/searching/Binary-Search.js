@@ -3,6 +3,7 @@
 // Original Solution
 // https://medium.com/jsunderthescope/a-recursive-binary-search-in-javascript-b29efaff64d6
 // O(log n) ( the best sort, will be nlogn)
+
 const binarySearch = function (arr, num) {
   if (arr.length === 0) return -1;
   if (arr.length === 1) return arr[0] === num;
@@ -39,29 +40,13 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
   while (start <= end) {
     let mid = (start + end) >> 1;
     if (arr[mid] === num) return 1;
-    (arr[mid] > num) ?
-      binarySearchRecursive(arr.slice(0, mid), num, start, mid - 1) :
-      binarySearchRecursive(arr.slice(mid + 1), num, mid + 1, end)
-
+    arr[mid] > num ?
+      binarySearchRecursive(arr.slice(0, mid), num, start, end = mid - 1) :
+      binarySearchRecursive(arr.slice(mid + 1), num, start = mid + 1, end)
   }
   return -1;
 }
-const binarySearchRecursive = function (arr, num, start = 0, end = arr.length - 1) {
-  if (arr.length === 0) return -1;
-  if (arr[0] > num) return -1;
-  if (arr[arr.length - 1] < num) return -1;
-
-  if (start <= end) {
-    let mid = (start + end) >> 1;
-    if (arr[mid] === num) return 1;
-    arr[mid] < num ? binarySearchRecursive(arr, num, mid + 1, end)
-      : binarySearchRecursive(arr, num, start, mid - 1);
-  }
-  return -1;
-}
-console.log(binarySearchRecursive([1, 2, 4, 5], 2));
-console.log(binarySearchRecursive([1, 2, 4, 5], 0));
-console.log(binarySearchRecursive([1, 2, 3, 4, 5], 3));
+console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
 
 const recursiveFunction = function (arr, x, start, end) {
   if (arr.length === 0) return false;

@@ -41,12 +41,10 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
 
     while (start <= end) {
         let mid = (start + end) >> 1;
-        console.log('mid=', mid, 'arr[mid]=', arr[mid], 'arr=', arr);
         if (arr[mid] === num) return 1;
         arr[mid] > num ?
             binarySearchRecursive(arr.slice(0, mid), num, start, end = mid - 1) :
             binarySearchRecursive(arr.slice(mid + 1), num, start = mid + 1, end)
-
     }
     return -1;
 }
