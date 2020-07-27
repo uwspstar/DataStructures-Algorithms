@@ -1,2 +1,1 @@
-if small_index != i:
-            swap(list, small_index, i)
+[1, 3, 5, 2, 4, 6]
