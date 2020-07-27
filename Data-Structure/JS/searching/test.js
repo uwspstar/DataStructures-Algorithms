@@ -10,6 +10,7 @@ const binarySearch = (arr, num) => {
     let end = arr.length - 1
     while (start < end) {
         let mid = (start + end) >> 1;
+        console.log('arr[mid]=', arr[mid]);
         if (arr[mid] === num) return 1;
         arr[mid] > num ? end = mid - 1 : start = mid + 1;
     }
