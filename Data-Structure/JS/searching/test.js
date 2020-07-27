@@ -20,7 +20,19 @@ const binarySearch = (arr, num) => {
 // console.log('binarySearch', binarySearch([1, 2, 4, 5], 2)); // 1
 // console.log('binarySearch', binarySearch([1, 2, 4, 5], 0)); // -1
 // console.log('binarySearch', binarySearch([1, 2, 3, 4, 5], 3)); // 1
+const binarySearchRecursive1 = function (arr, num, start = 0, end = arr.length - 1) {
+    if (arr.length === 0) return -1;
+    if (arr[0] > num) return -1;
+    if (arr[arr.length - 1] < num) return -1;
 
+    while (start <= end) {
+        let mid = (start + end) >> 1;
+        if (arr[mid] === num) return 1;
+        arr[mid] < num ? binarySearchRecursive(arr, num, start = mid + 1, end)
+            : binarySearchRecursive(arr, num, start, end = mid - 1);
+    }
+    return -1;
+}
 const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
     if (arr.length === 0) return -1;
     if (arr.length === 1) return arr[0] === num;
@@ -29,10 +41,11 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
 
     while (start <= end) {
         let mid = (start + end) >> 1;
+        console.log('mid=', mid, 'arr[mid]=', arr[mid], 'arr=', arr);
         if (arr[mid] === num) return 1;
         arr[mid] > num ?
-            binarySearchRecursive(arr.slice(0, mid), num, start, mid - 1) :
-            binarySearchRecursive(arr.slice(mid + 1), num, mid + 1, end)
+            binarySearchRecursive(arr.slice(0, mid), num, start, end = mid - 1) :
+            binarySearchRecursive(arr.slice(mid + 1), num, start = mid + 1, end)
 
     }
     return -1;
