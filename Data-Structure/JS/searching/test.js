@@ -1,5 +1,12 @@
 const findMissingNumber = (arr) => {
     if (arr.length === 0) return 1;
+    let n = arr.length + 1;
+    let total = (n >> 1) * (n + 1);
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]
+    }
+    return total - sum;
 
 }
 
