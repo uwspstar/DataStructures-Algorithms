@@ -5,6 +5,8 @@
 // O(log n) ( the best sort, will be nlogn)
 const binarySearch = function (arr, num) {
   if (arr.length === 0) return -1;
+  if (arr[0] > num) return -1;
+  if (arr[arr.length - 1] < num) return -1;
 
   let start = 0;
   let end = arr.length - 1;
@@ -29,6 +31,9 @@ console.log(binarySearch([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
 // ordered array -- check mergeSort
 const binarySearchRecursive = function (arr, num, start = 0, end = arr.length - 1) {
   if (arr.length === 0) return -1;
+  if (arr[0] > num) return -1;
+  if (arr[arr.length - 1] < num) return -1;
+
   if (start <= end) {
     let mid = (start + end) >> 1;
     if (arr[mid] === num) return 1;
@@ -67,6 +72,8 @@ const recursiveFunction = function (arr, x, start, end) {
 
 function binarySearch(arr, elem) {
   if (arr.length === 0) return -1;
+  if (arr[0] > elem) return -1;
+  if (arr[arr.length - 1] < elem) return -1;
 
   var start = 0;
   var end = arr.length - 1;
@@ -87,6 +94,8 @@ function binarySearch(arr, elem) {
 // Refactored Version
 function binarySearch(arr, num) {
   if (arr.length === 0) return -1;
+  if (arr[0] > num) return -1;
+  if (arr[arr.length - 1] < num) return -1;
 
   let start = 0;
   let end = arr.length - 1;
@@ -104,6 +113,8 @@ function binarySearch(arr, num) {
 //[1, 2, 3, 4, 5] mid = (5) / 2 = 2.5 >> 1
 const binarySearch = function (arr, num) {
   if (arr.length === 0) return -1;
+  if (arr[0] > num) return -1;
+  if (arr[arr.length - 1] < num) return -1;
 
   let start = 0;
   let end = arr.length - 1;
