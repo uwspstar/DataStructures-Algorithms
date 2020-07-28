@@ -5,9 +5,11 @@ class Node {
     }
 }
 class LinkedList {
+
     constructor(val) {
         this.head = new Node(val);
     }
+    
     getLastGivenIndexNode(n) {
         if (this.head === null) return undefined;
         let fast = this.head;
