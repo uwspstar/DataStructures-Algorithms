@@ -3,10 +3,13 @@ https://medium.com/javascript-in-plain-english/8-tips-to-help-you-better-optimiz
 
 a⊕a⊕b
 Explanation — If we take the XOR (⊕) of two same bits, it will return 0.
+
 a⊕a=0
 If we take the XOR of zero and some bit, it will return that bit
+
 a⊕0=a
-The expression a⊕a⊕b evaluates to
+The expression a⊕a⊕b evaluates to : a⊕a⊕b=(a⊕a)⊕b=0⊕b=b
+
 a⊕a⊕b=(a⊕a)⊕b=0⊕b=b
 */
 
