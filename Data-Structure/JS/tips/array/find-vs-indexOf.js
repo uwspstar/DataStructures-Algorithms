@@ -10,8 +10,12 @@ If you need to find if any element satisfies the provided testing function, use 
 */
 // arr.indexOf(searchElement[, fromIndex])
 const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
-console.log(beasts.indexOf('bison')); // expected output: 1
+console.log(beasts.indexOf('bison')); // 1
+console.log(beasts.find(x => x === 'bi')); // undefined
+console.log(beasts.find(x => x === 'bison')); // bison
 
-if (~str.indexOf(word)) {
-
+if (~beasts.indexOf('bison')) {
+    console.log("true");
 }
+
+~beasts.indexOf('bin') ? console.log("true") : console.log("false"); 
