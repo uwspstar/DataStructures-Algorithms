@@ -1,6 +1,6 @@
 //Array.prototype.filter()
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-//creates a new array with all elements that pass the test implemented by the provided function.
+//"creates a new array" with all elements that pass the test implemented by the provided function.
 // let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
 // callback Function is a predicate, to test each element of the array. Return true to keep the element, false otherwise.
 // use find() to find the first item

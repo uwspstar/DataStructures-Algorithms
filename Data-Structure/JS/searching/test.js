@@ -10,12 +10,22 @@ const findMissingNumber = (arr) => {
 
 }
 
+//console.log('findMissingNumber = ', findMissingNumber([1, 2, 4, 6, 3, 7, 8]));
 
-console.log(findMissingNumber([1, 2, 4, 6, 3, 7, 8]));
+const searchMatchStr = (str, word) => {
+    if (str.length === 0) return 0;
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < word.length; j++) {
+            if (word[j] !== str[j + i]) break;
+            if (j === word.length - 1) count++;
+        }
+    }
+    return count;
+}
 
+console.log('searchMatchStr', searchMatchStr("lorie loled", "lo"));
 
-console.log(searchMatchStr("lorie loled", "lol"));
-// ordered array
 const binarySearch = (arr, num) => {
     if (arr.length === 0) return -1;
     if (arr.length === 1) return arr[0] === num;
@@ -47,4 +57,4 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
         binarySearchRecursive(arr, num, start = mid + 1, end)
 }
 
-console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
+//console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
