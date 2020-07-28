@@ -8,3 +8,10 @@ If you need to find the index of a value, use Array.prototype.indexOf(). (It’s
 If you need to find if a value exists in an array, use Array.prototype.includes(). Again, it checks each element for equality with the value instead of using a testing function.
 If you need to find if any element satisfies the provided testing function, use Array.prototype.some()
 */
+// arr.indexOf(searchElement[, fromIndex])
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(beasts.indexOf('bison')); // expected output: 1
+
+if (~str.indexOf(word)) {
+
+}
