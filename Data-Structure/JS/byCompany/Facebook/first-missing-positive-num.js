@@ -9,6 +9,7 @@ A naive solution is to first sort the array. However, the time complexity of thi
 */
 const firstMissingInteger = function (arr) {
     if (arr.length === 0) return undefined;
+    
 }
 
 
