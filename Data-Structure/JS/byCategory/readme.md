@@ -1,0 +1,2 @@
+- https://leetcode.com/discuss/career/452130/interview-quick-start-leetcode-list-for-training-most-common-techniques-my-must-do-questions
+- https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/?ref=feed
