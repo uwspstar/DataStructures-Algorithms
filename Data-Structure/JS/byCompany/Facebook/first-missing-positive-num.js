@@ -7,11 +7,8 @@ Your solution should run in "linear time" and use "constant space".
  
 A naive solution is to first sort the array. However, the time complexity of this solution is O(n*log(n)) (sorting complexity for mergeSort or heapSort, or quickSort on average).
 */
-const firstMissingInteger = function (arr) {
-    if (arr.length === 0) return undefined;
-    
-}
 
+// [5, 3, 4, -1, -2, -3, 1]
 
 // extra space
 const firstMissingInteger = function (arr) {
