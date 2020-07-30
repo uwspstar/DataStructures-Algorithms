@@ -12,21 +12,31 @@ A solution set is:
   [-1, 0, 1],
   [-1, -1, 2]
 ]
+
+Keys of WeakMaps are of the type Object only. Primitive data types as keys are not allowed (e.g. a Symbol can't be a WeakMap key).
 */
 
-// 1: naive solution 3 nest loop (N^3)
+// 1: naive solution 3 nest loop (N^3 * NlogN)
 // 2: a + b = 0 - c = -c
 
 // slow, how to remove duplicate ?
 const threeSumZero = function (arr) {
     if (arr.length < 3) return undefined;
-
     let set = new Set();
+    let setKeys = new Set(); // save keys
     for (let i = 0; i < arr.length - 2; i++) {
         for (let j = i + 1; j < arr.length - 1; j++) {
             for (let x = j + 1; x < arr.length; x++) {
                 if (arr[i] + arr[j] + arr[x] === 0) {
-                    set.add([arr[i], arr[j], arr[x]]);
+                    let temp = [arr[i], arr[j], arr[x]].sort(); //O(nlogn)
+                    let tempStr = temp[0].toString() + "-"
+                        + temp[1].toString() + "-"
+                        + temp[2].toString()
+                    console.log('tempStr=', tempStr);
+                    if (!setKeys.has(tempStr)) {
+                        setKeys.add(tempStr)
+                        set.add(temp);
+                    }
                 }
             }
         }

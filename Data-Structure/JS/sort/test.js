@@ -7,19 +7,17 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 const quickSortHelp = (arr) => {
-
     if (arr.length < 2) return arr;
-
-    const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
+    const getPivotIndex = (arr, low, high) => {
         let pi = low;
         let pivot = arr[high];
         for (let i = low; i <= high; i++) {
             if (arr[i] < pivot) {
-                swap(arr, i, pi)
+                swap(arr, i, pi);
                 pi++;
             }
         }
-        swap(arr, pi, high)
+        swap(arr, pi, high);
         return pi;
     }
     const quickSort = (arr, low = 0, high = arr.length - 1) => {
@@ -31,7 +29,6 @@ const quickSortHelp = (arr) => {
         }
         return arr;
     }
-    return quickSort(arr);
 }
 const mergeSortHelp = (arr) => {
     if (arr.length < 2) return arr;
@@ -40,10 +37,11 @@ const mergeSortHelp = (arr) => {
         if (right.length === 0) return left;
         let result = [];
         while (left.length > 0 && right.length > 0) {
-            left[0] < right[0] ?
-                result.push(left.shift()) : result.push(right.shift());
+            left[0] < right[0]
+                ? result.push(left.shift())
+                : result.push(right.shift())
         }
-        return result.concat(left, right)
+        return result.concat(left, right);
     }
     const mergeSort = (arr) => {
         if (arr.length < 2) return arr;
@@ -52,7 +50,6 @@ const mergeSortHelp = (arr) => {
         let right = mergeSort(arr.slice(mid));
         return merge(left, right);
     }
-
     return mergeSort(arr);
 }
 const insertionSort = (arr) => {
@@ -62,7 +59,7 @@ const insertionSort = (arr) => {
         let j = i - 1;
         for (; j >= 0; j--) {
             if (arr[j] > current) {
-                arr[j + 1] = arr[j]
+                arr[j + 1] = arr[j];
             } else break;
         }
         arr[j + 1] = current;
@@ -72,21 +69,22 @@ const insertionSort = (arr) => {
 const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 0; i < arr.length; i++) {
-        let smIdx = i; //each loop find smallest one, and put on left
-        for (let j = smIdx; j < arr.length; j++) {
-            if (arr[j] < arr[smIdx]) {
-                smIdx = j;
-            }
+        let smallIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[smallIndex])
+                smallIndex = j;
         }
-        if (smIdx !== i) swap(arr, i, smIdx);
+        if (smallIndex !== i) {
+            swap(arr, smallIndex, i);
+        }
     }
     return arr;
 }
 const bubbleSort = (arr) => {
     if (arr.length < 2) return arr;
-    for (let i = arr.length - 1; i >= 0; i--) {
+    for (let i = arr.length - 1; i >= 0; i++) {
         let isSwap = false;
-        for (let j = 0; j < i; j++) {
+        for (let j = 0; j <= i; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr, j, j + 1);
                 isSwap = true;
