@@ -20,13 +20,27 @@ class Tree {
     constructor() {
         this.root = null;
     }
-    BFS() {
-
+    //queue , keyword : width
+    BFS(fn) {
+        const queue = [this.root];
+        while (queue.length) {
+            const node = queue.shift();
+            queue.push(...node.children);
+            fn(node);
+        }
     }
-    DFS() {
+    //stack
+    DFS(fn) {
+        const stack = [this.root]
+        while (stack.length) {
+            const node = stack.shift();
+            stack.unshift(...node.children);
+            fn(node);
+        }
 
     }
     treeTraversal() {
-
+        this.DFS((x) => { console.log("this is DFS : node", x) });
+        this.BFS((x) => { console.log("this is DFS : node", x) });
     }
 }
