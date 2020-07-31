@@ -11,7 +11,7 @@ class Node {
         this.left = null;
         this.right = null;
     }
-
+    //recursive
     insert(data) {
         //4 cases :
         if (data < this.data && this.left) {

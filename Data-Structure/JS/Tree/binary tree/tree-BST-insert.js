@@ -17,7 +17,7 @@ Starting at the root
 */
 
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.left = null;
         this.right = null;
@@ -25,30 +25,45 @@ class Node {
 }
 
 class BinarySearchTree {
-    constructor(){
+    constructor() {
         this.root = null;
     }
-    insert(value){
+
+    insertRecursive(data) { // recursive
+        //4 cases :
+        if (data < this.data && this.left) {
+            this.left.insertRecursive(data);
+        } else if (data < this.data) {
+            this.left = new Node(data);
+        } else if (data > this.data && this.right) {
+            this.right.insertRecursive(data);
+        } else if (data > this.data) {
+            this.right = new Node(data)
+        }
+
+    }
+
+    insert(value) { // no recursive
         var newNode = new Node(value);
-        if(this.root === null){
-            // if it is root
+        if (this.root === null) { // if it is root
             this.root = newNode;
             return this;
         }
+
         var current = this.root;
-        while(true){
-            if(value === current.value) return undefined;
-            if(value < current.value){
-                if(current.left === null){
+        while (true) { // since we do not know how many nodes , so use infinite loop
+            if (value === current.value) return undefined; // has the value in the tree
+            if (value < current.value) { // left side
+                if (current.left === null) {
                     current.left = newNode;
                     return this;
                 }
                 current = current.left;
-            } else {
-                if(current.right === null){
+            } else { //right side
+                if (current.right === null) {
                     current.right = newNode;
                     return this;
-                } 
+                }
                 current = current.right;
             }
         }
