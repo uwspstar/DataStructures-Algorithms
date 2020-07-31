@@ -11,4 +11,8 @@ class Node {
         this.left = null;
         this.right = null;
     }
+
+    insert(data) {
+        //4 cases
+    }
 }
