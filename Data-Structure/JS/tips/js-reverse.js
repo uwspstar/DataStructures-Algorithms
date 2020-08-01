@@ -1,11 +1,12 @@
 // reverse function can run O(N)
+// use stack concept stack = new Stack(); stack.push(), stack.pop();
 
 function reverseStr(str) {
     // only arr has reverse function
     // not join() return arr, not string
     return str.split('').reverse().join('');
 }
- 
+
 const reverseStrRecursive = function (str) {
     if (str.length < 2) return str;
     return reverseStrRecursive(str.slice(1)) + str[0];
