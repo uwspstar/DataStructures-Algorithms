@@ -1,18 +1,23 @@
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
+
+// use private field  : do not show result to outside
 class Queue {
+    
+    #result;
     constructor() {
-        this.result = [];
+        this.#result = [];
     }
 
     enqueue(data) {
-        return this.result.push(data);
+        return this.#result.push(data);
     }
 
     dequeue() {
-        return this.result.shift();
+        return this.#result.shift();
     }
 
     head() {
-        return this.result[0];
+        return this.#result[0];
     }
 }
 
