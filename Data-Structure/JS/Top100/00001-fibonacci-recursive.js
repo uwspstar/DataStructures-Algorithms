@@ -1,5 +1,5 @@
 // think about how to save space ,
-// https://medium.com/free-code-camp/an-intro-to-algorithms-dynamic-programming-dd00873362bb 
+// if n < 2 return n [0,1,1,2,3.....]
 
 // O(n) time | O(1) space
 const fib = (n) => {
