@@ -32,7 +32,7 @@ class LinkedList {
     }
     insertAt(data, index) {
         const node = new Node(data);
-        let current = this.head; 
+        let current = this.head;
         if (index === 0) {
             this.head = node;
             node.next = current;
@@ -47,12 +47,44 @@ class LinkedList {
                 current = current.next;
             }
             node.next = current;
-            prev.next = node;  
+            prev.next = node;
         }
         return this;
 
     }
+    indexOf(data) {
+        let count = 0
+        if (this.head === null) return -1;
+        let current = this.head;
+        while (current.next) {
+            if (current.value === data) return count;
+            current = current.next;
+            count++;
+        }
+        return -1;
+    }
+    pop() { // remove last one
 
+    }
+    removeAt(index) {
+
+    }
+    remove(data)
+    reverse() {
+
+        if (this.head === null) return null;
+        let current = this.head;
+        let prev = null;
+        let next = null
+        // 5--> 4--> 3--> 2--> 1
+        // p--> c--> n
+        while (current) {
+            next = current.next; // last hold the current 
+            current.next = prev;
+
+        }
+        this.head = last;
+    }
 
 }
 
@@ -61,8 +93,10 @@ list.append(5);
 list.append(4);
 list.append(2); //6->5->4->2
 list.insert(10);//10->6->5->4->2
-console.log(JSON.stringify(list));
+//console.log(JSON.stringify(list));
 list.insert('a');
+list.insertAt('b', 3);
 list.insertAt('c', 3);
-console.log(JSON.stringify(list));
+console.log(list.indexOf('b'));
+//console.log(JSON.stringify(list));
 console.log(JSON.stringify(list.getHead()));
