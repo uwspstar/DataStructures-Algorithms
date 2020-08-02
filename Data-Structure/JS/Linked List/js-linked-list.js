@@ -64,26 +64,57 @@ class LinkedList {
         return -1;
     }
     pop() { // remove last one
-
+        if (this.head === null) return null;
+        let current = this.head;
+        let prev = null;
+        while (current.next) {
+            prev = current;
+            current = current.next
+        }
+        prev.next = null;
+        return this;
     }
     removeAt(index) {
+        if (this.head === null) return null;
 
+        let current = this.head;
+        let prev = null;
+        let count = 0;
+        // 5->4->3->2->1
+        while (current.next) {
+            if (count === index) {
+                break;
+            }
+            count++;
+            prev = current;
+            current = current.next;
+        }
+        prev.next = current;
+
+        return this;
     }
-    remove(data)
+    remove(data) {
+        return this.removeAt(this.indexOf(data));
+    }
     reverse() {
-
         if (this.head === null) return null;
         let current = this.head;
         let prev = null;
         let next = null
         // 5--> 4--> 3--> 2--> 1
         // p--> c--> n
+        //      p--> c--> n
+        //           p--> c--> n
+        //                p--> c--> n
+        //                     p--> c--> n
         while (current) {
             next = current.next; // last hold the current 
             current.next = prev;
-
+            prev = current;
+            current = next;
         }
-        this.head = last;
+        this.head = prev;
+        return this;
     }
 
 }
@@ -91,12 +122,12 @@ class LinkedList {
 let list = new LinkedList(6);
 list.append(5);
 list.append(4);
-list.append(2); //6->5->4->2
-list.insert(10);//10->6->5->4->2
 //console.log(JSON.stringify(list));
 list.insert('a');
 list.insertAt('b', 3);
 list.insertAt('c', 3);
+console.log('reverse = ', JSON.stringify(list.reverse()));
+console.log('pop = ', JSON.stringify(list.pop()));
 console.log(list.indexOf('b'));
 //console.log(JSON.stringify(list));
 console.log(JSON.stringify(list.getHead()));
