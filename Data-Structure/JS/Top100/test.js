@@ -1,4 +1,4 @@
-let arr = [1,2, 3];
+let arr = [];
 const test = function (arr) {
 
     arr.length !== 0 && console.log(arr);

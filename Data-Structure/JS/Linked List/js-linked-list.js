@@ -96,7 +96,7 @@ class LinkedList {
     remove(data) {
         return this.removeAt(this.indexOf(data));
     }
-    reverse() {
+    reverse1() {
         if (this.head === null) return null;
         let current = this.head;
         let prev = null;
@@ -113,6 +113,7 @@ class LinkedList {
             prev = current;
             current = next;
         }
+        // after wile loop, pre = current, current next === null
         this.head = prev;
         return this;
     }
