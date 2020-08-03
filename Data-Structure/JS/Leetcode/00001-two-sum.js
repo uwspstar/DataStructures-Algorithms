@@ -10,27 +10,30 @@ same with hashtable
 */
 // check averagePair
 // check binary search concept if arr is sorted
-
-const twoSum = function (arr, target) {
-    if (arr.length < 2) return false;
-
-    let mySet = new Set();
-
-    for (let item of arr) {
-        if (!mySet.has(item)) {
-            mySet.add(item);
-        }
-
-        if (mySet.has(target - item)) {
+const twoSum = (arr, target) => {
+    if (arr.length === 0) return false;
+    let set = new Set();
+    for (let i = 0; i < arr.length; i++) {
+        if (set.has(arr[i])) {
             return true;
         }
-
+        set.add(target - arr[i]);
     }
-
+    return false;
+}
+const twoSum1 = (arr, target) => {
+    if (arr.length === 0) return false;
+    let set = new Set();
+    for (let i = 0; i < arr.length; i++) {
+        if (!set.has(arr[i])) {
+            set.add(arr[i]);
+        }
+        if (set.has(target - arr[i])) return true;
+    }
     return false;
 }
 
-
+console.log(twoSum([2, 3, 4, 5, 6], 11));
 /*
 // Use to remove duplicate elements from the array
 

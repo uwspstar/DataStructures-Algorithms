@@ -1,4 +1,8 @@
 //https://www.geeksforgeeks.org/quickselect-algorithm/
+
+// find the k-th smallest element in an unordered list
+// Q: can we find the k-th largest element in an unordered list ?
+
 /*
 Quickselect is a selection algorithm to find the k-th smallest element in an unordered list. It is related to the quick sort sorting algorithm.
 

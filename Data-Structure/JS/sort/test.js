@@ -9,16 +9,18 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 const quickSortHelp = (arr) => {
     if (arr.length < 2) return arr;
     const getPivotIndex = (arr, low, high) => {
-        let pi = low;
         let pivot = arr[high];
+        let pi = low;
         for (let i = low; i <= high; i++) {
             if (arr[i] < pivot) {
                 swap(arr, i, pi);
                 pi++;
             }
         }
-        swap(arr, pi, high);
+        swap(arr, pi, high);// move pivot to a right position
+
         return pi;
+
     }
     const quickSort = (arr, low = 0, high = arr.length - 1) => {
         if (arr.length < 2) return arr;
@@ -29,9 +31,9 @@ const quickSortHelp = (arr) => {
         }
         return arr;
     }
+    return quickSort(arr);
 }
 const mergeSortHelp = (arr) => {
-    if (arr.length < 2) return arr;
     const merge = (left, right) => {
         if (left.length === 0) return right;
         if (right.length === 0) return left;
@@ -39,7 +41,7 @@ const mergeSortHelp = (arr) => {
         while (left.length > 0 && right.length > 0) {
             left[0] < right[0]
                 ? result.push(left.shift())
-                : result.push(right.shift())
+                : result.push(right.shift());
         }
         return result.concat(left, right);
     }
@@ -50,6 +52,7 @@ const mergeSortHelp = (arr) => {
         let right = mergeSort(arr.slice(mid));
         return merge(left, right);
     }
+
     return mergeSort(arr);
 }
 const insertionSort = (arr) => {
@@ -71,20 +74,20 @@ const selectionSort = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         let smallIndex = i;
         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[smallIndex])
+            if (arr[j] < arr[smallIndex]) {
                 smallIndex = j;
+            }
         }
-        if (smallIndex !== i) {
-            swap(arr, smallIndex, i);
-        }
+        if (smallIndex !== i) swap(arr, smallIndex, i);
     }
     return arr;
+
 }
 const bubbleSort = (arr) => {
     if (arr.length < 2) return arr;
-    for (let i = arr.length - 1; i >= 0; i++) {
+    for (let i = arr.length - 1; i >= 0; i--) {
         let isSwap = false;
-        for (let j = 0; j <= i; j++) {
+        for (let j = 0; j < i; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr, j, j + 1);
                 isSwap = true;
@@ -94,6 +97,7 @@ const bubbleSort = (arr) => {
     }
     return arr;
 }
+
 console.log('quickSortHelp', quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('mergeSortHelp', mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('insertionSort', insertionSort([8, 1, 2, 3, 4, 5, 6, 7]));
