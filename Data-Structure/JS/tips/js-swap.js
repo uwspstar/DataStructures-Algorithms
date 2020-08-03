@@ -4,6 +4,15 @@
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
+
+
 function swap(arr, i, j) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
 }
+
+
+let a = 123;
+let b = 456;
+a = a + b;
+b = a - b;
+a = a - b
