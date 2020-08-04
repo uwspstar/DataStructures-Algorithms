@@ -1,9 +1,4 @@
-// how to search big data if you save data in [] ?
-// use {} to save the {key : value} has, get, set, delete, get,
-// 1 how to save it
-// 2 how to get it
-
-
+// key, value
 class Dictionary {
     #items
     constructor() {
