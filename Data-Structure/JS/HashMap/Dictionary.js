@@ -1,4 +1,5 @@
 // key, value
+// if key is unique , one key one value;
 class Dictionary {
     #items
     constructor() {
@@ -15,12 +16,26 @@ class Dictionary {
     }
     delete(key) {
         if (this.has(key)) {
-            delete this.#item[key];
+            delete this.#items[key];
             return true;
         }
         return false;
     }
     get(key) {
-        return this.has(key) ? this.#item[key] : undefined;
+        return this.has(key) ? this.#items[key] : undefined;
+    }
+
+    getItems() {
+        return this.#items;
     }
 }
+
+let dic = new Dictionary();
+dic.set("1", "one");
+dic.set("two", 2);
+dic.set("3rd", "Third");
+console.log('dic = ', dic.getItems());
+console.log('delete = ', dic.delete('1'));
+console.log('has = ', dic.has('1'));
+console.log('get = ', dic.get('two'));
+console.log('dic = ', dic.getItems());
