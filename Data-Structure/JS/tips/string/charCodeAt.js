@@ -9,5 +9,12 @@
 
 const icons = '☃★♲';
 
-console.log(icons.codePointAt(1));
+console.log(icons.codeCodeAt(1));
 // expected output: "9733"
+
+let key = "abcd"
+for (let i = 0; i < key.length; i++) {
+    console.log(key[i].charCodeAt());
+    console.log(key.charCodeAt(i));
+    // NOT key[i].charCodeAt(i), should  key.charCodeAt(i)
+}
