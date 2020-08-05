@@ -20,9 +20,11 @@ const binarySearch = (arr, num) => {
   return -1;
 }
 
+
 const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
   if (arr.length === 0) return -1;
   if (arr.length === 1) return arr[0] === num;
+  
   if (arr[start] > num) return -1;
   if (arr[end] < num) return -1;
   if (start > end) return -1;

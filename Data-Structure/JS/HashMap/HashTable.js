@@ -1,4 +1,8 @@
+// use [] to save the {key : value} , index is hash function number
+// table is matrix array
+
 // https://adrianmejia.com/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/
+
 //how to search big data if you save data in [] ?
 // Only a hash table with a perfect hash function will have a worst-case runtime of O(1). 
 //The ideal hash function is not practical, so there will be some collisions and workarounds that leads to a worst-case runtime of O(n). Still, on average, the lookup time is O(1).

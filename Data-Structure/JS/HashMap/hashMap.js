@@ -1,1 +1,1 @@
-// save the {key : value} ; key is unique
+// similar {} (NOT Same, key not limit as string type) save the {key : value} ; key is unique

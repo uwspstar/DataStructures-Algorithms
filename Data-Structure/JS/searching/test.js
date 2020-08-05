@@ -24,8 +24,6 @@ const searchMatchStr = (str, word) => {
     return count;
 }
 
-console.log('searchMatchStr', searchMatchStr("lorie loled", "lo"));
-
 const binarySearch = (arr, num) => {
     if (arr.length === 0) return -1;
     if (arr.length === 1) return arr[0] === num;
@@ -42,19 +40,23 @@ const binarySearch = (arr, num) => {
     return -1;
 }
 
+// check mergeSort concept
 const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
     if (arr.length === 0) return -1;
-    if (arr.length === 1) return arr[0] === num;
+    if (arr.length === 1) return arr[0] === num ? 0 : -1;
+
     if (arr[start] > num) return -1;
     if (arr[end] < num) return -1;
     if (start > end) return -1;
 
     let mid = (start + end) >> 1;
+    if (arr[mid] === num) return mid;
 
-    if (arr[mid] === num) return 1;
     return arr[mid] > num ?
-        binarySearchRecursive(arr, num, start, end = mid - 1) :
-        binarySearchRecursive(arr, num, start = mid + 1, end)
+        binarySearchRecursive(arr, num, start, mid - 1) :
+        binarySearchRecursive(arr, num, mid + 1, end)
 }
 
-//console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
+
+//console.log('searchMatchStr', searchMatchStr("lorie loled", "lo"));
+console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
