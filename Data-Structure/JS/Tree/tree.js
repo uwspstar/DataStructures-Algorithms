@@ -12,7 +12,29 @@ class Tree {
         }
         this.root = null;
     }
-    insert() { }
+    insertNode(node, newNode) {
+        if (newNode.value > node.value) {
+            if (node.right === newNode) {
+                node.right = newNode;
+            } else {
+                insertNode(node.right, newNode)
+            }
+        } else {//newNode.value < node.value
+            if (node.left === newNode) {
+                node.left = newNode;
+            } else {
+                insertNode(node.left, newNode);
+            }
+        }
+    }
+    insert(val) {
+        const newNode = new Node(val);
+        if (this.root === null) {
+            this.root = newNode;
+        } else {
+            this.insertNode(this.root, newNode)
+        }
+    }
     search() { }
     remove() { }
     traverse() { }
