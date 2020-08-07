@@ -34,6 +34,7 @@ const quickSortHelp = (arr) => {
     return quickSort(arr);
 }
 const mergeSortHelp = (arr) => {
+    if (arr.length < 2) return arr;
     const merge = (left, right) => {
         if (left.length === 0) return right;
         if (right.length === 0) return left;
@@ -41,7 +42,7 @@ const mergeSortHelp = (arr) => {
         while (left.length > 0 && right.length > 0) {
             left[0] < right[0]
                 ? result.push(left.shift())
-                : result.push(right.shift());
+                : result.push(right.shift())
         }
         return result.concat(left, right);
     }
@@ -52,8 +53,7 @@ const mergeSortHelp = (arr) => {
         let right = mergeSort(arr.slice(mid));
         return merge(left, right);
     }
-
-    return mergeSort(arr);
+    return mergeSort(arr)
 }
 const insertionSort = (arr) => {
     if (arr.length < 2) return arr;
@@ -78,10 +78,9 @@ const selectionSort = (arr) => {
                 smallIndex = j;
             }
         }
-        if (smallIndex !== i) swap(arr, smallIndex, i);
+        if (smallIndex !== i) swap(arr, i, smallIndex);
     }
     return arr;
-
 }
 const bubbleSort = (arr) => {
     if (arr.length < 2) return arr;
