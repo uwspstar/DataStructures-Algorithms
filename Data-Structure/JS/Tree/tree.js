@@ -38,9 +38,12 @@ class Tree {
     search() { }
     remove() { }
     traverse() { }
-
+    getRoot() {
+        return this.root;
+    }
 }
 
+let t = new Tree();
 /*
 
 class Node {
