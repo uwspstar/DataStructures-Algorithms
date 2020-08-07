@@ -1,15 +1,15 @@
 
 // insert remove search traverse
 // not class inside class
+class Node {
+    constructor(val) {
+        this.value = val;
+        this.left = null;
+        this.right = null;
+    }
+}
 class Tree {
     constructor() {
-        class Node {
-            constructor(val) {
-                this.value = val;
-                this.left = null;
-                this.right = null;
-            }
-        }
         this.root = null;
     }
     insertNode(node, newNode) {
@@ -17,19 +17,19 @@ class Tree {
             if (node.right === newNode) {
                 node.right = newNode;
             } else {
-                insertNode(node.right, newNode)
+                this.insertNode(node.right, newNode)
             }
         } else {//newNode.value < node.value
             if (node.left === newNode) {
                 node.left = newNode;
             } else {
-                insertNode(node.left, newNode);
+                this.insertNode(node.left, newNode);
             }
         }
     }
     insert(val) {
         const newNode = new Node(val);
-        if (this.root === null) {
+        if (this.root == null) {
             this.root = newNode;
         } else {
             this.insertNode(this.root, newNode)
@@ -44,6 +44,11 @@ class Tree {
 }
 
 let t = new Tree();
+t.insert(8);
+t.insert(2);
+t.insert(3);
+t.insert(9);
+console.log(JSON.stringify(t.getRoot()));
 /*
 
 class Node {
