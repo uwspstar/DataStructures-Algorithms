@@ -2,8 +2,8 @@
 // insert remove search traverse
 // not class inside class
 class Node {
-    constructor(val) {
-        this.value = val;
+    constructor(value) {
+        this.value = value;
         this.left = null;
         this.right = null;
     }
@@ -27,7 +27,32 @@ class Tree {
             }
         }
     }
-    insert(val) {
+    insert(value) {
+        var newNode = new Node(value);
+        if (this.root === null) { // if it is root
+            this.root = newNode;
+            return this;
+        }
+
+        var current = this.root;
+        while (true) { // since we do not know how many nodes , so use infinite loop
+            if (value === current.value) return undefined; // has the value in the tree
+            if (value < current.value) { // left side
+                if (current.left === null) {
+                    current.left = newNode;
+                    return this;
+                }
+                current = current.left;
+            } else { //right side
+                if (current.right === null) {
+                    current.right = newNode;
+                    return this;
+                }
+                current = current.right;
+            }
+        }
+    }
+    insert1(val) {
         const newNode = new Node(val);
         if (this.root == null) {
             this.root = newNode;
