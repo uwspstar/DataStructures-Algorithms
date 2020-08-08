@@ -1,1 +1,1 @@
-current = current.next
+current = next;

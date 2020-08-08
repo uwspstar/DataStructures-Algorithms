@@ -9,7 +9,7 @@ class LinkedList {
     constructor(val) {
         this.head = new Node(val);
     }
-    
+
     getLastGivenIndexNode(n) {
         if (this.head === null) return undefined;
         let fast = this.head;
@@ -55,7 +55,7 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n   
-    reverse() {
+    reverse1() {
         let current = this.head;
         let pre = null;
         let next = null;
@@ -68,18 +68,34 @@ class LinkedList {
         this.head = pre;
         return this;
     }
-
+    reverse() {
+        //       1-->2-->3-->4
+        //(p,n)  c   n
+        if (this.head === null) return undefined;
+        let current = this.head;
+        let pre = null;
+        let next = null;
+        while (current) { // use while, not if 
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre;
+        return this;
+    }
     findMid() {
+        //5 -> 10 -> 20 -> 30 -> 40 --> 50
         if (this.head === null) return undefined;
         let fast = this.head;
         let slow = this.head;
-        if (fast.next !== null && fast.next.next !== null) { // not if(fast !== null)
+        while (fast !== null && fast.next !== null) { // not if(fast !== null) is while
             fast = fast.next.next;
             slow = slow.next;
+            console.log('slow=', slow.value);
         }
         return slow.value;
     }
-
     isCircular() {
         if (this.head === null) return true;
         let current = this.head;
@@ -88,15 +104,20 @@ class LinkedList {
         }
         return current.next === this.head
     }
+    getHead() {
+        return this.head;
+    }
 }
-
+//
 let linkedList = new LinkedList(5);
 linkedList.append(10);
-//linkedList.append(20);
-//linkedList.append(30);
-//linkedList.append(40);
-
-console.log(JSON.stringify(linkedList.findMid()));
+linkedList.append(20);
+linkedList.append(30);
+linkedList.append(40);
+linkedList.append(50);
+//console.log(JSON.stringify(linkedList.getHead()));
+//console.log(JSON.stringify(linkedList.findMid()));
+console.log(JSON.stringify(linkedList.reverse()));
 /*
 console.log(JSON.stringify(linkedList.reverse()));
 console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
