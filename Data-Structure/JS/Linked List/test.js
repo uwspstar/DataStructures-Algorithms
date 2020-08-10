@@ -55,50 +55,18 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n   
-    reverse1() {
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current !== null) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre;
-        return this;
-    }
-    reverse1() {
-        //       1-->2-->3-->4
-        //(p,n)  c   n
-        if (this.head === null) return undefined;
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current) { // use while, not if 
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-
-        this.head = pre;
-        return this;
-    }
     reverse() {
-        if (this.head === null) return undefined;
         let current = this.head;
         let pre = null;
         let next = null;
-        while (current) { 
+        while (current !== null) { // from fast to slow
             next = current.next;
             current.next = pre;
             pre = current;
-            current = current.next
+            current = next;
         }
         this.head = pre; // important
         return this;
-
     }
     findMid() {
         //5 -> 10 -> 20 -> 30 -> 40 -> 50
