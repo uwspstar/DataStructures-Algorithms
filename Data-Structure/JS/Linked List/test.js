@@ -81,6 +81,7 @@ class LinkedList {
             pre = current;
             current = next;
         }
+        
         this.head = pre;
         return this;
     }
