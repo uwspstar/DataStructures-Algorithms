@@ -73,7 +73,7 @@ const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 0; i < arr.length; i++) {
         let smallIndex = i;
-        for (let j = i + 1; j < arr.length; j++) {
+        for (let j = i + 1; j < arr.length; j++) { // j = i + 1 is better than j = i
             if (arr[j] < arr[smallIndex]) {
                 smallIndex = j;
             }
