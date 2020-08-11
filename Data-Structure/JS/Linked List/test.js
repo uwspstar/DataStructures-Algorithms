@@ -84,6 +84,7 @@ class LinkedList {
         if (this.head === null) return true;
         let current = this.head;
         while (current.next !== null && current.next !== this.head) {
+            // current.next !== this.head
             current = current.next;
         }
         return current.next === this.head
@@ -101,58 +102,11 @@ linkedList.append(40);
 linkedList.append(50);
 //console.log(JSON.stringify(linkedList.getHead()));
 //console.log(JSON.stringify(linkedList.findMid()));
-console.log(JSON.stringify(linkedList.reverse()));
-/*
-console.log(JSON.stringify(linkedList.reverse()));
-console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
-console.log(JSON.stringify(linkedList.isCircularFastSlow()));
-console.log(JSON.stringify(linkedList.isCircular()));
+//console.log(JSON.stringify(linkedList.reverse()));
+console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
+//console.log(JSON.stringify(linkedList.reverse()));
+////console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
+//console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+console.log('linkedList = ', JSON.stringify(linkedList));
 
-
-console.log(JSON.stringify(linkedList));
-
-console.log(JSON.stringify(linkedList.reverse()));
-console.log(JSON.stringify(linkedList.findMid()));
-
-
-findMid() {
-        if (this.head === null) return undefined;
-        let fast = this.head;
-        let slow = fast;
-        while (fast.next !== null && fast.next.next !== null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
-        return slow.value;
-    }
-
-getLastGivenIndexNode(n) {
-        if (this.head === null) return undefined;
-        let fast = this.head;
-        let slow = this.head;
-        while (n > 0) {
-            fast = fast.next
-            if (fast === null) return undefined;
-            n--;
-        }
-        while (fast.next !== null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        return slow;
-    }
-reverse() {
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current !== null) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre; // very important
-        return this;
-    }
-*/
 
