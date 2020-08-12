@@ -69,6 +69,17 @@ class LinkedList {
     }
     reverse() {
         if (this.head === null) return null;
+        let current = this.head;
+        let pre = null;
+        let next = null;
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre;
+        return this;
     }
     findMid1() {
         //5 -> 10 -> 20 -> 30 -> 40 -> 50
