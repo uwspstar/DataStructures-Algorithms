@@ -8,8 +8,7 @@ class LinkedList {
     constructor(val) {
         this.head = new Node(val);
     }
-
-    getLastGivenIndexNode(n) {
+    getLastGivenIndexNode1(n) {
         if (this.head === null) return undefined;
         let fast = this.head;
         let slow = this.head;
@@ -24,7 +23,21 @@ class LinkedList {
         }
         return slow;
     }
-
+    getLastGivenIndexNode(n) {
+        if (this.head === null) return null;
+        let fast = this.head;
+        let slow = this.head;
+        while (n > 0) {
+            fast = fast.next;
+            if (fast === null) return null;
+            n--;
+        }
+        while (fast) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow.value;
+    }
     isCircularFastSlow() {
         if (this.head === null) return true;
         // if it is circular in part of nodes
@@ -53,20 +66,7 @@ class LinkedList {
         return this;
     }
     // 1-->2-->3-->4
-    // c   n   
-    reverse1() {
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current) { // from fast to slow, only check current
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre; // important
-        return this;
-    }
+    // c   n
     reverse() {
         if (this.head === null) return null;
         let current = this.head;
@@ -81,7 +81,7 @@ class LinkedList {
         this.head = pre;
         return this;
     }
-    findMid1() {
+    findMid() {
         //5 -> 10 -> 20 -> 30 -> 40 -> 50
         if (this.head === null) return undefined;
         let fast = this.head;
@@ -116,8 +116,8 @@ linkedList.append(30);
 linkedList.append(40);
 linkedList.append(50);
 //console.log(JSON.stringify(linkedList.getHead()));
-console.log('findMid = ', JSON.stringify(linkedList.findMid()));
-//console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+//console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+console.log('reverse = ', JSON.stringify(linkedList.reverse()));
 //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
 //console.log(JSON.stringify(linkedList.reverse()));
 ////console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
