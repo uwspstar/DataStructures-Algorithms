@@ -6,8 +6,9 @@
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const quickSortHelp = (arr) => {
+const quickSortHelp1 = (arr) => {
     if (arr.length < 2) return arr;
+    // getPivotIndex with Swap
     const getPivotIndex = (arr, low, high) => {
         let pivot = arr[high];
         let pi = low;
@@ -23,8 +24,8 @@ const quickSortHelp = (arr) => {
 
     }
     const quickSort = (arr, low = 0, high = arr.length - 1) => {
-        if (arr.length < 2) return arr;
-        if (low < high) {
+        if (arr.length < 2) return arr; //base case
+        if (low < high) { // base case
             let pi = getPivotIndex(arr, low, high);
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
@@ -33,27 +34,31 @@ const quickSortHelp = (arr) => {
     }
     return quickSort(arr);
 }
-const mergeSortHelp1 = (arr) => {
+const quickSortHelp = (arr) => {
     if (arr.length < 2) return arr;
-    const merge = (left, right) => {
-        if (left.length === 0) return right;
-        if (right.length === 0) return left;
-        let result = [];
-        while (left.length > 0 && right.length > 0) {
-            left[0] < right[0]
-                ? result.push(left.shift())
-                : result.push(right.shift())
+    const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
+        let pi = low;
+        let pivot = arr[high];
+        for (let i = low; i <= high; i++) {
+            if (arr[i] < pivot) {
+                swap(arr, i, pi);
+                pi++;
+            }
         }
-        return result.concat(left, right);
+        swap(arr, pi, high);
+        return pi;
     }
-    const mergeSort = (arr) => {
+    const quickSort = (arr, low = 0, high = arr.length - 1) => {
         if (arr.length < 2) return arr;
-        let mid = arr.length >> 1;
-        let left = mergeSort(arr.slice(0, mid));
-        let right = mergeSort(arr.slice(mid));
-        return merge(left, right);
+        if (low < high) {
+            let pi = getPivotIndex(arr, low, high);
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high)
+        }
+        return arr;
     }
-    return mergeSort(arr)
+
+    return quickSort(arr);
 }
 const mergeSortHelp = (arr) => {
     if (arr.length < 2) return arr;
