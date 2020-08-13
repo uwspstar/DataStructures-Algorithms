@@ -1,12 +1,12 @@
-// bubbleSort : out loop i--; inner loop j++; swap
-// selectionSort : out loop i++; inner loop j++; smallIdx; swap; each loop find smallest one, and put on left
-// insertingSort : start first item, left side sorted, out loop i++, i = 1;  inner loop j--, start j= i-1
-// mergeSort : merge(left,right), sort(arr), no swap
-// quickSort : pivot, swap, each step swap current index and pi
+// bubbleSort : out loop i--; inner loop j++; swap; check isSwap
+// selectionSort : out loop i++; inner loop j++; smallIdx; swap; each loop find smallest one, and put on left; check is index change
+// insertingSort : start first item, left side sorted, out loop i++, i = 1;  inner loop j--, start j = i-1; 
+// mergeSort : merge(left,right), sort(arr), NO swap
+// quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const quickSortHelp1 = (arr) => {
+const quickSortHelp = (arr) => {
     if (arr.length < 2) return arr;
     // getPivotIndex with Swap
     const getPivotIndex = (arr, low, high) => {
@@ -32,32 +32,6 @@ const quickSortHelp1 = (arr) => {
         }
         return arr;
     }
-    return quickSort(arr);
-}
-const quickSortHelp = (arr) => {
-    if (arr.length < 2) return arr;
-    const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
-        let pi = low;
-        let pivot = arr[high];
-        for (let i = low; i <= high; i++) {
-            if (arr[i] < pivot) {
-                swap(arr, i, pi);
-                pi++;
-            }
-        }
-        swap(arr, pi, high);
-        return pi;
-    }
-    const quickSort = (arr, low = 0, high = arr.length - 1) => {
-        if (arr.length < 2) return arr;
-        if (low < high) {
-            let pi = getPivotIndex(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high)
-        }
-        return arr;
-    }
-
     return quickSort(arr);
 }
 const mergeSortHelp = (arr) => {
