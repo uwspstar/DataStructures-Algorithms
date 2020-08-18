@@ -109,57 +109,7 @@ const quickSort = function (arr, low = 0, high = arr.length - 1) {
     }
     return arr;
 }
-
-const getPivotIndex = function (arr, start, end) {
-    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-    let pivot = arr[end];
-    let idx = start;
-    for (let i = start; i < end; i++) {
-        if (arr[i] < pivot) {
-            swap(arr, i, idx);
-            idx++;
-        }
-    }
-    swap(arr, end, idx);
-    return idx;
-
-}
-const quickSort = function (arr, start = 0, end = arr.length - 1) {
-    if (arr.length < 2) return arr;
-    if (start < end) {
-        let pi = getPivotIndex(arr, start, end);
-        quickSort(arr, start, pi - 1);
-        quickSort(arr, pi + 1, end);
-    }
-    return arr;
-}
 console.table(quickSort([15, 334, 222, 629, 29, 100]));
-
-function getPivotIndex(arr, left, right) {
-    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]]
-    //[2, 6, 0, 4]
-    let pivot = arr[right];
-    let swapIdx = left;
-    for (let i = left; i < right; i++) {
-        if (arr[i] < pivot) {
-            swap(arr, swapIdx, i);
-            swapIdx++;
-        }
-    }
-    swap(arr, swapIdx, right);
-    //console.log('swapIdx', swapIdx)
-    return swapIdx;
-}
-// need left = 0, right = arr.length - 1, incase only has arr
-const quickSort = function (arr, left = 0, right = arr.length - 1) {
-    if (arr.length < 2) return arr;
-    if (left < right) { //**** NOT while (left < right)
-        let pi = getPivotIndex(arr, left, right)
-        quickSort(arr, left, pi - 1);
-        quickSort(arr, pi + 1, right);
-    }
-    return arr;
-}
 
 // find the pivot index
 function getPivotIndex(arr, start = 0, end = arr.length - 1) {
