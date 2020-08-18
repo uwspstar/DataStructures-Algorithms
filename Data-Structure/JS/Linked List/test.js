@@ -83,7 +83,16 @@ class LinkedList {
     }
     reverse() {
         if (this.head === null) return undefined;
-        
+        let current = this.head;
+        let pre = null;
+        let next = null;
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre;
         return this;
     }
     findMid() {
@@ -121,8 +130,8 @@ linkedList.append(30);
 linkedList.append(40);
 linkedList.append(50);
 //console.log(JSON.stringify(linkedList.getHead()));
-console.log('findMid = ', JSON.stringify(linkedList.findMid()));
-//console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+//console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+console.log('reverse = ', JSON.stringify(linkedList.reverse()));
 //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
 //console.log(JSON.stringify(linkedList.reverse()));
 //console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
