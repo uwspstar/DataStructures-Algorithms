@@ -1,9 +1,12 @@
 // think about how to save space ,
 // if n < 2 return n [0,1,1,2,3.....]
-
+// 1, 1, 2, 3, 5
 // O(n) time | O(1) space
 const fib = (n) => {
-    const lastTwo = [0, 1];
+    if (n <= 0) return 0;
+    if (n <= 2) return 1;
+
+    const lastTwo = [1, 1];
     let counter = 3;
     while (count <= n) {
         const nextFib = lastTwo[0] + lastTwo[1];
@@ -16,7 +19,7 @@ const fib = (n) => {
 
 // 1 : regular loop
 // time : O(N), space: O(N)
-const fibonacci = function (n) {
+const fibonacciRegular = function (n) {
     if (n <= 2) return 1;
     let result = [1, 1];
     for (let i = 2; i < n; i++) {
@@ -26,7 +29,7 @@ const fibonacci = function (n) {
 }
 
 // 2 : recursive
-const fibonacci = function (n) {
+const fibonacciMemo = function (n) {
     let memo = {}; // or memo with Map
     const fibonacciMemo = function (n) {
         if (n < 3) return 1;
@@ -37,17 +40,39 @@ const fibonacci = function (n) {
     return fibonacciMemo(n);
 }
 
-console.log(fibonacci(40));//102334155
-console.log(fibonacci(1000));//4.346655768693743e+208  very fast
 
 // 3: recursive , no memo
-const fibonacci2 = function (n) {
+const fibonacciNoMemo = function (n) {
     if (n < 3) return 1;
-    return result = fibonacci2(n - 1) + fibonacci2(n - 2);
+    return result = fibonacciNoMemo(n - 1) + fibonacciNoMemo(n - 2);
 }
 
 //console.log(fibonacci2(40));
-console.log(fibonacci2(45)); // 1134903170  very slow
+//console.log(fibonacci2(45)); // 1134903170  very slow
+//console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
 
-console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
+
+//console.log(fibonacci(40));//102334155
+//console.log(fibonacci(1000));//4.346655768693743e+208  very fast
+
+// time and space
+// 1, 1, 2, 3
+const fibonacciSpace = n => {
+    if (n < 3) return 1;
+    let result = [1, 1];
+    //let nextFib;
+    for (let i = 2; i < n; i++) {
+        nextFib = result[0] + result[1];
+        result[0] = result[1]
+        result[1] = nextFib;
+    }
+    return result[1];
+
+}
+console.log(fibonacciSpace(4))
+
+// a, b   order is important
+// a = a + b
+// b = a - b
+// a = a - b
 
