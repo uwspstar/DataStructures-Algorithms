@@ -6,7 +6,7 @@
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const quickSortHelp1 = (arr) => {
+const quickSortHelp = (arr) => {
     if (arr.length < 2) return arr;
     // getPivotIndex with Swap
     const getPivotIndex = (arr, low, high) => {
@@ -26,31 +26,6 @@ const quickSortHelp1 = (arr) => {
     const quickSort = (arr, low = 0, high = arr.length - 1) => {
         if (arr.length < 2) return arr; //base case
         if (low < high) { // base case
-            let pi = getPivotIndex(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-        return arr;
-    }
-    return quickSort(arr);
-}
-const quickSortHelp = (arr) => {
-    if (arr.length < 2) return arr;
-    const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
-        let pi = low;
-        let pivot = arr[high];
-        for (let i = low; i <= high; i++) {
-            if (arr[i] < pivot) {
-                swap(arr, i, pi);
-                pi++;
-            }
-        }
-        swap(arr, pi, high);
-        return pi;
-    }
-    const quickSort = (arr, low = 0, high = arr.length - 1) => {
-        if (arr.length < 2) return arr;
-        if (low < high) {
             let pi = getPivotIndex(arr, low, high);
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
@@ -108,7 +83,7 @@ const selectionSort = (arr) => {
     }
     return arr;
 }
-const bubbleSort = (arr) => {
+const bubbleSort1 = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = arr.length - 1; i >= 0; i--) {
         let isSwap = false;
@@ -117,6 +92,17 @@ const bubbleSort = (arr) => {
                 swap(arr, j, j + 1);
                 isSwap = true;
             }
+        }
+        if (!isSwap) break;
+    }
+    return arr;
+}
+const bubbleSort = (arr) => {
+    if (arr.length < 2) return arr;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let isSwap = false;
+        for (let j = 0; j < i; j++) {
+            if (arr[j] > arr[j + 1]) swap(arr, j, j + 1);
         }
         if (!isSwap) break;
     }
