@@ -71,6 +71,7 @@ const fibonacciSpace = n => {
 }
 console.log(fibonacciSpace(4))
 
+// this is swap
 // a, b   order is important
 // a = a + b
 // b = a - b
