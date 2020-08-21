@@ -36,13 +36,13 @@ const binarySearch = (arr, num) => {
   }
   return -1;
 }
-
 const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
   if (arr.length === 0) return -1;
   if (arr.length === 1) return arr[0] === num;
 
   if (arr[start] > num) return -1;
   if (arr[end] < num) return -1;
+  //since recursive does not use loop, need to put the loop condition outside
   if (start > end) return -1;
 
   let mid = (start + end) >> 1;
@@ -52,7 +52,6 @@ const binarySearchRecursive = (arr, num, start = 0, end = arr.length - 1) => {
     binarySearchRecursive(arr, num, start, end = mid - 1) :
     binarySearchRecursive(arr, num, start = mid + 1, end)
 }
-
 const recursiveFunction = function (arr, x, start, end) {
   if (arr.length === 0) return false;
   if (start > end) return false;
@@ -62,8 +61,9 @@ const recursiveFunction = function (arr, x, start, end) {
     recursiveFunction(arr, x, start, mid - 1) : recursiveFunction(arr, x, mid + 1, end);
 }
 
-
 console.log('binarySearch', binarySearch([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], -5));
+console.log('recursiveFunction', binarySearch([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], -5));
+console.log('binarySearchRecursive', binarySearch([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], -5));
 //console.log('binarySearchRecursive', binarySearchRecursive([-1, 0, 1, 3, 5, 6, 7, 10, 20, 30, 50], 5));
 
 
