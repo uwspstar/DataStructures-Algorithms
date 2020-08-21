@@ -55,7 +55,7 @@ const mergeSortHelp = (arr) => {
     }
     return mergeSort(arr);
 }
-const insertionSort = (arr) => {
+const insertionSort1 = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 1; i < arr.length; i++) {
         let current = arr[i];
@@ -71,7 +71,23 @@ const insertionSort = (arr) => {
     return arr;
 }
 const insertionSort = (arr) => {
-    
+    //              4
+    //[ 1, 2, 3, 5, 4]
+    //[ 1, 2, 3, 5, 5]
+    if (arr.length < 2) return arr;
+    for (let i = 1; i < arr.length; i++) {
+        let current = arr[i];
+        let j = i - 1;
+        for (; j >= 0; j--) {
+            if (arr[j] > current) {
+                arr[j + 1] = arr[j];
+            }
+            else break;
+        }
+        arr[j + 1] = current;
+
+    }
+    return arr;
 }
 const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
