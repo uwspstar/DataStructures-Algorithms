@@ -83,16 +83,7 @@ class LinkedList {
     }
     reverse() {
         if (this.head === null) return undefined;
-        let current = this.head;
-        let next = null;
-        let pre = null;
-        while (current) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre;
+        
         return this;
     }
     findMid() {
