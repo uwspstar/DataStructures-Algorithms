@@ -22,40 +22,41 @@ const fib = (n) => {
 const fibonacciRegular = function (n) {
     if (n <= 2) return 1;
     let result = [1, 1];
-    for (let i = 2; i < n; i++) {
+    for (let i = 2; i < n; i++) {  // not use for (let i = n; i <= 2; i--) 
         result[i] = result[i - 1] + result[i - 2];
     }
     return result[n - 1];
 }
 
 // 2 : recursive
-const fibonacciMemo = function (n) {
+const fibonacciMemo1 = function (n) {
     let memo = {}; // or memo with Map
     const fibonacciMemo = function (n) {
+        //since recursive does not use loop, need to put the loop condition outside
         if (n < 3) return 1;
         if (memo[n] !== undefined) return memo[n];
         return memo[n] = fibonacciMemo(n - 1) + fibonacciMemo(n - 2);
-
     }
     return fibonacciMemo(n);
 }
-
+const fibonacciMemo = n => {
+    let memo = {};
+    const fibMemo = n => {
+        if (n < 3) return 1;
+        if (memo[n] !== undefined) return memo[n];
+        return memo[n] = fibMemo(n - 1) + fibMemo(n - 2);
+    }
+    return fibMemo(n);
+}
 
 // 3: recursive , no memo
 const fibonacciNoMemo = function (n) {
+    //since recursive does not use loop, need to put the loop condition outside
     if (n < 3) return 1;
     return result = fibonacciNoMemo(n - 1) + fibonacciNoMemo(n - 2);
 }
 
-//console.log(fibonacci2(40));
-//console.log(fibonacci2(45)); // 1134903170  very slow
-//console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
-
-
-//console.log(fibonacci(40));//102334155
-//console.log(fibonacci(1000));//4.346655768693743e+208  very fast
-
-// time and space
+// time and space : keep in mind
 // 1, 1, 2, 3
 const fibonacciSpace = n => {
     if (n < 3) return 1;
@@ -69,7 +70,17 @@ const fibonacciSpace = n => {
     return result[1];
 
 }
-console.log(fibonacciSpace(4))
+
+console.log(fibonacciMemo(45))// 1134903170 
+//console.log(fibonacci2(40));
+//console.log(fibonacci2(45)); // 1134903170  very slow
+//console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
+
+
+//console.log(fibonacci(40));//102334155
+//console.log(fibonacci(1000));//4.346655768693743e+208  very fast
+
+//console.log(fibonacciSpace(4))
 
 // this is swap
 // a, b   order is important

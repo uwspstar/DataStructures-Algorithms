@@ -34,7 +34,7 @@ const quickSortHelp = (arr) => {
     }
     return quickSort(arr);
 }
-const mergeSortHelp = (arr) => {
+const mergeSortHelp1 = (arr) => {
     if (arr.length < 2) return arr;
     const merge = (left, right) => {
         if (left.length === 0) return right;
@@ -55,25 +55,30 @@ const mergeSortHelp = (arr) => {
     }
     return mergeSort(arr);
 }
-const insertionSort1 = (arr) => {
+const mergeSortHelp = (arr) => {
     if (arr.length < 2) return arr;
-    for (let i = 1; i < arr.length; i++) {
-        let current = arr[i];
-        let j = i - 1;
-        for (; j >= 0; j--) {
-            if (arr[j] > current) {
-                arr[j + 1] = arr[j];
-            }
-            else break;
+    const merge = (left, right) => {
+        if (left.length === 0) return right;
+        if (right.length === 0) return left;
+        let result = [];
+        while (left.length > 0 && right.length > 0) {
+            left[0] < right[0]
+                ? result.push(left.shift())
+                : result.push(right.shift())
         }
-        arr[j + 1] = current;
+        return result.concat(left, right);
     }
-    return arr;
+    const mergeSort = (arr) => {
+        if (arr.length < 2) return arr;
+        let mid = arr.length >> 1;
+        let left = mergeSort(arr.slice(0, mid));
+        let right = mergeSort(arr.slice(mid));
+        return merge(left, right);
+
+    }
+    return mergeSort(arr);
 }
 const insertionSort = (arr) => {
-    //              4
-    //[ 1, 2, 3, 5, 4]
-    //[ 1, 2, 3, 5, 5]
     if (arr.length < 2) return arr;
     for (let i = 1; i < arr.length; i++) {
         let current = arr[i];
@@ -85,7 +90,6 @@ const insertionSort = (arr) => {
             else break;
         }
         arr[j + 1] = current;
-
     }
     return arr;
 }
