@@ -1,22 +1,39 @@
 // sortBits([1, 0, 0, 1, 1, 0]) //outputs: [0, 0, 0, 1, 1, 1]
 // 1 : two pointers
-const sortBits = function (arr) {
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+const sortBits = (arr) => {
+    if (arr.length === 0) return null;
+    if (arr.length === 1) return arr[1];
+    //two pointers
+    let left = 0;
+    let right = arr.length - 1;
+    while (left < right) {
+        if (arr[left] === 1) {
+            swap(arr, left, right);
+            right--;
+        } else left++;
+    }
+    return arr;
+
+}
+
+const sortBits1 = function (arr) {
     if (arr.length < 2) return arr;
     let fast = 0;
     let slow = 0;
-    while (fast < arr.length) {
+    while (fast < arr.length) { //O(N)
         // console.log(arr, 'fast=', fast, 'slow=', slow)
         if (arr[fast] === 0) {
-            [arr[fast], arr[slow]] = [1, 0]
-            slow++
+            [arr[fast], arr[slow]] = [1, 0];
+            slow++;
         }
-        fast++
+        fast++;
     }
     return arr
 }
 
 //brut force
-const sortBits = function (arr) {
+const sortBitsBF = function (arr) {
 
     if (arr.length < 2) return arr;
     // space O(n)
@@ -28,8 +45,8 @@ const sortBits = function (arr) {
     }
     return [].concat(arr0, arr1);
 }
-console.log(sortBits([0, 1, 0, 0, 1, 1, 0]));
-console.log(sortBits([1, 0, 0, 1, 1, 0]));
+console.log(sortBitsTest([0, 1, 0, 0, 1, 1, 0]));
+console.log(sortBitsTest([1, 0, 0, 1, 1, 0]));
 
 /*
 [ 1, 0, 0, 1, 1, 0 ] fast= 0 slow= 0
@@ -41,7 +58,7 @@ console.log(sortBits([1, 0, 0, 1, 1, 0]));
 [ 0, 0, 0, 1, 1, 1 ]
 */
 
-const sortBits = function (arr) {
+const sortBits3 = function (arr) {
     if (arr.length < 2) return arr;
     let left = 0;
     let right = arr.length - 1;
@@ -63,7 +80,7 @@ const sortBits = function (arr) {
 }
 
 // 2 : 
-const sortBits2 = function (arr) {
+const sortBits4 = function (arr) {
     if (arr.length < 2) return arr
     let start = 0
     let end = arr.length - 1
