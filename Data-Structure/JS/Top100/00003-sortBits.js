@@ -30,7 +30,6 @@ const sortBits1 = (arr) => {
     return arr;
 
 }
-
 const sortBits = function (arr) {
     if (arr.length === 0) return null;
     if (arr.length === 1) return arr[0];
@@ -45,7 +44,6 @@ const sortBits = function (arr) {
 
     return arr
 }
-
 console.log('sortBits = ', sortBits([0, 1, 0, 0, 1, 1, 0]));
 console.log('sortBits = ', sortBits([1, 0, 0, 1, 1, 0]));
 console.log('sortBitsBF = ', sortBitsBF([1, 0, 0, 1, 1, 0]))
