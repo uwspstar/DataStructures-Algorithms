@@ -32,6 +32,16 @@ const sortBits1 = (arr) => {
 }
 
 const sortBits = function (arr) {
+    if (arr.length === 0) return null;
+    if (arr.length === 1) return arr[0];
+    let left = 0;
+    let right = arr.length - 1;
+    while (left < right) {
+        if (arr[left] === 1) {
+            swap(arr, left, right);
+            right--;
+        } else left++;
+    }
 
     return arr
 }
@@ -39,7 +49,6 @@ const sortBits = function (arr) {
 console.log('sortBits = ', sortBits([0, 1, 0, 0, 1, 1, 0]));
 console.log('sortBits = ', sortBits([1, 0, 0, 1, 1, 0]));
 console.log('sortBitsBF = ', sortBitsBF([1, 0, 0, 1, 1, 0]))
-console.log('sortBits1 = ', sortBits1([1, 0, 0, 1, 1, 0]))
 /*
 [ 1, 0, 0, 1, 1, 0 ] fast= 0 slow= 0
 [ 1, 0, 0, 1, 1, 0 ] fast= 1 slow= 0
