@@ -32,19 +32,25 @@ print(nums) # [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
 
 //input : [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
 //output : [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const sortColor = function (arr) {
+const sortColor1 = function (arr) {
     if (arr.length < 2) return arr;
     let p0 = 0;
     let current = 0;
     let p2 = arr.length - 1;
-    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-
+/*
+[0, 1, 2, 0, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
+p0
+c
+[0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2]
+                                        p2
+*/
     while (current <= p2) {
         if (arr[current] === 0) {
             swap(arr, p0, current);
             p0++;
-            current++;
+            current++; // ?
         } else if (arr[current] === 2) {
             swap(arr, p2, current);
             p2--; // NO current++;
@@ -52,10 +58,26 @@ const sortColor = function (arr) {
 
     }
     return arr;
+};
+const sortColor = (arr) => {
+    if (arr.length === 0) return null;
+    if (arr.length === 1) return arr[0];
+    
+    return arr;
 }
-let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-console.log(sortColor(arr));
-
+//O(N), SPACE 
+const sortColorBF = function (arr) {
+    if (arr.length < 2) return arr;
+    let arr0 = [];
+    let arr1 = [];
+    let arr2 = [];
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] === 0 ? arr0.push(arr[i]) :
+            arr[i] === 1 ? arr1.push(arr[i]) :
+                arr[i] === 2 ? arr2.push(arr[i]) : null;
+    }
+    return [].concat(arr0, arr1, arr2);
+};
 //O(4N) =  O(N)
 const sortColor2 = function (arr) {
     if (arr.length < 2) return arr;
@@ -81,38 +103,10 @@ const sortColor2 = function (arr) {
     }
     return result;
 
-}
+};
 
-//O(N), SPACE 
-const sortColor1 = function (arr) {
-    if (arr.length < 2) return arr;
-    let arr0 = [];
-    let arr1 = [];
-    let arr2 = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0) {
-            arr0.push(arr[i])
-        } else if (arr[i] === 1) {
-            arr1.push(arr[i])
-        } if (arr[i] === 2) {
-            arr2.push(arr[i])
-        }
-    }
-    return [].concat(arr0, arr1, arr2);
-}
-const sortColor1 = function (arr) {
-    if (arr.length < 2) return arr;
-    let arr0 = [];
-    let arr1 = [];
-    let arr2 = [];
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] === 0 ? arr0.push(arr[i]) :
-            arr[i] === 1 ? arr1.push(arr[i]) :
-                arr[i] === 2 ? arr2.push(arr[i]) : null;
-    }
-    return [].concat(arr0, arr1, arr2);
-}
-let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-console.log(sortColor(arr));
-let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-console.log(sortColor(arr));
+let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1];
+console.log('sortColor = ', sortColor(arr));
+console.log('sortColorBF = ', sortColorBF(arr));
+console.log('sortColor2 = ', sortColor2(arr));
+
