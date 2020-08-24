@@ -39,13 +39,13 @@ const sortColor1 = function (arr) {
     let p0 = 0;
     let current = 0;
     let p2 = arr.length - 1;
-/*
-[0, 1, 2, 0, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-p0
-c
-[0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2]
-                                        p2
-*/
+    /*
+    [0, 1, 2, 0, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
+    p0
+    c
+    [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2]
+                                            p2
+    */
     while (current <= p2) {
         if (arr[current] === 0) {
             swap(arr, p0, current);
@@ -62,7 +62,21 @@ c
 const sortColor = (arr) => {
     if (arr.length === 0) return null;
     if (arr.length === 1) return arr[0];
-    
+    let current = 0;
+    let p0 = 0;
+    let p2 = arr.length - 1;
+    while (current <= p2) {
+        if (arr[current] === 2) {
+            swap(arr, current, p2);
+            p2--;
+        } else if (arr[current] === 0) {
+            swap(arr, p0, current);
+            p0++;
+            current++;
+        } else if (arr[current] === 1) {
+            current++;
+        }
+    }
     return arr;
 }
 //O(N), SPACE 
