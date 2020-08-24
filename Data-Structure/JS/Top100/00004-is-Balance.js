@@ -1,6 +1,14 @@
 // typic question for using Stack
 // pair : means key - value , so we can use two pointers from left and right
 // but isBalance cannot use is, good example isBalance("[]{}()"), NOT for two pointers
+/*
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+console.log(plants.pop());// expected output: "tomato"
+console.log(plants);// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+
+plants.pop();
+console.log(plants);// expected output: Array ["broccoli", "cauliflower", "cabbage"]
+*/
 
 const isBalance1 = function (str) {
   let stack = [];
@@ -24,7 +32,21 @@ const isBalance1 = function (str) {
   return stack.length === 0;
 }
 const isBalance = (arr) => {
-  
+  if (arr.length % 2 !== 0) return false;
+  let stack = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '{' || arr[i] === '[' || arr[i] === '(') {
+      stack.push(arr[i]);
+    } else if (arr[i] === '}') {
+      if (stack.pop() !== '{') return false;
+    } else if (arr[i] === ']') {
+      if (stack.pop() !== '[') return false;
+    } else if (arr[i] === ')') {
+      if (stack.pop() !== '(') return false;
+    }
+  }
+  return stack.length === 0;
+
 }
 const isBalanceMap = function (str) {
 
@@ -42,28 +64,13 @@ const isBalanceMap = function (str) {
   return stack.length === 0
 }
 
-console.log(isBalance("[]{}()"))
-console.log(isBalance("[}()"))
-console.log(isBalance("[{()}]"))
-console.log(isBalance(")[{()}]("))
+console.log('isBalance= ', isBalance("[]{}()"));
+console.log('isBalance= ', isBalance("[}()"));
+console.log('isBalance= ', isBalance("[{()}]"));
+console.log('isBalance= ', isBalance(")[{()}]("));
 
-/*
-const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
 
-console.log(plants.pop());
-// expected output: "tomato"
 
-console.log(plants);
-// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
-
-plants.pop();
-
-console.log(plants);
-// expected output: Array ["broccoli", "cauliflower", "cabbage"]
-
-*/
-
-// pair : means key - value , so we can use two pointers from left and right
 
 
 const isBalanceWithMap = function (str) {
@@ -89,7 +96,7 @@ const isBalanceWithMap = function (str) {
   return stack.length === 0;
 }
 
-console.log(isBalanceWithMap("[]{}()"));
-console.log(isBalanceWithMap("[}()"));
-console.log(isBalanceWithMap("[{()}]"));
-console.log(isBalanceWithMap(")[{()}]("));
+console.log('isBalanceWithMap: ', isBalanceWithMap("[]{}()"));//true
+console.log('isBalanceWithMap: ', isBalanceWithMap("[}()"));//false
+console.log('isBalanceWithMap: ', isBalanceWithMap("[{()}]"));//true
+console.log('isBalanceWithMap: ', isBalanceWithMap(")[{()}](")); //false
