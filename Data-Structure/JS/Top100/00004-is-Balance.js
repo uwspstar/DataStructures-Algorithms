@@ -1,7 +1,8 @@
+// typic question for using Stack
 // pair : means key - value , so we can use two pointers from left and right
-// but isBalance cannot use is, example isBalance("[]{}()")
+// but isBalance cannot use is, good example isBalance("[]{}()"), NOT for two pointers
 
-const isBalance = function (str) {
+const isBalance1 = function (str) {
   let stack = [];
   let map = {
     "(": ")",
@@ -22,9 +23,10 @@ const isBalance = function (str) {
   }
   return stack.length === 0;
 }
-
-
-const isBalance = function (str) {
+const isBalance = (arr) => {
+  
+}
+const isBalanceMap = function (str) {
 
   if (str.length % 2 !== 0) return false
   let map = { "(": ")", "{": "}", "[": "]" }
@@ -83,7 +85,7 @@ const isBalanceWithMap = function (str) {
       if (map.get(lastKey) !== key) return false;
     }
   }
-  
+
   return stack.length === 0;
 }
 
