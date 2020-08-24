@@ -47,12 +47,4 @@ const sortBits = function (arr) {
 console.log('sortBits = ', sortBits([0, 1, 0, 0, 1, 1, 0]));
 console.log('sortBits = ', sortBits([1, 0, 0, 1, 1, 0]));
 console.log('sortBitsBF = ', sortBitsBF([1, 0, 0, 1, 1, 0]))
-/*
-[ 1, 0, 0, 1, 1, 0 ] fast= 0 slow= 0
-[ 1, 0, 0, 1, 1, 0 ] fast= 1 slow= 0
-[ 0, 1, 0, 1, 1, 0 ] fast= 2 slow= 1
-[ 0, 0, 1, 1, 1, 0 ] fast= 3 slow= 2
-[ 0, 0, 1, 1, 1, 0 ] fast= 4 slow= 2
-[ 0, 0, 1, 1, 1, 0 ] fast= 5 slow= 2
-[ 0, 0, 0, 1, 1, 1 ]
-*/
+
