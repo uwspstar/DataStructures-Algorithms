@@ -33,20 +33,21 @@ const isBalance1 = function (str) {
 }
 const isBalance = (arr) => {
   if (arr.length % 2 !== 0) return false;
-  let stack = [];
+  let map = new Map();
+  map.set("{", "}");
+  map.set("(", ")");
+  map.set("[", "]");
+  console.log(map);
+  let result = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === '{' || arr[i] === '[' || arr[i] === '(') {
-      stack.push(arr[i]);
-    } else if (arr[i] === '}') {
-      if (stack.pop() !== '{') return false;
-    } else if (arr[i] === ']') {
-      if (stack.pop() !== '[') return false;
-    } else if (arr[i] === ')') {
-      if (stack.pop() !== '(') return false;
+    if (arr[i] === "{" || arr[i] === "[" || arr[i] === "(") {
+      result.push(arr[i]);
+    } else {
+      let last = result.pop();
+      if (arr[i] !== map.get(last)) return false;
     }
   }
-  return stack.length === 0;
-
+  return result.length === 0;
 }
 const isBalanceMap = function (str) {
 
