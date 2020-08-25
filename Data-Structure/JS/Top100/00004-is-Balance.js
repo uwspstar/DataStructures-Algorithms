@@ -8,17 +8,21 @@ console.log(plants);// expected output: Array ["broccoli", "cauliflower", "cabba
 
 plants.pop();
 console.log(plants);// expected output: Array ["broccoli", "cauliflower", "cabbage"]
+
+let map = new Map();
+  map.set("{", "}");
+  map.set("(", ")");
+  map.set("[", "]");
 */
 
-const isBalance1 = function (str) {
+const isBalance = function (str) {
   let stack = [];
-  let map = {
+  let map = {  // this is object not new Map, in this case, the object is enough, str as key
     "(": ")",
     "{": "}",
     "[": "]"
   }
-
-  let arr = [...str];
+  let arr = [...str]; // str can be used as arr in js
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === "(" || arr[i] === "{" || arr[i] === "[") {
       stack.push(arr[i]);
