@@ -37,7 +37,6 @@ const isBalance = (arr) => {
   map.set("{", "}");
   map.set("(", ")");
   map.set("[", "]");
-  console.log(map);
   let result = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === "{" || arr[i] === "[" || arr[i] === "(") {
