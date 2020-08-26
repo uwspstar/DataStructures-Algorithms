@@ -51,7 +51,6 @@ class LinkedList {
         }
         return false;
     }
-
     append(val) {
         let node = new Node(val);
         if (this.head === null) {
@@ -67,20 +66,6 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n
-    reverse1() {
-        if (this.head === null) return null;
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre;
-        return this;
-    }
     reverse() {
         if (this.head === null) return null;
         let current = this.head;
@@ -95,7 +80,7 @@ class LinkedList {
         this.head = pre;
         return this;
     }
-    findMid() {
+    findMid1() {
         //5 -> 10 -> 20 -> 30 -> 40 -> 50
         if (this.head === null) return null;
         let fast = this.head;
@@ -106,6 +91,16 @@ class LinkedList {
             fast = fast.next.next;
             slow = slow.next;
             console.log('slow=', slow.value);
+        }
+        return slow.value;
+    }
+    findMid() {
+        if (this.head === null) return null;
+        let fast = this.head;
+        let slow = this.head;
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
         }
         return slow.value;
     }
@@ -130,8 +125,8 @@ linkedList.append(30);
 linkedList.append(40);
 linkedList.append(50);
 //console.log(JSON.stringify(linkedList.getHead()));
-//console.log('findMid = ', JSON.stringify(linkedList.findMid()));
-console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+//console.log('reverse = ', JSON.stringify(linkedList.reverse()));
 //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
 //console.log(JSON.stringify(linkedList.reverse()));
 //console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
