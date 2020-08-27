@@ -17,10 +17,10 @@ const fib1 = (n) => {
     return n > 1 ? lastTwo[1] : lastTwo[0]
 }
 
-const fib = (n) => {
+const fib = function (n) {
     if (n === 0) return 0;
     if (n === 1) return 1;
-    return fib(n - 2) + fib(n - 2);
+    return fib(n - 2) + fib(n - 1);
 }
 // 1 : regular loop
 // time : O(N), space: O(N)
@@ -46,12 +46,13 @@ const fibonacciMemo1 = function (n) {
 }
 const fibonacciMemo = n => {
     let memo = {};
-    const fibMemo = n => {
-        if (n < 3) return 1;
+    const fib = (n) => {
+        if (n === 0) return 0;
+        if (n === 1) return 1;
         if (memo[n] !== undefined) return memo[n];
-        return memo[n] = fibMemo(n - 1) + fibMemo(n - 2);
+        return memo[n] = fib(n - 1) + fib(n - 2);
     }
-    return fibMemo(n);
+    return fib (n);
 }
 
 // 3: recursive , no memo
@@ -76,8 +77,8 @@ const fibonacciSpace = n => {
 
 }
 
-console.log('fib', fib(45))// 1134903170 
-console.log('fibonacciMemo', fibonacciMemo(45))// 1134903170 
+//console.log('fib', fib(45))// 1134903170 //very slow
+console.log('fibonacciMemo', fibonacciMemo(45))// 1134903170
 //console.log(fibonacci2(40));
 //console.log(fibonacci2(45)); // 1134903170  very slow
 //console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
