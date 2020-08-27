@@ -65,14 +65,15 @@ const sortColor = (arr) => {
     let current = 0;
     let p0 = 0;
     let p2 = arr.length - 1;
-    while (current <= p2) {
+    while (current < p2) {
         if (arr[current] === 2) {
-            swap(arr, current, p2);
+            swap(arr, current, p2)
             p2--;
         } else if (arr[current] === 0) {
-            swap(arr, p0, current);
+            swap(arr, current, p0)
             p0++;
-            current++;
+            current++
+
         } else if (arr[current] === 1) {
             current++;
         }
