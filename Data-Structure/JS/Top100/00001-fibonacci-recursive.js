@@ -2,7 +2,7 @@
 // if n < 2 return n [0,1,1,2,3.....]
 // 1, 1, 2, 3, 5
 // O(n) time | O(1) space
-const fib = (n) => {
+const fib1 = (n) => {
     if (n <= 0) return 0;
     if (n <= 2) return 1;
 
@@ -17,6 +17,11 @@ const fib = (n) => {
     return n > 1 ? lastTwo[1] : lastTwo[0]
 }
 
+const fib = (n) => {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return fib(n - 2) + fib(n - 2);
+}
 // 1 : regular loop
 // time : O(N), space: O(N)
 const fibonacciRegular = function (n) {
@@ -71,7 +76,8 @@ const fibonacciSpace = n => {
 
 }
 
-console.log(fibonacciMemo(45))// 1134903170 
+console.log('fib', fib(45))// 1134903170 
+console.log('fibonacciMemo', fibonacciMemo(45))// 1134903170 
 //console.log(fibonacci2(40));
 //console.log(fibonacci2(45)); // 1134903170  very slow
 //console.log(fibonacciRecursive(7)); // [1, 1, 2, 3, 5, 8, 13]
