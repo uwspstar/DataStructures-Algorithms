@@ -109,6 +109,20 @@ const selectionSort = (arr) => {
     }
     return arr;
 }
+const bubbleSort1 = (arr) => {
+    if (arr.length < 2) return arr;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let isSwap = false;
+        for (let j = 0; j < i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr, j, j + 1);
+                isSwap = true;
+            }
+        }
+        if (!isSwap) break;
+    }
+    return arr;
+}
 const bubbleSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = arr.length - 1; i >= 0; i--) {
