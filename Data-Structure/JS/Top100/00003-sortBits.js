@@ -17,32 +17,31 @@ const sortBitsBF = function (arr) {
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 const sortBits1 = (arr) => {
     if (arr.length === 0) return null;
-    if (arr.length === 1) return arr[1];
-    //two pointers
-    let left = 0;
-    let right = arr.length - 1;
-    while (left < right) {
-        if (arr[left] === 1) {
-            swap(arr, left, right);
-            right--;
-        } else left++;
+    if (arr.length === 1) return arr[0];
+    // two pointers
+    let current = 0;
+    let p1 = arr.length - 1;
+    while (current < p1) {
+        if (arr[current] === 1) {
+            swap(arr, current, p1);
+            p1--;
+        } else current++;
     }
     return arr;
-
 }
 const sortBits = function (arr) {
     if (arr.length === 0) return null;
     if (arr.length === 1) return arr[0];
-    let left = 0;
-    let right = arr.length - 1;
-    while (left < right) {
-        if (arr[left] === 1) {
-            swap(arr, left, right);
-            right--;
-        } else left++;
+    // two pointers
+    let current = 0;
+    let p1 = arr.length - 1;
+    while (current < p1) {
+        if (arr[current] === 1) {
+            swap(arr, current, p1);
+            p1--;
+        } else current++;
     }
-
-    return arr
+    return arr;
 }
 console.log('sortBits = ', sortBits([0, 1, 0, 0, 1, 1, 0]));
 console.log('sortBits = ', sortBits([1, 0, 0, 1, 1, 0]));
