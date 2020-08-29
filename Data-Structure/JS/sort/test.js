@@ -109,7 +109,18 @@ const selectionSort1 = (arr) => {
     }
     return arr;
 }
-const selectionSort = (arr) =>{
+const selectionSort = (arr) => {
+    if (arr.length < 2) return arr;
+    for (let i = 0; i < arr.length; i++) {
+        let smallIdx = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[smallIdx]) {
+                smallIdx = j;
+            }
+        }
+        if (smallIdx !== i) swap(arr, smallIdx, i);
+    }
+    return arr;
 
 }
 const bubbleSort = (arr) => {
