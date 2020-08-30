@@ -12,7 +12,7 @@ print buy_and_sell([9, 11, 8, 5, 7, 10])
 # 5
 """
 
-
+# O(N^2)
 def buy_and_sell_naive(arr):
     max_profit = 0
     for i in range(len(arr) - 1):
@@ -21,4 +21,18 @@ def buy_and_sell_naive(arr):
             max_profit = max(max_profit, sell_price - buy_price)
     return max_profit
 
+
 print(buy_and_sell_naive([9, 11, 8, 5, 7, 10]))
+
+# O(N)
+# If iterate the array backwards, and keep track of the highest price so far (this will be the best sell price for any element to its left).
+def buy_and_sell(arr):
+    current_max, max_profit = 0, 0
+    for price in reversed(arr):
+        current_max = max(current_max, price)
+        potential_profit = current_max - price
+        max_profit = max(max_profit, potential_profit)
+    return max_profit
+
+
+print(buy_and_sell([9, 11, 8, 5, 7, 10]))
