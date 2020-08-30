@@ -1,1 +1,1 @@
-current = next;
+nex
