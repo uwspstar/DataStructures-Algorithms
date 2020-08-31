@@ -1,6 +1,6 @@
-// bubbleSort : out loop i--; inner loop j++; swap; check isSwap;
-// selectionSort : out loop i++; inner loop j++; smallIdx; swap; each loop find smallest one, and put on left; check is index change;
-// insertingSort : start first item, left side sorted, out loop i++, i = 1;  inner loop j--, start j = i-1; current= arr[i]; arr[j+1] = current; NO swap;
+// bubbleSort :backward loop; out loop i--; inner loop j++; swap; check isSwap;
+// selectionSort : smallIdx; out loop i++; inner loop j++; swap; each loop find smallest one, and put on left; check is index change;
+// insertingSort : left side sorted, out loop i++, start first item, i = 1;  inner loop j--, start j = i-1; current= arr[i]; arr[j+1] = current; NO swap;
 // mergeSort : merge(left,right), sort(arr), NO swap;
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
