@@ -9,12 +9,12 @@ class LinkedList {
         this.head = new Node(val);
     }
     getLastGivenIndexNode1(n) {
-        if (this.head === null) return undefined;
+        if (this.head === null) return null;
         let fast = this.head;
         let slow = this.head;
         while (n > 0) {
             fast = fast.next;
-            if (fast === null) return undefined;
+            if (fast === null) return null;
             n--;
         }
         while (fast !== null) {
@@ -32,7 +32,7 @@ class LinkedList {
             if (fast === null) return null;
             n--;
         }
-        while (fast) {
+        while (fast.next) {
             fast = fast.next;
             slow = slow.next;
         }
@@ -124,12 +124,12 @@ linkedList.append(20);
 linkedList.append(30);
 linkedList.append(40);
 linkedList.append(50);
+console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
 //console.log(JSON.stringify(linkedList.getHead()));
-console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+//console.log('findMid = ', JSON.stringify(linkedList.findMid()));
 //console.log('reverse = ', JSON.stringify(linkedList.reverse()));
 //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
 //console.log(JSON.stringify(linkedList.reverse()));
-//console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
 //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
 console.log('linkedList = ', JSON.stringify(linkedList));
 
