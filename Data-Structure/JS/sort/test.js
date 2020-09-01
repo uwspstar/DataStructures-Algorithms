@@ -4,7 +4,6 @@
 // mergeSort : merge(left,right), sort(arr), NO swap;
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
-const swap1 = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 const quickSortHelp = (arr) => {
 
@@ -35,7 +34,10 @@ const quickSortHelp = (arr) => {
     }
     return quickSort(arr);
 }
-const mergeSortHelp1 = (arr) => {
+const quickSortHelp = (arr) => {
+
+}
+const mergeSortHelp = (arr) => {
     if (arr.length < 2) return arr;
     const merge = (left, right) => {
         if (left.length === 0) return right;
@@ -53,26 +55,6 @@ const mergeSortHelp1 = (arr) => {
         let right = mergeSort(arr.slice(mid));
         return merge(left, right);
 
-    }
-    return mergeSort(arr);
-}
-const mergeSortHelp = (arr) => {
-    if (arr.length < 2) return arr;
-    const merge = (left, right) => {
-        if (left.length === 0) return right;
-        if (right.length === 0) return left;
-        let result = [];
-        while (left.length > 0 && right.length) {
-            left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift());
-        }
-        return result.concat(left, right);
-    }
-    const mergeSort = (arr) => {
-        if (arr.length < 2) return arr;
-        let mid = arr.length >> 1;
-        let left = mergeSort(arr.slice(0, mid));
-        let right = mergeSort(arr.slice(mid));
-        return merge(left, right);
     }
     return mergeSort(arr);
 }
