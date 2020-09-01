@@ -5,7 +5,7 @@
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-const quickSortHelp = (arr) => {
+const quickSortHelp1 = (arr) => {
 
     if (arr.length < 2) return arr;
     // getPivotIndex with Swap

@@ -1,4 +1,5 @@
 // sortBits([1, 0, 0, 1, 1, 0]) //outputs: [0, 0, 0, 1, 1, 1]
+// check quickSort
 
 //0: brut force
 const sortBitsBF = function (arr) {
