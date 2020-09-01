@@ -17,7 +17,7 @@ const isPalindrome = function (str) {
 // recursive 
 const isPalindromeRecursive = function (str) {
     if (str.length < 2) return true;
-    
+
     return str[0] === str[str.length - 1] ?
         isPalindromeRecursive(str.slice(1, -1)) : false;
 
@@ -31,21 +31,15 @@ const isPalindromeRecursive = function (str) {
     // arr use arr.slice(), arr.shift(), arr.pop()
 }
 
-// covert arr
-const isPalindromeRecursive = function (str) {
+// covert str to arr, only arr has reverse function
+const isPalindromeReverse = function (str) {
     if (str.length < 2) return true;
-    let arr = str.split('');
-    let start = arr.shift();
-    let end = arr.pop();
-    console.log('start=', start, 'end=', end);
-    return start === end ?
-        isPalindromeRecursive(arr.join('')) : false;
+    return str.split('').reverse().join('') === str;
 }
 
 const isPalindromeRecursive = function (str) {
     if (str.length === 1) return true;
     if (str.length === 2) return str[0] === str[1];
-    // str.slice(beginIndex[, endIndex])
     if (str.slice(0, 1) === str.slice(-1)) return isPalindromeRecursive(str.slice(1, -1));
     return false;
 }
