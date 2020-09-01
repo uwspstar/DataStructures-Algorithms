@@ -1,6 +1,20 @@
-// 1: recursive 
+
 // if it is integer, without using str function, how you do it ? ( see twitter)
 
+// meet in middle : two pointers
+const isPalindrome = function (str) {
+    if (str.length < 2) return true;
+    let left = 0;
+    let right = str.length - 1;
+    while (left < right) {
+        if (str[left] !== str[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
+}
+
+// recursive 
 const isPalindromeRecursive = function (str) {
     if (str.length < 2) return true;
     
@@ -28,10 +42,6 @@ const isPalindromeRecursive = function (str) {
         isPalindromeRecursive(arr.join('')) : false;
 }
 
-console.log(isPalindromeRecursive('tacocat'))
-console.log(isPalindromeRecursive('amanaplanacanalpanama'))
-console.log(isPalindromeRecursive('amanaplanacanalpandemonium'))
-
 const isPalindromeRecursive = function (str) {
     if (str.length === 1) return true;
     if (str.length === 2) return str[0] === str[1];
@@ -44,7 +54,7 @@ console.log(isPalindromeRecursive('tacocat'));
 console.log(isPalindromeRecursive('amanaplanacanalpanama'));
 console.log(isPalindromeRecursive('amanaplanacanalpandemonium'));
 
-// 2 : meet in middle
+// meet in middle : regular start, end 
 const isPalindromeMeetInMiddle = function (str) {
     if (str.length === 1) return false;
     let mid = parseInt(str.length / 2);
@@ -54,18 +64,7 @@ const isPalindromeMeetInMiddle = function (str) {
     return true;
 }
 
-// 2 pointers : meet in middle
-const isPalindromeMeetInMiddle = function (str) {
-    if (str.length < 2) return true;
-    let left = 0;
-    let right = str.length - 1;
-    while (left < right) {
-        if (str[left] !== str[right]) return false;
-        left++;
-        right--;
-    }
-    return true;
-}
+
 
 console.log(isPalindromeMeetInMiddle('tacocat')); //true
 console.log(isPalindromeMeetInMiddle('amanaplanacanalpanama'));//true
