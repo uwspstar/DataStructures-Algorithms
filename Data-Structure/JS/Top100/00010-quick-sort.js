@@ -19,8 +19,9 @@ algorithm partition(A, lo, hi) is
 
 //https://en.wikipedia.org/wiki/Quicksort
 
-const getPivotIndex = function (arr, low, high) {
-    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// need swap;
+const getPivotIndex = function (arr, low = 0, high = arr.length - 1) {
     let pivot = arr[high];
     let pivotIndex = low;
     for (let i = low; i < high; i++) {
