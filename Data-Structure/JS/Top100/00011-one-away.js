@@ -9,8 +9,38 @@ pale, bae -> false
 
 //also can put ">" and "<" logic in same function
 
-//O(n)
-const oneAway = function (str1, str2) {
+//O(N) only check 2 cases : str1.length "===" and "<"  str2.length
+// "===" replace; "<" insert;
+const oneAway = (str1, str2) => {
+
+    if (str1.length > str2.length) return oneAway(str2, str1); // always str1 short
+    //if (Math.abs(str1.length - str2.length) >=2) return false
+    if (str1.length - str2.length >= 2) return false;
+    let counterDiff = 0;
+
+    if (str1.length === str2.length) { //case 1:   
+        for (let i = 0; i <= str1.length; i++) {
+            if (str1[i] !== str2[i]) counterDiff++;
+            if (counterDiff > 1) return false;
+        }
+    } else { //case 2 : only short 
+        let j = 0; // for str 2 
+        let i = 0;
+        while (i <= str1.length) {
+            if (str1[i] !== str2[j]) {
+                if (str1[i] !== str2[i]) counterDiff++;
+                if (counterDiff > 1) return false;
+                j++;
+            };
+            i++;
+            j++
+        }
+    }
+    return true;
+}
+
+//O(n) : 3 cases
+const oneAway1 = function (str1, str2) {
 
     let len1 = str1.length;
     let len2 = str2.length;
@@ -19,10 +49,10 @@ const oneAway = function (str1, str2) {
 
     let count = 0;
 
-    if (len1 == len2) { //replace
+    if (len1 === len2) { //replace
         for (let i = 0; i < len1; i++) {
             if (count > 2) return false;
-            if (str1[i] != str2[i]) {
+            if (str1[i] !== str2[i]) {
                 count++;
                 console.log('eq: ', 'i=', i, 'str1', str1, 'str2', str2);
             }
@@ -56,7 +86,9 @@ const oneAway = function (str1, str2) {
 
 }
 
-console.log(oneAway('pale', 'ple')) //true
-console.log(oneAway('pales', 'pale')) //true
-console.log(oneAway('pale', 'bale')) //true 
-console.log(oneAway('pale', 'bae')) //false
+console.log('str1.length === str2.length', oneAway('pale', 'bale')) //true 
+console.log('str1.length === str2.length', oneAway('pale', 'pbae')) //false
+console.log('case 2', oneAway('ple', 'pale')) //true
+console.log('case 2', oneAway('pale', 'ple')) //true
+console.log('case 2', oneAway('pales', 'pale')) //true
+console.log('case 2', oneAway('pale', 'bae')) //false
