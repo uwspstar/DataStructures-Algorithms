@@ -1,3 +1,5 @@
+//find smallest index, swap; nest loop; i++; j++;
+
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 const selectionSort = (arr) => {
     if (arr.length < 2) return arr;

@@ -6,6 +6,8 @@
 // two loop, first loop save to hash table
 // second loop find the first 
 // Conditional (ternary) operator
+
+// hashmap
 const firstNoneRepeatItem1 = function (str) {
 
     let hashMap = {};
