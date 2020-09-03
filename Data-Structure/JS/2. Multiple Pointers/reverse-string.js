@@ -17,21 +17,16 @@ const reverseStr = function (str) {
     return arr.join('');
 }
 
-console.log(reverseStr("abcde"));
-console.log(reverseStr("abcdef"));
-
-
 function reverseStr(str) {
     // only arr has reverse function
     // not join() return arr, not string
     return str.split('').reverse().join('');
 }
 
-const reverseStrRecursive = function (str) {
-    if (str.length < 2) return str;
-    return reverseStrRecursive(str.slice(1)) + str[0];
-}
-
+// Recursive
 const reverseStrRecursive = function (str) {
     return str.length < 2 ? str : reverseStrRecursive(str.slice(1)) + str[0];
 }
+
+console.log('reverseStr', reverseStr("abcde"));
+console.log('reverseStr', reverseStr("abcdef"));
