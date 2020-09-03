@@ -34,6 +34,39 @@ print(nums) # [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
 //output : [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
+const sortColor = (arr) => {
+    if (arr.length === 0) return null;
+    if (arr.length === 1) return arr[0];
+    let current = 0;
+    let p0 = 0;
+    let p2 = arr.length - 1;
+    while (current < p2) {
+        if (arr[current] === 2) {
+            swap(arr, current, p2)
+            p2--;
+        } else {
+            if (arr[current] === 0) {
+                swap(arr, current, p0)
+                p0++;
+            }
+            current++;
+        }
+    }
+    return arr;
+}
+//O(N), SPACE 
+const sortColorBF = function (arr) {
+    if (arr.length < 2) return arr;
+    let arr0 = [];
+    let arr1 = [];
+    let arr2 = [];
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] === 0 ? arr0.push(arr[i]) :
+            arr[i] === 1 ? arr1.push(arr[i]) :
+                arr[i] === 2 ? arr2.push(arr[i]) : null;
+    }
+    return [].concat(arr0, arr1, arr2);
+};
 const sortColor1 = function (arr) {
     if (arr.length < 2) return arr;
     let p0 = 0;
@@ -59,7 +92,7 @@ const sortColor1 = function (arr) {
     }
     return arr;
 };
-const sortColor = (arr) => {
+const sortColor3 = (arr) => {
     if (arr.length === 0) return null;
     if (arr.length === 1) return arr[0];
     let current = 0;
@@ -80,19 +113,6 @@ const sortColor = (arr) => {
     }
     return arr;
 }
-//O(N), SPACE 
-const sortColorBF = function (arr) {
-    if (arr.length < 2) return arr;
-    let arr0 = [];
-    let arr1 = [];
-    let arr2 = [];
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] === 0 ? arr0.push(arr[i]) :
-            arr[i] === 1 ? arr1.push(arr[i]) :
-                arr[i] === 2 ? arr2.push(arr[i]) : null;
-    }
-    return [].concat(arr0, arr1, arr2);
-};
 //O(4N) =  O(N)
 const sortColor2 = function (arr) {
     if (arr.length < 2) return arr;
