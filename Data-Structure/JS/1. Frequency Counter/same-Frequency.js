@@ -1,14 +1,13 @@
 /*
 Frequency Counter - sameFrequency
 
+*** more single loops better than nest loop
+
 Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
 
 Your solution MUST have the following complexities:
 
 Time: O(N)
-
-*** more single loops better than nest loop
-
 */
 // (212341, 143212)
 const sameFrequency = function (num1, num2) {

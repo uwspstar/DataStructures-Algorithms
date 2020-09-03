@@ -33,7 +33,6 @@ const same = function (arr1, arr2) {
 
 }
 
-
 console.log(same([1, 2, 2, 3, 3], [9, 4, 1, 4, 9])) // true
 console.log(same([1, 2, 3], [4, 1, 9])) // true
 console.log(same([1, 2, 3, 2], [4, 4, 1, 9])) // true
@@ -79,7 +78,7 @@ const same = function (arr1, arr2) {
         if (rightIndex < 0) return false;
         arr2.splice(rightIndex, 1);
     }
-    return true
+    return true;
 }
 
 console.log(same([1, 2, 3], [4, 1, 9]));
