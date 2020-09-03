@@ -18,10 +18,6 @@ const findUniqueValue = function (arr) {
     return arr.slice(0, countPosition + 1);
 }
 
-console.log(findUniqueValue([1, 1, 1, 1, 5, 5]));
-console.log(findUniqueValue([1, 1, 2, 3, 3, 4, 5, 5, 5, 6]));
-console.log(findUniqueValue([1, 2, 3, 4, 5, 6]));
-
 const uniqueValue = function (arr) {
     let i = 0; // as counter
     for (let j = 1; j < arr.length; j++) {
@@ -42,8 +38,9 @@ const uniqueValue = function (arr) {
     return (new Set(arr)).size;
 }
 
-
-
-console.log(uniqueValue([1, 1, 1, 1, 5, 5]));
-console.log(uniqueValue([1, 1, 2, 3, 3, 4, 5, 5, 5, 6]));
-console.log(uniqueValue([1, 2, 3, 4, 5, 6]));
+console.log('findUniqueValue', findUniqueValue([1, 1, 1, 1, 5, 5]));
+console.log('findUniqueValue', findUniqueValue([1, 1, 2, 3, 3, 4, 5, 5, 5, 6]));
+console.log('findUniqueValue', findUniqueValue([1, 2, 3, 4, 5, 6]));
+console.log('uniqueValue', uniqueValue([1, 1, 1, 1, 5, 5]));
+console.log('uniqueValue', uniqueValue([1, 1, 2, 3, 3, 4, 5, 5, 5, 6]));
+console.log('uniqueValue', uniqueValue([1, 2, 3, 4, 5, 6]));
