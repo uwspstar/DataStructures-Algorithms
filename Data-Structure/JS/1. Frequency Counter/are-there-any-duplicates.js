@@ -5,7 +5,7 @@ Implement a function called, areThereDuplicates which accepts a variable number 
 *** use new Set() 
 */
 
-const areThereDuplicates = function (...arr) {
+const areThereDuplicates = function (arr) {
     if (arr.length < 2) return false;
     return (arr.length !== (new Set(arr)).size);
 }
@@ -21,7 +21,6 @@ const areThereDuplicates = function (arr) {
     return false;
 }
 
-
-console.log(areThereDuplicates(1, 2, 3)); // false
-console.log(areThereDuplicates(1, 2, 2));// true 
-console.log(areThereDuplicates('a', 'b', 'c', 'a')); // true 
+console.log('areThereDuplicates', areThereDuplicates(1, 2, 3)); // false
+console.log('areThereDuplicates', areThereDuplicates(1, 2, 2));// true 
+console.log('areThereDuplicates', areThereDuplicates('a', 'b', 'c', 'a')); // true 
