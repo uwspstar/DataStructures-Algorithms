@@ -17,9 +17,7 @@ const sumZero = function (arr) {
 
     return undefined;
 }
-
-
-const sumZero = function (arr) {
+const sumZero2 = function (arr) {
     if (arr.length < 2) return undefined;
 
     let start = 0;
@@ -33,11 +31,8 @@ const sumZero = function (arr) {
 
     return undefined;
 }
-console.log(sumZero([-5, -2, -1, 0]))
-console.log(sumZero([-5, -4, -3, -2, 1, 0, -1, 3, 4]))
-console.log(sumZero([-5, -4, -3, -2, 1, 0, -1, 2, 3]))
-console.log(sumZero([-5, -2, -1, 0, 3, 4]))
 
-console.log(sumZero([-5, -4, -3, -2, 1, 0, -1, 3, 4]));
-console.log(sumZero([-5, -4, -3, -2, 1, 0, -1, 2, 3]));
-console.log(sumZero([-5, -2, -1, 0, 3, 4]));
+console.log('sumZero', sumZero([-5, -2, -1, 0]))
+console.log('sumZero', sumZero([-5, -4, -3, -2, 1, 0, -1, 3, 4]))
+console.log('sumZero', sumZero([-5, -4, -3, -2, 1, 0, -1, 2, 3]))
+console.log('sumZero', sumZero([-5, -2, -1, 0, 3, 4]))
