@@ -32,5 +32,5 @@ const buySellStock = (arr) => {
     return maxProfit;
 }
 
-console.log(baySellStockNaive([9, 11, 8, 5, 7, 10]));
-console.log(buySellStock([9, 11, 8, 5, 7, 10]));
+console.log('baySellStockNaive', baySellStockNaive([9, 11, 8, 5, 7, 10]));
+console.log('baySellStockNaive', buySellStock([9, 11, 8, 5, 7, 10]));
