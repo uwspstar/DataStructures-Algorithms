@@ -26,12 +26,6 @@ const averagePair = function (arr, num) {
     return false;
 }
 
-console.log(averagePair([1, 2, 3], 2.5))// true
-console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8)) // true
-console.log(averagePair([-1, 0, 3, 4, 5, 6], 4.1)) // false
-console.log(averagePair([], 4)) // false
-
-
 // similar as two sum O(N)
 const averagePair = function (arr, num) {
     if (arr.length < 2) return false;  // need a pair (two items)
@@ -59,3 +53,8 @@ const twoSum = function (arr, target) {
 
     return false;
 }
+
+console.log('averagePair', averagePair([1, 2, 3], 2.5))// true
+console.log('averagePair', averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8)) // true
+console.log('averagePair', averagePair([-1, 0, 3, 4, 5, 6], 4.1)) // false
+console.log('averagePair', averagePair([], 4)) // false

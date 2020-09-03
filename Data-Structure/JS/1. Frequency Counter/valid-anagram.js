@@ -1,5 +1,13 @@
 /*
 2 str have same characters, order does not matter;
+for (const [key, value] of Object.entries(object1)) {
+  console.log(`${key}: ${value}`);
+}
+const array1 = ['a', 'b', 'c'];
+
+for (const element of array1) {
+  console.log(element);
+}
 */
 
 const validAnagram = function (str1, str2) {
@@ -24,6 +32,6 @@ const validAnagram = function (str1, str2) {
 
 }
 
-console.log(validAnagram("abcb", "dbca")); // false
-console.log(validAnagram("abcd", "dbca")); // true
-console.log(validAnagram("mymydog", "mygodym")); // true
+console.log('validAnagram', validAnagram("abcb", "dbca")); // false
+console.log('validAnagram', validAnagram("abcd", "dbca")); // true
+console.log('validAnagram', validAnagram("mymydog", "mygodym")); // true
