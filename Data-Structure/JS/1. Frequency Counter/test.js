@@ -14,6 +14,6 @@ const areThereAnyDuplicates = function (...arr) {
     return false;
 }
 
-console.log(areThereAnyDuplicates(1, 2, 3)) // false
-console.log(areThereAnyDuplicates(1, 2, 2))// true 
-console.log(areThereAnyDuplicates('a', 'b', 'c', 'a')) // true 
+console.log('areThereAnyDuplicates', areThereAnyDuplicates(1, 2, 3)) // false
+console.log('areThereAnyDuplicates', areThereAnyDuplicates(1, 2, 2))// true 
+console.log('areThereAnyDuplicates', areThereAnyDuplicates('a', 'b', 'c', 'a')) // true 

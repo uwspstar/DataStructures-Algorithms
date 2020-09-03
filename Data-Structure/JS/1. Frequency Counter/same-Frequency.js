@@ -30,12 +30,12 @@ const sameFrequency = function (num1, num2) {
     for (let key of map1.keys()) {
         if (map1.get(key) !== map2.get(key)) return false;
     }
-    
+
     return true;
 }
-console.log(sameFrequency(182, 281)); // true
-console.log(sameFrequency(34, 14)); // false
-console.log(sameFrequency(3589578, 5879385)); // true
-console.log(sameFrequency(22, 222)); // false
+console.log('sameFrequency', sameFrequency(182, 281)); // true
+console.log('sameFrequency', sameFrequency(34, 14)); // false
+console.log('sameFrequency', sameFrequency(3589578, 5879385)); // true
+console.log('sameFrequency', sameFrequency(22, 222)); // false
 
 
