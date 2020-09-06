@@ -15,3 +15,7 @@ var num = 255;
 document.writeln(num.toString(16)); // Outputs: "ff"
 document.writeln(num.toString(8));  // Outputs: "377"
 document.writeln(num.toString(2));  // Outputs: "11111111"
+
+
+//integer to binary
+document.writeln(num.toString(2));  // Outputs: "11111111"
