@@ -25,11 +25,30 @@ The median is (2 + 3)/2 = 2.5
 */
 
 // log (m+n) mean using binary search
-
+/*
 const findMedianSortedArrays = function (arr1, arr2) {
     if (arr1.length > arr2.length)
-        return findMedianSortedArrays(arr2, arr1)  
-    // (arr1.length + arr2.length) / 2 cut arr1 at m + arr
-   
-
+        return findMedianSortedArrays(arr2, arr1)
 };
+*/
+
+// naive : put two arr in one, and find mid
+// check merge sort
+const findMedianSortedArrays = (arr1, arr2) => {
+    let result = [];
+    while (arr1.length > 0 && arr2.length > 0) {
+        arr1[0] < arr2[0] ? result.push(arr1.shift()) : result.push(arr2.shift());
+    }
+    result = result.concat(arr1, arr2);
+
+    let mid = result.length >> 1;
+    console.log('result', result, 'mid', mid);
+
+    return result.length % 2 === 0
+        ? (result[mid - 1] + result[mid]) / 2
+        : result[mid];
+
+}
+
+console.log(findMedianSortedArrays([1, 2], [3, 4]));
+console.log(findMedianSortedArrays([1, 2, 5], [3, 4]));
