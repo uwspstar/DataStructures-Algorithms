@@ -3,14 +3,15 @@ https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn
 
 Insertion Sort : O (N^2)
 
-Builds up the sort by gradually creating a larger left half which is always sorted the left side is sorted
+Builds up the sort by gradually creating a larger left half which is always sorted ( the left side is sorted)
 
 Insertion : start from second element, move to index , insert the element to left sorted array
 
 Insertion Sort Pseudocode
 
 - Start by picking the second element (i = 1; i++) in the array
-Now compare the second element (current = arr[i];) with the one before (j--) it and swap if necessary.
+Now compare the second element (current = arr[i];) with the one before (j--) it and arr[j+1] = arr[j].
+
 - Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place.
 - Repeat until the array is sorted
  
@@ -61,54 +62,6 @@ const insertionSort = function (arr) {
 
 console.log(insertionSort([1, 6, 7, 5]));
 console.log(insertionSort([10, 80, 30, 90, 40, 50, 70]));
-
-const insertionSort = function (arr) {
-    if (arr.length < 2) return arr;
-    for (let i = 1; i < arr.length; i++) {
-        let current = arr[i];
-        let j = i - 1;
-        for (; j >= 0; j--) {
-            if (arr[j] > current) {
-                arr[j + 1] = arr[j];
-            } else break;
-        }
-        arr[j + 1] = current;
-    }
-    return arr;
-}
-
-
-const insertionSort2 = function (arr) {
-    //[1, 6, 7, 5] -> [1, 6, 7, 7] 
-    if (arr.length < 2) return arr;
-    for (let i = 1; i < arr.length; i++) {
-        let current = arr[i];
-        let j = i - 1;
-        for (; j >= 0; j--) {
-            if (arr[j] > current) {
-                arr[j + 1] = arr[j];
-            } else break; //******
-        }
-        arr[j + 1] = current;
-    }
-    return arr;
-}
-
-const insertionSort3 = function (arr) {
-    let i, j;
-    for (i = 1; i < arr.length; i++) {
-        let current = arr[i]; // start with second element
-        for (j = i - 1; j >= 0; j--) { // sort left array
-            if (current < arr[j]) {
-                arr[j + 1] = arr[j];
-            } else break;
-        }
-        arr[j + 1] = current; // find the right position [j + 1 ] to insert the element
-    }
-    return arr;
-}
-console.log(insertionSort(arr));
-
 /*
 mark first element as sorted
 

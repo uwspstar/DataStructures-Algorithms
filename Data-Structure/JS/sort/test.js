@@ -55,7 +55,7 @@ const mergeSortHelp = (arr) => {
     }
     return mergeSort(arr);
 }
-const insertionSort = (arr) => {
+const insertionSort1 = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 1; i < arr.length; i++) {
         let current = arr[i];
@@ -70,7 +70,22 @@ const insertionSort = (arr) => {
     }
     return arr;
 }
-const selectionSort1 = (arr) => {
+const insertionSort = (arr) => {
+    if (arr.length < 2) return arr;
+    for (let i = 1; i < arr.length; i++) {
+        let current = arr[i];
+        let j = i - 1;
+        for (; j <= i; j--) {
+            if (arr[j] > current) {
+                arr[j + 1] = arr[j];
+
+            } else break;
+        }
+        arr[j + 1] = current;
+    }
+    return arr;
+}
+const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 0; i < arr.length; i++) {
         let smallIndex = i;
@@ -80,19 +95,6 @@ const selectionSort1 = (arr) => {
             }
         }
         if (smallIndex !== i) swap(arr, i, smallIndex);
-    }
-    return arr;
-}
-const selectionSort = (arr) => {
-    if (arr.length < 2) return arr;
-    for (let i = 0; i < arr.length; i++) {
-        let smallIndex = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[smallIndex]) {
-                smallIndex = j;
-            }
-        }
-        if (smallIndex !== i) swap(arr, smallIndex, i)
     }
     return arr;
 }
