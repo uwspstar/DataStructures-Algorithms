@@ -1,7 +1,7 @@
 /*
 arr = [1,3,5,8,0,2,4,9,-7]
 fix size = 3
-max sum is 16 = [3,5,8]
+max sum is 16 = [3,5,8] = 3 + 5 + 8
 -- https://www.youtube.com/watch?v=MK-NZ4hN7rs
 */
 
