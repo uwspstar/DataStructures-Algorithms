@@ -7,7 +7,9 @@ Here, the optimal trade is to buy when the price is 5, and sell when it is 10, s
 */
 
 const buySellStock = (arr) => {
-    if (arr.length === 0) return null;
+    if (arr.length < 2) return null
+    if (arr.length === 2) return arr[1] > arr[0] ? arr[1] - arr[0] : 0;
+
     let currentMaxPrice = 0;
     let maxProfit = 0;
     for (let i = arr.length - 1; i >= 0; i--) {
