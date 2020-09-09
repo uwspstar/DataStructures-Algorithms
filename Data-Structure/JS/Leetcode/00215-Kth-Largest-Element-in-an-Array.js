@@ -17,6 +17,21 @@ Q :
 */
 
 // quick sort fast
+const swap = (arr, x, y) => [arr[x], arr[y]] = [arr[y], arr[x]];
+const partition = (nums, start, end, idx) => {
+    let partition_value = nums[idx]
+    swap(nums, idx, end)
+    let left = start
+    for (var i = start; i < end; i++) {
+        if (nums[i] < partition_value) {
+            swap(nums, i, left)
+            left++
+        }
+    }
+    swap(nums, end, left)
+    return left
+}
+
 const findKthLargest = (nums, k) => {
     let start = 0
     let end = nums.length - 1
@@ -39,32 +54,6 @@ const findKthLargest = (nums, k) => {
     return -1
 }
 
-const partition = (nums, start, end, idx) => {
-    let partition_value = nums[idx]
-
-    swap(nums, idx, end)
-
-    let left = start
-
-    for (var i = start; i < end; i++) {
-        if (nums[i] < partition_value) {
-            swap(nums, i, left)
-            left++
-        }
-    }
-
-    swap(nums, end, left)
-
-    return left
-
-}
-
-const swap = (nums, x, y) => {
-    const tmp = nums[x]
-    nums[x] = nums[y]
-    nums[y] = tmp
-}
-
 //bubble sort slow
 var findKthLargest = function (arr, k) {
     //let count = 0
@@ -74,11 +63,7 @@ var findKthLargest = function (arr, k) {
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
             }
         }
-        //count++
-        //if (k === count) break
-
     }
-    //console.log('k =',k,'count =',count,'arr =',arr, arr[arr.length - k])
     return arr.slice(-k)[0]
 };
 
