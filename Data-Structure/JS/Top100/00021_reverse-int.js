@@ -1,6 +1,8 @@
 /*
 Given an integer, reverse the digits.Do not convert the integer into a string and reverse it.
 
+anything reverse : think about stack first
+
 console.log(reverseInteger(135)) // 531
 console.log(reverseInteger(-321))// -123
 

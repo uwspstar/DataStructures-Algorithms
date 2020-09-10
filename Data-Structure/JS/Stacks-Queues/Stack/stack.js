@@ -1,3 +1,6 @@
+//FILO
+// anything reverse : think about stack first
+
 class Stack {
     #result;
     constructor() {

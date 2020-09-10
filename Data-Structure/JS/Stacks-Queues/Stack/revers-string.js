@@ -18,6 +18,7 @@ class Stack {
         return this.#result;
     }
 }
+// anything reverse : think about stack first
 
 const reverseStr = function (str) {
     let stack = new Stack();

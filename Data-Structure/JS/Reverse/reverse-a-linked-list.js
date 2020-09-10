@@ -1,4 +1,5 @@
 // https://wsvincent.com/javascript-reverse-linked-list/
+// anything reverse : think about stack first
 
 class Node {
     constructor(val) {
