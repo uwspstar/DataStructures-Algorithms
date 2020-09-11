@@ -25,7 +25,7 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n   
-    reverse() {
+    reverse1() {
         let current = this.head;
         let pre = null;
         let next = null;
@@ -39,6 +39,20 @@ class LinkedList {
         this.head = pre; // very important
         return this;
     }
+    reverse() {
+        if (this.head === null) return null;
+        let current = this.head;
+        let pre = null;
+        let next = null;
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre;
+        return this;
+    }
 }
 
 let linkedList = new LinkedList(5);
@@ -46,6 +60,6 @@ linkedList.append(10);
 linkedList.append(20);
 linkedList.append(30);
 linkedList.append(40);
-console.log(JSON.stringify(linkedList));
-console.log(JSON.stringify(linkedList.reverse()));
+console.log('linkedList', JSON.stringify(linkedList));
+console.log('reverse', JSON.stringify(linkedList.reverse()));
 
