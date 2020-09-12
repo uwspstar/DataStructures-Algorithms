@@ -4,7 +4,7 @@
 
 const findUniqueValue = function (arr) {
     if (arr.length < 2) return arr;
-    let countPosition = 0
+    let countPosition = 0;
     let current = 0;
 
     while (current < arr.length) {
@@ -13,19 +13,21 @@ const findUniqueValue = function (arr) {
             arr[countPosition] = arr[current];
         }
         current++;
-
     }
+
     return arr.slice(0, countPosition + 1);
 }
 
 const uniqueValue = function (arr) {
     let i = 0; // as counter
+
     for (let j = 1; j < arr.length; j++) {
         if (arr[i] !== arr[j]) {
             i++;
             arr[i] = arr[j];
         }
     }
+    
     return i + 1;
 }
 
