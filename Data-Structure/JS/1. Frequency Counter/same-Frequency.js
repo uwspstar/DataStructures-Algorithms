@@ -12,7 +12,7 @@ Time: O(N)
 // (212341, 143212)
 const sameFrequency = function (num1, num2) {
     let str1 = num1.toString();
-    let str2 = num2.toString();
+    let str2 = num2.toString(); // if we do not convert to string?
 
     if (str1.length !== str2.length) return false;
 
