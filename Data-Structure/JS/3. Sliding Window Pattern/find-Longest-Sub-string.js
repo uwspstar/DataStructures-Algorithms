@@ -5,7 +5,7 @@ https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
 instead of incrementing the slow pointer up, you simply move it up the fast pointer’s location and then keep moving the fast pointer up. It sort of “jumps” to the index of the fast pointer when a certain condition is met.
 // check linked list find kth last node
 
--- Sliding Window - findLongestSubstring
+Sliding Window - findLongestSubstring
 Write a function called findLongestSubstring, which accepts a string and returns the length of the longest substring with "all distinct characters".
 
 Time Complexity - O(n)
@@ -25,6 +25,7 @@ const findLongestSubstring = function (str) {
     while (fast < str.length) {
         //'rithmschool'
         let index = arr.indexOf(str[fast]); // arr
+
         if (index > -1) { // find on in array 
             arr = arr.slice(index + 1, fast); // slice from the find index, remove the one found and the item before it.
         }
@@ -40,7 +41,7 @@ const findLongestSubstring = function (str) {
  
 function findLongestSubstring1(str) {
     let longest = 0;
-    let seen = {};
+    let seen = {}; // consider to use map
     let start = 0;
 
     for (let i = 0; i < str.length; i++) {

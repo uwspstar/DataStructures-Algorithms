@@ -34,10 +34,10 @@ const lengthOfLongestSubstring = function (str) {
     }
     return result;
 };
-console.log(lengthOfLongestSubstring("bcbdc")); //3
-console.log(lengthOfLongestSubstring("abcabcbb")); //3
-console.log(lengthOfLongestSubstring("bbbb")); //1
-console.log(lengthOfLongestSubstring("bbcd")); //2
+console.log('lengthOfLongestSubstring', lengthOfLongestSubstring("bcbdc")); //3
+console.log('lengthOfLongestSubstring', lengthOfLongestSubstring("abcabcbb")); //3
+console.log('lengthOfLongestSubstring', lengthOfLongestSubstring("bbbb")); //1
+console.log('lengthOfLongestSubstring', lengthOfLongestSubstring("bbcd")); //2
 //"abcabcbb"
 //a ab abc abca
 
