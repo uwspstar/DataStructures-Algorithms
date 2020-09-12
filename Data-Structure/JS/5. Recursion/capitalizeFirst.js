@@ -13,16 +13,5 @@ const capitalizeFirst = function (arr) {
     return result.concat(capitalizeFirst(arr.slice(1)));
 }
 
-console.log(capitalizeFirst(['car', 'taco', 'banana']));
-
-
-const capitalizeFirst = function (arr) {
-    let newArray = [];
-    if (arr.length === 0) {
-        return newArray;
-    }
-    newArray.push(arr[0][0].toUpperCase() + arr[0].slice(1));
-    return newArray.concat(capitalizeFirst(arr.slice(1)));
-}
-
-console.log(capitalizeFirst(["abc", "xing", "hello"]));
+console.log('capitalizeFirst', capitalizeFirst(["abc", "xing", "hello"]));
+console.log('capitalizeFirst', capitalizeFirst(['car', 'taco', 'banana']));
