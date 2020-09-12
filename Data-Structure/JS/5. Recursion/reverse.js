@@ -1,29 +1,26 @@
 /*
-reverse
 Write a recursive function called reverse which accepts a string and returns a new string in reverse.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 
 */
-
 function reverse(str) {
     if (str.length === 1) return str;
     return reverse(str.substring(1, str.length)) + str[0];
 }
 
-console.log(reverse("hello world"));
-
 function reveresStrRecursive(str) {
     if (str.length < 2) return str;
-    //return reverse(str.substring(1, str.length)) + str[0];
     return reverse(str.slice(1, str.length)) + str[0];
 }
-console.log(reveresStrRecursive('awesome'));
+
+console.log('reverse', reverse("hello world"));
+console.log('reveresStrRecursive', reveresStrRecursive('awesome'));
 
 
 function reverse(str) {
     if (str.length < 2) return str;
-    let mid = str.length >>1; // parseInt(str.length / 2)
+    let mid = str.length >> 1; // parseInt(str.length / 2)
     let arr = str.split(''); // only arr can swap
     for (let i = 0; i < mid; i++) {
         [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];

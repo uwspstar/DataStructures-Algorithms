@@ -8,6 +8,5 @@ function recursiveRange(n) {
     return n + recursiveRange(n - 1)
 }
 
-console.log(recursiveRange(6));
-console.log(recursiveRange(10));
- 
+console.log('recursiveRange', recursiveRange(6));
+console.log('recursiveRange', recursiveRange(10));
