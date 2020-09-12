@@ -1,21 +1,19 @@
 // find first pair of nums sum as zero for a "sorted array"
 // check binary search concept; two pointers
 // same as average pair, also check two sum
-//
+
 const sumZero = function (arr) {
-    if (arr.length < 2) return undefined; //at least a pair
+    if (arr.length < 2) return null; //at least a pair
 
     let start = 0;
     let end = arr.length - 1;
 
     while (start < end) {
-
         if (arr[start] + arr[end] === 0) return [arr[start], arr[end]];
-
         arr[start] + arr[end] > 0 ? end-- : start++;
     }
 
-    return undefined;
+    return null;
 }
 const sumZero2 = function (arr) {
     if (arr.length < 2) return undefined;

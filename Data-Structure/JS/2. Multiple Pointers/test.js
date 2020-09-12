@@ -1,3 +1,4 @@
+//O(N) S(N)
 const findUniqueValue = function (arr) {
   if (arr.length < 2) return arr;
   let countPosition = 0
@@ -9,8 +10,8 @@ const findUniqueValue = function (arr) {
       arr[countPosition] = arr[current];
     }
     current++;
-
   }
+  
   return arr.slice(0, countPosition + 1);
 }
 
