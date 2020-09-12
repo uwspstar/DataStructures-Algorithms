@@ -7,20 +7,6 @@ Write a recursive function called flatten which accepts an array of arrays and r
 // flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3]
 */
 
-function flatten(oldArr) {
-    var newArr = [];
-    for (var i = 0; i < oldArr.length; i++) {
-        if (Array.isArray(oldArr[i])) {
-            newArr = newArr.concat(flatten(oldArr[i]));
-        } else {
-            newArr.push(oldArr[i]);
-        }
-    }
-    return newArr;
-}
-
-console.log('flatten', flatten([1, 2, 3, [4, 5]]));
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 
 function flatten(arr) {
@@ -33,6 +19,7 @@ function flatten(arr) {
     help(arr);
     return result;
 }
+
 console.log('flatten', flatten([1, 2, 3, [4, 5]]));
 console.log('flatten', flatten([1, [2, [3, 4], [[5]]]]));
 console.log('flatten', flatten([[1], [2], [3]]));
