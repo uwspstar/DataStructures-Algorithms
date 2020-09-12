@@ -1,4 +1,5 @@
 // q1 : has negative number inside array ?
+// q12 : is sort array ? for array, always ask "sorted?"
 // using new Map() instead of using {}
 // But the plain object has a limitation: its keys have to be strings (or rarely used symbols).
 
@@ -18,6 +19,7 @@ const same = function (arr1, arr2) {
     let map1 = new Map();
     let map2 = new Map();
 
+    // 2 loops better than nest loop
     for (let i = 0; i < arr1.length; i++) {
         let k1 = arr1[i];
         let k2 = arr2[i];
@@ -40,7 +42,7 @@ console.log(same([1, 2, 3], [1, 9])) // false
 console.log(same([1, 2, 1], [4, 4, 1])) // false
 
 const same = function (arr1, arr2) {
-    if (arr1.length != arr2.length) return false;
+    if (arr1.length !== arr2.length) return false;
 
     let obj1 = new Map();
     let obj2 = new Map();
@@ -71,7 +73,7 @@ const same = function (arr1, arr2) {
 }
 
 const same = function (arr1, arr2) {
-    if (arr1.length != arr2.length) return false;
+    if (arr1.length !== arr2.length) return false;
 
     for (let i = 0; i < arr1.length; i++) {
         let rightIndex = arr2.indexOf(arr1[i] ** 2);
