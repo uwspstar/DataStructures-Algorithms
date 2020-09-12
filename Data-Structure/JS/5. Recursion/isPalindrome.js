@@ -13,38 +13,6 @@ const isPalindrome = function (str) {
     return false;
 }
 
-
-const isPalindrome = function (str) {
-    if (str.length === 1) return true;
-    if (str.length === 2) return str[0] === str[1];
-    if (str[0] !== str[str.length - 1]) return false;
-    str = str.slice(1);
-    str = str.slice(0, -1);
-    return isPalindrome(str);
-}
-
-
-function isPalindromeDemo(str) {
-    if (str.length === 1) return true;
-    if (str.length === 2) return str[0] === str[1];
-    if (str[0] !== str[str.length - 1]) return false;
-    return isPalindromeDemo(str.slice(1, -1));
-
-}
-console.log(isPalindrome("abccba"));
-console.log(isPalindrome("abcdcba"));
-console.log(isPalindrome("aebccba"));
-console.log(isPalindrome("awesome"));
-console.log(isPalindrome("foobar"));
-console.log(isPalindrome("tacocat"));
-console.log(isPalindrome("amanaplanacanalpanama"));
-console.log(isPalindrome("amanaplanacanalpandemonium"));
-// isPalindrome('awesome') // false
-// isPalindrome('foobar') // false
-// isPalindrome('tacocat') // true
-// isPalindrome('amanaplanacanalpanama') // true
-// isPalindrome('amanaplanacanalpandemonium') // false
-
 function isPalindrome(str) {
     if (str.length < 2) return true;
     // let str2 = str.split('').reverse().join('');
@@ -69,6 +37,15 @@ const isPalindromeRecursive = function (str) {
     return false;
 }
 
-console.log(isPalindromeRecursive('tacocat')); // true
-console.log(isPalindromeRecursive('amanaplanacanalpanama'));// true
-console.log(isPalindromeRecursive('amanaplanacanalpandemonium')); //false
+console.log('isPalindrome', isPalindrome("abccba"));
+console.log('isPalindrome', isPalindrome("abcdcba"));
+console.log('isPalindrome', isPalindrome("aebccba"));
+console.log('isPalindrome', isPalindrome("awesome"));
+console.log('isPalindrome', isPalindrome("foobar"));
+console.log('isPalindrome', isPalindrome("tacocat"));
+console.log('isPalindrome', isPalindrome("amanaplanacanalpanama"));
+console.log('isPalindrome', isPalindrome("amanaplanacanalpandemonium"));
+
+console.log('isPalindromeRecursive', isPalindromeRecursive('tacocat')); // true
+console.log('isPalindromeRecursive', isPalindromeRecursive('amanaplanacanalpanama'));// true
+console.log('isPalindromeRecursive', isPalindromeRecursive('amanaplanacanalpandemonium')); //false
