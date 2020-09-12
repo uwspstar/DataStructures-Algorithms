@@ -7,15 +7,10 @@ Write a function factorial which accepts a number and returns the factorial of t
 // factorial(4) // 24
 // factorial(7) // 5040
 
-const factorial = function (n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-}
-
 function factorial(n) {
     if (n < 2) return 1
     return n * factorial(n - 1)
 }
 
-console.log(factorial(3)); // 6
-console.log(factorial(4)); // 24
+console.log('factorial', factorial(3)); // 6
+console.log('factorial', factorial(4)); // 24

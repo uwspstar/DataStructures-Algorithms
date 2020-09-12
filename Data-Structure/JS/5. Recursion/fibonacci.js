@@ -20,8 +20,8 @@ function fib(n) {
         if (result[num] !== undefined) return result[num];
         return result[num] = help(num - 1) + help(num - 2);
     }
-    help(n)
-    return result[n]
+    help(n);
+    return result[n];
 }
 
 const fibonacci = function (n) {
@@ -37,8 +37,6 @@ function fibonacci(n) {
     if (n <= 2) return 1;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
-
-console.log(fibonacci(7)); // [1, 1, 2, 3, 5, 8, 13]
 
 const fibonacciArray = function (n) {
     if (n < 2) return [1]; // n = 1, one element
@@ -62,7 +60,7 @@ const fibonacciArray = function (n) {
     help(n);
     return result;
 }
-
-console.log(fibonacciArray(3)); // [ 1, 1, 2 ]
-console.log(fibonacciArray(4)); // [ 1, 1, 2, 3 ]
-console.log(fibonacciArray(5)); // [ 1, 1, 2, 3, 5 ]
+console.log('fibonacci', fibonacci(7)); // [1, 1, 2, 3, 5, 8, 13]
+console.log('fibonacciArray', fibonacciArray(3)); // [ 1, 1, 2 ]
+console.log('fibonacciArray', fibonacciArray(4)); // [ 1, 1, 2, 3 ]
+console.log('fibonacciArray', fibonacciArray(5)); // [ 1, 1, 2, 3, 5 ]
