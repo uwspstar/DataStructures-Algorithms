@@ -19,7 +19,7 @@ function flatten(oldArr) {
     return newArr;
 }
 
-console.log(flatten([1, 2, 3, [4, 5]]));
+console.log('flatten', flatten([1, 2, 3, [4, 5]]));
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 
@@ -33,7 +33,7 @@ function flatten(arr) {
     help(arr);
     return result;
 }
-console.log(flatten([1, 2, 3, [4, 5]]));
-console.log(flatten([1, [2, [3, 4], [[5]]]]));
-console.log(flatten([[1], [2], [3]]));
-console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]));
+console.log('flatten', flatten([1, 2, 3, [4, 5]]));
+console.log('flatten', flatten([1, [2, [3, 4], [[5]]]]));
+console.log('flatten', flatten([[1], [2], [3]]));
+console.log('flatten', flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]));
