@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 # Data Structures in JavaScript
 
 - https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/
@@ -6,18 +10,27 @@
 - https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
 - https://www.geeksforgeeks.org/
 
+---
+
 ### key words
 
+- `reverse`
 - `duplicate` : haspMap, key value; Map(), Set()
 - `sorted`
 - `binary` : sorted
 - `Arrays`, `Maps`, `Sets`, `Stacks`, and `Queues`, `Lists`, `Trees`, `Graphs`
 
+---
+
 ### Code clarity here is more important than saving a few lines on the whiteboard.
+
+---
 
 ### Standard built-in objects
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+
+---
 
 ### SOME PATTERNS...
 
@@ -31,58 +44,93 @@
 
 - https://medium.com/outco/the-algorithm-of-an-algorithm-28043fe47b51
 
+---
+
 ### recursive
 
 - https://towardsdatascience.com/finding-a-recursive-solution-184784b0aea0
 - There are data-structures, such as trees, that are well-suited to recursive algorithms
 - There are even some programming languages with no concept of a loop — purely functional languages such as Haskell depend entirely on recursion for iterative problem solving.
 
+---
+
 ### Sliding Window
 
 - https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
 - 2 pointers, one indicating the index corresponding beginning of the window, and one indicating the end of the window.
 - usually want to keep track of the previous best solution you’ve found if any, and some other current information about the window that takes up O(1) space
-  ### Sliding Window- fast / slow
-  - bit flip
-  - minium window substring
-  - consecutive subarray sum
-  ### Sliding Window- fast / lag
-  - house robber
-  ### Sliding Window- fast / catchup
-  - max consecutive sum
-  - buy sell stocks
-  ### Sliding Window- front / back
-  - rainwater
-  - sorted two sum
+
+---
+
+### Sliding Window- fast / slow
+
+- bit flip
+- minium window substring
+- consecutive subarray sum
+
+---
+
+### Sliding Window- fast / lag
+
+- house robber
+
+---
+
+### Sliding Window- fast / catchup
+
+- max consecutive sum
+- buy sell stocks
+
+---
+
+### Sliding Window- front / back
+
+- rainwater
+- sorted two sum
+
+---
 
 ### Frequency Counter
 
+---
+
 ### Tower of Hanoi Problem.
+
+---
 
 ### BigO
 
 - indexOf is O(n)
 
+---
+
 ### Data Type
 
-- - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+
+---
 
 ### Six Data Types that are primitives
 
-- undefined : typeof instance === "undefined"
-- Boolean : typeof instance === "boolean"
-- Number : typeof instance === "number"
-- String : typeof instance === "string"
-- BigInt : typeof instance === "bigint"
-- Symbol : typeof instance === "symbol"
-- null : typeof instance === "object".
-- Object : typeof instance === "object".
+- `undefined : typeof instance === "undefined"`
+- `Boolean : typeof instance === "boolean"`
+- `Number : typeof instance === "number"`
+- `String : typeof instance === "string"`
+- `Symbol : typeof instance === "symbol"`
+- `null : typeof instance === "object"` // this is history
+- `Object : typeof instance === "object"`
 
 ```
 data structures: new Object, new Array, new Map, new Set, new WeakMap, new WeakSet, new Date
 ```
 
-- Function non data structure, though it also answers for typeof operator: typeof instance === "function".
+---
+
+### Function
+
+- Function non data structure, though it also answers for typeof operator: `typeof instance === "function"`.
+
+---
 
 ### data structures:
 
@@ -95,6 +143,8 @@ data structures: new Object, new Array, new Map, new Set, new WeakMap, new WeakS
 - new WeakMap,
 - new WeakSet,
 - new Date
+
+---
 
 ### new Map()
 
@@ -109,6 +159,8 @@ data structures: new Object, new Array, new Map, new Set, new WeakMap, new WeakS
 - Use Array.from() // transform a map into a 2D key-value Array.from(myMap)
 - Array.from(myMap.keys())
 
+---
+
 ### new Set()
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
@@ -121,25 +173,35 @@ data structures: new Object, new Array, new Map, new Set, new WeakMap, new WeakS
 - let myArr = Array.from(mySet) // convert Set object to an Array object, with Array.from
 - converting between Set and Array
 
+---
+
 ```
 mySet2 = new Set([1, 2, 3, 4])
 mySet2.size    // 4
 [...mySet2]    // [1, 2, 3, 4]
 ```
 
+---
+
 ### Objects vs. Maps
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - When to Use Map instead of Plain JavaScript Object https://dmitripavlutin.com/maps-vs-plain-objects-javascript/
 
+---
+
 ### Keyed collections: Maps, Sets, WeakMaps, WeakSets
 
 - The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+
+---
 
 ### HOW DO YOU IMPROVE?
 
 - Devise a plan for solving problems
 - Master common problem solving patterns
+
+---
 
 ### TOP 10 interview Algorithms
 
@@ -154,12 +216,18 @@ mySet2.size    // 4
 - custom data structure
 - Binary Search , sort list, find the bug commit
 
+---
+
 ### Data Structures in JavaScript: Arrays, HashMaps, and Lists
 
 - https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/
 - using new Nap() instead of using {}
 
+---
+
 ### linear data structures: Arrays, Lists, Sets, Stacks, and Queues.
+
+---
 
 ### Objects , HashMap vs Set
 
@@ -176,6 +244,8 @@ HashMaps in Java.
 Associative arrays in PHP
 ```
 
+---
+
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 - In arrays, the data is referenced using a numeric index (relatively to the position).
 - However, HashMaps uses labels that could be a string, number, object or anything.
@@ -184,6 +254,8 @@ Associative arrays in PHP
 
 - The most common implementation of Maps is using an array and hash function.
 - use the `Map` rather than regular `Object`, since the `Map’s key` could be `anything` while on `Object’s key` can only be `string` or `number`. Also, Maps keeps the order of insertion.
+
+---
 
 ##### HashMap
 
@@ -194,6 +266,8 @@ hashMap[key] ? hashMap[key]++ : hashMap[key] = 1;
 ```
 
 - using `const map = new Map();` instead of using `const map = {};`
+
+---
 
 ### Map
 
@@ -214,6 +288,8 @@ for (let key of Object.keys(plainObjMap)) {
 }
 ```
 
+---
+
 ##### Set
 
 - remove duplicate elements from the array
@@ -233,6 +309,8 @@ new Set("Firefox")  // Set(7) [ "F", "i", "r", "e", "f", "o", "x" ]
 new Set("firefox")  // Set(6) [ "f", "i", "r", "e", "o", "x" ]
 ```
 
+---
+
 ### HashMap vs. Array
 
 - the main difference is that the Array’s index doesn’t have any relationship with the data.
@@ -243,11 +321,17 @@ new Set("firefox")  // Set(6) [ "f", "i", "r", "e", "o", "x" ]
 - In a HashMap you have control of the key and it can be whatever you want: number, string, or symbol.
 - The primary purpose of a HashMap is to reduce the search/access time of an Array from O(n) to O(1).
 
+---
+
 ### Hash Function
 
 - Collisions in HashMaps are unavoidable when using an array-like underlying data structure.
 
+---
+
 ###### Rehash
+
+---
 
 ### Array
 
@@ -255,6 +339,8 @@ new Set("firefox")  // Set(6) [ "f", "i", "r", "e", "o", "x" ]
 - In JavaScript, it would automatically increase the size of the array when needed.
 - JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, `list-like` objects.
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+---
 
 ```
 Function	  Runtime	Description
@@ -266,23 +352,31 @@ array.slice	  O(n)	Returns a copy of the array from beginning to end.
 array.splice	O(n)	Changes (add/remove) the array
 ```
 
+---
+
 ##### forEach
 
 - The `forEach()` method executes a provided function once for each array element.
-- `forEach()` executes the callback function once for each array element; unlike map() or reduce() it always returns the value undefined and is `not chainable`
+- `forEach()` executes the callback function once for each array element;
+- unlike map() or reduce() it always returns the value undefined and is `not chainable`
 - `forEach() does not mutate` the array on which it is called
 - There is no way to stop or break a forEach() loop other than by throwing an exception. If you need such behavior, the forEach() method is the wrong tool.
-- forEach expects a synchronous function
+
+---
+
+- `forEach()` expects a synchronous function
 - In order to display the content of an array in the console, you can use `console.table()`, which prints a formatted version of the array.
-- Since the thisArg parameter (this) is provided to forEach(), it is passed to callback each time it's invoked. The callback uses it as its this value.
+- Since the thisArg parameter (this) is provided to `forEach()`, it is passed to callback each time it's invoked. The callback uses it as its this value.
 - If passing the callback function uses an arrow function expression, the thisArg parameter can be omitted, since all arrow functions lexically bind the this value.
-- forEach() does not make a copy of the array before iterating.
+- `forEach()` does not make a copy of the array before iterating.
 
 ### Polyfill
 
+---
+
 ##### Array.from()
 
-- The Array.from() method `creates a new, shallow-copied Array` instance from an array-like or iterable object.
+- The `Array.from()` method `creates a new, shallow-copied Array` instance from an array-like or iterable object.
 
 ```
 console.log(Array.from('foo')); // expected output: Array ["f", "o", "o"]
