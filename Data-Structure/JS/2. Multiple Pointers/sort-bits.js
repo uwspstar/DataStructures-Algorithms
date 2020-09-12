@@ -58,8 +58,8 @@ const sortBits = function (arr) {
     }
     return [].concat(arr0, arr1);
 }
-console.log(sortBits([0, 1, 0, 0, 1, 1, 0]));
-console.log(sortBits([1, 0, 0, 1, 1, 0]));
+console.log('sortBits', sortBits([0, 1, 0, 0, 1, 1, 0]));
+console.log('sortBits', sortBits([1, 0, 0, 1, 1, 0]));
 
 /*
 [ 1, 0, 0, 1, 1, 0 ] fast= 0 slow= 0

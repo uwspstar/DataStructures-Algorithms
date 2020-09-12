@@ -53,8 +53,6 @@ const sortColor = function (arr) {
     }
     return arr;
 }
-let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-console.log(sortColor(arr));
 
 //O(4N) =  O(N)
 const sortColor2 = function (arr) {
@@ -85,23 +83,6 @@ const sortColor2 = function (arr) {
 
 // O(N), SPACE 
 // brute force
-const sortColor1 = function (arr) {
-    if (arr.length < 2) return arr;
-    let arr0 = [];
-    let arr1 = [];
-    let arr2 = [];
-    for (let i = 0; i < arr.length; i++) {
-        let item = arr[i];
-        if (item === 0) {
-            arr0.push(item);
-        } else if (item === 1) {
-            arr1.push(item);
-        } else {
-            arr2.push(item);
-        }
-    }
-    return [].concat(arr0, arr1, arr2);
-}
 const sortColor1 = function (arr) {
     if (arr.length < 2) return arr;
     let arr0 = [];
@@ -143,7 +124,7 @@ const sortColor = function (arr) {
 
 }
 
-const sortColor = function (arr) {
+const sortColorCountTotal = function (arr) {
     if (arr.length < 2) return arr;
 
     const swap = (arr, i, j) => { [arr[i], arr[j]] = [arr[j], arr[i]] };
@@ -169,5 +150,4 @@ const sortColor = function (arr) {
 
 }
 
-let arr = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1];
-console.log(sortColor(arr));
+console.log('sortColor', sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]));
