@@ -370,6 +370,8 @@ array.splice	O(n)	Changes (add/remove) the array
 - If passing the callback function uses an arrow function expression, the thisArg parameter can be omitted, since all arrow functions lexically bind the this value.
 - `forEach()` does not make a copy of the array before iterating.
 
+---
+
 ### Polyfill
 
 ---
@@ -377,13 +379,16 @@ array.splice	O(n)	Changes (add/remove) the array
 ##### Array.from()
 
 - The `Array.from()` method `creates a new, shallow-copied Array` instance from an array-like or iterable object.
+- Array.from() lets you create Arrays from: `array-like objects` (objects with a length property and indexed elements); or iterable objects (objects such as Map and Set)
+
+---
 
 ```
 console.log(Array.from('foo')); // expected output: Array ["f", "o", "o"]
 console.log(Array.from([1, 2, 3], x => x + x)); // expected output: Array [2, 4, 6]
 ```
 
-- Array.from() lets you create Arrays from: `array-like objects` (objects with a length property and indexed elements); or iterable objects (objects such as Map and Set)
+---
 
 ### String
 
@@ -396,9 +401,13 @@ for (let index = 0; index < stringKey.length; index++) {
   }
 ```
 
+---
+
 ### Linked Lists
 
 - Node
+
+---
 
 ##### Node
 
@@ -420,9 +429,13 @@ class LinkedList {
 }
 ```
 
+---
+
 ### Dynamic Programming I: Fibonacci, Shortest Paths
 
 - https://www.youtube.com/watch?v=OQ5jsbhAv_M&list=RDCMUCEBb1b_L6zDS3xTUrIALZOw&start_radio=1&t=12
+
+---
 
 ### recursion
 
@@ -430,6 +443,9 @@ class LinkedList {
 - JSON.parse / JSON.stringify
 - document.getElementById and DOM traversal algorithms
 - Object traversal
+
+---
+
 - Two essential parts of a recursive function!
   - Base Case
   - Different Input
@@ -437,6 +453,8 @@ class LinkedList {
 - For arrays, use methods like slice, the spread operator, and concat that make copies of arrays so you do not mutate them
 - Remember that strings are immutable so you will need to use methods like slice, substr, or substring to make copies of strings
 - To make copies of objects use Object.assign, or the spread operator
+
+---
 
 ### Searching
 
@@ -451,6 +469,8 @@ class LinkedList {
 - Divide and Conquer
 - Binary Search Pseudocode
 
+---
+
 ```
 This function accepts a sorted array and a value
 Create a left pointer at the start of the array, and a right pointer at the end of the array
@@ -461,6 +481,8 @@ While the left pointer comes before the right pointer:
     If the value is too large, move the right pointer down
 If you never find the value, return -1
 ```
+
+---
 
 ### sort 1
 
@@ -473,6 +495,8 @@ If you never find the value, return -1
 
 - The built-in sort method accepts an optional comparator function
 
+---
+
 ```
 function numberCompare(num1, num2) {
   return num1 - num2;
@@ -481,6 +505,8 @@ function numberCompare(num1, num2) {
 [ 6, 4, 15, 10 ].sort(numberCompare);
 // [ 4, 6, 10, 15 ]
 ```
+
+---
 
 - Before we sort, we must swap!
 
@@ -491,12 +517,16 @@ const swap = (arr, idx1, idx2) => {
 }
 ```
 
+---
+
 ```
 Algorithm	Time Complexity (Best)	Time Complexity (Average)	Time Complexity (Worst)	Space Complexity
 Bubble Sort	O(n)	O(n^2 )	O(n^2)	O(1)
 Insertion Sort	O(n)	O(n^2)	O(n^2)	O(1)
 Selection Sort	O(n^2)	O(n^2)	O(n^2)	O(1)
 ```
+
+---
 
 ### sort 2
 
@@ -509,16 +539,22 @@ FASTER SORTS
 There is a family of sorting algorithms that can improve time complexity from O(n^2  ) to O(n log n)
 ```
 
+---
+
 ### searching
 
-- binary search (sorted arr, O(log n))
+- `binary search` (sorted arr, O(log n))
 - `git bisect` Use binary search to find the commit that introduced a bug
+
+---
 
 ### Differences between HashMap and Array
 
 - Search on an array is O(n) while on a HashMap is O(1)
 - Arrays can have duplicate values, while HashMap cannot have duplicated keys (but they can have duplicate values.)
 - The array has a key (index) that is always a number from 0 to max value, while in a HashMap you have control of the key and it can be whatever you want: number, string, or symbol.
+
+---
 
 ### ES6
 
@@ -530,17 +566,19 @@ There is a family of sorting algorithms that can improve time complexity from O(
 let a = 1;
 let b = 2;
 
-
 [a, b] = [b, a];
-
 console.log(a, b); // 2 1
 ```
+
+---
 
 ### Others
 
 - split array in half `const half = parseInt(array.length / 2);`
 - HashMap implemented with an array
 - https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMap-operations-time-complexity
+
+---
 
 ### others
 
@@ -549,6 +587,10 @@ console.log(a, b); // 2 1
   `var str = array.join('')`
 - Because even though the `if-block` is not executed, the expression `var x` is hoisted.
 
+---
+
 ### Expressions and operators
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
+
+---
