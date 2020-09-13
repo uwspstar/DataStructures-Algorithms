@@ -25,7 +25,7 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n   
-    reverse1() {
+    reverse() {
         let current = this.head;
         let pre = null;
         let next = null;
@@ -37,20 +37,6 @@ class LinkedList {
             current = next;
         }
         this.head = pre; // very important
-        return this;
-    }
-    reverse() {
-        if (this.head === null) return null;
-        let current = this.head;
-        let pre = null;
-        let next = null;
-        while (current) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        this.head = pre;
         return this;
     }
 }
