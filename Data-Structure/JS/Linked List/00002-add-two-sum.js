@@ -1,4 +1,8 @@
-
+/*
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+*/
 class ListNode {
     constructor(val) {
         this.val = val;
@@ -19,11 +23,12 @@ const addTwoNumbers = function (l1, l2) {
 
         tail.next = new ListNode(v % 10);
         tail = tail.next;
+
         carry = v >= 10 ? 1 : 0;
+
         l1 = l1 && l1.next;
         l2 = l2 && l2.next;
     }
 
     return head.next;
-
 };
