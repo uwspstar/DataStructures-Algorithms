@@ -34,6 +34,7 @@ const findMedianSortedArrays = function (arr1, arr2) {
 
 // naive : put two arr in one, and find mid
 // check merge sort
+
 const findMedianSortedArrays = (arr1, arr2) => {
     let result = [];
     while (arr1.length > 0 && arr2.length > 0) {
@@ -50,5 +51,5 @@ const findMedianSortedArrays = (arr1, arr2) => {
 
 }
 
-console.log(findMedianSortedArrays([1, 2], [3, 4]));
-console.log(findMedianSortedArrays([1, 2, 5], [3, 4]));
+console.log(findMedianSortedArrays([1, 2], [3, 4])); // 1.5
+console.log(findMedianSortedArrays([1, 2, 5], [3, 4]));// 3
