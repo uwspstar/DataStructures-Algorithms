@@ -1,5 +1,7 @@
 // key, value
 // if key is unique , one key one value;
+// #variable private variable ES6
+
 class Dictionary {
     #items; //private
     constructor() {
@@ -16,7 +18,7 @@ class Dictionary {
     }
     delete(key) {
         if (this.has(key)) {
-            delete this.#items[key];
+            delete this.#items[key]; // delete obj key
             return true;
         }
         return false;
