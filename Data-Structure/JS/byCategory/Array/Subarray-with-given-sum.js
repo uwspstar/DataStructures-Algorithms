@@ -12,6 +12,7 @@ input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,] , 15 output: [1, 2, 3, 4, 5] // ony need
 3: longestContinuousSubarray
 */
 
+// try slide window, Math.max
 const continuousSubarray = function (arr, sum) {
     if (arr.length === 0) return undefined;
     if (arr.length === 1) return arr[0] === sum;
@@ -41,9 +42,7 @@ const continuousSubarray = function (arr, sum) {
 console.log(continuousSubarray([1, 2, 3, 7, 5], 12));
 
 const shortestContinuousSubarray = function (arr, sum) {
-
 }
 
 const longestContinuousSubarray = function (arr, sum) {
-
 }
