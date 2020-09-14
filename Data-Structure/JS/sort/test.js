@@ -34,13 +34,14 @@ const quickSortHelp = (arr) => {
     }
     return quickSort(arr);
 }
-const mergeSortHelp = (arr) => {
+const mergeSortHelp1 = (arr) => {
     if (arr.length < 2) return arr;
     const merge = (left, right) => {
         if (left.length === 0) return right;
         if (right.length === 0) return left;
         let result = [];
         while (left.length && right.length) {
+            //NOT  while (left && right) //[] is not false, 0 is false
             left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift());
         }
         return result.concat(left, right);
@@ -55,7 +56,27 @@ const mergeSortHelp = (arr) => {
     }
     return mergeSort(arr);
 }
-const insertionSort1 = (arr) => {
+const mergeSortHelp = (arr) => {
+    if (arr.length < 2) return arr;
+    const merge = (left, right) => {
+        if (left.length === 0) return right;
+        if (right.length === 0) return left;
+        let result = [];
+        while (left.length && right.length) {
+            left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift());
+        }
+        return result.concat(left, right);
+    }
+    const mergeSort = (arr) => {
+        if (arr.length < 2) return arr;
+        let mid = arr.length >> 1;
+        let left = mergeSort(arr.slice(0, mid));
+        let right = mergeSort(arr.slice(mid));
+        return merge(left, right);
+    }
+    return mergeSort(arr);
+}
+const insertionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 1; i < arr.length; i++) {
         let current = arr[i];
@@ -65,20 +86,6 @@ const insertionSort1 = (arr) => {
                 arr[j + 1] = arr[j];
             }
             else break;
-        }
-        arr[j + 1] = current;
-    }
-    return arr;
-}
-const insertionSort = (arr) => {
-    if (arr.length < 2) return arr;
-    for (let i = 0; i < arr.length; i++) {
-        let current = arr[i];
-        let j = i - 1;
-        for (; j >= 0; j--) {
-            if (arr[j] > current) {
-                arr[j + 1] = arr[j];
-            } else break;
         }
         arr[j + 1] = current;
     }
