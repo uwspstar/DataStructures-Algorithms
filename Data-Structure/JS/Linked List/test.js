@@ -51,7 +51,7 @@ class LinkedList {
     }
     // 1-->2-->3-->4
     // c   n
-    reverse() {
+    reverse1() {
         if (this.head === null) return null;
         let current = this.head;
         let pre = null;
@@ -65,7 +65,21 @@ class LinkedList {
         this.head = pre; // very important
         return this;
     }
-    findMid1() {
+    reverse() {
+        if (this.head === null) return null;
+        let current = this.head;
+        let next = null;
+        let pre = null;
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        this.head = pre;
+        return this;
+    }
+    findMid() {
         //5 -> 10 -> 20 -> 30 -> 40 -> 50
         if (this.head === null) return null;
         let fast = this.head;
@@ -76,16 +90,6 @@ class LinkedList {
             fast = fast.next.next;
             slow = slow.next;
             console.log('slow=', slow.value);
-        }
-        return slow.value;
-    }
-    findMid() {
-        if (this.head === null) return null;
-        let fast = this.head;
-        let slow = this.head;
-        while (fast && fast.next) {
-            fast = fast.next.next;
-            slow = slow.next;
         }
         return slow.value;
     }
