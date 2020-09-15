@@ -24,12 +24,12 @@ const PowerSet = array => {
         // results length is increased in loop
         for (let i = 0; i < len; i++) {
             let temp = result[i].slice(0) // Make a clone of the value at index i 
-            //console.log('value', value, 'temp', temp, 'result', result);
+            console.log('i', i, 'len',len,'value', value, 'temp', temp, 'result', result);
             temp.push(value) // Add current value to clone
             result.push(temp) // Add clone back to results array
-            
+
         }
-        console.log('value', value, 'result', result);
+        //console.log('value', value, 'result', result);
     }
 
     return result;
