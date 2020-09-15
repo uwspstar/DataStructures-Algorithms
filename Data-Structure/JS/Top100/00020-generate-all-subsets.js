@@ -20,9 +20,9 @@ const PowerSet = array => {
     const result = [[]] // Starting with empty set
 
     for (let value of array) { // For each value of the array
-        const length = result.length // Can't use result.length in loop since 
+        const len = result.length // Can't use result.length in loop since 
         // results length is increased in loop
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < len; i++) {
             let temp = result[i].slice(0) // Make a clone of the value at index i 
             //console.log('value', value, 'temp', temp, 'result', result);
             temp.push(value) // Add current value to clone

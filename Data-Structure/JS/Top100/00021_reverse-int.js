@@ -3,9 +3,6 @@ Given an integer, reverse the digits.Do not convert the integer into a string an
 
 anything reverse : think about stack first
 
-console.log(reverseInteger(135)) // 531
-console.log(reverseInteger(-321))// -123
-
 We can treat the input number like a stack, pop each least significant digit out, and then push it into another integer.
 */
 
