@@ -28,10 +28,12 @@ class Stack {
         return this.#result;
     }
 }
+// revers int also can use stack
 const coverToBinary = function (num) {
     let str = '';
-    let stack = new Stack();
+    let stack = new Stack(); // create a new Stack
     while (num > 0) {
+        //3 -> 1, 
         let mod = num % 2; 
         stack.push(mod)
         num = num >> 1;
