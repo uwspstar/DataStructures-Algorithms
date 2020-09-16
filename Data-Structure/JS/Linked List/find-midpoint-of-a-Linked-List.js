@@ -31,10 +31,20 @@ class SinglyLinkedList {
         }
         return slow;
     }
-    findMidValue() {
+    findMidValue1() {
         let fast = this.head;
         let slow = fast;
         while (fast.next !== null && fast.next.next !== null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.val;
+    }
+    findMidValue() {
+        if (this.head === null) return null;
+        let fast = this.head;
+        let slow = this.head;
+        while (fast && fast.next) {
             fast = fast.next.next;
             slow = slow.next;
         }
@@ -46,6 +56,6 @@ linkedList.append(10);
 linkedList.append(20);
 linkedList.append(30);
 linkedList.append(40);
-console.log(JSON.stringify(linkedList))
-let tmp = linkedList.findMidPoint();
-console.log('findMidPoint = ', JSON.stringify(tmp));
+console.log('linkedList', JSON.stringify(linkedList));
+console.log('findMidPoint = ', JSON.stringify(linkedList.findMidPoint()));
+console.log('findMidValue = ', JSON.stringify(linkedList.findMidValue()));
