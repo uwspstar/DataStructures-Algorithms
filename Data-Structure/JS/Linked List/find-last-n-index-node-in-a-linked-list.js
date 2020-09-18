@@ -17,8 +17,8 @@ class LinkedList {
     constructor(val) {
         this.head = new Node(val);
     }
-    getLastGivenIndexNode(n) {
-        if (this.head === null) return undefined;
+    getLastGivenIndexNode1(n) {
+        if (this.head === null) return null;
         let fast = this.head;
         let slow = this.head;
         while (n > 0) {
@@ -31,8 +31,25 @@ class LinkedList {
             slow = slow.next;
         }
         return slow;
+    } // 5 -> 10 -> 20 -> 30 -> 40 (remove 3)
+    removeKthLastNode(k) {
+        if (this.head === null) return null;
+        let fast = this.head;
+        let slow = this.head;
+        while (k > 0) {
+            fast = fast.next
+            if (fast === null) return undefined;
+            k--;
+        }
+        let Pre = this.head;;
+        while (fast.next !== null) {
+            Pre = slow;
+            fast = fast.next;
+            slow = slow.next; // this is the Kth;
+        }
+        Pre.next = slow.next; // NOT Pre.next = slow
+        return this;
     }
-
     isCircularFastSlow() {
         if (this.head === null) return true;
         // if it is circular in part of nodes
@@ -46,7 +63,6 @@ class LinkedList {
         }
         return false;
     }
-
     append(val) {
         let node = new Node(val);
         if (this.head === null) {
@@ -100,11 +116,12 @@ linkedList.append(10);
 linkedList.append(20);
 linkedList.append(30);
 linkedList.append(40);
-console.log(JSON.stringify(linkedList.getLastGivenIndexNode(3)));
-console.log(JSON.stringify(linkedList.isCircularFastSlow()));
-console.log(JSON.stringify(linkedList.isCircular()));
 
+console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
 /*
+console.log('removeKthLastNode', JSON.stringify(linkedList.removeKthLastNode(3)));
+console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
+console.log('isCircular', JSON.stringify(linkedList.isCircular()));
 console.log(JSON.stringify(linkedList));
 console.log(JSON.stringify(linkedList.findMid()));
 console.log(JSON.stringify(linkedList.reverse()));
