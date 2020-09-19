@@ -42,8 +42,8 @@ pq.enqueue('b', 2);
 pq.enqueue('c', 3);
 pq.enqueue('x', -1);
 
-console.log(pq.getItem());
-console.log(pq.dequeue());
-console.log(pq.dequeue());
-console.log(pq.dequeue());
-console.log(pq.getItem());
+console.log('getItem', pq.getItem());
+console.log('dequeue', pq.dequeue());
+console.log('dequeue', pq.dequeue());
+console.log('dequeue', pq.dequeue());
+console.log('getItem', pq.getItem());

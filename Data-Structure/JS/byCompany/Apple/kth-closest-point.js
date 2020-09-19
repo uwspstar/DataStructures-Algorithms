@@ -1,11 +1,14 @@
 /*
 Given a list of points, an integer k, and a point p, find the k closest points to p.
 */
+const distanceSquared = (p1, p2) => {
+    return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+}
 const closestPoints = (points, k, point) => {
     if (k > points.length) return points;
     let queue = []
     for (let i = 0; i < points.length; i++) {
-        
+
     }
 }
 
