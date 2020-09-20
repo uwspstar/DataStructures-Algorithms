@@ -31,7 +31,7 @@ class LinkedList {
         let pre = null;
         let next = null;
         //5->4->3->2->1
-        while (current !== null) {
+        while (current) {
             next = current.next;
             current.next = pre;
             pre = current;

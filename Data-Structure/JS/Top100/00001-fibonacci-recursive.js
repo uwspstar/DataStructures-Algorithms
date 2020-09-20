@@ -7,7 +7,7 @@ const fib1 = (n) => {
     if (n <= 2) return 1;
 
     const lastTwo = [1, 1];
-    let counter = 3;
+    let count = 3;
     while (count <= n) {
         const nextFib = lastTwo[0] + lastTwo[1];
         lastTwo[0] = lastTwo[1];
@@ -52,7 +52,7 @@ const fibonacciMemo = n => {
         if (memo[n] !== undefined) return memo[n];
         return memo[n] = fib(n - 1) + fib(n - 2);
     }
-    return fib (n);
+    return fib(n);
 }
 
 // 3: recursive , no memo
