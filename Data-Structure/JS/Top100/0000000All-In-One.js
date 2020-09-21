@@ -1,5 +1,18 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
+const reverseInteger = (num) => {
+    if (num >= -9 && num <= 0) return num;
+    let negative = -1;
+    num > 0 ? negative = 1 : num = num * (-1);
+    // 321
+    let result = 0;
+    while (num) {
+        result = result * 10 + num % 10;
+        num = parseInt(num / 10);
+    }
+    return negative * result;
+
+}
 const buySellStock = (arr) => {
     if (arr.length < 2) return null;
     let maxProfit = 0;
@@ -72,3 +85,4 @@ console.log('sortColor', sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]));
 console.log('isBalance: ', isBalance("[{()}]"));//true
 console.log('isPalindrome', isPalindrome('amanaplanacanalpanama')) // true
 console.log('buySellStock', buySellStock([9, 11, 8, 5, 7, 10])); // 5
+console.log('reverseInteger', reverseInteger(-321))// -123
