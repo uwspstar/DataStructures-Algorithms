@@ -17,19 +17,17 @@ const generateAllSubsets = (nums) => {
 // https://stackoverflow.com/questions/42773836/how-to-find-all-subsets-of-a-set-in-javascript#:~:text=You%20can%20easily%20generate%20the,%3D%200%3B%20j%20%3C%20array.
 
 const PowerSet = array => {
-    const result = [[]] // Starting with empty set
+    const result = [[]]; // Starting with empty set
 
     for (let value of array) { // For each value of the array
-        const len = result.length // Can't use result.length in loop since 
+        const len = result.length; // Can't use result.length in loop since 
         // results length is increased in loop
         for (let i = 0; i < len; i++) {
-            let temp = result[i].slice(0) // Make a clone of the value at index i 
-            console.log('i', i, 'len',len,'value', value, 'temp', temp, 'result', result);
-            temp.push(value) // Add current value to clone
-            result.push(temp) // Add clone back to results array
-
+            let temp = result[i].slice(0); // Make a clone of the value at index i 
+            // console.log('i', i, 'len',len,'value', value, 'temp', temp, 'result', result);
+            temp.push(value); // Add current value to clone
+            result.push(temp); // Add clone back to results array 
         }
-        //console.log('value', value, 'result', result);
     }
 
     return result;
