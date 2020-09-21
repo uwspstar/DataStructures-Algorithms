@@ -1,1 +1,1 @@
-function
+ let currentPrice = arr[i];

@@ -1,15 +1,16 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const isPalindrome = function (str) {
-    if (str.length < 2) return true;
-    let left = 0;
-    let right = str.length - 1;
-    while (left < right) {
-        if (str[left] !== str[right]) return false;
-        left++;
-        right--;
+const buySellStock = (arr) => {
+    if (arr.length < 2) return null;
+    let maxProfit = 0;
+    let currentMaxPrice = 0
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let currentPrice = arr[i];
+        currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
+        maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
     }
-    return true;
+
+    return maxProfit;
 }
 const isPalindrome = (str) => {
     if (str.length < 2) return true;
@@ -69,4 +70,5 @@ const fibonacci = function (n) {
 console.log('fibonacci', fibonacci(45)); //1, 1, 2, 3, 5,..., 1134903170
 console.log('sortColor', sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]));
 console.log('isBalance: ', isBalance("[{()}]"));//true
-console.log('',('amanaplanacanalpanama'))
+console.log('isPalindrome', isPalindrome('amanaplanacanalpanama')) // true
+console.log('buySellStock', buySellStock([9, 11, 8, 5, 7, 10])); // 5

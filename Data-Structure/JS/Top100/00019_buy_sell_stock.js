@@ -20,4 +20,4 @@ const buySellStock = (arr) => {
     return maxProfit;
 }
 
-console.log(buySellStock([9, 11, 8, 5, 7, 10]));
+console.log('buySellStock', buySellStock([9, 11, 8, 5, 7, 10])); //5
