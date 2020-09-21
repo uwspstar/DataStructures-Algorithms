@@ -1,1 +1,2 @@
- let currentPrice = arr[i];
+
+console.log('PowerSet', PowerSet([1, 2]))
