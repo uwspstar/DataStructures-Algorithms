@@ -73,7 +73,7 @@ const insertionSort = (arr) => {
     }
     return arr;
 }
-const selectionSort = (arr) => {
+const selectionSort1 = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 0; i < arr.length; i++) {
         let smallIndex = i;
@@ -86,17 +86,14 @@ const selectionSort = (arr) => {
     }
     return arr;
 }
-const bubbleSort1 = (arr) => {
+const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
-    for (let i = arr.length - 1; i >= 0; i--) {
-        let isSwap = false;
-        for (let j = 0; j < i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr, j, j + 1);
-                isSwap = true;
-            }
+    for (let i = 0; i < arr.length; i++) {
+        let smallIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[smallIndex]) smallIndex = j;
         }
-        if (!isSwap) break; // since we start from j = 0, so every time, the biggest one has been put right
+        if (smallIndex !== i) swap(arr, smallIndex, i);
     }
     return arr;
 }
@@ -107,9 +104,10 @@ const bubbleSort = (arr) => {
         for (let j = 0; j < i; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr, j, j + 1);
+                isSwap = true;
             }
         }
-        if (!isSwap) break;
+        if (!isSwap) break; // since we start from j = 0, so every time, the biggest one has been put right
     }
     return arr;
 }

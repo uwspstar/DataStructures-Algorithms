@@ -79,9 +79,51 @@ const fibonacci = function (n) {
     }
     return fib(n);
 }
+const matrixSpiral = (arr) => {
+    if (arr.length < 2) return arr;
 
+    let colStart = 0;
+    let colEnd = arr[0].length - 1;
+    let rowStart = 0;
+    let rowEnd = arr.length - 1;
+
+    let result = [];
+
+    while (colStart < colEnd && rowStart < rowEnd) {
+
+        for (let i = colStart; i <= colEnd; i++) {
+            result.push(arr[rowStart][i])
+        }
+        rowStart++;
+
+        for (let i = rowStart; i <= rowEnd; i++) {
+            result.push(arr[i][colEnd])
+        }
+        colEnd--;
+
+        for (let i = colEnd; i >= colStart; i--) {
+            result.push(arr[rowEnd][i]);
+        }
+        rowEnd--;
+
+        for (let i = rowEnd; i >= rowStart; i--) {
+            result.push(arr[i][colStart]);
+        }
+        colStart++;
+    }
+    return result;
+}
+
+const arr = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20]
+]
+
+console.log('matrixSpiral', JSON.stringify(matrixSpiral(arr)));
 console.log('fibonacci', fibonacci(45)); //1, 1, 2, 3, 5,..., 1134903170
-console.log('sortColor', sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]));
+console.log('sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 console.log('isBalance: ', isBalance("[{()}]"));//true
 console.log('isPalindrome', isPalindrome('amanaplanacanalpanama')) // true
 console.log('buySellStock', buySellStock([9, 11, 8, 5, 7, 10])); // 5

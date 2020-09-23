@@ -9,8 +9,9 @@ pale, bae -> false
 
 //also can put ">" and "<" logic in same function
 
-//O(N) only check 2 cases : str1.length "===" and "<"  str2.length
+// O(N) only check 2 cases : str1.length "===" ; and "<"  str2.length
 // "===" replace; "<" insert;
+
 const oneAway = (str1, str2) => {
 
     if (str1.length > str2.length) return oneAway(str2, str1); // always str1 short
