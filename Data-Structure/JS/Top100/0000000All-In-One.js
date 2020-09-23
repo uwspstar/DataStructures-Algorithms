@@ -75,13 +75,21 @@ const sortColor = (arr) => {
     return arr;
 
 }
-const fibonacci = function (n) {
+const fibonacci1 = function (n) {
     let memo = {};
     const fib = (n) => {
         if (n <= 2) return 1;
         if (memo[n] !== undefined) return memo[n];
         return memo[n] = fib(n - 1) + fib(n - 2);
-
+    }
+    return fib(n);
+}
+const fibonacci = n => {
+    let memo = {};
+    const fib = n => {
+        return n < 3 ? 1
+            : (memo[n] !== undefined) ? memo[n]
+                : memo[n] = fib(n - 1) + fib(n - 2);
     }
     return fib(n);
 }
