@@ -77,6 +77,16 @@ const fibonacciSpace = n => {
 
 }
 
+const fibonacci = n => {
+    let memo = {};
+    const fib = n => {
+        return n < 3 ? 1
+            : (memo[n] !== undefined) ? memo[n]
+                : memo[n] = fib(n - 1) + fib(n - 2);
+    }
+    return fib(n);
+}
+
 //console.log('fib', fib(45))// 1134903170 //very slow
 console.log('fibonacciMemo', fibonacciMemo(45))// 1134903170
 //console.log(fibonacci2(40));

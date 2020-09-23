@@ -19,7 +19,7 @@ const reverseInteger = (num) => {
     return negative * result;
 
 }
-const buySellStock = (arr) => {
+const buySellStock1 = (arr) => {
     if (arr.length < 2) return null;
     let maxProfit = 0;
     let currentMaxPrice = 0
@@ -28,19 +28,17 @@ const buySellStock = (arr) => {
         currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
         maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
     }
-
     return maxProfit;
 }
-const isPalindrome1 = (str) => {
-    if (str.length < 2) return true;
-    let low = 0;
-    let high = str.length - 1;
-    while (low <= high) {
-        if (str[low] !== str[high]) return false;
-        low++;
-        high--;
+const buySellStock = arr => {
+    if (arr.length < 2) return null;
+    let maxProfit = 0;
+    let maxCurrent = 0;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        maxCurrent = Math.max(maxCurrent, arr[i]);
+        maxProfit = Math.max(maxProfit, maxCurrent - arr[i]);
     }
-    return true;
+    return maxProfit;
 }
 const isPalindrome = str => {
     if (str.length < 2) return true;
@@ -68,24 +66,6 @@ const isBalance = arr => {
     }
     return stack.length === 0;
 }
-const sortColor1 = (arr) => {
-    if (arr.length < 2) return arr;
-    let p0 = 0;
-    let p2 = arr.length - 1;
-    let current = 0;
-    while (current <= p2) {
-        if (arr[current] === 2) {
-            swap(arr, current, p2);
-            p2--;
-        } else if (arr[current] === 0) {
-            swap(arr, p0, current);
-            p0++;
-            current++;
-        } else current++;
-    }
-    return arr;
-
-}
 const sortColor = arr => {
     if (arr.length === 1) return arr;
     let current = 0;
@@ -103,21 +83,12 @@ const sortColor = arr => {
     }
     return arr;
 }
-const fibonacci1 = function (n) {
+const fibonacci = function (n) {
     let memo = {};
     const fib = (n) => {
         if (n <= 2) return 1;
         if (memo[n] !== undefined) return memo[n];
         return memo[n] = fib(n - 1) + fib(n - 2);
-    }
-    return fib(n);
-}
-const fibonacci = n => {
-    let memo = {};
-    const fib = n => {
-        return n < 3 ? 1
-            : (memo[n] !== undefined) ? memo[n]
-                : memo[n] = fib(n - 1) + fib(n - 2);
     }
     return fib(n);
 }
@@ -155,8 +126,11 @@ const matrixSpiral = (arr) => {
     }
     return result;
 }
-
-
+// this is swap
+// a, b   order is important
+// a = a + b
+// b = a - b
+// a = a - b
 console.log('matrixSpiral', JSON.stringify(matrixSpiral(arr)));
 console.log('fibonacci', fibonacci(45)); //1, 1, 2, 3, 5,..., 1134903170
 console.log('sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
