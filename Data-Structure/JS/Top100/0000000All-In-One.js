@@ -6,7 +6,7 @@ const arr = [
 ]
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const reverseInteger = (num) => {
+const reverseInteger1 = (num) => {
     if (num >= -9 && num <= 0) return num;
     let negative = -1;
     num > 0 ? negative = 1 : num = num * (-1);
@@ -19,16 +19,16 @@ const reverseInteger = (num) => {
     return negative * result;
 
 }
-const buySellStock1 = (arr) => {
-    if (arr.length < 2) return null;
-    let maxProfit = 0;
-    let currentMaxPrice = 0
-    for (let i = arr.length - 1; i >= 0; i--) {
-        let currentPrice = arr[i];
-        currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
-        maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
+const reverseInteger = num => {
+    if (num <= 9 && num >= -9) return num;
+    let negative = -1;
+    num > 0 ? negative = 1 : num = num * negative;
+    let result = 0;
+    while (num > 0) {
+        result = result * 10 + num % 10;
+        num = parseInt(num / 10);
     }
-    return maxProfit;
+    return result * negative;
 }
 const buySellStock = arr => {
     if (arr.length < 2) return null;
