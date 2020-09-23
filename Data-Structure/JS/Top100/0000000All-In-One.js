@@ -6,19 +6,6 @@ const arr = [
 ]
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
-const reverseInteger1 = (num) => {
-    if (num >= -9 && num <= 0) return num;
-    let negative = -1;
-    num > 0 ? negative = 1 : num = num * (-1);
-    // 321
-    let result = 0;
-    while (num) {
-        result = result * 10 + num % 10;
-        num = parseInt(num / 10);
-    }
-    return negative * result;
-
-}
 const reverseInteger = num => {
     if (num <= 9 && num >= -9) return num;
     let negative = -1;
