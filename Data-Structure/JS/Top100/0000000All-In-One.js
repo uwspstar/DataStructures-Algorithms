@@ -42,7 +42,7 @@ const isPalindrome = (str) => {
     }
     return true;
 }
-const isBalance = (arr) => {
+const isBalance1 = (arr) => {
     if (arr.length % 2 !== 0) return false;
     let map = { "[": "]", "(": ")", "{": "}", }
     let stock = [];
@@ -57,7 +57,22 @@ const isBalance = (arr) => {
     }
     return stock.length === 0;
 }
-const sortColor = (arr) => {
+const isBalance = arr => {
+    if (arr.length % 2 !== 0) return false;
+    let map = { "{": "}", "[": "]", "(": ")" };
+    let stack = [];
+    for (let i = 0; i < arr.length; i++) {
+        let key = arr[i];
+        if (map[key]) {
+            stack.push(key);
+        } else {
+            let last = stack.pop();
+            if (map[last] !== key) return false;
+        }
+    }
+    return stack.length === 0;
+}
+const sortColor1 = (arr) => {
     if (arr.length < 2) return arr;
     let p0 = 0;
     let p2 = arr.length - 1;
@@ -74,6 +89,23 @@ const sortColor = (arr) => {
     }
     return arr;
 
+}
+const sortColor = arr => {
+    if (arr.length === 1) return arr;
+    let current = 0;
+    let p0 = 0;
+    let p2 = arr.length - 1;
+    while (current <= p2) {
+        if (arr[current] === 2) {
+            swap(arr, current, p2);
+            p2--;
+        } else if (arr[current] === 0) {
+            swap(arr, current, p0);
+            p0++;
+            current++;
+        } else current++;
+    }
+    return arr;
 }
 const fibonacci1 = function (n) {
     let memo = {};
