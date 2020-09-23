@@ -31,7 +31,7 @@ const buySellStock = (arr) => {
 
     return maxProfit;
 }
-const isPalindrome = (str) => {
+const isPalindrome1 = (str) => {
     if (str.length < 2) return true;
     let low = 0;
     let high = str.length - 1;
@@ -42,20 +42,16 @@ const isPalindrome = (str) => {
     }
     return true;
 }
-const isBalance1 = (arr) => {
-    if (arr.length % 2 !== 0) return false;
-    let map = { "[": "]", "(": ")", "{": "}", }
-    let stock = [];
-    for (let i = 0; i < arr.length; i++) {
-        let key = arr[i];
-        if (map[key]) {
-            stock.push(arr[i]);
-        } else {
-            let last = stock.pop(); // not arr.pop()
-            if (key !== map[last]) return false;
-        }
+const isPalindrome = str => {
+    if (str.length < 2) return true;
+    let start = 0;
+    let end = str.length - 1;
+    while (start <= end) {
+        if (str[start] !== str[end]) return false;
+        start++;
+        end--;
     }
-    return stock.length === 0;
+    return true;
 }
 const isBalance = arr => {
     if (arr.length % 2 !== 0) return false;
