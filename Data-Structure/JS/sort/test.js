@@ -73,7 +73,7 @@ const insertionSort = (arr) => {
     }
     return arr;
 }
-const selectionSort1 = (arr) => {
+const selectionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 0; i < arr.length; i++) {
         let smallIndex = i;
@@ -83,17 +83,6 @@ const selectionSort1 = (arr) => {
             }
         }
         if (smallIndex !== i) swap(arr, i, smallIndex);
-    }
-    return arr;
-}
-const selectionSort = (arr) => {
-    if (arr.length < 2) return arr;
-    for (let i = 0; i < arr.length; i++) {
-        let smallIndex = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[smallIndex]) smallIndex = j;
-        }
-        if (smallIndex !== i) swap(arr, smallIndex, i);
     }
     return arr;
 }
