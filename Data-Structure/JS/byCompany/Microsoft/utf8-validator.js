@@ -48,18 +48,7 @@ def utf8_validator(bytes):
       return False
   return True
 
-print utf8_validator([0b00000000])
-# True
-print utf8_validator([0b00000000, 10000000])
-# False
-print utf8_validator([0b11000000, 10000000])
-# True
-
 The time complexity of the solution is O(1) since the solution only checks 4 bytes.
-
-
-
-
 */
 const utf8Validator = (arr) => {
 
