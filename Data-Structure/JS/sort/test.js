@@ -5,7 +5,7 @@
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-const quickSortHelp = (arr) => {
+const quickSortHelp1 = (arr) => {
 
     if (arr.length < 2) return arr;
     // getPivotIndex with Swap
@@ -34,7 +34,7 @@ const quickSortHelp = (arr) => {
     }
     return quickSort(arr);
 }
-const mergeSortHelp = (arr) => {
+const mergeSortHelp1 = (arr) => {
     if (arr.length < 2) return arr;
 
     const merge = (left, right) => {
@@ -57,6 +57,17 @@ const mergeSortHelp = (arr) => {
     }
 
     return mergeSort(arr);
+}
+const mergeSortHelp = (arr) => {
+    if (arr.length < 2) return arr;
+    const merge = (left, right) => { 
+        if (left.length === 0) return right;
+        if (right.length === 0) return left;
+        while (left.length && right.length) {
+            
+        }
+
+    }
 }
 const insertionSort = (arr) => {
     if (arr.length < 2) return arr;
@@ -100,7 +111,7 @@ const bubbleSort = (arr) => {
     }
     return arr;
 }
-console.log('quickSortHelp', quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
+//console.log('quickSortHelp', quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('mergeSortHelp', mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('insertionSort', insertionSort([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('selectionSort', selectionSort([8, 1, 2, 3, 4, 5, 6, 7]));
