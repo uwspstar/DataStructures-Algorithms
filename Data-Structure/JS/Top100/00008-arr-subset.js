@@ -5,6 +5,7 @@ const arrSubset = (arr) => {
         const len = result.length;
         for (let i = 0; i < len; i++) {
             let temp = result[i].slice(0);
+            console.log('value', value, 'i', i, 'temp', temp, 'len', len);
             temp.push(value);
             result.push(temp);
         }
