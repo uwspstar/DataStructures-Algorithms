@@ -2,14 +2,12 @@
 // [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]] -- working
 // [str[i], str[str.length - 1 - i]] = [str[str.length - 1 - i], str[i]] -- not working 
 
+// ES6
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-
-
 
 function swap(arr, i, j) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
 }
-
 
 let a = 123;
 let b = 456;

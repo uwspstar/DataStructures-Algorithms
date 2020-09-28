@@ -3,6 +3,7 @@
 // str to obj : JSON.parse(json)
 // obj to str : JSON.stringify(content_of_some_variable_object)
 
+//Json key double quote
 
 const json = '{"result":true, "count":42}';
 const obj = JSON.parse(json);

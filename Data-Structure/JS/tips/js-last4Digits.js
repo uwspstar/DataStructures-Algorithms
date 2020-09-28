@@ -1,6 +1,8 @@
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+
 //str.padStart(targetLength [, padString])
+//ES6 padStart, padEnd
 
 const str1 = '5';
 console.log(str1.padStart(2, '0'));
@@ -16,7 +18,6 @@ console.log(maskedNumber);
 
 /*
 'abc'.padStart(10);         // "       abc"
-'abc'.padStart(10, "foo");  // "foofoofabc"
 'abc'.padStart(6,"123465"); // "123abc"
 'abc'.padStart(8, "0");     // "00000abc"
 'abc'.padStart(1);          // "abc"
