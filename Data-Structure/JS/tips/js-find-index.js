@@ -7,3 +7,4 @@ String.indexOf()
 String.lastIndexOf()
 String.search()
 */
+// ES6  has include()

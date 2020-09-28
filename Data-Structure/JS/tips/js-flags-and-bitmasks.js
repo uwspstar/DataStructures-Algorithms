@@ -12,9 +12,6 @@ let FLAG_D = 8; // 1000
 
 let mask = FLAG_A | FLAG_B | FLAG_D; // 0001 | 0010 | 1000 => 1011
 
-*/
-
-/*
 Bitwise NOT (~)
 console.log(~170); // -171
 
@@ -24,6 +21,8 @@ JavaScript bitwise operators convert their operands to 32-bit signed integers in
 
 ~ 0 => -(0 + 1) => -1
 ~ -1 => -(-1 + 1) => 0
+
 ~ 2147483647 => -(2147483647 + 1) => -2147483648
-~ -2147483648 => -(-2147483648 + 1) =>2 147483647
+~ -2147483648 => -(-2147483648 + 1) =>2147483647
+
 */
