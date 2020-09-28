@@ -113,11 +113,25 @@ const matrixSpiral = (arr) => {
     }
     return result;
 }
+const arrSubset = (arr) => {
+    if (arr.length === 1) return [[], arr]
+    let result = [[]];
+    for (let value of arr) {
+        const len = result.length;
+        for (let i = 0; i < len; i++) {
+            let temp = result[i].slice(0);
+            temp.push(value);
+            result.push(temp);
+        }
+    }
+    return result;
+}
 // this is swap
 // a, b   order is important
 // a = a + b
 // b = a - b
 // a = a - b
+console.log('arrSubset', JSON.stringify(arrSubset([1, 2, 3])));
 console.log('matrixSpiral', JSON.stringify(matrixSpiral(arr)));
 console.log('fibonacci', fibonacci(45)); //1, 1, 2, 3, 5,..., 1134903170
 console.log('sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
