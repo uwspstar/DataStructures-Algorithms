@@ -7,7 +7,7 @@ const entries = new Map([
 
 const obj = Object.fromEntries(entries);
 
-console.log(obj); // expected output: Object { foo: "bar", baz: 42 }
+console.log('obj', Object.fromEntries(entries)); // expected output: Object { foo: "bar", baz: 42 }
 
 let obj = [...map.entries()].reduce((obj, [key, value]) => (obj[key] = value, obj), {});
 

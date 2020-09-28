@@ -1,6 +1,9 @@
 // https://blog.logrocket.com/interesting-use-cases-for-javascript-bitwise-operators/
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators
 
+// &  : check even and odd
+// >> : find arr mid
+
 /*
 ------------------------------------------------------------------------
 Operator	    Description	Example	        Same as	Result	Decimal
@@ -13,7 +16,6 @@ Operator	    Description	Example	        Same as	Result	Decimal
 -------------------------------------------------------------------------
 ~ 0 => -1
 ~ -1 => 0
-
 
 operator	    Usage	Description
 Bitwise AND	    a & b	Returns a 1 in each bit position for which the corresponding bits of both operands are 1s.
