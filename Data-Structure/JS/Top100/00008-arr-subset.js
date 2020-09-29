@@ -11,11 +11,14 @@ const arrSubset = (arr) => {
         const len = result.length;
         for (let i = 0; i < len; i++) {
             console.log('result[i] =', JSON.stringify(result[i]));
-            let temp = result[i].slice(0);
+            let temp = result[i].slice(0); // using slice(0) does not change temp, because next step temp.push will change temp; if we use temp = result[i], result[i] change
 
             console.log('value =', value, ', i =', i, ', temp =', result[i].slice(0), ', len =', len, ', result[i] =', result[i]);
 
             temp.push(value);
+            console.log('result[i] =', JSON.stringify(result[i]));
+            console.log('result =', JSON.stringify(result));
+            console.log('temp =', JSON.stringify(temp));
             result.push(temp);
             console.log('temp =', JSON.stringify(temp));
             console.log('result =', JSON.stringify(result));
