@@ -57,6 +57,7 @@ const quickSortHelp = (arr) => {
         }
         return arr;
     }
+    return quickSor(arr);
 
 
 }
