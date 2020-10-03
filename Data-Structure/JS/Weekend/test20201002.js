@@ -46,6 +46,6 @@ const insertionSort = (arr) => {
 console.log('quickSortHelp', quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 console.log('mergeSortHelp', mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
 */
-//console.log('insertionSort', insertionSort([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('selectionSort', selectionSort([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('bubbleSort', bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]));
+console.log('insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
