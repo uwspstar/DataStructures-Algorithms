@@ -100,8 +100,11 @@ const bubbleSort = (arr) => {
     }
     return arr;
 }
-console.log('quickSortHelp', quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('mergeSortHelp', mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('insertionSort', insertionSort([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('selectionSort', selectionSort([8, 1, 2, 3, 4, 5, 6, 7]));
-console.log('bubbleSort', bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]));
+
+console.log('================ start sort ================');
+console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('1: bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
+console.log('================ end sort ================');
