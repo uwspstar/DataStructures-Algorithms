@@ -5,7 +5,7 @@
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-const quickSortHelp1 = (arr) => {
+const quickSortHelp = (arr) => {
 
     if (arr.length < 2) return arr;
     // getPivotIndex with Swap
@@ -33,33 +33,6 @@ const quickSortHelp1 = (arr) => {
         return arr;
     }
     return quickSort(arr);
-}
-const quickSortHelp = (arr) => {
-    if (arr.length < 2) return arr;
-    let getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
-        let pi = low;
-        let pivot = arr[high];
-        for (let i = low; i <= high; i++) {
-            if (arr[i] < pivot) {
-                swap(arr, i, pi)
-                pi++;
-            }
-        }
-        swap(arr, pi, high);
-        return pi;
-    }
-    const quickSor = (arr, low = 0, high = arr.length - 1) => {
-        if (arr.length < 2) return arr;
-        if (low < high) {
-            let pi = getPivotIndex(arr, low, high);
-            quickSor(arr, low, pi - 1);
-            quickSor(arr, pi + 1, high);
-        }
-        return arr;
-    }
-    return quickSor(arr);
-
-
 }
 const mergeSortHelp = (arr) => {
     if (arr.length < 2) return arr;
