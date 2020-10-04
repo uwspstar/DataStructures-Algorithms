@@ -25,6 +25,16 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+// reverseInteger
+{
+
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+}
+// buySellStock
+{
+
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+}
 // fibEndCall - tail call
 {
     console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
@@ -32,4 +42,10 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 // fibonacci - memo
 {
     console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+}
+// isBalance
+{
+
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }

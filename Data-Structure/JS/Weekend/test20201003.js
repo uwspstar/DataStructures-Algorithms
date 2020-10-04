@@ -111,6 +111,37 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+// reverseInteger
+{
+    const reverseInteger = (num) => {
+        if (num < 10 && num > -10) return num;
+        let negativeFlag = -1;
+        num < 0 ? num = num * negativeFlag : negativeFlag = 1;
+        // - 321 -> 321-> 1 , 32
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * negativeFlag;
+    }
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+}
+// buySellStock
+{
+    const buySellStock = (arr) => {
+        if (arr.length < 2) return null;
+        let maxProfit = 0;
+        let currentMaxPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+}
 // fib
 {
     const fibEndCall = (n, f1 = 1, f2 = 1) => {
@@ -131,4 +162,24 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         return fib(n);
     }
     console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+}
+// isBalance
+{
+    const isBalance = (arr) => {
+        if (arr.length % 2 === 1) return false;
+        let map = { "(": ")", "{": "}", "[": "]" };
+        let stack = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                stack.push(key);
+            } else {
+                let last = stack.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return stack.length === 0;
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
