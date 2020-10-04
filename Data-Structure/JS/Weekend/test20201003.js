@@ -183,3 +183,39 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
+// isPalindrome
+{
+    const isPalindrome = (arr) => {
+        if (arr.length === 1) return true;
+        let startPoint = 0;
+        let endPoint = arr.length - 1;
+        while (startPoint < endPoint) {
+            if (arr[startPoint] !== arr[endPoint]) return false;
+            startPoint++;
+            endPoint--;
+        }
+        return true;
+    }
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+}
+// sortColor
+{
+    const sortColor = arr => {
+        if (arr.length < 2) return arr;
+        let p0 = 0;
+        let current = 0;
+        let p2 = arr.length - 1;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+}

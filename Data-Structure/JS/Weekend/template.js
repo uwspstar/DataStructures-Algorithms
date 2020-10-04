@@ -49,3 +49,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
+// isPalindrome
+{
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+}
