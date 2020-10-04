@@ -25,3 +25,11 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+// fibEndCall - tail call
+{
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+}
+// fibonacci - memo
+{
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+}

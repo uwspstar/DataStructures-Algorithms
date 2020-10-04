@@ -1,5 +1,5 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-//bubbleSort
+// bubbleSort
 {
     const bubbleSort = (arr) => {
         if (arr.length < 2) return arr;
@@ -16,7 +16,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     console.log('1: bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
 }
-//selectionSort
+// selectionSort
 {
     const selectionSort = (arr) => {
         if (arr.length < 2) return arr;
@@ -36,7 +36,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
     console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 }
-//insertionSort
+// insertionSort
 {
     const insertionSort = (arr) => {
         if (arr.length < 2) return arr;
@@ -55,7 +55,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 
 }
-//mergeSort
+// mergeSort
 {
     const mergeSortHelp = (arr) => {
         if (arr.length < 2) return arr;
@@ -82,7 +82,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 
 }
-//quickSort
+// quickSort
 {
     const quickSortHelp = (arr) => {
         if (arr.length < 2) return arr;
@@ -118,4 +118,17 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         return fibEndCall(n - 1, f2, f1 + f2);
     }
     console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+}
+// fib
+{
+    const fibonacci = (n) => {
+        let memo = {};
+        const fib = (n) => {
+            if (memo[n]) return memo[n];
+            if (n < 3) return 1;
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
