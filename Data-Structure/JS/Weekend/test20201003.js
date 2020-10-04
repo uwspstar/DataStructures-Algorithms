@@ -1,4 +1,10 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+const arr = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20]
+]
 // bubbleSort
 {
     const bubbleSort = (arr) => {
@@ -218,4 +224,36 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         return arr;
     }
     console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+}
+// matrixSpiral
+{
+    const matrixSpiral = arr => {
+        if (arr.length < 2) return arr;
+        let result = [];
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        while (rowStart < rowEnd && colStart < colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            }
+            rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            }
+            colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            }
+            rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            }
+            colStart++;
+        }
+        return result;
+    }
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
