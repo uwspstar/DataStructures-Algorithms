@@ -111,3 +111,11 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+// fib
+{
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f1 + f2);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+}
