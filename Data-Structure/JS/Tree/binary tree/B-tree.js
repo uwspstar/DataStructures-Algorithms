@@ -1,4 +1,50 @@
 // Left < Parent < right
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+    //8,3,2,9
+    insertNode(node, newNode) {
+        if (node.value > newNode.value) {
+            //move to right
+            node.right === null
+                ? node.right = newNode
+                : this.insertNode(node.right, newNode);
+        } else if (node.value < newNode.value) {
+            //move to left
+            node.left === null
+                ? node.left = newNode
+                : this.insertNode(node.left, newNode);
+        }
+    }
+    insert(value) {
+        const newNode = new Node(value);
+        return this.root === null
+            ? this.root = newNode
+            : this.insertNode(this.root, newNode); // cannot use insertNode(this.root, newNode)
+    }
+    getRoot() {
+        return this.root;
+    }
+}
+
+let t = new Tree();
+t.insert(8);
+t.insert(3);
+t.insert(2);
+t.insert(9);
+
+console.log("t-root", JSON.stringify(t));
+
+
 /*
 const Tree = function () {
     const Node = function (value) {
