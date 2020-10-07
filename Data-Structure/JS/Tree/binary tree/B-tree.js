@@ -1,7 +1,7 @@
 // Left < Parent < right
-
-var Tree = function () {
-    var Node = function (value) {
+/*
+const Tree = function () {
+    const Node = function (value) {
         this.value = value;
         this.left = null; // initial is null
         this.right = null; // initial is null
@@ -28,8 +28,7 @@ var Tree = function () {
     this.insert = function (value) {
         var newNode = new Node(value)
         if (root === null) return root = newNode;
-        insertNode(root, newNode);
-
+        return insertNode(root, newNode);
     }
 
     this.search = function (value) {
@@ -43,4 +42,16 @@ var Tree = function () {
     this.remove = function (value) {
 
     }
+
+    this.getTree = function () {
+        return this.root;
+    }
 }
+
+let tree = new Tree();
+tree.insert(8);
+tree.insert(3);
+tree.insert(2);
+tree.insert(9);
+console.log('tree.root', JSON.stringify(tree.getTree()));
+*/
