@@ -32,3 +32,25 @@ console.log(root);
 //   /  \
 //  20   30
 ```
+
+---
+
+```js
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+class BTree {
+  constructor() {
+    this.root = null;
+  }
+  insertNode(node, newNode) {}
+  insert(value) {}
+  traverse(value) {}
+  search(value) {}
+  remove(value) {}
+}
+```
