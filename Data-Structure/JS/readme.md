@@ -594,3 +594,57 @@ console.log(a, b); // 2 1
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
 
 ---
+
+### Tree
+
+- Tree Data Structures in JavaScript for Beginners https://adrianmejia.com/data-structures-for-beginners-trees-binary-search-tree-tutorial/
+- the HTML DOM uses a tree data structure to represents the hierarchy of elements.
+
+```js
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.children = [];
+  }
+}
+```
+
+---
+
+### Tree data structures have many applications such as:
+
+- Maps
+- Sets
+- Databases
+- Priority Queues
+- Querying an LDAP (Lightweight Directory Access Protocol)
+- Representing the Document Object Model (DOM) for HTML on Websites.
+
+---
+
+### Binary Trees
+
+- Trees nodes can have zero or more children. However, when a tree has at the most two children, then it’s called binary tree.
+
+---
+
+### Binary Search Tree (BST)
+
+- left children value must be less than the parent, and the right children is must be higher.
+- left < parent < right rule.
+
+```js
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+    this.size = 0;
+  }
+  add(value) {}
+  find(value) {}
+  remove(value) {}
+  getMax() {}
+  getMin() {}
+}
+```
+
+---

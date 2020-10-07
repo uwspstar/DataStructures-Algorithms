@@ -1,6 +1,13 @@
 
 // insert remove search traverse
 // not class inside class
+// search right place to insert
+// traverse
+// stack LIFO
+// recursive
+// https://www.youtube.com/watch?v=Nuw7X2VzOwg&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=23
+
+
 class Node {
     constructor(value) {
         this.value = value;
@@ -74,16 +81,7 @@ t.insert(2);
 t.insert(3);
 t.insert(9);
 console.log(JSON.stringify(t.getRoot()));
-/*
 
-class Node {
-    constructor(val) {
-        this.value = val;
-        this.left = null;
-        this.right = null;
-    }
-}
-*/
 /*
 const Tree = function () {
     const Node = function (val) {
