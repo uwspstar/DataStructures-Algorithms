@@ -1,8 +1,8 @@
 
 // insert remove search traverse
 // not class inside class
-// search right place to insert
 // traverse
+// search right place to insert
 // stack LIFO
 // recursive
 // https://www.youtube.com/watch?v=Nuw7X2VzOwg&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=23
