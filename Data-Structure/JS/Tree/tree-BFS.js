@@ -1,5 +1,5 @@
 // TRAVERSING A TREE
-// Two ways:
+// Two ways: traverse , traverseNode(node, callback)
 
 // Breadth-first Search (BFS)
 // Depth-first Search (DFS)

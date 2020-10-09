@@ -33,7 +33,10 @@ class Tree {
             ? this.root = newNode
             : this.insertNode(this.root, newNode)
     }
+    traverseNode(node, callback)
+    traverse(value){
 
+    }
     getRoot() {// test
         return this.root;
     }

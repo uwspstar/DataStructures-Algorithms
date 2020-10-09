@@ -49,7 +49,7 @@ class BTree {
   }
   insertNode(node, newNode) {}
   insert(value) {}
-  traverse(value) {}
+  traversal(value) {}
   search(value) {}
   remove(value) {}
 }
