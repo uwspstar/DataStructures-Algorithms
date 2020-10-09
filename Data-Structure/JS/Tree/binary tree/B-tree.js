@@ -40,14 +40,15 @@ class Tree {
         callback(node.value);
     }
     traversal(callback) {
-        traverseNode(root, this.print);
+        traverseNode(root, callback);
     }
     getRoot() {
         return this.root;
     }
-    print(value) {
-        console.log('value: ', value);
-    }
+
+}
+function print(value) {
+    console.log('value: ', value);
 }
 
 let t = new Tree();
@@ -55,6 +56,7 @@ t.insert(8);
 t.insert(3);
 t.insert(2);
 t.insert(9);
+t.traversal(print);
 
 console.log("t-root", JSON.stringify(t));
 
