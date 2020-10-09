@@ -26,13 +26,15 @@ class Tree {
             }
         }
     }
+
     insert(value) {
         const newNode = new Node(value);
         return this.root === null
             ? this.root = newNode
             : this.insertNode(this.root, newNode)
     }
-    getRoot() {
+
+    getRoot() {// test
         return this.root;
     }
 }
