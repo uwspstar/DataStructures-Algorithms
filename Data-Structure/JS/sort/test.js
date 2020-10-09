@@ -86,7 +86,7 @@ const selectionSort = (arr) => {
     }
     return arr;
 }
-const bubbleSort = (arr) => {
+const bubbleSort1 = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = arr.length - 1; i >= 0; i--) {
         let isSwap = false;
@@ -97,6 +97,19 @@ const bubbleSort = (arr) => {
             }
         }
         if (!isSwap) break; // since we start from j = 0, so every time, the biggest one has been put right
+    }
+    return arr;
+}
+const bubbleSort = (arr) => {
+    if (arr.length < 2) return arr;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let isSwap = false;
+        for (let j = 0; j < i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr, j, j + 1);
+            }
+        }
+        if (!isSwap) break;
     }
     return arr;
 }
