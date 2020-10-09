@@ -1,3 +1,16 @@
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+class Tree {
+
+}
+
+
+/*
 var Tree = function () {
     var node = function (value) {
         this.value = value;
@@ -22,4 +35,4 @@ var Tree = function () {
     this.remove = function (value) {
 
     }
-}
+}*/
