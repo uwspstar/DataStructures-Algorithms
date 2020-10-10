@@ -1,5 +1,10 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-
+const arr = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20]
+]
 //bubbleSort
 {
     console.log('1: bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
@@ -54,6 +59,16 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 {
     console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
+// sortColor
+{
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+}
+// matrixSpiral
+{
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
+}
+//
 // LinkList
 {
     class Node {

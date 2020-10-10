@@ -161,13 +161,47 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 // isBalance
 {
-
+    const isBalance = (arr) => {
+        if (arr.length % 2 !== 0) return false;
+        let result = [];
+        let map = { "[": "]", "{": "}", "(": ")" };
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                result.push(key);
+            } else {
+                last = result.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return result.length === 0;
+    }
     console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
+    const isPalindrome = (arr) => {
+        if (arr.length === 1) return true;
+        let startIndex = 0;
+        let endIndex = arr.length - 1;
+        while (startIndex <= endIndex) {
+            if (arr[startIndex] !== arr[endIndex]) return false;
+            startIndex++;
+            endIndex--;
+        }
+        return true;
+    }
     console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+}
+// sortColor
+{
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+}
+// matrixSpiral
+{
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
 // LinkList
 {
@@ -185,7 +219,6 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         reverse() { }
         findMiddle() { }
         findLastKth(k) { }
-
     }
 }
 // Tree
