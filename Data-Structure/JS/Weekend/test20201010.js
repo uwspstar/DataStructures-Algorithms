@@ -110,20 +110,53 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 // reverseInteger
 {
-    
+    const reverseInteger = (num) => {
+        if (num > -9 && num < 9) return num;
+        let negativeFlag = -1;
+        num < 0 ? num = negativeFlag * num : negativeFlag = 1;
+        let result = 0;
+        //3-2-1 
+        while (num > 0) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return negativeFlag * result;
+    }
     console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
-
+    const buySellStock = (arr) => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let maxCurrentPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            maxCurrentPrice = Math.max(maxCurrentPrice, arr[i]);
+            maxProfit = Math.max(maxProfit, maxCurrentPrice - arr[i]);
+        }
+        return maxProfit;
+    }
     console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f2 + f1);
+    }
     console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
+    const fibonacci = (n) => {
+        let memo = {}
+        const fib = (n) => {
+            if (memo[n]) return memo[n];
+            if (n < 3) return 1;
+            return memo[n] = fib(n - 1) + fib(n - 2)
+        }
+        return fib(n);
+    }
     console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
