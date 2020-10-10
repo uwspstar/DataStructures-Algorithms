@@ -10,7 +10,7 @@ class Node {
 class LinkedList {
 
     constructor(data) {
-        this.head = new Node(data);
+        this.head = new Node(data); // cannot if (this.head === null) this.head = new Node(data);)
     }
     getHead() {
         return this.head === null ? null : this.head;

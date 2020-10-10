@@ -1,10 +1,4 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-const arr = [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20]
-]
 //bubbleSort
 {
     console.log('1: bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
@@ -65,6 +59,13 @@ const arr = [
 }
 // matrixSpiral
 {
+    const arr = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20]
+    ]
+
     console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
@@ -77,16 +78,31 @@ const arr = [
             this.next = null
         }
     }
-    class LinkList {
-        constructor() {
-            this.head === null;
+    class LinkedList {
+        constructor(value) {
+            if (this.head === null) this.head = new Node(value);
         }
-        insert() { }
+        append() { }
         reverse() { }
-        findMiddle() { }
+        findMid() { }
         findLastKth(k) { }
+        isCircularFastSlow() { }
 
     }
+    let linkedList = new LinkedList(5);
+    linkedList.append(10);
+    linkedList.append(20);
+    linkedList.append(30);
+    linkedList.append(40);
+    linkedList.append(50);
+    //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
+    //console.log(JSON.stringify(linkedList.getHead()));
+    console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+    //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
+    //console.log(JSON.stringify(linkedList.reverse()));
+    //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log('linkedList = ', JSON.stringify(linkedList));
 }
 // Tree
 {

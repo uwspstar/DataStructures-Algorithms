@@ -196,10 +196,59 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 // sortColor
 {
+    const sortColor = arr => {
+        if (arr.length === 1) return arr;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        let current = 0;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
     console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
+    const arr = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20]
+    ]
+    const matrixSpiral = arr => {
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        let result = [];
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            }
+            rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            }
+            colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            }
+            rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            }
+            colStart++;
+        }
+        return result;
+    }
     console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
@@ -211,15 +260,79 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
             this.next = null
         }
     }
-    class LinkList {
-        constructor() {
-            this.head === null;
+    class LinkedList {
+        constructor(value) {
+            this.head = new Node(value);
         }
-        insert() { }
-        reverse() { }
-        findMiddle() { }
+        append(value) {
+            let node = new Node(value);
+            if (this.head === null) {
+                this.head = node;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return null;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return null;
+            let slow = this.head;
+            let fast = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
         findLastKth(k) { }
+        isCircularFastSlow() {
+            if (this.head === null) return false;
+            let slow = this.head;
+            let fast = this.head;
+            while (fast.next && fast.next.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+                if (fast === slow) return true;
+            }
+            return false;
+        }
+        getHead() {
+            return this.head;
+        }
     }
+
+    let linkedList = new LinkedList(5);
+    linkedList.append(10);
+    linkedList.append(20);
+    linkedList.append(30);
+    linkedList.append(40);
+    linkedList.append(50);
+
+    console.log('linkedList = ', JSON.stringify(linkedList));
+    //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
+    //console.log(JSON.stringify(linkedList.getHead()));
+    //console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    //console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+    //console.log(JSON.stringify(linkedList.reverse()));
+    //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    //console.log('linkedList = ', JSON.stringify(linkedList));
 }
 // Tree
 {
