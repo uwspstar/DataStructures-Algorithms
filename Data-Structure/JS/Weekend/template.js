@@ -117,7 +117,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         constructor() {
             this.root = null;
         }
-        insert(value) { }
+        insert(value) { 
+            
+        }
         traversal() { }
         search(value)
     }
