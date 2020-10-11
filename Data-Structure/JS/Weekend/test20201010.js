@@ -301,7 +301,23 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
             }
             return slow.value;
         }
-        findLastKth(k) { }
+        getLastGivenIndexNode(k) {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (k > 0) {
+                if (fast === null) break;
+                fast = fast.next;
+                k--;
+            }
+            while (fast) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            slow.next = null;
+            return slow;
+
+        }
         isCircularFastSlow() {
             if (this.head === null) return false;
             let slow = this.head;
@@ -326,7 +342,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     linkedList.append(50);
 
     console.log('linkedList = ', JSON.stringify(linkedList));
-    //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
+    console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
     //console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     //console.log('reverse = ', JSON.stringify(linkedList.reverse()));
