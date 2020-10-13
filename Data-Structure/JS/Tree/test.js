@@ -10,7 +10,7 @@ class Tree {
         this.root = null;
     }
     //8,3,2,9
-    insertNode(node, newNode) {
+    insertNode1(node, newNode) {
 
         if (node.value > newNode.value) { //left
             if (node.left === null) {
@@ -27,15 +27,32 @@ class Tree {
         }
     }
 
+    insert1(value) {
+        const newNode = new Node(value);
+        return this.root === null
+            ? this.root = newNode
+            : this.insertNode(this.root, newNode)
+    }
+    insertNode(node, newNode) {
+        if (newNode.value < node.value) {
+            if (node.left === null) {
+                node.left = newNode
+            } else this.insertNode(node.left, newNode)
+        } else if (newNode.value > node.value) {
+            if (node.right === null) {
+                node.right = newNode
+            } else this.insertNode(node.right, newNode)
+        }
+    }
     insert(value) {
         const newNode = new Node(value);
         return this.root === null
             ? this.root = newNode
             : this.insertNode(this.root, newNode)
     }
-    traverseNode(node, callback)
-    traverse(value){
-
+    traverseNode(node, callback) { }
+    traverse(value) {
+        return;
     }
     getRoot() {// test
         return this.root;
