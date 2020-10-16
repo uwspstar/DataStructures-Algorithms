@@ -50,7 +50,7 @@ class Tree {
             ? this.root = newNode
             : this.insertNode(this.root, newNode)
     }
-    traverseNode(node, callback) { }
+    traverseNode(node, callback) {}
     traverse(value) {
         return;
     }
