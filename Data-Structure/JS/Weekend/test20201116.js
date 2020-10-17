@@ -293,9 +293,45 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
             this.head = pre;
             return this;
         }
-        findMid() { }
-        findLastKth(k) { }
-        isCircularFastSlow() { }
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
+        getLastGivenIndexNode(k) {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (k) {
+                if (fast === null) return null;
+                fast = fast.next;
+                k--;
+            }
+            while (fast) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            slow.next = null
+            return slow;
+
+        }
+        isCircularFastSlow() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast.next && fast.next.next) {
+                if (slow === fast && slow !== this.head) return true;
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return false;
+
+        }
 
     }
 
@@ -306,9 +342,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     linkedList.append(40);
     linkedList.append(50);
     console.log('linkedList = ', JSON.stringify(linkedList));
-    //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
+    console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
-    //console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     //console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
     console.log(JSON.stringify(linkedList.reverse()));
