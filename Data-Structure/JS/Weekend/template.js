@@ -1,4 +1,5 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+console.log('================ start sort ================');
 //bubbleSort
 {
     //console.log('1: bubbleSort', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
@@ -25,6 +26,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
     //console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+console.log('================ end sort ================');
+
+console.log('================ start top 100 ================');
 // reverseInteger
 {
 
@@ -69,7 +73,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
-//
+console.log('================ end top 100 ================');
+
+console.log('================ start linkedList ================');
 // LinkList
 {
     class Node {
@@ -104,6 +110,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
+console.log('================ end linkedList ================');
+
+console.log('================ start tree ================');
 // Tree
 {
     class TreeNode {
@@ -125,3 +134,4 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 
 }
+console.log('================ end tree ================');

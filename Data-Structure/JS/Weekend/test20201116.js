@@ -363,10 +363,30 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         constructor() {
             this.root = null;
         }
-        insert(value) {
+        insertTreeNode(node, newNode) {
+            if (node.value < newNode.value) { //right
+                if (node.right === null) return node.right = newNode;
+                return this.insertTreeNode(node.right, newNode);
 
+            } else if (node.value > newNode.value) { //left
+                if (node.left === null) return node.left = newNode;
+                return this.insertTreeNode(node.left, newNode);
+            }
+        }
+        insert(value) {
+            let newNode = new TreeNode(value);
+            if (this.root === null) return this.root = newNode;
+            return this.insertTreeNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
     }
+    let t = new Tree();
+    t.insert(8);
+    t.insert(3);
+    t.insert(2);
+    t.insert(9);
+    //t.traversal(print);
+
+    console.log("t-root", JSON.stringify(t));
 }
