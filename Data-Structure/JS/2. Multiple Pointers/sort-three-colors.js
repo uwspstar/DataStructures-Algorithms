@@ -7,21 +7,9 @@ Here, we will use the integers 0, 1, and 2 to represent the color red, white, an
 
 Note: You are not suppose to use the library’s sort function for this problem.
 
-Can you do this in a single pass?
-
 Example: Input: [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
-
-class Solution:
-  def sortColors(self, nums):
-    # Fill this in.
-
-nums = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-print("Before Sort: ")
-print(nums) # [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-
-Solution().sortColors(nums)
-print("After Sort: ")
-print(nums) # [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+Example: Input: [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1] 
+Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2] 
 */
 
 // solution 1 loop all put 3 different arr and concat at the end

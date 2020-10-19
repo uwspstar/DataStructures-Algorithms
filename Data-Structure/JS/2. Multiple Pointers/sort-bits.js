@@ -1,4 +1,5 @@
 // sortBits([1, 0, 0, 1, 1, 0]) //outputs: [0, 0, 0, 1, 1, 1]
+
 // 1 : two pointers
 // check sort 3 color [0,1,2]
 // check insertionSort and QuickSort
