@@ -7,6 +7,7 @@ console.log(partitionList([2, 2, 2, 5, 2, 2, 2, 2, 5], 3))
 // [2, 2, 2, 2, 2, 2, 2, 5, 5]
 
 The time complexity is O(n) for processing the whole list, and the space complexity is O(1).
+
 */
 
 // same as Top 100, sort 3 colors 
