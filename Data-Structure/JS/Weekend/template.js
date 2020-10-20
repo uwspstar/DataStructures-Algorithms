@@ -86,7 +86,9 @@ console.log('================ start linkedList ================');
     }
     class LinkedList {
         constructor(value) {
-            if (this.head === null) this.head = new Node(value);
+            this.head = new Node(value);
+            // cannot use if (this.head === null) this.head = new Node(value);
+            // the new create a empty obj with constructor
         }
         append(value) { }
         reverse() { }

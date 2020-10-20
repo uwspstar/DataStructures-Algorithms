@@ -271,6 +271,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         append(value) {
 
             let node = new Node(value);
+            
             if (this.head === null) return this.head = node;
             let current = this.head;
             while (current.next) {
