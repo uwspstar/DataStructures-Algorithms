@@ -79,25 +79,66 @@ console.log('================ start sort ================');
 
         return mergeSort(arr);
     }
-    //console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+    console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 
 }
 //quickSort
 {
+    const quickSortHelp = arr => {
+        if (arr.length < 2) return arr;
+        const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
+            let pi = low;
+            let pivot = arr[high];
+            for (let i = low; i <= high; i++) {
+                if (arr[i] < pivot) {
+                    swap(arr, i, pi);
+                    pi++;
+                }
+            }
+            swap(arr, pi, high);
+            return pi;
+        }
+        const quickSort = (arr, low = 0, high = arr.length - 1) => {
+            if (arr.length < 2) return arr;
+            if (low < high) {
+                let pi = getPivotIndex(arr, low, high);
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
+            }
+            return arr;
+        }
+        return quickSort(arr);
+    }
 
-    //console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+    console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 console.log('================ end sort ================');
 
 console.log('================ start top 100 ================');
 // reverseInteger
 {
-
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    const reverseInteger = num => {
+        if (num >= -9 && num <= 9) return num;
+        let isNegativeFlag = -1;
+        num < 0 ? num = num * isNegativeFlag : isNegativeFlag = 1;
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegativeFlag;
+    }
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let currentMaxPrice = 0;
+        for (let i = arr.length - 1; i >=0; i++)
 
+    }
     //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
