@@ -4,7 +4,7 @@ console.log('================ start sort ================');
 {
     const bubbleSort = arr => {
         if (arr.length < 2) return arr;
-        for (let i = arr.length - 1; i >=0; i--) {
+        for (let i = arr.length - 1; i >= 0; i--) {
             let isSwap = false;
             for (let j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -45,8 +45,20 @@ console.log('================ end sort ================');
 console.log('================ start top 100 ================');
 // reverseInteger
 {
-
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    const reverseInteger = num => {
+        if (num >= -9 && num <= 9) return num;
+        let isNegativeFlag = -1;
+        num < 0 ? num = isNegativeFlag * num : isNegativeFlag = 1;
+        let result = 0;
+        //-123 -> 123->321
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegativeFlag;
+    }
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(321))); // 123
 }
 // buySellStock
 {
