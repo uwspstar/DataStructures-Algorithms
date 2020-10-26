@@ -194,13 +194,38 @@ console.log('================ start top 100 ================');
 // isPalindrome
 {
     const isPalindrome = arr => {
-        
+        if (arr.length === 0) return;
+        let start = 0;
+        let end = arr.length - 1;
+        while (start <= end) {
+            if (arr[start] !== arr[end]) return false;
+            start++;
+            end--;
+        }
+        return true;
     }
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length === 1) return arr;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        let current = 0;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
