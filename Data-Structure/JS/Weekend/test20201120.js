@@ -291,10 +291,37 @@ console.log('================ start linkedList ================');
             return this;
 
         }
-        reverse() { }
-        findMid() { }
-        findLastKth(k) { }
-        isCircularFastSlow() { }
+        reverse() {
+            if (this.head === null) return null;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            //pre->cur->next
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
+        findLastKth(k) {
+
+        }
+        isCircularFastSlow() {
+
+        }
 
     }
     let linkedList = new LinkedList(5);
@@ -328,12 +355,31 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        insertTreeNode(node, newNode) {
+            if (node.value > newNode.value) {
+                return node.left === null
+                    ? node.left = newNode
+                    : this.insertTreeNode(node.left, newNode);
+            } else if (node.value < newNode.value) {
+                return node.right === null
+                    ? node.right = newNode
+                    : this.insertTreeNode(node.right, newNode);
+            }
+        }
         insert(value) {
-
+            let newNode = new TreeNode(value);
+            return this.root === null
+                ? this.root = newNode
+                : this.insertTreeNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
     }
-
+    let t = new Tree();
+    t.insert(8);
+    t.insert(3);
+    t.insert(2);
+    t.insert(9);
+    console.log("t-root", JSON.stringify(t));
 }
 console.log('================ end tree ================');
