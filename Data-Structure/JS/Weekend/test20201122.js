@@ -282,9 +282,44 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
-        reverse() { }
-        findMid() { }
+        append(value) {
+            let node = new Node(value);
+            if (this.head === null) {
+                this.head = node;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return null;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            //pre->cur->next
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
         findLastKth(k) { }
         isCircularFastSlow() { }
 
