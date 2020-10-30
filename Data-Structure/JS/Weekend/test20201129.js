@@ -83,43 +83,143 @@ console.log('================ start sort ================');
 }
 //quickSort
 {
-
-    //console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+    const quickSortHelp = arr => {
+        if (arr.length < 2) return arr;
+        const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
+            let pi = low;
+            let pivot = arr[high];
+            for (let i = low; i <= high; i++) {
+                if (arr[i] < pivot) {
+                    swap(arr, i, pi);
+                    pi++;
+                }
+            }
+            swap(arr, pi, high);
+            return pi;
+        }
+        const quickSort = (arr, low = 0, high = arr.length - 1) => {
+            if (arr.length < 2) return arr;
+            if (low < high) { // if not while
+                let pi = getPivotIndex(arr, low, high);
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
+            }
+            return arr;
+        }
+        return quickSort(arr);
+    }
+    console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 console.log('================ end sort ================');
 
 console.log('================ start top 100 ================');
 // reverseInteger
 {
-
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    const reverseInteger = num => {
+        if (num >= -9 && num <= 9) return num;
+        let isNegativeFlag = -1;
+        num < 0 ? num = num * isNegativeFlag : isNegativeFlag = 1;
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegativeFlag;
+    }
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0
+        let currentMaxPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
-    //console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f1 + f2);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {};
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n]) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
-
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    const isBalance = arr => {
+        if (arr.length % 2 !== 0) return false;
+        let map = { "(": ")", "[": "]", "{": "}" };
+        let stack = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                stack.push(key);
+            } else {
+                let last = stack.pop();
+                if (key !== map[last]) return false;
+            }
+        }
+        return stack.length === 0;
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    const isPalindrome = arr => {
+        if (arr.length === 1) return true;
+        let start = 0;
+        let end = arr.length - 1;
+        while (start < end) {
+            if (arr[start] !== arr[end]) return false;
+            start++;
+            end--;
+        }
+        return true;
+    }
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length === 1) return arr;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        let current = 0;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
@@ -129,8 +229,34 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
-
-    //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    const matrixSpiral = arr => {
+        if (arr.length === 1) return arr[0];
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        let result = [];
+        while (rowStart < rowEnd && colStart < colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            }
+            rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            }
+            colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            }
+            rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            }
+            colStart++;
+        }
+        return result;
+    }
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
 console.log('================ end top 100 ================');
