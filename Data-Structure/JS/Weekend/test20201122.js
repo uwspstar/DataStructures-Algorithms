@@ -45,7 +45,7 @@ console.log('================ start sort ================');
             for (; j >= 0; j--) {
                 if (arr[j] > current) {
                     arr[j + 1] = arr[j];
-                } else break;
+                } else break; // very important
             }
             arr[j + 1] = current;
         }
