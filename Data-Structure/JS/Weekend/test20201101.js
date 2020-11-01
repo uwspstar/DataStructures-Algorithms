@@ -352,12 +352,35 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        insertNode(node, newNode) {
+            if (node.value > newNode.value) {
+                if (node.left === null) {
+                    node.left = newNode;
+                } else {
+                    this.insertNode(node.left, newNode)
+                }
+            } else if (node.value < newNode.value) {
+                if (node.right === null) {
+                    node.right = newNode;
+                } else {
+                    this.insertNode(node.right, newNode)
+                }
+            }
+        }
         insert(value) {
-            
+            const newNode = new TreeNode(value);
+            return this.root === null ? this.root = newNode : this.insertNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
+
     }
+    let t = new Tree();
+    t.insert(8);
+    t.insert(3);
+    t.insert(2);
+    t.insert(9);
+    console.log("t-root", JSON.stringify(t));
 
 }
 console.log('================ end tree ================');
