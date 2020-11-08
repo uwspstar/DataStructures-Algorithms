@@ -167,9 +167,24 @@ console.log('================ start top 100 ================');
 }
 // isBalance
 {
+    const isBalance = arr => {
+        if (arr.length % 2 === 1) return false;
+        let map = { "(": ")", "[": "]", "{": "}" };
+        let stack = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                stack.push(key);
+            } else {
+                let last = stack.pop();
+                if (map(last) !== key) return false;
+            }
+        }
+        return stack.length === 0;
 
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
