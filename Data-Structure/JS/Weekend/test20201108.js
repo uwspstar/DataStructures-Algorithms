@@ -177,7 +177,7 @@ console.log('================ start top 100 ================');
                 stack.push(key);
             } else {
                 let last = stack.pop();
-                if (map(last) !== key) return false;
+                if (map[last] !== key) return false;
             }
         }
         return stack.length === 0;
@@ -188,11 +188,39 @@ console.log('================ start top 100 ================');
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    const isPalindrome = arr => {
+        if (arr.length === 1) return true;
+        let low = 0;
+        let high = arr.length - 1;
+        while (low < high) {
+            if (arr[low] !== arr[high]) return false;
+            low++;
+            high--;
+        }
+        return true;
+    }
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length === 1) return arr;
+        let p0 = 0;
+        let current = 0;
+        let p2 = arr.length - 1;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
@@ -202,8 +230,35 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
+    const matrixSpiral = arr => {
+        if (arr.length === 1) return arr;
+        let result = [];
+        let rowStart = 0
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        while (rowStart < rowEnd && colStart < colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            }
+            rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            }
+            colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            }
+            rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            }
+            colStart++;
 
-    //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+        }
+        return result;
+    }
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
 console.log('================ end top 100 ================');
