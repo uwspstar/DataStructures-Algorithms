@@ -97,16 +97,16 @@ console.log('================ start sort ================');
             swap(arr, pi, high);
             return pi;
         }
-        const quickSort = (arr, low = 0, high = arr.length - 1) => {
+        const quickSor = (arr, low = 0, high = arr.length - 1) => {
             if (arr.length < 2) return arr;
             if (low < high) {
                 let pi = getPivotIndex(arr, low, high);
-                quickSort(arr, low, pi - 1);
-                quickSort(arr, pi + 1, high);
+                quickSor(arr, low, pi - 1);
+                quickSor(arr, pi + 1, high);
             }
             return arr;
         }
-        return quickSort(arr);
+        return quickSor(arr);
     }
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
@@ -116,7 +116,7 @@ console.log('================ start top 100 ================');
 // reverseInteger
 {
     const reverseInteger = num => {
-        if (num < 10 && num > -10) return num;
+        if (num <= 9 && num >= -9) return num;
         let isNegativeFlag = -1;
         num < 0 ? num = num * isNegativeFlag : isNegativeFlag = 1;
         let result = 0;
@@ -131,13 +131,13 @@ console.log('================ start top 100 ================');
 // buySellStock
 {
     const buySellStock = arr => {
-        if (arr.length < 1) return 0;
+        if (arr.length === 1) return 0;
         let maxProfit = 0;
-        let maxCurrentPrice = 0;
+        let currentMaxPrice = 0;
         for (let i = arr.length - 1; i >= 0; i--) {
             let currentPrice = arr[i];
-            maxCurrentPrice = Math.max(maxCurrentPrice, currentPrice);
-            maxProfit = Math.max(maxProfit, maxCurrentPrice - currentPrice);
+            currentMaxPrice = Math.max(currentMaxPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
         }
         return maxProfit;
     }
@@ -147,7 +147,7 @@ console.log('================ start top 100 ================');
 {
     const fibEndCall = (n, f1 = 1, f2 = 1) => {
         if (n < 3) return f2;
-        return fibEndCall(n - 1, f2, f2 + f1)
+        return fibEndCall(n - 1, f2, f2 + f1);
     }
     console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
@@ -168,32 +168,31 @@ console.log('================ start top 100 ================');
 // isBalance
 {
     const isBalance = arr => {
-        if (arr.length % 2 === 1) return false;
-        let map = { "(": ")", "[": "]", "{": "}" };
-        let stack = [];
+        if (arr.length % 2 !== 0) return false;
+        let map = { "{": "}", "[": "]", "(": ")" };
+        let result = [];
         for (let i = 0; i < arr.length; i++) {
             let key = arr[i];
             if (map[key]) {
-                stack.push(key);
+                result.push(key);
             } else {
-                let last = stack.pop();
+                let last = result.pop();
                 if (map[last] !== key) return false;
             }
         }
-        return stack.length === 0;
-
+        return result.length === 0;
     }
     console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
-    const isPalindrome = arr => {
-        if (arr.length === 1) return true;
+    const isPalindrome = str => {
+        if (str.length === 1) return true;
         let low = 0;
-        let high = arr.length - 1;
+        let high = str.length - 1;
         while (low < high) {
-            if (arr[low] !== arr[high]) return false;
+            if (str[low] !== str[high]) return false;
             low++;
             high--;
         }
@@ -230,28 +229,29 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
+
     const matrixSpiral = arr => {
         if (arr.length === 1) return arr;
-        let result = [];
-        let rowStart = 0
+        let rowStart = 0;
         let rowEnd = arr.length - 1;
         let colStart = 0;
         let colEnd = arr[0].length - 1;
+        let result = [];
         while (rowStart < rowEnd && colStart < colEnd) {
             for (let i = colStart; i <= colEnd; i++) {
-                result.push(arr[rowStart][i]);
+                result.push(arr[rowStart][i])
             }
             rowStart++;
             for (let i = rowStart; i <= rowEnd; i++) {
-                result.push(arr[i][colEnd]);
+                result.push(arr[i][colEnd])
             }
             colEnd--;
             for (let i = colEnd; i >= colStart; i--) {
-                result.push(arr[rowEnd][i]);
+                result.push(arr[rowEnd][i])
             }
             rowEnd--;
             for (let i = rowEnd; i >= rowStart; i--) {
-                result.push(arr[i][colStart]);
+                result.push(arr[i][colStart])
             }
             colStart++;
         }
@@ -277,12 +277,37 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
-        reverse() { }
+        append(value) { 
+            let node = new Node(value);
+            if (this.head === null) {
+                this.head = node;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return null;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            // pre->cur->next
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
         findMid() { }
         findLastKth(k) { }
         isCircularFastSlow() { }
-
     }
     let linkedList = new LinkedList(5);
     linkedList.append(10);
@@ -292,11 +317,9 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
-    console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    //console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
-    //console.log(JSON.stringify(linkedList.reverse()));
-    //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
