@@ -73,6 +73,14 @@ console.log('================ start top 100 ================');
     //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
+// maxWaterContainer
+{
+    //console.log('9: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+}
+// longestSubString
+{
+    //console.log('10: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); 
+}
 console.log('================ end top 100 ================');
 
 console.log('================ start linkedList ================');
