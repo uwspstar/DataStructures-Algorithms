@@ -2,63 +2,190 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 console.log('================ start sort ================');
 //bubbleSort
 {
-    //console.log('1: bubbleSort   ', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
+    const bubbleSort = arr => {
+        if (arr.length < 2) return arr;
+        for (let i = arr.length - 1; i >= 0; i++) {
+            let isSwap = false;
+            for (let j = 0; j < i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                    isSwap = true;
+                }
+            }
+            if (!isSwap) break;
+        }
+        return arr;
+    }
+    console.log('1: bubbleSort   ', JSON.stringify(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 //selectionSort
 {
-
-    //console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+    const selectionSort = arr => {
+        if (arr.length < 2) return arr;
+        for (let i = 0; i < arr.length; i++) {
+            let smallIndex = i;
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[smallIndex]) {
+                    smallIndex = j;
+                }
+            }
+            if (smallIndex !== i) swap(arr, smallIndex, i);
+        }
+        return arr;
+    }
+    console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 //insertionSort
 {
-
-    //console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+    const insertionSort = arr => {
+        if (arr.length < 2) return arr;
+        for (let i = 1; i < arr.length; i++) {
+            let current = arr[i];
+            let j = i - 1;
+            for (; j >= 0; j--) {
+                if (arr[j] > current) {
+                    arr[j + 1] = arr[j];
+                } else break;
+            }
+            arr[j + 1] = current;
+        }
+        return arr;
+    }
+    console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 
 }
 //mergeSort
 {
+    const mergeSortHelp = arr => {
+        if (arr.length < 2) return arr;
+        const merge = (left, right) => {
+            if (left.length === 0) return right;
+            if (right.length === 0) return left;
+            let result = [];
+            while (left.length && right.length) {
+                left[0] < right[0]
+                    ? result.push(left.shift())
+                    : result.push(right.shift())
+            }
+            return result.concat(left, right);
+        }
+        const mergeSort = arr => {
+            if (arr.length < 2) return arr;
+            let mid = arr.length >> 1;
+            let left = mergeSort(arr.slice(0, mid));
+            let right = mergeSort(arr.slice(mid));
+            return merge(left, right);
+        }
 
-    //console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
-
+        return mergeSort(arr);
+    }
+    console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 //quickSort
 {
-
-    //console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
+    const quickSortHelp = arr => {
+        if (arr.length < 2) return arr;
+        const getPivotIndex = (arr, low = 0, high = arr.length - 1) => {
+            let pi = low;
+            let pivot = arr[high];
+            for (let i = low; i <= high; i++) {
+                if (arr[i] < pivot) {
+                    swap(arr, i, pi);
+                    pi++;
+                }
+            }
+            swap(arr, pi, high);
+            return pi;
+        }
+        const quickSort = (arr, low = 0, high = arr.length - 1) => {
+            if (arr.length < 2) return arr;
+            if (low < high) {
+                let pi = getPivotIndex(arr, low, high);
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
+            }
+            return arr;
+        }
+        return quickSort(arr);
+    }
+    console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 console.log('================ end sort ================');
 
 console.log('================ start top 100 ================');
 // reverseInteger
 {
+    const reverseInteger = num => {
+        if (num < 10 && num > -10) return num;
+        let isNegative = -1;
+        num > 0 ? isNegative = 1 : num = isNegative * num;
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return isNegative * result;
+    }
 
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let currentMaxPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            currentMaxPrice = Math.max(currentMaxPrice, currentPrice)
+            maxProfit = Math.max(maxProfit, currentMaxPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
-    //console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f2 + f1);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {};
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n]) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
+    const isBalance = arr => {
 
+    }
     //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
+    const isPalindrome = arr => {
+
+    }
     //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
+    const sortColor = arr => {
+
+    }
     //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
@@ -121,6 +248,7 @@ console.log('================ start top 100 ================');
             p2++;
         }
         console.dir(map);
+        console.log(map, { map });
         return maxLength;
     }
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
