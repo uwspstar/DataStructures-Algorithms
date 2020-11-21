@@ -308,8 +308,33 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
-        reverse() { }
+        append(value) {
+            let node = new Node(value);
+            if (this.head === null) {
+                this.head = node;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return null;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
         findMid() { }
         findLastKth(k) { }
         isCircularFastSlow() { }
@@ -323,7 +348,7 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
-    console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    //console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
     //console.log(JSON.stringify(linkedList.reverse()));
@@ -346,8 +371,25 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        //8->3->2->9
+        insertNode(node, newNode) {
+            if (node.value > newNode.value) {
+                if (node.left === null) {
+                    node.left = newNode;
+                } else {
+                    this.insertNode(node.left, newNode)
+                }
+            } else if (node.value < newNode.value) {
+                if (node.right === null) {
+                    node.right = newNode;
+                } else {
+                    this.insertNode(node.right, newNode)
+                }
+            }
+        }
         insert(value) {
-
+            const newNode = new TreeNode(value);
+            return this.root === null ? this.root = newNode : this.insertNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
