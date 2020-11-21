@@ -169,24 +169,58 @@ console.log('================ start top 100 ================');
 // isBalance
 {
     const isBalance = arr => {
-
+        if (arr.length % 2 === 1) return false;
+        let map = { "{": "}", "(": ")", "[": "]" };
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                result.push(key);
+            } else {
+                let last = result.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return result.length === 0;
     }
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
     const isPalindrome = arr => {
-
+        if (arr.length < 2) return true;
+        let left = 0;
+        let right = arr.length - 1;
+        while (left < right) {
+            if (arr[left] !== arr[right]) return false;
+            left++;
+            right--;
+        }
+        return true;
     }
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
     const sortColor = arr => {
-
+        if (arr.length === 1) return arr;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        let current = 0;
+        while (current < p2) {
+            if (arr[current] === 0) {
+                swap(arr, p0, current);
+                p0++;
+                current++;
+            } else if (arr[current] === 2) {
+                swap(arr, p2, current);
+                p2--;
+            } else current++;
+        }
+        return arr;
     }
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
