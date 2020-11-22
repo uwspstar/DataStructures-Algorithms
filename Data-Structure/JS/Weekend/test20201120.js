@@ -118,6 +118,7 @@ console.log('================ start top 100 ================');
     const reverseInteger = num => {
         if (num < 10 && num > -10) return num;
         let isNegative = -1;
+        //Math.sign(num) > 0 ? isNegative = 1 : num = isNegative * num;
         num > 0 ? isNegative = 1 : num = isNegative * num;
         let result = 0;
         while (num) {
