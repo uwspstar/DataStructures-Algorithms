@@ -75,6 +75,10 @@ console.log('================ start top 100 ================');
 }
 // maxWaterContainer
 {
+    // area = height x width
+    // height = min (a, b)
+    // width = bi - ai
+
     //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
     //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
     //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28

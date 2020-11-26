@@ -133,30 +133,101 @@ console.log('================ start top 100 ================');
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let maxCurrentPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            maxCurrentPrice = Math.max(maxCurrentPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, maxCurrentPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
-    //console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+    //stack overflow
+    const fib = n => {
+        if (n < 3) return 1;
+        return fib(n - 1) + fib(n - 1);
+    }
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f2 + f1);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {}
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n] !== undefined) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
-
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    const isBalance = arr => {
+        if (arr.length % 2 !== 0) return false;
+        let map = { "{": "}", "[": "]", "(": ")" };
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                result.push(key);
+            } else {
+                let last = result.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return result.length === 0;
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    const isPalindrome = arr => {
+        if (arr.length < 2) return true;
+        let left = 0;
+        let right = arr.length - 1;
+        while (left < right) {
+            if (arr[left] !== arr[right]) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length < 2) return arr;
+        let p0 = 0;
+        let current = 0;
+        let p2 = arr.length - 1;
+        while (current < p2) {
+            if (arr[current] === 0) {
+                swap(arr, p0, current);
+                p0++;
+                current++;
+            } else if (arr[current] === 2) {
+                swap(arr, p2, current);
+                p2--;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
@@ -172,15 +243,57 @@ console.log('================ start top 100 ================');
 }
 // maxWaterContainer
 {
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    // area = height x width
+    // height = min (a, b)
+    // width = bi - ai
+    // [7, 1, 2, 3, 9]
+
+    const maxWaterContainer = arr => {
+        if (arr.length < 2) return 0;
+        if (arr.length === 2) return Math.min(arr[0], arr[1]);
+        let maxArea = 0;
+        let p1 = 0;
+        let p2 = arr.length - 1;
+        while (p1 < p2) {
+            let height = Math.min(arr[p1], arr[p2]);
+            let width = p2 - p1;
+            let area = height * width;
+            maxArea = Math.max(maxArea, area);
+            arr[p1] < arr[p2] ? p1++ : p2--; //arr[p1] > arr[p2] also work
+        }
+        return maxArea;
+    }
+    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
 
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads')));
+    //abcdeca
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+        let p1 = 0;
+        let p2 = 0;
+        let maxLength = 0;
+        let map = new Map();
+        while (p2 < str.length) {
+            let key = str[p2];
+            if (!map.get(key)) {
+                map.set(key, p2);
+            } else {
+                let value = map.get(key);
+                map.set(key, p2);
+                p1 = value + 1;
+                maxLength = Math.max(maxLength, p2 - p1);
+            }
+            p2++;
+        }
+        //console.log(map, { map });
+        return maxLength;
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads')));
 }
 console.log('================ end top 100 ================');
 
