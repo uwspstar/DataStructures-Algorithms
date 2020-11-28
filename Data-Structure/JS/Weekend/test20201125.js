@@ -349,9 +349,22 @@ console.log('================ start linkedList ================');
                 slow = slow.next;
             }
             return slow.value;
-         }
-        findLastKth(k) { 
-            if (this.head === )
+        }
+        findLastKth(k) {
+            if (this.head === null) return this.head;
+            let current = this.head;
+            while (current && k > 0) {
+                current = current.next;
+                k--;
+            }
+            if (k > 0) return null;
+            let fast = current;
+            let slow = this.head;
+            while (fast) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            return slow.value;
         }
         isCircularFastSlow() { }
 
@@ -365,10 +378,11 @@ console.log('================ start linkedList ================');
     //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
     console.log('linkedList = ', JSON.stringify(linkedList));
+    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(3)));
     console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
-    //console.log(JSON.stringify(linkedList.reverse()));
+
     //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }

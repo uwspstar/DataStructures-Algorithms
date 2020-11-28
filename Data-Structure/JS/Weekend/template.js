@@ -121,6 +121,8 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
+    console.log('linkedList = ', JSON.stringify(linkedList));
+    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(3)));
     console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
