@@ -312,10 +312,47 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
-        reverse() { }
-        findMid() { }
-        findLastKth(k) { }
+        append(value) {
+            let node = new Node(value);
+            if (this.head === null) {
+                this.head = node;
+            }
+            else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return this.head;
+            let current = this.head;
+            let pre = null;
+            let next = null;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return this.head;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+         }
+        findLastKth(k) { 
+            if (this.head === )
+        }
         isCircularFastSlow() { }
 
     }
@@ -327,6 +364,7 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
     //console.log(JSON.stringify(linkedList.getHead()));
+    console.log('linkedList = ', JSON.stringify(linkedList));
     console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
