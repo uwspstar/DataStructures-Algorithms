@@ -20,13 +20,38 @@ console.log('================ start sort ================');
 }
 //selectionSort
 {
-
-    //console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+    const selectionSort = arr => {
+        if (arr.length < 2) return arr;
+        for (let i = 0; i < arr.length; i++) {
+            let smallIndex = i;
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[smallIndex]) {
+                    smallIndex = j;
+                }
+            }
+            if (smallIndex !== i) swap(arr, smallIndex, i);
+        }
+        return arr;
+    }
+    console.log('2: selectionSort', JSON.stringify(selectionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 }
 //insertionSort
 {
-
-    //console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
+    const insertionSort = arr => {
+        if (arr.length < 2) return arr;
+        for (let i = 1; i < arr.length; i++) {
+            let current = arr[i];
+            let j = i - 1;
+            for (; j >= 0; j--) {
+                if (arr[j] > current) {
+                    arr[j + 1] = arr[j];
+                } else break;
+            }
+            arr[j + 1] = current;
+        }
+        return arr;
+    }
+    console.log('3: insertionSort', JSON.stringify(insertionSort([8, 1, 2, 3, 4, 5, 6, 7])));
 
 }
 //mergeSort
@@ -84,7 +109,17 @@ console.log('================ start top 100 ================');
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {};
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n]) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2)
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
