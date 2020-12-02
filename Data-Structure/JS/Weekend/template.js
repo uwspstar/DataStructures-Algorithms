@@ -89,8 +89,8 @@ console.log('================ start top 100 ================');
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads')));
+    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 console.log('================ end top 100 ================');
 

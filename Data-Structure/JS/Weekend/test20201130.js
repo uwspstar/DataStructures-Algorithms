@@ -234,8 +234,28 @@ console.log('================ start top 100 ================');
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads')));
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+        let p1 = 0;
+        let p2 = 0;
+        let maxLength = 0;
+        let map = new Map();
+        while (p2 < str.length) {
+            let key = str[p2];
+            if (!map.get(key)) {
+                map.set(key, p2);
+            } else {
+                let value = map.get(key);
+                map.set(key, p2);
+                p1 = value + 1;
+                maxLength = Math.max(maxLength, p2 - p1);
+            }
+            p2++;
+        }
+        return maxLength;
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes')));
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads')));
 }
 console.log('================ end top 100 ================');
 
