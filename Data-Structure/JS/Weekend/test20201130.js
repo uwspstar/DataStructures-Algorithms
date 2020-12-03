@@ -301,11 +301,49 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
-        reverse() { }
-        findMid() { }
-        findLastKth(k) { }
-        isCircularFastSlow() { }
+        append(value) {
+            let newNode = new Node(value);
+            if (this.head === null) {
+                this.head = newNode;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = newNode;
+            }
+            return this;
+        }
+        reverse() {
+            if (this.head === null) return this.head;
+            let current = this.head;
+            let next = null;
+            let pre = null;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return this.head;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
+        findLastKth(k) {
+
+        }
+        isCircularFastSlow() {
+
+        }
 
     }
     let linkedList = new LinkedList(5);
@@ -314,15 +352,11 @@ console.log('================ start linkedList ================');
     linkedList.append(30);
     linkedList.append(40);
     linkedList.append(50);
-    //console.log('getLastGivenIndexNode', JSON.stringify(linkedList.getLastGivenIndexNode(3)));
-    //console.log(JSON.stringify(linkedList.getHead()));
     console.log('linkedList = ', JSON.stringify(linkedList));
     console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(3)));
     console.log('findMid = ', JSON.stringify(linkedList.findMid()));
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    //console.log('isCircular =', JSON.stringify(linkedList.isCircular()));
-    //console.log(JSON.stringify(linkedList.reverse()));
-    //console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
