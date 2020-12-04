@@ -81,10 +81,23 @@ console.log('================ start top 100 ================');
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
-
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    const maxWaterContainer = arr => {
+        if (arr.length < 2) return 0;
+        let maxArea = 0;
+        let p1 = 0;
+        let p2 = arr.length - 1;
+        while (p1 < p2) {
+            let heigh = Math.min(arr[p1], arr[p2]);
+            let width = p2 - p1;
+            let area = heigh * width;
+            maxArea = Math.max(maxArea, area);
+            arr[p1] < arr[p2] ? p1++ : p2--;
+        }
+        return maxArea;
+    }
+    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
 
 }
 // longestSubString
