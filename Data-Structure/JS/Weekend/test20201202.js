@@ -149,7 +149,7 @@ console.log('================ start top 100 ================');
 // isBalance
 {
     const isBalance = arr => {
-
+        
     }
     //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
