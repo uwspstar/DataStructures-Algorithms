@@ -172,7 +172,6 @@ console.log('================ start top 100 ================');
 }
 // isBalance
 {
-
     const isBalance = arr => {
         if (arr.length % 2 !== 0) return false;
         let map = { "{": "}", "[": "]", "(": ")" };
