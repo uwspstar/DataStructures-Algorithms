@@ -221,7 +221,7 @@ console.log('================ start top 100 ================');
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
-    
+
     const maxWaterContainer = arr => {
         if (arr.length < 2) return 0;
         let maxArea = 0;
@@ -320,7 +320,11 @@ console.log('================ start tree ================');
             this.root = null;
         }
         insert(value) {
-
+            let newNode = new TreeNode(value);
+            this.root === null
+                ? this.root = newNode
+                : this.insertNewNode(this.root, newNode);
+            return this;
         }
         traversal() { }
         search(value) { }
