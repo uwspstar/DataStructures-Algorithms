@@ -221,6 +221,7 @@ console.log('================ start top 100 ================');
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
+    
     const maxWaterContainer = arr => {
         if (arr.length < 2) return 0;
         let maxArea = 0;
