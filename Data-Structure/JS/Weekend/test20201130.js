@@ -293,7 +293,7 @@ console.log('================ start top 100 ================');
 // longestSubString
 {
     const longestSubString = str => {
-        if (str.length < 2) return str;
+        if (str.length < 2) return str.length;
         let p1 = 0;
         let p2 = 0;
         let maxLength = 0;
