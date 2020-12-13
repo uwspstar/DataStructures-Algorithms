@@ -319,6 +319,18 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        //8-3-2-9
+        insertNewNode(node, newNode) {
+            if (newNode.value < node.value) {
+                node.left === null
+                    ? node.left = newNode
+                    : this.insertNewNode(node.left, newNode);
+            } else {
+                node.right === null
+                    ? node.right = newNode
+                    : this.insertNewNode(node.right, newNode);
+            }
+        }
         insert(value) {
             let newNode = new TreeNode(value);
             this.root === null
@@ -330,5 +342,13 @@ console.log('================ start tree ================');
         search(value) { }
     }
 
+    let t = new Tree();
+    t.insert(8);
+    t.insert(2);
+    t.insert(3);
+    t.insert(9);
+    console.log('t', JSON.stringify(t))
+    //console.log('t.getRoot()', JSON.stringify(t.getRoot()));
+    console.log('================ end tree ================');
+
 }
-console.log('================ end tree ================');

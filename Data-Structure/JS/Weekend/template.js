@@ -151,6 +151,12 @@ console.log('================ start tree ================');
         traversal() { }
         search(value) { }
     }
+    let t = new Tree();
+    t.insert(8);
+    t.insert(2);
+    t.insert(3);
+    t.insert(9);
+    console.log('tree : ', JSON.stringify(t))
 
 }
 console.log('================ end tree ================');
