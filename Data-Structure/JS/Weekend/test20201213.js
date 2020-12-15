@@ -181,7 +181,7 @@ console.log('================ start top 100 ================');
                 result.push(key);
             } else {
                 let last = result.pop();
-                if (map[last] !== key) return false
+                if (map[last] !== key) return false;
             }
         }
         return result.length === 0;
@@ -191,7 +191,20 @@ console.log('================ start top 100 ================');
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    const isPalindrome = arr => {
+        if (arr.length < 2) return true;
+        let left = 0;
+        let right = arr.length - 1;
+        while (left < right) {
+            if (arr[left] !== arr[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+    console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
 }
 // sortColor
 {
