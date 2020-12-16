@@ -208,7 +208,24 @@ console.log('================ start top 100 ================');
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length < 2) return arr;
+        let p0 = 0;
+        let current = 0;
+        let p2 = arr.length - 1;
+        while (current <= p2) {
+            if (arr[current] === 0) {
+                swap(arr, p0, current);
+                p0++;
+                current++;
+            } else if (arr[current] === 2) {
+                swap(arr, p2, current);
+                p2--;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
@@ -218,7 +235,20 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
-
+    const matrixSpiral = arr => {
+        if (arr.length === 1) return arr;
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        let result = [];
+        while (rowStart < rowEnd && colStart < colEnd) {
+            for (let i = colStart; i <= colEnd; i++ ) {
+                result.push(arr[rowStart][i]) 
+            }
+            rowStart++;
+        }
+    }
     //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
