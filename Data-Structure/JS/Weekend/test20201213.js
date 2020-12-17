@@ -247,6 +247,10 @@ console.log('================ start top 100 ================');
                 result.push(arr[rowStart][i]) 
             }
             rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++ ) {
+                result.push(arr[i][colEnd]) 
+            }
+            colEnd--;
         }
     }
     //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
