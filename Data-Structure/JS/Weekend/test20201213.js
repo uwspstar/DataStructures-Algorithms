@@ -279,7 +279,13 @@ console.log('================ start top 100 ================');
 // longestSubString
 {
     const longestSubString = str => {
-        
+        if (str.length < 2) return str.length;
+        let maxLength = 0;
+        let map = new Map();
+        for (let i = 0; i < str.length; i++) {
+            
+        }
+
     }
     //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
