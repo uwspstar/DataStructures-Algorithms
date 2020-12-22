@@ -118,8 +118,18 @@ console.log('================ end sort ================');
 console.log('================ start top 100 ================');
 // reverseInteger
 {
-
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    const reverseInteger = num => {
+        if (num < 10 && num > -10) return num;
+        let result = 0;
+        let isNegative = -1;
+        num > 0 ? isNegative = 1 : num = isNegative * num;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegative;
+    }
+    console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
