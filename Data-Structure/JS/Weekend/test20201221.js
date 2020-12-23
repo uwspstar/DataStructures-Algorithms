@@ -133,8 +133,18 @@ console.log('================ start top 100 ================');
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let maxCurrentPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            maxCurrentPrice = Math.max(maxCurrentPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, maxCurrentPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
