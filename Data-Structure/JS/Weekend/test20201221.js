@@ -172,8 +172,24 @@ console.log('================ start top 100 ================');
 // isBalance
 {
 
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    const isBalance = arr => {
+        if (arr.length % 2 !== 0) return false;
+        const map = { "[": "]", "{": "}", "(": ")" };
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                result.push(key);
+            } else {
+                let last = result.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return result.length === 0;
+
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
