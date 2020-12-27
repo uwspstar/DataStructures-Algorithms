@@ -278,8 +278,28 @@ console.log('================ start top 100 ================');
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+        let maxLength = 0;
+        let map = new Map();
+        let p1 = 0;
+        let p2 = 0;
+        while (p2 < str.length) {
+            let key = str[p2];
+            if (!map[key]) {
+                map[key] = p2;
+            } else {
+                let value = map[key];
+                p1 = value + 1
+                map[key] = p2;
+                maxLength = Math.max(maxLength, p2 - p1);
+            }
+            p2++;
+        }
+        return maxLength;
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 console.log('================ end top 100 ================');
 
