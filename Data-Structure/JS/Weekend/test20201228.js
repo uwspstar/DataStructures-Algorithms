@@ -233,9 +233,9 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
-    const matrixSpiral = arr =>{
+    const matrixSpiral = arr => {
         if (arr.length < 2) return arr;
-        
+
     }
     console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
@@ -253,8 +253,28 @@ console.log('================ start top 100 ================');
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+        let maxLen = 0;
+        let map = new Map();
+        let fast = 0;
+        let slow = 0;
+        while (fast < str.length) {
+            let key = str[fast];
+            if (!map.get(key)) {
+                map.set(key, fast);
+            } else {
+                let value = map.get(key);
+                slow = value + 1;
+                map.set(key, fast);
+                maxLen = Math.max(maxLen, fast - slow);
+            }
+            fast++;
+        }
+        return maxLen;
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 console.log('================ end top 100 ================');
 
