@@ -329,8 +329,22 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        insertNewNode(node, newNode) {
+            if (node.value < newNode.value) {
+                node.left === null
+                    ? node.left = newNode
+                    : this.insertNewNode(node.left, newNode);
+            } else {
+                node.right === null
+                    ? node.right = newNode
+                    : this.insertNewNode(node.right, newNode);
+            }
+        }
         insert(value) {
-
+            let newNode = new TreeNode(value);
+            return this.root === null
+                ? this.root = newNode
+                : this.insertNewNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
