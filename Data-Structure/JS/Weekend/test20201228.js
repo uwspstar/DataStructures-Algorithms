@@ -306,8 +306,30 @@ console.log('================ start linkedList ================');
             }
             return this;
         }
-        reverse() { }
-        findMid() { }
+        reverse() {
+            if (this.head === null) return null;
+            let pre = null;
+            let next = null;
+            let current = this.head;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
         findLastKth(k) { }
         isCircularFastSlow() { }
 
