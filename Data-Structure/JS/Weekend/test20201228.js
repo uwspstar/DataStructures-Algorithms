@@ -293,7 +293,19 @@ console.log('================ start linkedList ================');
             // cannot use if (this.head === null) this.head = new Node(value);
             // the new create a empty obj with constructor
         }
-        append(value) { }
+        append(value) {
+            let newNode = new Node(value);
+            if (this.head === null) {
+                this.head = newNode;
+            } else {
+                let current = this.head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = newNode;
+            }
+            return this;
+        }
         reverse() { }
         findMid() { }
         findLastKth(k) { }
