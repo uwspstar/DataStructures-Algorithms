@@ -146,7 +146,7 @@ console.log('================ start tree ================');
             this.root = null;
         }
         insert(value) { }
-        traversal() { }
+        traversal() { } // 3 ways
         search(value) { }
         delete(value) { }
     }
