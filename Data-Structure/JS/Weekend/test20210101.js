@@ -167,7 +167,12 @@ console.log('================ start linkedList ================');
             if (this.head === null) return null;
             let fast = this.head;
             let slow = this.head;
-            while ()
+            while (fast.next !== null && fast.next.next !== null) {
+                fast = fast.next.next;
+                slow = slow.next;
+                if (fast === slow) return true;
+            }
+            return false;
         }
         isCircular() {
             if (this.head === null) return true;
@@ -208,18 +213,33 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
+        insertNewNode(node, newNode) {
+            if (node.value < newNode.value) {
+                node.left === null
+                    ? node.left = newNode
+                    : this.insertNewNode(node.left, newNode);
+            } else {
+                node.right === null
+                    ? node.right = newNode
+                    : this.insertNewNode(node.right, newNode);
+            }
+        }
         insert(value) {
-
+            let newNode = new TreeNode(value);
+            this.root
+                ? this.root = newNode
+                : this.insertNewNode(this.root, newNode);
         }
         traversal() { }
         search(value) { }
+        delete(value) { }
     }
     let t = new Tree();
     t.insert(8);
     t.insert(2);
     t.insert(3);
     t.insert(9);
-    console.log('tree : ', JSON.stringify(t))
+    console.log('tree after insert : ', JSON.stringify(t))
 
 }
 console.log('================ end tree ================');

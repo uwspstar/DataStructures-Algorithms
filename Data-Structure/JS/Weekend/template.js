@@ -145,11 +145,10 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
-        insert(value) {
-
-        }
+        insert(value) { }
         traversal() { }
         search(value) { }
+        delete(value) { }
     }
     let t = new Tree();
     t.insert(8);
