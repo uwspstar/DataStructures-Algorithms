@@ -82,16 +82,46 @@ console.log('================ start top 100 ================');
     // height = min (a, b)
     // width = bi - ai
 
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    const maxWaterContainer = arr => {
+        if (arr.length < 2) return 0;
+        let maxArea = 0;
+        let ai = 0;
+        let bi = arr.length - 1;
+        while (ai < bi) {
+            let width = bi - ai;
+            let height = Math.min(arr[ai], arr[bi]);
+            let area = width * height;
+            maxArea = Math.max(maxArea, area);
+            arr[ai] < arr[bi] ? ai++ : bi--;
+        }
+        return maxArea;
+    }
+    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
 
 }
 // longestSubString
 {
-    const longestSubString =  str => {
+    const longestSubString = str => {
         if (str.length < 2) return str.length;
-        
+        let maxLen = 0;
+        let map = new Map();
+        let fast = 0;
+        let slow = 0;
+        while (fast < str.length) {
+            let key = str[fast];
+            let value = map.get(key);
+            if (value) {
+                slow = value + 1;
+                map.set(key, fast);
+                maxLen = Math.max(maxLen, fast - slow);
+            } else {
+                map.set(key, fast);
+            }
+            fast++;
+        }
+        return maxLen;
     }
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
@@ -230,7 +260,7 @@ console.log('================ start tree ================');
         }
         insert(value) {
             let newNode = new TreeNode(value);
-            this.root
+            this.root === null
                 ? this.root = newNode
                 : this.insertNewNode(this.root, newNode);
         }

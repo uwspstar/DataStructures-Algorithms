@@ -254,7 +254,7 @@ console.log('================ start top 100 ================');
 // longestSubString
 {
     const longestSubString = str => {
-        if (str.length < 2) return str;
+        if (str.length < 2) return str.length;
         let maxLen = 0;
         let map = new Map();
         let fast = 0;
