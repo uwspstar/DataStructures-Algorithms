@@ -136,12 +136,33 @@ console.log('================ start linkedList ================');
             this.head = pre;
             return this;
         }
-        findMid() { 
-            if (this.head === null) {
-                
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
             }
+            return slow.value;
         }
-        findLastKth(k) { }
+        findLastKth(k) {
+            if (this.head === null) return null;
+            let current = this.head;
+            while (k > 0) {
+                if (current) {
+                    current = current.next;
+                } else break;
+                k--;
+            }
+            let fast = current;
+            let slow = this.head;
+            while (fast) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
         isCircularFastSlow() { }
 
     }
@@ -152,8 +173,8 @@ console.log('================ start linkedList ================');
     linkedList.append(40);
     linkedList.append(50);
     console.log('linkedList = ', JSON.stringify(linkedList));
-    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(3)));
-    console.log('findMid = ', JSON.stringify(linkedList.findMid()));
+    console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
+    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
