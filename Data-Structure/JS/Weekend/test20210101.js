@@ -311,6 +311,26 @@ console.log('================ start top 100 ================');
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
+// passingFlowerWithQueue
+{ 
+    const passFlower = (num = 3) => {
+        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
+        //let queue = [...people];
+        while (queue.length > 1) {
+            for (let i = 0; i < num -1; i++) {
+                queue.push(queue.shift())
+            }
+            let remove = queue.shift();
+            console.log('queue', queue, 'remove', remove);
+            //console.log('people', people);
+        }
+        return queue;
+    }
+    
+    console.log('passFlower 3:' ,passFlower(3))
+    console.log('passFlower 2:' ,passFlower(2))
+}
+
 console.log('================ end top 100 ================');
 
 console.log('================ start linkedList ================');
