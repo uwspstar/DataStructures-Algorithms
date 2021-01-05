@@ -92,6 +92,18 @@ console.log('================ start top 100 ================');
     //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
+// passingFlowerWithQueue
+{ 
+    //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
+    
+    //console.log('passFlower 3:' ,passFlower(3))
+    //console.log('passFlower 2:' ,passFlower(2))
+}
+// ToBinary
+{
+     //console.log('ToBinary 10 ->:' ,ToBinary(3))
+    //console.log('ToBinary 5 ->:' ,ToBinary(2))
+}
 console.log('================ end top 100 ================');
 
 console.log('================ start linkedList ================');
