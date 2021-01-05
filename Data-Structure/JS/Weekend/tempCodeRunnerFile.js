@@ -1,1 +1,0 @@
-let maxLength = 0;
