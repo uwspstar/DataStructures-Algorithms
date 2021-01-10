@@ -133,30 +133,97 @@ console.log('================ start top 100 ================');
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let maxCurrentPrice = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            let currentPrice = arr[i];
+            maxCurrentPrice = Math.max(maxCurrentPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, maxCurrentPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
-    //console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f2 + f1);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {};
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n]) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+        return fib(n);
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
-
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    const isBalance = arr => {
+        if (arr.length % 2 !== 0) return false;
+        const map = { "{": "}", "[": "]", "(": ")" };
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            if (map[key]) {
+                result.push(key);
+            } else {
+                let last = result.pop();
+                if (map[last] !== key) return false;
+            }
+        }
+        return result.length === 0;
+    }
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    const isPalindrome = arr => {
+        if (arr.length < 2) return true;
+        let left = 0;
+        let right = arr.length - 1;
+        while (left < right) {
+            if (arr[left] !== arr[right]) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+    console.log('6 - 1: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    console.log('6 - 2: isPalindrome', JSON.stringify(isPalindrome('amanaplanma'))) // true
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    const sortColor = arr => {
+        if (arr.length < 2) return arr;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        let current = 0;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2);
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++;
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
 }
 // matrixSpiral
 {
@@ -166,8 +233,30 @@ console.log('================ start top 100 ================');
         [11, 12, 13, 14, 15],
         [16, 17, 18, 19, 20]
     ]
-
-    //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    const matrixSpiral = arr => {
+        if (arr.length < 2) return arr[0];
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
+        let result = [];
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            } rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            } colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            } rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            } colStart++;
+        }
+        return result;
+    }
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
 // maxWaterContainer
@@ -176,27 +265,82 @@ console.log('================ start top 100 ================');
     // height = min (a, b)
     // width = bi - ai
 
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    const maxWaterContainer = arr => {
+        if (arr.length < 2) return 0;
+        let maxArea = 0;
+        let ai = 0;
+        let bi = arr.length - 1;
+        while (ai < bi) {
+            let width = bi - ai;
+            let height = Math.min(arr[ai], arr[bi]);
+            let area = width * height;
+            maxArea = Math.max(maxArea, area);
+            arr[ai] < arr[bi] ? ai++ : bi--;
+        }
+        return maxArea;
+
+    }
+    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
 
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+        let maxLen = 0;
+        let map = new Map();
+        let fast = 0;
+        let slow = 0;
+        while (fast < str.length) {
+            let key = str[fast];
+            let value = map.get(key);
+            if (value) {
+                slow = value + 1;
+                maxLen = Math.max(maxLen, fast - slow);
+            }
+            map.set(key, fast);
+            fast++;
+        }
+        return maxLen;
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 // passingFlowerWithQueue
 {
+    const passFlower = (n) => {
+        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        while (queue.length > 1) {
+            for (let i = 0; i < n - 1; i++) {
+                queue.push(queue.shift());
+            }
+            let remove = queue.shift();
+        }
+        return queue;
+    }
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passFlower 3:' ,passFlower(3))
-    //console.log('passFlower 2:' ,passFlower(2))
+    console.log('passFlower 3:', passFlower(3))
+    console.log('passFlower 2:', passFlower(2))
 }
 // ToBinary
-{
-    //console.log('ToBinary 10 ->:' ,ToBinary(3))
-    //console.log('ToBinary 5 ->:' ,ToBinary(2))
+{   // 10 / 2 =  5 --- 0
+    // 5  / 2 =  2 --- 1
+    // 2  / 2 =  1 --- 0
+    const ToBinary = num => {
+        let str = "";
+        while (num) {
+            str = (num % 2).toString() + str;
+            num = parseInt(num / 2);
+        }
+        return str;
+    }
+    console.log('ToBinary 10 ->:', ToBinary(10));
+    console.log('ToBinary 5 ->:', ToBinary(5));
+    console.log('ToBinary 10 ->:', (10).toString(2));
+    console.log('ToBinary 5 ->:', (5).toString(2));
 }
 console.log('================ end top 100 ================');
 

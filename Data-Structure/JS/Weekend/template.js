@@ -32,6 +32,35 @@ console.log('================ start sort ================');
 console.log('================ end sort ================');
 
 console.log('================ start top 100 ================');
+// maxWaterContainer
+{
+    // area = height x width
+    // height = min (a, b)
+    // width = bi - ai
+
+    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+
+}
+// longestSubString
+{
+    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+}
+// passingFlowerWithQueue
+{
+    //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
+
+    //console.log('passFlower 3:' ,passFlower(3)) // passFlower 3: [ 'd' ]
+    //console.log('passFlower 2:' ,passFlower(2)) // passFlower 2: [ 'g' ]
+}
+// ToBinary
+{
+    //console.log('ToBinary 10 ->:' ,ToBinary(3))
+    //console.log('ToBinary 5 ->:' ,ToBinary(2))
+}
+
 // reverseInteger
 {
 
@@ -76,34 +105,7 @@ console.log('================ start top 100 ================');
     //console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
-// maxWaterContainer
-{
-    // area = height x width
-    // height = min (a, b)
-    // width = bi - ai
 
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
-
-}
-// longestSubString
-{
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
-}
-// passingFlowerWithQueue
-{ 
-    //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
-    
-    //console.log('passFlower 3:' ,passFlower(3))
-    //console.log('passFlower 2:' ,passFlower(2))
-}
-// ToBinary
-{
-     //console.log('ToBinary 10 ->:' ,ToBinary(3))
-    //console.log('ToBinary 5 ->:' ,ToBinary(2))
-}
 console.log('================ end top 100 ================');
 
 console.log('================ start linkedList ================');
