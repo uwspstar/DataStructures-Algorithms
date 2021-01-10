@@ -50,7 +50,7 @@ console.log('================ start top 100 ================');
             map.set(key, fast);
             fast++;
         }
-        return 
+        return
     }
     //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
