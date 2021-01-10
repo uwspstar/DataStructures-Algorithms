@@ -7,7 +7,7 @@ console.log('================ start top 100 ================');
 // maxWaterContainer
 {
 
-    
+
 
     //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
     //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
@@ -32,6 +32,7 @@ console.log('================ start top 100 ================');
 // ToBinary
 {
     //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
+    //console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
     //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
     //console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
     //console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
@@ -40,7 +41,9 @@ console.log('================ start top 100 ================');
 // reverseInteger
 {
 
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    //console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    //console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
+    //console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
 }
 // buySellStock
 {

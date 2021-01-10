@@ -1,6 +1,7 @@
 // Whole-script strict mode syntax
 "use strict";
 
+//swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
@@ -50,30 +51,66 @@ console.log('================ start top 100 ================');
             map.set(key, fast);
             fast++;
         }
-        return
+        return maxLen;
     }
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 // passingFlowerWithQueue
 {
+    const passFlower = num => {
+        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        while (queue.length > 1) {
+            for (let i = 0; i < num - 1; i++) {
+                queue.push(queue.shift());
+            }
+            let removed = queue.shift();
+        }
+        return queue;
+    }
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passFlower 3:' ,passFlower(3)) // passFlower 3: [ 'd' ]
-    //console.log('passFlower 2:' ,passFlower(2)) // passFlower 2: [ 'g' ]
+    console.log('passFlower 3:', passFlower(3)) // passFlower 3: [ 'd' ]
+    console.log('passFlower 2:', passFlower(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
 {
-    //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
-    //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
-    //console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
-    //console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
+    // 10 / 2 = 5 --- 0
+    //  5 / 2 = 2 --- 1
+    //  2 / 2 = 1 --- 0
+    const ToBinary = num => {
+        let str = "";
+        while (num) {
+            str = num % 2 + str;
+            num = parseInt(num / 2);
+        }
+        return str;
+    }
+    console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
+    console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
+    console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
+    console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
+    console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
 }
 
 // reverseInteger
 {
+    // -321 -> - 123
+    const reverseInteger = num => {
+        if (num < 10 && num > -10) return num;
+        let isNegative = -1;
+        num > 0 ? isNegative = 1 : num = isNegative * num;
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegative;
+    }
+    console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
+    console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
 
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
 }
 // buySellStock
 {
