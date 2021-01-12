@@ -5,7 +5,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
 // maxWaterContainer
-{ 
+{
     //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
     //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
     //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
@@ -63,11 +63,18 @@ console.log('================ start top 100 ================');
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    //console.log('6 - 1: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    //console.log('6 - 2: isPalindrome', JSON.stringify(isPalindrome('a'))) // true
+    //console.log('6 - 3: isPalindrome', JSON.stringify(isPalindrome(''))) // true
+    //console.log('6 - 4: isPalindrome', JSON.stringify(isPalindrome('abcdc'))) // false
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    //console.log('7 - 1: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]))); // [0,0,0,0,0,1,1,1,1,2,2,2,2,2]
+    //console.log('7 - 2: sortColor', JSON.stringify(sortColor([0, 1, 2])));// [0,1,2]
+    //console.log('7 - 3: sortColor', JSON.stringify(sortColor([0, 0, 2, 1])));// [0,0,1,2]
+    //console.log('7 - 4: sortColor', JSON.stringify(sortColor([2, 0])));// [0,2]
+    //console.log('7 - 5: sortColor', JSON.stringify(sortColor([2])));// [2]
 }
 // matrixSpiral
 {
