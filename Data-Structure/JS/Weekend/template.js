@@ -5,10 +5,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
 // maxWaterContainer
-{
-
-
-
+{ 
     //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
     //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
     //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
