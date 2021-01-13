@@ -151,7 +151,7 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     console.log('linkedList = ', JSON.stringify(linkedList));
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
-    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(4))); //20
+    console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
     console.log(JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
