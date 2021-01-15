@@ -439,11 +439,11 @@ console.log('================ start linkedList ================');
             }
             return slow.value;
         }
-        isCircularFastSlow() { 
+        isCircularFastSlow() {
             if (this.head === null) return false;
             let fast = this.head;
             let slow = this.head;
-            while(fast && fast.next) {
+            while (fast && fast.next) {
                 if (fast.next === slow) return true;
                 if (fast.next.next === slow) return true;
                 fast = fast.next.next;
@@ -463,7 +463,7 @@ console.log('================ start linkedList ================');
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
     console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
@@ -482,7 +482,23 @@ console.log('================ start tree ================');
         constructor() {
             this.root = null;
         }
-        insert(value) { }
+        insertNewNode(newNode, node) {
+            if (node.value < newNode.value) {
+                node.left === null
+                    ? node.left = newNode
+                    : this.insertNewNode(node.left, newNode);
+            } else {
+                node.right === null
+                    ? node.right = newNode
+                    : this.insertNewNode(node.right, newNode);
+            }
+        }
+        insert(value) {
+            let newNode = new TreeNode(value)
+            return this.root === null
+                ? this.root = newNode
+                : this.insertNewNode(newNode, this.root);
+        }
         traversal() { } // 3 ways
         search(value) { }
         delete(value) { }

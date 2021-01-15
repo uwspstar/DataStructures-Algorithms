@@ -153,7 +153,7 @@ console.log('================ start linkedList ================');
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
     console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
