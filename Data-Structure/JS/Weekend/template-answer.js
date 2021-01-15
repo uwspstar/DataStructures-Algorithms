@@ -439,7 +439,18 @@ console.log('================ start linkedList ================');
             }
             return slow.value;
         }
-        isCircularFastSlow() { }
+        isCircularFastSlow() { 
+            if (this.head === null) return false;
+            let fast = this.head;
+            let slow = this.head;
+            while(fast && fast.next) {
+                if (fast.next === slow) return true;
+                if (fast.next.next === slow) return true;
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return false;
+        }
 
     }
     let linkedList = new LinkedList(5);
