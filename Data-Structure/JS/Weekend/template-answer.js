@@ -499,7 +499,9 @@ console.log('================ start tree ================');
                 ? this.root = newNode
                 : this.insertNewNode(newNode, this.root);
         }
-        traversal() { } // 3 ways
+        traversal() { 
+            
+        } // 3 ways
         search(value) { }
         delete(value) { }
     }
