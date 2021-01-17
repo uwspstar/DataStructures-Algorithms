@@ -70,33 +70,77 @@ console.log('================ start top 100 ================');
     console.log('passFlower 2:', passFlower(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
-{
-    //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
-    //console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
-    //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
-    //console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
-    //console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
+{   //10 / 2 == 5 ...0
+    //5  / 2 == 2 ...1
+
+    const ToBinary = num => {
+        let str = "";
+        while (num) {
+            str = num % 2 + str;
+            num = parseInt(num / 2);
+        }
+        return str;
+    }
+    console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
+    console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
+    console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
+    console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
+    console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
 }
 
 // reverseInteger
 {
-
-    //console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
-    //console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
-    //console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
+    // -321 -- -1 2 3
+    const reverseInteger = num => {
+        if (num > -10 && num < 10) return num;
+        let isNegative = -1;
+        num > 0 ? isNegative = 1 : num = num * isNegative;
+        let result = 0;
+        while (num) {
+            result = result * 10 + num % 10;
+            num = parseInt(num / 10);
+        }
+        return result * isNegative;
+    }
+    console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
+    console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
 }
 // buySellStock
 {
-
-    //console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
+    const buySellStock = arr => {
+        if (arr.length < 2) return 0;
+        let maxProfit = 0;
+        let maxCurrentPrice = 0;
+        for (let i = 0; i < arr.length; i++) {
+            let currentPrice = arr[i];
+            maxCurrentPrice = Math.max(maxCurrentPrice, currentPrice);
+            maxProfit = Math.max(maxProfit, maxCurrentPrice - currentPrice);
+        }
+        return maxProfit;
+    }
+    console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
 {
-    //console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibEndCall = (n, f1 = 1, f2 = 1) => {
+        if (n < 3) return f2;
+        return fibEndCall(n - 1, f2, f2 + f1);
+    }
+    console.log('3: fibEndCall', JSON.stringify(fibEndCall(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // fibonacci - memo
 {
-    //console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
+    const fibonacci = n => {
+        if (n < 3) return 1;
+        let memo = {};
+        const fib = n => {
+            if (n < 3) return 1;
+            if (memo[n]) return memo[n];
+            return memo[n] = fib(n - 1) + fib(n - 2);
+        }
+    }
+    console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
 // isBalance
 {
