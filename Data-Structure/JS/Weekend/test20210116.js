@@ -54,10 +54,20 @@ console.log('================ start top 100 ================');
 }
 // passingFlowerWithQueue
 {
+    const passFlower = num => {
+        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        while (queue.length > 1) {
+            for (let i = 0; i < num - 1; i++) {
+                queue.push(queue.shift());
+            }
+            let remove = queue.shift();
+        }
+        return queue;
+    }
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passFlower 3:' ,passFlower(3)) // passFlower 3: [ 'd' ]
-    //console.log('passFlower 2:' ,passFlower(2)) // passFlower 2: [ 'g' ]
+    console.log('passFlower 3:', passFlower(3)) // passFlower 3: [ 'd' ]
+    console.log('passFlower 2:', passFlower(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
 {
