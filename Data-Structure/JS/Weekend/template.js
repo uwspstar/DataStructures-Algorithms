@@ -58,8 +58,9 @@ console.log('================ start top 100 ================');
 // isBalance
 {
 
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    //console.log('5 - 1: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    //console.log('5 - 2: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    //console.log('5 - 3: isBalance: ', JSON.stringify(isBalance("[[[[{(")));//false
 }
 // isPalindrome
 {
