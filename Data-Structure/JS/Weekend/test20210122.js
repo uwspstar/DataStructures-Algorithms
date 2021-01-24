@@ -89,7 +89,6 @@ console.log('================ start top 100 ================');
     console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
     console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
 }
-
 // reverseInteger
 {   // -321 -> -123
     const reverseInteger = num => {
