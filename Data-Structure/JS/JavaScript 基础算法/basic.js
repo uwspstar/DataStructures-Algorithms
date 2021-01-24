@@ -52,7 +52,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]]
     console.log('reverseStr 3-1 :', JSON.stringify(reverseStr('abcd')));
     console.log('reverseStr 3-2 :', JSON.stringify(reverseStr('abcde')));
 }
-//2.4 reverse
+//2.4 reverseString reverse()
 {
     const reverseStr = str => {
         if (str.length < 2) return str;
@@ -60,4 +60,53 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]]
     }
     console.log('reverseStr 4-1 :', JSON.stringify(reverseStr('abcd')));
     console.log('reverseStr 4-2 :', JSON.stringify(reverseStr('abcde')));
+}
+//2.5 reverseString recursive substring
+{
+    const reverseStr = str => {
+        if (str.length < 2) return str;
+        let end = str.length - 1;
+        return str[end] + reverseStr(str.slice(1, end)) + str[0];
+    }
+    console.log('reverseStr 5-1 :', JSON.stringify(reverseStr('abcd')));
+    console.log('reverseStr 5-2 :', JSON.stringify(reverseStr('abcde')));
+}
+//3.1 factorial  3* 2* 1
+{
+    const factorial = num => {
+        //if (num === 0) return 1;
+        let result = 1;
+        for (let i = 2; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    console.log('factorial 1-1 :', JSON.stringify(factorial(3))); //6
+    console.log('factorial 1-2 :', JSON.stringify(factorial(4))); //24
+    console.log('factorial 1-3 :', JSON.stringify(factorial(0))); // 1;
+}
+//3.2 factorial  3* 2* 1
+{
+    const factorial = num => {
+        if (num === 0) return 1;
+        return num * factorial(num - 1);
+    }
+    console.log('factorial 2-1 :', JSON.stringify(factorial(3))); //6
+    console.log('factorial 2-2 :', JSON.stringify(factorial(4))); //24
+    console.log('factorial 2-3 :', JSON.stringify(factorial(0))); // 1;
+}
+//4.1 longestWordsLength  
+{
+    const longestWordsLength = str => {
+        if (str.length < 2) return str.length;
+        let maxLen = 0;
+        let arr = str.split(' ');
+        for (let i = 0; i < arr.length; i++) {
+            maxLen = Math.max(maxLen, arr[i].length);
+        }
+        return maxLen;
+    }
+    console.log('longestWordsLength 4-1 :', JSON.stringify(longestWordsLength('the quick brown fox jumped'))); //6
+    console.log('longestWordsLength 4-2 :', JSON.stringify(longestWordsLength('a bc d'))); // 2
+    console.log('longestWordsLength 4-3 :', JSON.stringify(longestWordsLength('   '))); // 0;
 }
