@@ -110,3 +110,18 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]]
     console.log('longestWordsLength 4-2 :', JSON.stringify(longestWordsLength('a bc d'))); // 2
     console.log('longestWordsLength 4-3 :', JSON.stringify(longestWordsLength('   '))); // 0;
 }
+// 5.1 Return Largest Numbers in Arrays 2 for loop
+{
+    const largestNum = arr => {
+        let maxNum = -Infinity; //!important
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                maxNum = Math.max(maxNum, arr[i][j]);
+            }
+        }
+        return maxNum;
+    }
+    console.log('largestNum 1-1 :', JSON.stringify(largestNum([[1, 2], [-4, 5]]))); //5
+    console.log('largestNum 1-2 :', JSON.stringify(largestNum([[-1, -2], [-4, -5]]))); // -1
+    console.log('largestNum 1-3 :', JSON.stringify(largestNum([[1, 2, -4, 5]]))); // 5
+}
