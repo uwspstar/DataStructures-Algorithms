@@ -4,6 +4,16 @@
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
+// repeatStrNTimes
+{
+    const repeatStrNTimes = (str, num) => {
+        let array = new Array(num + 1); //empty arr
+        return array.join(str);
+
+    }
+    console.log('repeatStrNTimes', repeatStrNTimes('abc', 3));
+}
+
 console.log('================ start top 100 ================');
 // maxWaterContainer
 {
@@ -499,8 +509,8 @@ console.log('================ start tree ================');
                 ? this.root = newNode
                 : this.insertNewNode(newNode, this.root);
         }
-        traversal() { 
-            
+        traversal() {
+
         } // 3 ways
         search(value) { }
         delete(value) { }

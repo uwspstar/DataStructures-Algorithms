@@ -43,8 +43,55 @@ class SinglyLinkedList {
             current = current.next;
         }
         current.next = newNode;
+        return this;
     }
     merge(nodeList1, nodeList2) {
+        let newNodeList = new SinglyLinkedList();
+        let current1 = nodeList1.head;
+        let current2 = nodeList2.head;
+        let current = newNodeList.head;
 
+        while (current1.next && current2.next) {
+            // console.log('current1.value :', current1.value, 'current2.value :', current2.value);
+
+            if (current1.value < current2.value) {
+                newNodeList.append(current1.value);
+                current1 = current1.next;
+            } else {
+                newNodeList.append(current2.value);
+                current2 = current2.next;
+            }
+            current = current.next;
+        }
+
+        console.log('current1.next : ', current1.next, 'current2.next :', current2.next);
+        if (current1.next === null) {
+            current.next = current2;
+        } else {
+            current.next = current1;
+        }
+
+        let newCurrent = newNodeList.head;
+        console.log('newCurrent.next:', JSON.stringify(newCurrent.next));
+
+        return newCurrent.next;
     }
 }
+
+let nodeList1 = new SinglyLinkedList(1);
+nodeList1.append(3);
+nodeList1.append(4);
+nodeList1.append(7);
+nodeList1.append(11);
+let nodeList2 = new SinglyLinkedList(0);
+nodeList2.append(1);
+nodeList2.append(2);
+nodeList2.append(4);
+nodeList2.append(5);
+nodeList2.append(6);
+nodeList2.append(8);
+let nodeList = new SinglyLinkedList(null);
+
+//console.log('nodeList1', { nodeList1 }, JSON.stringify(nodeList1));
+//console.log('nodeList2', { nodeList2 }, JSON.stringify(nodeList2));
+console.log('nodeList merge', JSON.stringify(nodeList.merge(nodeList1, nodeList2)));

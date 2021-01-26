@@ -125,3 +125,13 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]]
     console.log('largestNum 1-2 :', JSON.stringify(largestNum([[-1, -2], [-4, -5]]))); // -1
     console.log('largestNum 1-3 :', JSON.stringify(largestNum([[1, 2, -4, 5]]))); // 5
 }
+
+// repeatStrNTimes
+{
+    const repeatStrNTimes = (str, num) => {
+        let array = new Array(num + 1); //empty arr
+        return array.join(str);
+
+    }
+    console.log('repeatStrNTimes', repeatStrNTimes('abc', 3));
+}
