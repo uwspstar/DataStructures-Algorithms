@@ -401,9 +401,22 @@ console.log('================ start linkedList ================');
             this.head = pre;
             return this;
         }
-        findMid() { }
-        findLastKth(k) { }
-        isCircularFastSlow() { }
+        findMid() {
+            if (this.head === null) return null;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow.value;
+        }
+        findLastKth(k) {
+
+        }
+        isCircularFastSlow() {
+
+        }
 
     }
     let linkedList = new LinkedList(5);
