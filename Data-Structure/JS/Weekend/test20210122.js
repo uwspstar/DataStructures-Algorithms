@@ -412,7 +412,20 @@ console.log('================ start linkedList ================');
             return slow.value;
         }
         findLastKth(k) {
-
+            if (this.head === null) return null;
+            if (k === 1) return this.head;
+            let fast = this.head;
+            let slow = this.head;
+            while (fast && k) {
+                fast = fast.next;
+                k--;
+            }
+            if (k > 0) return null;
+            while (fast) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            return slow.value;
         }
         isCircularFastSlow() {
 
