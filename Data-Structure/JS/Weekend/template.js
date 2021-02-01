@@ -27,8 +27,8 @@ console.log('================ start top 100 ================');
 {
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passFlower 3:' ,passFlower(3)) // passFlower 3: [ 'd' ]
-    //console.log('passFlower 2:' ,passFlower(2)) // passFlower 2: [ 'g' ]
+    //console.log('passingFlowerWithQueue 3:' ,passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
+    //console.log('passingFlowerWithQueue 2:' ,passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
 {
