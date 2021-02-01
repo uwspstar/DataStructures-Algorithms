@@ -1,20 +1,18 @@
-
-var sortColors = function (arr) {
-    if (arr.length < 2) return arr;
-
-    const hashmap = {};
-    let i = 0;
-    
-    arr.forEach((num) => (hashmap[num] = hashmap[num] + 1 || 1));
-
-    [0, 1, 2].forEach((num) => {
-        let count = hashmap[num];
-        while (count) {
-            arr[i++] = num;
-            count--;
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    let map = {};
+    for (let i = 0; i < nums.length; i++) {
+        let temp = target - nums[i];
+        if (map[temp] >= 0) {
+            return [map[temp], i]
         }
-    });
-
-    return arr;
+        map[nums[i]] = i;
+    }
+    return [];
 };
-console.table(sortColors([2, 0, 2, 1, 1, 0]));
+
+console.log(twoSum([2, 7, 11, 15], 9));
