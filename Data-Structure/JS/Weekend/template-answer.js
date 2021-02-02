@@ -54,17 +54,41 @@ console.log('================ start top 100 ================');
         while (fast < str.length) {
             let key = str[fast];
             let value = map.get(key);
-            if (value >= 0) {
+            if (value >= slow) {
                 slow = value + 1;
-                maxLen = Math.max(maxLen, fast - slow);
-                map.set(key, fast);
-            } else {
-                map.set(key, fast);
             }
+            map.set(key, fast);
+            maxLen = Math.max(maxLen, fast - slow + 1);
             fast++;
         }
         return maxLen;
     }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    console.log('10-3: longestSubString', longestSubString('au'));
+}
+// longestSubString
+{
+    const longestSubString = s => {
+
+        if (s.length < 2) return s.length;
+
+        let work = []
+        let len = 0;
+        for (let i = 0; i < s.length; i++) {
+            const index = work.indexOf(s[i]);
+            if (index < 0) { //not in the string
+                work.push(s[i]);
+                if (work.length >= len) {
+                    len = work.length;
+                }
+            } else {
+                work.push(s[i]);
+                work.splice(0, index + 1);
+            }
+        }
+        return len;
+    };
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
     console.log('10-3: longestSubString', longestSubString('au'));

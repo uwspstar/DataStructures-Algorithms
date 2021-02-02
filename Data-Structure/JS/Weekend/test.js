@@ -11,14 +11,14 @@
         while (fast < str.length) {
             let key = str[fast];
             let value = map.get(key);
-            if (value >= 0) {
+            if (value >= slow) {
                 slow = value + 1;
-                maxLen = Math.max(maxLen, );
             }
             map.set(key, fast);
+            maxLen = Math.max(maxLen, fast - slow + 1);
             fast++;
         }
-        return Math.max(maxLen, fast - slow);
+        return maxLen;
     }
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('gvmasdfadsfasavcbdferes'))); // 9
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9

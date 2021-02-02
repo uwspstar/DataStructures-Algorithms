@@ -98,11 +98,12 @@ var lengthOfLongestSubstring = function (s) {
   while (fast < s.length) {
     let key = s[fast];
     let value = map.get(key);
-    if (value >= 0) {
+    if (value >= slow) {
+      // not value >=0
       slow = value + 1;
-      maxLen = Math.max(maxLen, fast - slow + 1);
     }
     map.set(key, fast);
+    maxLen = Math.max(maxLen, fast - slow + 1);
     fast++;
   }
   return maxLen;
