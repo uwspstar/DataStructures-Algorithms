@@ -56,15 +56,18 @@ console.log('================ start top 100 ================');
             let value = map.get(key);
             if (value >= 0) {
                 slow = value + 1;
-                maxLen = Math.max(maxLen, fast - slow)
+                maxLen = Math.max(maxLen, fast - slow);
+                map.set(key, fast);
+            } else {
+                map.set(key, fast);
             }
-            map.set(key, fast);
             fast++;
         }
         return maxLen;
     }
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    console.log('10-3: longestSubString', longestSubString('au'));
 }
 // passingFlowerWithQueue
 {

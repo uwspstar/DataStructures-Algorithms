@@ -56,3 +56,55 @@ var twoSum = function (nums, target) {
   return [];
 };
 ```
+
+---
+
+### 无重复字符的最长子串
+
+- https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+
+```js
+var lengthOfLongestSubstring = function (s) {
+  if (s.length < 2) return s.length;
+
+  let work = [];
+  let len = 0;
+  for (let i = 0; i < s.length; i++) {
+    const index = work.indexOf(s[i]);
+    if (index < 0) {
+      //not in the string
+      work.push(s[i]);
+      if (work.length >= len) {
+        len = work.length;
+      }
+    } else {
+      work.push(s[i]);
+      work.splice(0, index + 1);
+    }
+  }
+  return len;
+};
+```
+
+---
+
+```js
+var lengthOfLongestSubstring = function (s) {
+  if (s.length < 2) return s.length;
+  let maxLen = 0;
+  let map = new Map();
+  let fast = 0;
+  let slow = 0;
+  while (fast < s.length) {
+    let key = s[fast];
+    let value = map.get(key);
+    if (value >= 0) {
+      slow = value + 1;
+      maxLen = Math.max(maxLen, fast - slow + 1);
+    }
+    map.set(key, fast);
+    fast++;
+  }
+  return maxLen;
+};
+```

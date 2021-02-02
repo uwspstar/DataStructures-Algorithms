@@ -3,16 +3,24 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-    let map = {};
-    for (let i = 0; i < nums.length; i++) {
-        let temp = target - nums[i];
-        if (map[temp] >= 0) {
-            return [map[temp], i]
+var lengthOfLongestSubstring = function (s) {
+    if (s.length < 2) return s.length;
+    let maxLen = 0;
+    let map = new Map();
+    let fast = 0;
+    let slow = 0;
+    while (fast < s.length) {
+        let key = s[fast];
+        let value = map.get(key);
+        if (value >= 0) {
+            slow = value + 1;
+            maxLen = Math.max(maxLen, fast - slow + 1)
         }
-        map[nums[i]] = i;
+        map.set(key, fast);
+        fast++;
     }
-    return [];
+    return maxLen;
 };
 
-console.log(twoSum([2, 7, 11, 15], 9));
+console.log(lengthOfLongestSubstring('au'));
+console.log(lengthOfLongestSubstring('abcabc'));
