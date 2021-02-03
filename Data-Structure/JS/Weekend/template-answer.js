@@ -165,7 +165,9 @@ console.log('================ start top 100 ================');
     console.log('2: buySellStock', JSON.stringify(buySellStock([9, 11, 8, 5, 7, 10]))); // 5
 }
 // fibEndCall - tail call
+// https://leetcode-cn.com/problems/fibonacci-number/solution/4chong-jie-jue-fang-shi-du-ji-bai-liao-1-92ud/
 {
+
     const fibEndCall = (n, f1 = 1, f2 = 1) => {
         if (n < 3) return f2;
         return fibEndCall(n - 1, f2, f2 + f1);

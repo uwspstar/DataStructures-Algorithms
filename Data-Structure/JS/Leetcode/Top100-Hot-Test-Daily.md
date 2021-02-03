@@ -40,7 +40,8 @@ var isValid = function (s) {
 
 ---
 
-- 两数之和 https://leetcode-cn.com/problems/two-sum/
+- 两数之和
+- https://leetcode-cn.com/problems/two-sum/
 
 ```js
 var twoSum = function (nums, target) {
@@ -62,6 +63,8 @@ var twoSum = function (nums, target) {
 ### 无重复字符的最长子串
 
 - https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+
+---
 
 ```js
 var lengthOfLongestSubstring = function (s) {
