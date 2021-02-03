@@ -4,6 +4,45 @@
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
+// longestPalindrome : brute force
+{
+    const longestPalindrome = function (str) {
+        if (str.length < 2) return str;
+        let result = "";
+        let max = 0;
+        let len = str.length;
+        for (let i = 0; i < len; i++) {
+            for (let j = i + 1; j <= len; j++) {
+                let test = str.slice(i, j);
+                if (isPalindrome(test) && test.length > max) {
+                    result = str.slice(i, j);
+                    max = Math.max(max, result.length);
+                }
+            }
+        }
+        return result;
+    };
+
+    const isPalindrome = str => {
+        if (str.length < 2) return true;
+        let left = 0;
+        let right = str.length - 1;
+        while (left < right) {
+            if (str[left] !== str[right]) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+    
+    console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
+    console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
+    console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
+    console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
+    console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
+    console.log('longestPalindrome - 6', longestPalindrome("c")) //c
+    console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
+}
 // repeatStrNTimes
 {
     const repeatStrNTimes = (str, num) => {

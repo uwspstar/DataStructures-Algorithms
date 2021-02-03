@@ -4,6 +4,17 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+// longestPalindrome
+{
+
+    //console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
+    //console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
+    //console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
+    //console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
+    //console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
+    //console.log('longestPalindrome - 6', longestPalindrome("c")) //c
+    //console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
+}
 // repeatStrNTimes
 {
     //console.log('repeatStrNTimes', repeatStrNTimes('abc', 3)); //abcabcabc
