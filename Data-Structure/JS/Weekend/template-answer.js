@@ -34,7 +34,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         }
         return true;
     }
-    
+
     console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
     console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
     console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
@@ -65,6 +65,7 @@ console.log('================ start top 100 ================');
             let height = Math.min(arr[ai], arr[bi]);
             let width = bi - ai;
             maxArea = Math.max(maxArea, height * width);
+            // not ai < bi
             arr[ai] < arr[bi]
                 ? ai++
                 : bi--;
