@@ -4,6 +4,14 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+//threeSum
+{
+    //console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    //console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    //console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[0,0,0]
+
+    //console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+}
 // longestPalindrome
 {
 
