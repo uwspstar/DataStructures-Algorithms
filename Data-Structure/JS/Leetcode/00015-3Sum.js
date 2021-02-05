@@ -21,27 +21,27 @@ Keys of WeakMaps are of the type Object only. Primitive data types as keys are n
 
 // slow, how to remove duplicate ?
 const threeSumZero = function (arr) {
-    if (arr.length < 3) return undefined;
-    let set = new Set();
-    let setKeys = new Set(); // save keys
-    for (let i = 0; i < arr.length - 2; i++) {
-        for (let j = i + 1; j < arr.length - 1; j++) {
-            for (let x = j + 1; x < arr.length; x++) {
-                if (arr[i] + arr[j] + arr[x] === 0) {
-                    let temp = [arr[i], arr[j], arr[x]].sort(); //O(nlogn)
-                    let tempStr = temp[0].toString() + "-"
-                        + temp[1].toString() + "-"
-                        + temp[2].toString()
-                    console.log('tempStr=', tempStr);
-                    if (!setKeys.has(tempStr)) {
-                        setKeys.add(tempStr)
-                        set.add(temp);
-                    }
-                }
-            }
+  if (arr.length < 3) return undefined;
+  let set = new Set();
+  let setKeys = new Set(); // save keys
+  for (let i = 0; i < arr.length - 2; i++) {
+    for (let j = i + 1; j < arr.length - 1; j++) {
+      for (let x = j + 1; x < arr.length; x++) {
+        if (arr[i] + arr[j] + arr[x] === 0) {
+          let temp = [arr[i], arr[j], arr[x]].sort(); //O(nlogn)
+          let tempStr = temp[0].toString() + "-"
+            + temp[1].toString() + "-"
+            + temp[2].toString()
+          console.log('tempStr=', tempStr);
+          if (!setKeys.has(tempStr)) {
+            setKeys.add(tempStr)
+            set.add(temp);
+          }
         }
+      }
     }
-    return set;
+  }
+  return set;
 }
 
 console.log(threeSumZero([-3, -1, 0, 1, 2, -1, -4]))
@@ -110,40 +110,73 @@ var threeSum = function(nums) {
 */
 
 var threeSum = function (nums) {
-    if (nums.length < 3) return [];
+  if (nums.length < 3) return [];
 
-    nums.sort((a, b) => a - b);
+  nums.sort((a, b) => a - b);
 
-    let size = nums.length;
+  let size = nums.length;
 
-    if (nums[0] > 0) return [];
-    if (nums[size - 1] < 0) return [];
+  if (nums[0] > 0) return [];
+  if (nums[size - 1] < 0) return [];
 
-    
-    let res = [];
 
-    let i = 0;
-    while (i < size - 2) {
-        if (nums[i] > 0) break; // 最左侧大于0，无解
-        let first = i + 1;
-        let last = size - 1;
-        while (first < last) {
-            if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
-            let sum = nums[i] + nums[first] + nums[last];
-            if (sum === 0) {
-                res.push([nums[i], nums[first], nums[last]]);
-            }
-            if (sum <= 0) {
-                // 负数过小，first右移
-                while (nums[first] === nums[++first]) { } // 重复值跳过
-            } else {
-                while (nums[last] === nums[--last]) { } // 重复值跳过
-            }
-        }
-        while (nums[i] === nums[++i]) { }
+  let res = [];
+
+  let i = 0;
+  while (i < size - 2) {
+    if (nums[i] > 0) break; // 最左侧大于0，无解
+    let first = i + 1;
+    let last = size - 1;
+    while (first < last) {
+      if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
+      let sum = nums[i] + nums[first] + nums[last];
+      if (sum === 0) {
+        res.push([nums[i], nums[first], nums[last]]);
+      }
+      if (sum <= 0) {
+        // 负数过小，first右移
+        while (nums[first] === nums[++first]) { } // 重复值跳过
+      } else {
+        while (nums[last] === nums[--last]) { } // 重复值跳过
+      }
     }
+    while (nums[i] === nums[++i]) { }
+  }
 
-    return res;
+  return res;
 };
 
 console.log('threeSum : ', threeSum([-3, -1, 0, 1, 2, -1, -4]));
+console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+console.log('threeSum - 3 :', threeSum([1, -1])) //[]
+console.log('threeSum - 4 :', threeSum([4, 1, 2, 3])) //[]
+console.log('threeSum - 5 :', threeSum([-4, -1, -2, -3])) //[]
+console.log('threeSum - 6 :', threeSum([])) //[]
+
+/*
+var threeSum = function(nums) {
+    if (nums.length < 3) return []
+    let ans = [];
+    const len = nums.length;
+    nums.sort((a, b) => a - b); // 排序
+    for (let i = 0; i < len ; i++) {
+        if(nums[i] > 0) break; // 如果当前数字大于0，则三数之和一定大于0，所以结束循环
+        if(i > 0 && nums[i] == nums[i-1]) continue; // 去重
+        let L = i+1;
+        let R = len-1;
+        while(L < R){
+            const sum = nums[i] + nums[L] + nums[R];
+            if(sum == 0){
+                ans.push([nums[i],nums[L],nums[R]]);
+                while (L<R && nums[L] == nums[L+1]) L++; // 去重
+                while (L<R && nums[R] == nums[R-1]) R--; // 去重
+                L++;
+                R--;
+            }
+            else if (sum < 0) L++;
+            else if (sum > 0) R--;
+        }
+    }
+    return ans;
+};
+*/
