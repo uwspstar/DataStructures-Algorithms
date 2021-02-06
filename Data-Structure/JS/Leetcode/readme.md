@@ -143,7 +143,54 @@ var maxArea = function (arr) {
 - https://leetcode-cn.com/problems/3sum/
 
 ```js
-
+var threeSum = function (nums) {
+  if (nums.length < 3) return [];
+  nums.sort((a, b) => a - b);
+  let size = nums.length;
+  if (nums[0] > 0) return [];
+  if (nums[size - 1] < 0) return [];
+  let res = [];
+  let i = 0;
+  while (i < size - 2) {
+    if (nums[i] > 0) break; // 最左侧大于0，无解
+    let first = i + 1;
+    let last = size - 1;
+    while (first < last) {
+      if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
+      let sum = nums[i] + nums[first] + nums[last];
+      if (sum === 0) {
+        res.push([nums[i], nums[first], nums[last]]);
+      }
+      if (sum <= 0) {
+        // 负数过小，first右移
+        while (nums[first] === nums[++first]) {} // 重复值跳过
+      } else {
+        while (nums[last] === nums[--last]) {} // 重复值跳过
+      }
+    }
+    while (nums[i] === nums[++i]) {}
+  }
+  return res;
+};
 ```
 
 ---
+
+```js
+console.log('threeSum : ', threeSum([-3, -1, 0, 1, 2, -1, -4]));
+console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])); //[0,0,0]
+console.log('threeSum - 3 :', threeSum([1, -1])); //[]
+console.log('threeSum - 4 :', threeSum([4, 1, 2, 3])); //[]
+console.log('threeSum - 5 :', threeSum([-4, -1, -2, -3])); //[]
+console.log('threeSum - 6 :', threeSum([])); //[]
+```
+
+---
+
+### 删除链表中的节点
+```js
+var deleteNode = function(node) {
+    node.val = node.next.val;    //变成下个倒霉蛋
+    node.next = node.next.next;  //把倒霉蛋干掉。
+};
+```

@@ -132,3 +132,12 @@ console.log('pop = ', JSON.stringify(list.pop()));
 console.log(list.indexOf('b'));
 //console.log(JSON.stringify(list));
 console.log(JSON.stringify(list.getHead()));
+
+/*
+### 删除链表中的节点
+```js
+var deleteNode = function(node) {
+    node.val = node.next.val;    //变成下个倒霉蛋
+    node.next = node.next.next;  //把倒霉蛋干掉。
+};
+*/
