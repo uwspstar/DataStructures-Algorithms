@@ -188,9 +188,12 @@ console.log('threeSum - 6 :', threeSum([])); //[]
 ---
 
 ### 删除链表中的节点
+
+- https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
+
 ```js
-var deleteNode = function(node) {
-    node.val = node.next.val;    //变成下个倒霉蛋
-    node.next = node.next.next;  //把倒霉蛋干掉。
+var deleteNode = function (node) {
+  node.val = node.next.val; //变成下个倒霉蛋
+  node.next = node.next.next; //把倒霉蛋干掉。
 };
 ```
