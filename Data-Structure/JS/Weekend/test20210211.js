@@ -4,54 +4,41 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+//threeSum
+{
+    //console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    //console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    //console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[0,0,0]
+
+    //console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+}
+// longestPalindrome
+{
+
+    //console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
+    //console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
+    //console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
+    //console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
+    //console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
+    //console.log('longestPalindrome - 6', longestPalindrome("c")) //c
+    //console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
+}
+// repeatStrNTimes
+{
+    //console.log('repeatStrNTimes', repeatStrNTimes('abc', 3)); //abcabcabc
+}
 // maxWaterContainer
 {
-    const maxWaterContainer = arr => {
-        if (arr.length < 2) return 0;
-        let ai = 0;
-        let bi = arr.length - 1;
-        let maxArea = 0;
-        while (ai < bi) {
-            let height = Math.min(arr[ai], arr[bi]);
-            let width = bi - ai;
-            maxArea = Math.max(maxArea, height * width);
-            arr[ai] < arr[bi]
-                ? ai++
-                : bi--;
-        }
-        return maxArea;
-    }
-
+    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
 
-    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
-
 }
 // longestSubString
 {
-    const longestSubString = str => {
-        if (str.length === 0) return 0;
-        if (str.length === 1) return 1;
-        let maxLen = 0;
-        let map = new Map();
-        let fast = 0;
-        let slow = 0;
-        while (fast < str.length) {
-            let key = str[fast];
-            let value = map.get(key);
-            if (value >= 0) {
-                slow = value + 1;
-                maxLen = Math.max(maxLen, fast - slow)
-            }
-            map.set(key, fast);
-            fast++;
-        }
-        return 
-    }
     //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
@@ -59,12 +46,13 @@ console.log('================ start top 100 ================');
 {
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passFlower 3:' ,passFlower(3)) // passFlower 3: [ 'd' ]
-    //console.log('passFlower 2:' ,passFlower(2)) // passFlower 2: [ 'g' ]
+    //console.log('passingFlowerWithQueue 3:' ,passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
+    //console.log('passingFlowerWithQueue 2:' ,passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
 {
     //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
+    //console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
     //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
     //console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
     //console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
@@ -73,7 +61,9 @@ console.log('================ start top 100 ================');
 // reverseInteger
 {
 
-    //console.log('1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    //console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    //console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
+    //console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
 }
 // buySellStock
 {
@@ -91,16 +81,24 @@ console.log('================ start top 100 ================');
 // isBalance
 {
 
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
-    //console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    //console.log('5 - 1: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
+    //console.log('5 - 2: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
+    //console.log('5 - 3: isBalance: ', JSON.stringify(isBalance("[[[[{(")));//false
 }
 // isPalindrome
 {
-    //console.log('6: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    //console.log('6 - 1: isPalindrome', JSON.stringify(isPalindrome('amanaplanacanalpanama'))) // true
+    //console.log('6 - 2: isPalindrome', JSON.stringify(isPalindrome('a'))) // true
+    //console.log('6 - 3: isPalindrome', JSON.stringify(isPalindrome(''))) // true
+    //console.log('6 - 4: isPalindrome', JSON.stringify(isPalindrome('abcdc'))) // false
 }
 // sortColor
 {
-    //console.log('7: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1])));
+    //console.log('7 - 1: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]))); // [0,0,0,0,0,1,1,1,1,2,2,2,2,2]
+    //console.log('7 - 2: sortColor', JSON.stringify(sortColor([0, 1, 2])));// [0,1,2]
+    //console.log('7 - 3: sortColor', JSON.stringify(sortColor([0, 0, 2, 1])));// [0,0,1,2]
+    //console.log('7 - 4: sortColor', JSON.stringify(sortColor([2, 0])));// [0,2]
+    //console.log('7 - 5: sortColor', JSON.stringify(sortColor([2])));// [2]
 }
 // matrixSpiral
 {
@@ -177,9 +175,9 @@ console.log('================ start linkedList ================');
     linkedList.append(50);
     console.log('linkedList = ', JSON.stringify(linkedList));
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
-    console.log('findLastKth(3) = ', JSON.stringify(linkedList.findLastKth(4))); //20
+    console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    console.log(JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
