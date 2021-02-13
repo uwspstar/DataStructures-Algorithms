@@ -2,6 +2,10 @@
 marp: true
 ---
 
+### google doc setting
+
+- https://codefellows.medium.com/setting-up-google-docs-for-technical-interview-happiness-3e26b66afe92
+
 # Data Structures Easy to Advanced - Full Tutorial Course
 
 - https://www.youtube.com/watch?v=RBSGKlAvoiM&feature=em-uploademail
