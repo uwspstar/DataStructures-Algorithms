@@ -135,21 +135,50 @@ console.log('================ start top 100 ================');
 // longestSubString
 {
     const longestSubString = str => {
-        if (str.length < 2) return str;
-
+        if (str.length < 2) return str.length;
+        let map = new Map();
+        let maxLen = 0;
+        let slow = 0;
+        let fast = 0;
+        while (fast < str.length) {
+            let key = str[fast];
+            let value = map.get(key);
+            if (value >= slow) {
+                slow = value + 1;
+            }
+            map.set(key, fast);
+            maxLen = Math.max(maxLen, fast - slow + 1);
+            fast++;
+        }
+        console.log('map', map);
+        return maxLen;
     }
     console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
     console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 // passingFlowerWithQueue
 {
+    const passingFlowerWithQueue = n => {
+        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        while (queue.length > 1) {
+            for (let i = 0; i < n - 1; i++) {
+                queue.push(queue.shift());
+            }
+            let removeItem = queue.shift();
+        }
+        return queue;
+    }
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    //console.log('passingFlowerWithQueue 3:' ,passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
-    //console.log('passingFlowerWithQueue 2:' ,passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
+    console.log('passingFlowerWithQueue 3:', passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
+    console.log('passingFlowerWithQueue 2:', passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
 }
 // ToBinary
 {
+    const ToBinary = num => {
+        let str = ""
+        
+    }
     //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
     //console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
     //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
