@@ -3,7 +3,61 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// findDisappearNumbers
+{
+    const findDisappearNumbers = nums => {
+        if (nums.length === 0) return 1;
+        let set = new Set(nums);
+        let len = nums.length;
+        let p = 0;
+        for (let i = 1; i <= len; i++) {
+            if (!set.has(i)) {
+                nums[p] = i;
+                p++;
+            }
+        }
+        return nums.slice(0, p);
+    }
+    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
+    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
+}
+//threeSum
+{
+    const threeSum = nums => {
+        if (nums.length < 2) return [];
+        nums.sort((a, b) => a - b);
+        let len = nums.length;
 
+        if (nums[len - 1] < 0) return [];
+        if (nums[0] > 0) return [];
+
+        let result = [];
+        let i = 0;
+        while (i < len - 2) {
+            if (nums[i] > 0) break;
+            let left = i + 1;
+            let right = len - 1;
+            while (left < right) {
+                if (nums[i] * nums[right] > 0) break;
+                let sum = nums[i] + nums[left] + nums[right];
+                if (sum === 0) {
+                    result.push([nums[i], nums[left], nums[right]]);
+                }
+                if (sum <= 0) {
+                    while (nums[left] === nums[++left]) { };
+                } else {
+                    while (nums[right] === nums[--right]) { };
+                }
+            }
+            while (nums[i] === nums[++i]) { }
+        }
+        return result;
+    }
+    console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
+    console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+}
 // longestPalindrome : brute force
 {
     const longestPalindrome = function (str) {

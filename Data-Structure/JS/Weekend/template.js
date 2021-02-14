@@ -4,6 +4,11 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+{
+    
+    //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
+    //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
+}
 //threeSum
 {
     //console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]

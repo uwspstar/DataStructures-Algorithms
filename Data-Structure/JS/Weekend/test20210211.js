@@ -4,34 +4,129 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+{
+    const findDisappearNumbers = nums => {
+        if (nums.length === 0) return 1;
+        let set = new Set(nums);
+        let len = nums.length;
+        let p = 0;
+        for (let i = 1; i <= len; i++) {
+            if (!set.has(i)) {
+                nums[p] = i;
+                p++;
+            }
+        }
+        return nums.slice(0, p);
+    }
+    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
+    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
+}
 //threeSum
 {
-    //console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
-    //console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
-    //console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[0,0,0]
+    const threeSum = nums => {
+        if (nums.length < 2) return [];
+        nums.sort((a, b) => a - b);
+        let len = nums.length;
 
-    //console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+        if (nums[len - 1] < 0) return [];
+        if (nums[0] > 0) return [];
+
+        let result = [];
+        let i = 0;
+        while (i < len - 2) {
+            if (nums[i] > 0) break;
+            let left = i + 1;
+            let right = len - 1;
+            while (left < right) {
+                if (nums[i] * nums[right] > 0) break;
+                let sum = nums[i] + nums[left] + nums[right];
+                if (sum === 0) {
+                    result.push([nums[i], nums[left], nums[right]]);
+                }
+                if (sum <= 0) {
+                    while (nums[left] === nums[++left]) { };
+                } else {
+                    while (nums[right] === nums[--right]) { };
+                }
+            }
+            while (nums[i] === nums[++i]) { }
+        }
+        return result;
+    }
+    console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
+    console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
 }
 // longestPalindrome
 {
+    const isPalindrome = str => {
+        if (str.length < 2) return true;
+        let left = 0;
+        let right = str.length - 1;
+        while (left < right) {
+            if (str[left] !== str[right]) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
 
-    //console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
-    //console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
-    //console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
-    //console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
-    //console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
-    //console.log('longestPalindrome - 6', longestPalindrome("c")) //c
-    //console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
+    const longestPalindrome = str => {
+        if (str.length < 2) return str;
+        let maxLen = 0;
+        let result = "";
+        let len = str.length;
+        for (let i = 0; i < len; i++) {
+            for (let j = i + 1; j <= len; j++) {
+                // slice() extracts up to but not including endIndex. so j <= len
+                let test = str.slice(i, j);
+                if (isPalindrome(test) && test.length > maxLen) {
+                    result = test;
+                    maxLen = test.length;
+                }
+            }
+        }
+        return result;
+    }
+    console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
+    console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
+    console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
+    console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
+    console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
+    console.log('longestPalindrome - 6', longestPalindrome("c")) //c
+    console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
 }
 // repeatStrNTimes
 {
-    //console.log('repeatStrNTimes', repeatStrNTimes('abc', 3)); //abcabcabc
+    const repeatStrNTimes = (str, n) => {
+        if (n < 2) return str;
+
+        let arr = new Array(n + 1);
+        return arr.join(str);
+    }
+    console.log('repeatStrNTimes', repeatStrNTimes('abc', 3)); //abcabcabc
 }
 // maxWaterContainer
 {
-    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    const maxWaterContainer = arr => {
+        if (arr.length < 2) return 0;
+        let maxArea = 0;
+        let ai = 0;
+        let bi = arr.length - 1;
+        while (ai < bi) {
+            let height = Math.min(arr[ai], arr[bi]);
+            let width = bi - ai;
+            maxArea = Math.max(maxArea, height * width);
+            arr[ai] < arr[bi]
+                ? ai++
+                : bi--;
+        }
+        return maxArea;
+    }
+    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
@@ -39,8 +134,12 @@ console.log('================ start top 100 ================');
 }
 // longestSubString
 {
-    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    const longestSubString = str => {
+        if (str.length < 2) return str;
+
+    }
+    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
 }
 // passingFlowerWithQueue
 {

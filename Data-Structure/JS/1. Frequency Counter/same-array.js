@@ -92,3 +92,10 @@ console.log(same([1, 2, 3], [4, 1, 9])) // true
 console.log(same([1, 2, 3, 2], [4, 4, 1, 9])) // true
 console.log(same([1, 2, 3], [1, 9])) // false
 console.log(same([1, 2, 1], [4, 4, 1])) // false
+
+
+/*
+
+The main difference between Map and WeakMap is the latter allowing garbage collection of keys (which are objects). This prevents memory leaks.
+
+*/
