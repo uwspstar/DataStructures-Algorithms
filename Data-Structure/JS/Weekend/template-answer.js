@@ -2,7 +2,8 @@
 "use strict";
 
 //swap function 
-const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
 // findDisappearNumbers
 {
     const findDisappearNumbers = nums => {

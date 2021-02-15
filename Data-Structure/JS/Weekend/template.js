@@ -5,7 +5,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
 {
-    
+
     //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
     //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
 }
@@ -32,6 +32,18 @@ console.log('================ start top 100 ================');
 {
     //console.log('repeatStrNTimes', repeatStrNTimes('abc', 3)); //abcabcabc
 }
+//  trap rain
+{
+    //给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+    const trapRain = arr => {
+        
+    }
+    //console.log('9-1: trap = ', trapRain([7])) //0
+    //console.log('9-2: trap = ', trapRain([])) // 0
+    //console.log('9-2: trap = ', trapRain([3,4,3])) // 0
+    //console.log('9-3: trap', JSON.stringify(trapRain([0,1,0,2,1,0,1,3,2,1,2,1]))); //8
+    //https://leetcode-cn.com/problems/trapping-rain-water/
+}
 // maxWaterContainer
 {
     //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
@@ -40,6 +52,7 @@ console.log('================ start top 100 ================');
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
+    // https://leetcode-cn.com/problems/container-with-most-water/
 
 }
 // longestSubString
