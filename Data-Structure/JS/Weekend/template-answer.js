@@ -2,7 +2,7 @@
 "use strict";
 
 //swap function 
-// const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 // findDisappearNumbers
 {
@@ -25,7 +25,7 @@
 //threeSum
 {
     const threeSum = nums => {
-        if (nums.length < 2) return [];
+        if (nums.length < 3) return [];
         nums.sort((a, b) => a - b);
         let len = nums.length;
 
@@ -50,7 +50,7 @@
                     while (nums[right] === nums[--right]) { };
                 }
             }
-            while (nums[i] === nums[++i]) { }
+            while (nums[i] === nums[++i]) { } // outside while (left < right)
         }
         return result;
     }
@@ -60,43 +60,44 @@
     console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
 }
 // longestPalindrome : brute force
+// j <= len
+// checking len > maxStr.length before checking isPalindrome(tmpStr)
 {
-    const longestPalindrome = function (str) {
-        if (str.length < 2) return str;
-        let result = "";
-        let max = 0;
-        let len = str.length;
-        for (let i = 0; i < len; i++) {
-            for (let j = i + 1; j <= len; j++) {
-                let test = str.slice(i, j);
-                if (isPalindrome(test) && test.length > max) {
-                    result = str.slice(i, j);
-                    max = Math.max(max, result.length);
+    const longestPalindrome = str => {
+        if (str.length === 1) return str;
+        const isPalindrome = str => {
+            //console.log('callIsPalindrome', str);
+            if (str.length === 1) return true;
+            let left = 0;
+            let right = str.length - 1;
+            while (left < right) {
+                if (str[left] !== str[right]) return false;
+                left++;
+                right--;
+            }
+            return true;
+        }
+        let maxStr = '';
+        for (let i = 0; i < str.length; i++) {
+            for (let j = i + 1; j <= str.length; j++) {
+                let tmpStr = str.slice(i, j);
+                //console.log('tmpStr : ', tmpStr);
+                let len = tmpStr.length;
+                if (len > maxStr.length && isPalindrome(tmpStr)) {
+                    maxStr = tmpStr;
+                    //console.log('maxStr : ', maxStr);
                 }
             }
         }
-        return result;
-    };
-
-    const isPalindrome = str => {
-        if (str.length < 2) return true;
-        let left = 0;
-        let right = str.length - 1;
-        while (left < right) {
-            if (str[left] !== str[right]) return false;
-            left++;
-            right--;
-        }
-        return true;
+        return maxStr;
     }
-
-    console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
+    //console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
     console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
-    console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
-    console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
-    console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
-    console.log('longestPalindrome - 6', longestPalindrome("c")) //c
-    console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
+    //console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
+    //console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
+    //console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
+    //console.log('longestPalindrome - 6', longestPalindrome("c")) //c
+    //console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
 }
 // repeatStrNTimes
 {
