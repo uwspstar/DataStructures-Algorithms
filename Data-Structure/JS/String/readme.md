@@ -38,7 +38,7 @@ marp: true
 
 ---
 
-### my mistakes
+### my mistakes with string
 
 - `toLowerCase()` is not `toLower()`
 - `sort is for arr, not for string`
