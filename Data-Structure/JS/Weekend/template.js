@@ -4,8 +4,15 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+//firstUniqChar
 {
-
+    //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    //console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    //console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    //console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+}
+//findDisappearNumbers
+{
     //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
     //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
 }
@@ -36,7 +43,7 @@ console.log('================ start top 100 ================');
 {
     //给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
     const trapRain = arr => {
-        
+
     }
     //console.log('9-1: trap = ', trapRain([7])) //0
     //console.log('9-2: trap = ', trapRain([])) // 0

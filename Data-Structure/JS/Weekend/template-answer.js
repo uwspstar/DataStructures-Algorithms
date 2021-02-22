@@ -3,7 +3,61 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-
+// firstUniqChar // O(N)
+{
+    var firstUniqChar = function (s) {
+        if (s.length === 0) return -1;
+        if (s.length === 1) return 0;
+        let map = new Map();
+        for (let i = 0; i < s.length; i++) {
+            let key = s[i];
+            let value = map.get(key);
+            value > 0 ? map.set(key, value + 1) : map.set(key, 1);
+        }
+        for (let key of map.keys()) {
+            if (map.get(key) === 1) {
+                return s.indexOf(key);
+            }
+        }
+        return -1;
+    };
+    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+}
+// firstUniqChar ; fast one max loop 26 characters
+{
+    var firstUniqChar = function (s) {
+        if (s.length === 0) return -1;
+        if (s.length === 1) return 0;
+        let len = s.length;
+        let min = len;
+        for (let c of "abcdefghijklmnopqrstuvwxyz") {
+            let exist = s.indexOf(c);
+            if (exist !== -1 && s.lastIndexOf(c) === exist) {
+                min = Math.min(min, exist);
+            }
+        }
+        return min === len ? -1 : min;
+    };
+    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+}
+//firstUniqChar
+{
+    var firstUniqChar = function (s) {
+        if (s.length === 0) return -1;
+        if (s.length === 1) return 0;
+        for (let i = 0; i < s.length; i++) {
+            let key = s[i];
+            if (s.indexOf(key) === s.lastIndexOf(key)) return i;
+        }
+        return -1;
+    };
+}
 // findDisappearNumbers
 {
     const findDisappearNumbers = nums => {
