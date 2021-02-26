@@ -3,6 +3,55 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+console.log("=====string===START=====================================================");
+//isAnagram : https://www.byte-by-byte.com/anagrams/
+{
+    // 1 : toLowerCase not toLower
+    // 2 : sort has to be arr, not string
+    const isAnagram = (str1, str2) => {
+        if (str1.length !== str2.length) return false;
+        return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+    }
+    console.log('isAnagram("", "") =', isAnagram("", ""));//isAnagram("", "") = true
+    console.log('isAnagram("A", "A") =', isAnagram("A", "A"));//isAnagram("A", "A") = true
+    console.log('isAnagram("A", "B") =', isAnagram("A", "B"));//isAnagram("A", "B") = false
+    console.log('isAnagram("ab", "ba") =', isAnagram("ab", "ba"));//isAnagram("ab", "ba") = true
+    console.log('isAnagram("AB", "ab") =', isAnagram("AB", "ab"));//isAnagram("AB", "ab") = true
+}
+// isAnagram
+// 1 : str1.charCodeAt(i)
+{
+    const isAnagram = (str1, str2) => {
+        if (str1.length !== str2.length) return false;
+        let s1 = str1.toLowerCase();
+        let s2 = str2.toLowerCase();
+        if (s1 === s2) return true;
+        let map = {};
+        let len = str1.length;
+        for (let i = 0; i < len; i++) {
+            let index = str1.charCodeAt(i);
+            map[index] = (map[index] || 0) + 1;
+        }
+        for (let i = 0; i < len; i++) {
+            let index = str2.charCodeAt(i);
+            if (!map[index]) return false; // include check negative and 0
+            map[index]--;
+        }
+        return true;
+    }
+
+
+    console.log('isAnagram("acb", "bba") =', isAnagram("acb", "bba"));//isAnagram("abb", "baa") = true
+    console.log('isAnagram("abb", "baa") =', isAnagram("abb", "baa"));//isAnagram("abb", "baa") = true
+    console.log('isAnagram("", "") =', isAnagram("", ""));//isAnagram("", "") = true
+    console.log('isAnagram("A", "A") =', isAnagram("A", "A"));//isAnagram("A", "A") = true
+    console.log('isAnagram("A", "B") =', isAnagram("A", "B"));//isAnagram("A", "B") = false
+    console.log('isAnagram("ab", "ba") =', isAnagram("ab", "ba"));//isAnagram("ab", "ba") = true
+    console.log('isAnagram("AB", "ab") =', isAnagram("AB", "ab"));//isAnagram("AB", "ab") = true
+
+}
+console.log("=====string===END=====================================================")
 // firstUniqChar // O(N)
 {
     var firstUniqChar = function (s) {
