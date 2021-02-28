@@ -175,11 +175,13 @@ let difference = new Set([...a].filter((x) => !b.has(x))); // Set {1}
 ---
 
 # 垃圾回收机制依赖`引用计数`，如果一个值的引用次数不为 0，垃圾回收机制就不会释放这块内存。结束使用该值之后，有时会忘记取消引用，导致内存无法释放，进而可能会引发内存泄漏。
+
 ---
 
 ## `WeakSet` 里面的引用，都`不计入垃圾回收机制`，所以就不存在这个问题。因此，`WeakSet` 适合临时存放一组对象，以及存放跟对象绑定的信息。只要这些对象在外部消失，它在 WeakSet 里面的引用就会自动消失。
 
-## 由于上面这个特点，`WeakSet` 的成员是不适合引用的，因为它会随时消失。另外，由于 `WeakSet` 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的，因此 
+## 由于上面这个特点，`WeakSet` 的成员是不适合引用的，因为它会随时消失。另外，由于 `WeakSet` 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的，因此
+
 ## ES6 规定 WeakSet 不可遍历
 
 ---
@@ -187,6 +189,22 @@ let difference = new Set([...a].filter((x) => !b.has(x))); // Set {1}
 # Map 和 WeakMaps 之间的差别
 
 - `Map`，对象键是`可枚举的`。这允许垃圾收集器优化后面的枚举(`This allows garbage collection optimizations in the latter case`)。
+- `WeakSet` 没有`size`属性，没有办法遍历它的成员
+
+```js
+const a = [
+  [1, 2],
+  [3, 4],
+];
+const ws = new WeakSet(a);
+// WeakSet {[1, 2], [3, 4]}
+```
+
+- 注意，是 a 数组的成员成为 WeakSet 的成员，而不是 a 数组本身。这意味着，数组的成员只能是`对象`
+
+---
+
+# WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
 
 ---
 
@@ -206,10 +224,21 @@ let difference = new Set([...a].filter((x) => !b.has(x))); // Set {1}
 
 ---
 
+# JavaScript 内存泄漏教程 memory leak
+
+- http://www.ruanyifeng.com/blog/2017/04/memory-leak.html
+
+# 不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）
+
+- 程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
+
+---
+
 # JavaScript 的内存分配
 
 - 为了不让程序员费心分配内存，JavaScript 在定义变量时就完成了内存分配。
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management#javascript_%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D
+- http://www.ruanyifeng.com/blog/2017/04/memory-leak.html
 
 ---
 
@@ -290,6 +319,87 @@ oa = null; // a属性的那个对象现在也是零引用了, 它可以被垃圾
 
 - 从 2012 年起，所有现代浏览器都使用了`标记-清除垃圾回收算法`。
 - 所有对 JavaScript 垃圾回收算法的改进都是基于`标记-清除算法`的改进，并没有改进标记-清除算法本身和它对`“对象是否不再需要”`的简化定义
+
+---
+
+# 基本上，如果你要往对象上添加数据，又不想干扰垃圾回收机制，就可以使用 WeakMap。
+
+- 以 WeakMap 为例，看看它是怎么解决内存泄漏的。
+
+```js
+const wm = new WeakMap();
+
+const element = document.getElementById('example');
+
+wm.set(element, 'some information');
+wm.get(element); // "some information"
+```
+
+---
+
+- 上面代码中，先新建一个 Weakmap 实例。然后，将一个 DOM 节点作为键名存入该实例，并将一些附加信息作为键值，一起存放在 WeakMap 里面。这时，WeakMap 里面对 element 的引用就是弱引用，不会被计入垃圾回收机制。
+
+- 也就是说，DOM 节点对象的引用计数是 1，而不是 2。这时，一旦消除对该节点的引用，它占用的内存就会被垃圾回收机制释放。Weakmap 保存的这个键值对，也会自动消失。
+
+---
+
+# Map : 如果你需要“键值对”的数据结构，Map 比 Object 更合适
+
+- `ES6 提供了 Map 数据结构`。
+- 它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+- 也就是说，`Object` 结构提供了“字符串—值”的对应，`Map` 结构提供了“值—值”的对应，是一种更完善的 `Hash` 结构实现。
+- `Map` 的遍历顺序就是插入顺序。
+
+---
+
+# 注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。
+
+- one interview question
+
+```js
+const map = new Map();
+
+map.set(['a'], 555);
+map.get(['a']); // undefined
+```
+
+- 上面代码的 set 和 get 方法，表面是针对同一个键，但实际上这是两个不同的数组实例，内存地址是不一样的，因此 get 方法无法读取该键，返回 undefined。
+
+---
+
+# Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（clash）的问题.
+
+---
+
+# 如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键
+
+### 0 和-0 就是一个键
+
+### 布尔值 true 和字符串 true 则是两个不同的键。
+
+### undefined 和 null 也是两个不同的键。
+
+### 虽然 NaN 不严格相等于自身，但 Map 将其视为同一个键
+
+---
+
+# Map 结构转为数组结构，比较快速的方法是使用`扩展运算符（...）`(Spread syntax)。
+
+```js
+const map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+[...map.keys()]// [1, 2, 3]
+
+[...map.values()]// ['one', 'two', 'three']
+
+[...map.entries()]// [[1,'one'], [2, 'two'], [3, 'three']]
+
+[...map]// [[1,'one'], [2, 'two'], [3, 'three']]
+```
 
 ---
 
