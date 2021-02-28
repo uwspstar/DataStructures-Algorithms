@@ -54,6 +54,21 @@ console.log("=====string===START================================================
 console.log("=====string===END=====================================================")
 // firstUniqChar // O(N)
 {
+    const firstUniqChar = str => {
+        if (str.length === 0) return 0;
+        if (str.length === 1) return 1;
+        for (let c of str) {
+            if (str.indexOf(c) === str.lastIndexOf(c)) return str.indexOf(c);
+        }
+        return -1;
+    }
+    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+}
+// firstUniqChar // O(N)
+{
     var firstUniqChar = function (s) {
         if (s.length === 0) return -1;
         if (s.length === 1) return 0;
