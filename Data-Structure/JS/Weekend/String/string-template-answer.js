@@ -106,12 +106,6 @@ console.log("=====string========================================================
     console.log('lengthOfLongestSubstring("bbbbb") =', lengthOfLongestSubstring("bbbbb")); // 1
     console.log('lengthOfLongestSubstring("") =', lengthOfLongestSubstring("")); // 0
     console.log('lengthOfLongestSubstring("pwwkew") =', lengthOfLongestSubstring("pwwkew")); // 3
-    /*
-        作者：LeetCode - Solution
-        链接：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/
-        来源：力扣（LeetCode）
-        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-    */
 }
 //substring nest loop (basic two pointers, i, j)
 {
@@ -146,8 +140,8 @@ console.log("=====string========================================================
     console.log('reverseStr("abcdef")', reverseStr("abcdef"));
 }
 {
-    //删除排序数组中的重复项 :
-    /* 给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。*/
+    // https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+    //删除排序数组中的重复项 : 给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度.
     // 1 : use Array.from()
     const removeDuplicates = nums => {
         return Array.from(new Set(nums));
@@ -179,6 +173,45 @@ console.log("=====string========================================================
         return nums;
     }
 
-    console.log('removeDuplicates([1,1,2])', JSON.stringify(removeDuplicates([1, 1, 2])))
-    console.log('removeDuplicates([0,0,1,1,1,2,2,3,3,4])', JSON.stringify(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])))
+    console.log('removeDuplicates([1,1,2])', JSON.stringify(removeDuplicates([1, 1, 2]))) // [1,2]
+    console.log('removeDuplicates([0,0,1,1,1,2,2,3,3,4])', JSON.stringify(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))) //[1,2,3,4]
+}
+{
+    // https://leetcode-cn.com/problems/valid-palindrome/
+    // 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。空字符串定义为有效的回文串
+    const isPalindrome = str => {
+        //return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+
+
+    }
+    console.log('isPalindrome("A man, a plan, a canal: Panama")', JSON.stringify(isPalindrome("A man, a plan, a canal: Panama"))) //true
+    console.log('isPalindrome("race a car")', JSON.stringify(isPalindrome("race a car"))) //false
+}
+{
+    //https://leetcode-cn.com/problems/reverse-words-in-a-string/
+    /*
+    给定一个字符串，逐个翻转字符串中的每个单词. 
+    无空格字符构成一个 单词 。
+    输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。
+    如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。*/
+    var reverseWords = function (s) {
+        return s.trim().split(/\s+/).reverse().join(' ');
+    };
+}
+{
+    //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
+    //The difference between .split(" ") and .split(/\s+/) is:
+    /*
+    The regex " "
+    
+    Match the space character literally.
+    The regex /\s+/
+    
+    Match a single white space character (tab, line feed, carriage return, vertical tab, form feed) between one and unlimited times. (greedy)
+    Short:
+    
+    " "   splits the array at one single space character.
+    /\s/ splits the array at every kind of whitespace character
+    +      Matches between one and unlimited times
+    */
 }
