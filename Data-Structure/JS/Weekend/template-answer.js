@@ -5,6 +5,30 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log("=====string===START=====================================================");
+// arrUnionAndDifference
+{
+    class arrUnionAndDifference {
+        constructor() { };
+        arrUnion(arr1, arr2) {
+            return [...new Set([...arr1, ...arr2])];
+        }
+        arrAnd(arr1, arr2) {
+            let a = [...new Set(arr1)];
+            let b = new Set(arr2);
+            return a.filter(x => b.has(x));
+        }
+        arrDifference(arr1, arr2) {
+            let a = [...new Set(arr1)];
+            let b = new Set(arr2);
+            return a.filter(x => !b.has(x));
+        }
+    }
+
+    let obj = new arrUnionAndDifference();
+    console.log('arr union', obj.arrUnion(arr1, arr2));
+    console.log('arr union', obj.arrAnd(arr1, arr2));
+    console.log('arr difference', obj.arrDifference(arr1, arr2));
+}
 //isAnagram : https://www.byte-by-byte.com/anagrams/
 {
     // 1 : toLowerCase not toLower

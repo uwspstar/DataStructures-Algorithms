@@ -10,13 +10,14 @@ size: 16:9
 
 # Code Interview
 
-- string
-- array
-- stack
-- queue
-- linkList
-- tree
-- map
+- string, reverser, sliding window, two pointers, math
+- array, sorting, bubble sort, selection sort, insertion sort, merge sort, quick sort, reverse
+- hash table, dictionary, Set, Map
+- stack, LIFO
+- queue, FIFO
+- linkList, double linklist, circle linklist
+- tree, binary tree
+- graph
 
 ---
 
@@ -63,13 +64,13 @@ size: 16:9
 - 在 `Javascript` 里，对象可以被看作是一组属性的集合。
 - 一个 `Javascript`, `对象就是键和值之间的映射`。键是一个`字符串`（或者 `Symbol`） ，值可以是`任意类型的值`。 这使得对象非常符合 `哈希表`。
 
-- 函数是一个附带可被调用功能的常规对象。
+- `函数是一个附带可被调用功能的常规对象`。
 
 ---
 
 # 散列表（Hash table，也叫哈希表）
 
-- 是根据键（Key）而直接访问在`記憶體儲存位置`的`数据结构`。
+- 是根据键（`Key`）而直接访问在`記憶體儲存位置`的`数据结构`。
 - 它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，`这加快了查找速度`。这个映射函数称做`散列函数`，存放记录的数组称做`散列表`。
 - https://www.youtube.com/watch?v=Yaf7bxiJNqg&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=18
 
@@ -89,6 +90,7 @@ size: 16:9
 - 类似于数组，但是成员的值都是唯一的，没有重复的值。
 - `Set`本身是一个构造函数，用来生成 `Set` 数据结构
 - `Set` 函数可以接受一个数组（或者具有 `iterable` 接口的其他数据结构）作为参数，用来初始化
+- 扩展运算符（`...`）内部使用 `for...of` 循环，所以也可以用于 `Set` 结构
 
 ---
 
@@ -104,7 +106,7 @@ function removeDuplicate(array) {
 }
 ```
 
-- 去除字符串里面的重复字符
+- 去除字符串里面的重复字符 : arr first, then join as str
 
 ```js
 [...new Set('ababbc')].join('');
@@ -112,7 +114,7 @@ function removeDuplicate(array) {
 
 ---
 
-# 向 Set 加入值的时候，不会发生类型转换，所以 5 和"5"是两个不同的值。
+# 向 `Set` 加入值的时候，不会发生类型转换，所以 5 和"5"是两个不同的值。
 
 - 在 `Set` 内部，两个`NaN`是`相等`的.
 - 在 `Set` 内部，两个`对象`总是`不相等`的.
@@ -136,7 +138,7 @@ console.log(NaN == NaN); // false
 - 这个特性有时非常有用，比如使用 `Set` 保存一个回调函数列表，调用时就能`保证按照添加顺序`调用。
 - 由于 `Se`t 结构没有键名，只有键值（或者说键名和键值是同一个值）
 - Set 结构的实例默认可遍历，它的`默认`遍历器生成函数就是它的`values`方法
-- 扩展运算符（...）内部使用 for...of 循环，所以也可以用于 Set 结构
+- 扩展运算符（`...`）内部使用 `for...of` 循环，所以也可以用于 `Set` 结构
 
 ---
 
