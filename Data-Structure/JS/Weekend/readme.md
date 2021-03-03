@@ -10,14 +10,40 @@ size: 16:9
 
 # Code Interview
 
+- 数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构
+- https://www.byte-by-byte.com/
+- https://github.com/youngyangyang04/leetcode-master
+
+---
+
 - string, reverser, sliding window, two pointers, math
-- array, sorting, bubble sort, selection sort, insertion sort, merge sort, quick sort, reverse
+- array, sorting, bubble sort, selection sort, insertion sort, merge sort, quick sort, reverse, binary search (arr in order)
 - hash table, dictionary, Set, Map
 - stack, LIFO
 - queue, FIFO
 - linkList, double linklist, circle linklist
 - tree, binary tree
 - graph
+
+---
+
+### find middle 防止溢出
+
+```js
+let middle = left + (right - left) / 2;
+```
+
+```js
+let mid = arr.length >> 1;
+```
+
+---
+
+### 二分查找 Binary Search
+
+- Binary Search : 二分查找法是数组里的常用方法，彻底掌握它是十分必要的.
+- 数组是有序数组，这也是使用二分查找的基础条件
+- 一旦有重复元素，使用二分查找法返回的元素下表可能不是唯一的
 
 ---
 
@@ -493,6 +519,14 @@ const map = new Map([
 # Array
 
 - 数组是表示`列表`或`集合`的`最优选择`
+- 数组`不适合`做频繁的增删操作 : 数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移动其他元素的地址
+
+---
+
+### 二维数组在内存的空间地址是连续的么？
+
+- `不是一个连续地址空间`
+- 二位数组中其实是一个线性数组存放着其他数组的首地址。
 
 ---
 

@@ -1,41 +1,36 @@
-console.log(NaN === NaN);
-console.log(NaN == NaN);
+{
+    const reverseWords = function (s) {
+        //return s.trim().split(/\s+/).reverse().join(' ')
+        return s.trim().split(/\s+/).reverse().join(' ');
 
-
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [6, 2, 7, 4, 8];
-
-//[...new Set(arr1), ...new Set(arr2)]
-
-console.log('union two arr', [...new Set([...arr1, ...arr2])]);
-
-let a = new Set(arr1);
-let b = new Set(arr2);
-
-arr1.filter(x => b.has(x));
-
-console.log('and two arr', [...a].filter(x => b.has(x)));
-
-console.log('different two arr', [...a].filter(x => !b.has(x)));
-
-class arrUnionAndDifference {
-    constructor() { };
-    arrUnion(arr1, arr2) {
-        return [...new Set([...arr1, ...arr2])];
-    }
-    arrAnd(arr1, arr2) {
-        let a = [...new Set(arr1)];
-        let b = new Set(arr2);
-        return a.filter(x => b.has(x));
-    }
-    arrDifference(arr1, arr2) {
-        let a = [...new Set(arr1)];
-        let b = new Set(arr2);
-        return a.filter(x => !b.has(x));
-    }
+    };
+    console.log(`result :`, reverseWords('a good   example'));
 }
+{
 
-let obj = new arrUnionAndDifference();
-console.log('arr union', obj.arrUnion(arr1, arr2));
-console.log('arr union', obj.arrAnd(arr1, arr2));
-console.log('arr difference', obj.arrDifference(arr1, arr2));
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+        const removeSpace = (arr) => {
+            let result = [];
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].trim().length ? result.push(arr[i]) : {};
+            }
+            return result;
+        }
+        const reverse = (arr, left = 0, right = arr.length - 1) => {
+            while (left < right) {
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+            return arr;
+        }
+
+    const reverseWords = function (s) {
+
+        if (s.length < 2) return s;
+        let arr = s.split(' '); 
+        return reverse(removeSpace(arr)).join(' ');
+    };
+    
+    console.log(`result :`, reverseWords('a good   example'));
+}

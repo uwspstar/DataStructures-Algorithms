@@ -4,6 +4,10 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 console.log('================ start top 100 ================');
+//reverseWords
+{
+    //console.log(`result :`, reverseWords('a good   example'));
+}
 //firstUniqChar
 {
     //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
