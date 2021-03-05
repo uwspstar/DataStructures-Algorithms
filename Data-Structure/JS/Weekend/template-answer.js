@@ -3,7 +3,60 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// binary search : searchInsert
+{
+    var searchInsert = function (nums, val) {
+        if (nums.length === 0) return 0;
+        if (nums[0] > val) return 0;
+        let len = nums.length;
+        if (nums[len - 1] < val) return len;
+        // binary [left, right]
+        let left = 0;
+        let right = len - 1;
+        while (left <= right) {
+            let mid = left + parseInt((right - left) / 2);
+            if (nums[mid] === val) return mid;
+            nums[mid] > val ? right = mid - 1 : left = mid + 1;
+        }
+        return right + 1;
+    };
+    console.log('searchInsert', searchInsert([4, 5], 3)); //0
+    console.log('searchInsert', searchInsert([0, 1, 2, 4, 5], 3)); //3 
+    console.log('searchInsert', searchInsert([1, 2, 3], 3));//2
+    console.log('searchInsert', searchInsert([0, 1, 2, 4], 3));//3
+    console.log('searchInsert', searchInsert([0, 1, 2, 4], 5));//4
+}
+// two pointers
+{
+    //https://leetcode-cn.com/problems/3sum/
+    //https://leetcode-cn.com/problems/4sum/
+}
+console.log("=====two pointers====START===================================================");
 
+console.log("=====two pointers====END=====================================================");
+//sliding window
+{
+    //https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+}
+console.log("=====array====START=====================================================");
+// removeElement
+{
+    var removeElement = function (nums, val) {
+        if (nums.length === 0) return 0;
+        let point = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] !== val) {
+                nums[point] = nums[i];
+                point++;
+            }
+        }
+        nums.length = point;
+        return nums;
+    };
+    console.log('removeElement', removeElement([3, 2, 2, 3], 3));
+    console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
+}
+console.log("=====array====END=====================================================");
 console.log("=====string===START=====================================================");
 // reverseWords
 {

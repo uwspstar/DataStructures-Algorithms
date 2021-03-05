@@ -1,36 +1,43 @@
+var searchInsert = function (nums, val) {
+    if (nums.length === 0) return 0;
+    if (nums[0] > val) return 0;
+    let len = nums.length;
+    if (nums[len - 1] < val) return len;
+    // binary [left, right]
+    let left = 0;
+    let right = len - 1;
+    while (left <= right) {
+        let mid = left + parseInt((right - left) / 2);
+        if (nums[mid] === val) return mid;
+        nums[mid] > val ? right = mid - 1 : left = mid + 1;
+    }
+    return right + 1;
+};
+console.log('searchInsert', searchInsert([1, 3], 3)); //1
+console.log('searchInsert', searchInsert([4, 5], 3)); //0
+console.log('searchInsert', searchInsert([0, 1, 2, 4, 5], 3)); //3 
+console.log('searchInsert', searchInsert([1, 2, 3], 3));//2
+console.log('searchInsert', searchInsert([0, 1, 2, 4], 3));//3
+console.log('searchInsert', searchInsert([0, 1, 2, 4], 5));//4
+/*
 {
-    const reverseWords = function (s) {
-        //return s.trim().split(/\s+/).reverse().join(' ')
-        return s.trim().split(/\s+/).reverse().join(' ');
+    if (nums.length === 0) return 1;
+    if (nums[0] >= target) return 0;
+    if (nums[nums.length - 1] <= target) return nums.length;
 
-    };
-    console.log(`result :`, reverseWords('a good   example'));
-}
-{
+    let start = 0;
+    let end = nums.length - 1;
 
-    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-        const removeSpace = (arr) => {
-            let result = [];
-            for (let i = 0; i < arr.length; i++) {
-                arr[i].trim().length ? result.push(arr[i]) : {};
-            }
-            return result;
-        }
-        const reverse = (arr, left = 0, right = arr.length - 1) => {
-            while (left < right) {
-                swap(arr, left, right);
-                left++;
-                right--;
-            }
-            return arr;
+    while (end >= start) {
+        const i = parseInt((end + start) / 2);
+
+        if (nums[i] === target) {
+            return i;
         }
 
-    const reverseWords = function (s) {
+        nums[i] > target ? end = i - 1 : start = i + 1;
+    }
 
-        if (s.length < 2) return s;
-        let arr = s.split(' '); 
-        return reverse(removeSpace(arr)).join(' ');
-    };
-    
-    console.log(`result :`, reverseWords('a good   example'));
+    return start;
 }
+*/
