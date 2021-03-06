@@ -550,6 +550,24 @@ const map = new Map([
 
 ---
 
+### DOM
+
+- operate xml => xhtml => html => html 2.0
+- DOM cannot operate css
+
+### javascript not use "-"
+
+- `div.style.backgroundColor` not `div.style.background-color`
+- css file can use `-`, emp : `background-color`
+
+---
+
+### xml => xhtml => html => html 2.0
+
+- xml element can be any
+
+---
+
 # string
 
 ---
@@ -586,6 +604,10 @@ function removeDuplicate(array) {
 ```
 
 ---
+
+### arr.splice()
+
+- ***
 
 # stack
 
