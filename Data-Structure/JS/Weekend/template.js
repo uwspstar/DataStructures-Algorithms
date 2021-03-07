@@ -3,15 +3,7 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-// sliding window : minSubArrayLen  
-// 209 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
-// minSubArrayLen
-{
-    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
-    console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
-    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
-    console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
-}
+
 // binary search : searchInsert
 {
 
@@ -72,313 +64,139 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 // firstUniqChar // O(N)
 {
-    const firstUniqChar = str => {
-        if (str.length === 0) return 0;
-        if (str.length === 1) return 1;
-        for (let c of str) {
-            if (str.indexOf(c) === str.lastIndexOf(c)) return str.indexOf(c);
-        }
-        return -1;
-    }
-    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
-    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
-    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
-    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+
+    //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    //console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    //console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    //console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
 }
-// firstUniqChar // O(N)
+// firstUniqChar // O(N) 
+// hashmap
 {
-    var firstUniqChar = function (s) {
-        if (s.length === 0) return -1;
-        if (s.length === 1) return 0;
-        let map = new Map();
-        for (let i = 0; i < s.length; i++) {
-            let key = s[i];
-            let value = map.get(key);
-            value > 0 ? map.set(key, value + 1) : map.set(key, 1);
-        }
-        for (let key of map.keys()) {
-            if (map.get(key) === 1) {
-                return s.indexOf(key);
-            }
-        }
-        return -1;
-    };
-    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
-    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
-    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
-    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+
+    //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    //console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    //console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    //console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
 }
 // firstUniqChar ; fast one max loop 26 characters
 {
-    var firstUniqChar = function (s) {
-        if (s.length === 0) return -1;
-        if (s.length === 1) return 0;
-        let len = s.length;
-        let min = len;
-        for (let c of "abcdefghijklmnopqrstuvwxyz") {
-            let exist = s.indexOf(c);
-            if (exist !== -1 && s.lastIndexOf(c) === exist) {
-                min = Math.min(min, exist);
-            }
-        }
-        return min === len ? -1 : min;
-    };
-    console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
-    console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
-    console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
-    console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
+    //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    //console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    //console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    //console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
 }
 //firstUniqChar
+// indexOf = lastIndexOf
 {
-    var firstUniqChar = function (s) {
-        if (s.length === 0) return -1;
-        if (s.length === 1) return 0;
-        for (let i = 0; i < s.length; i++) {
-            let key = s[i];
-            if (s.indexOf(key) === s.lastIndexOf(key)) return i;
-        }
-        return -1;
-    };
+    //console.log('firstUniqChar -1 : ', JSON.stringify(firstUniqChar('leetcode'))) //0
+    //console.log('firstUniqChar -2 : ', JSON.stringify(firstUniqChar(''))) //-1
+    //console.log('firstUniqChar -3 : ', JSON.stringify(firstUniqChar('l'))) //0
+    //console.log('firstUniqChar -4 : ', JSON.stringify(firstUniqChar('eetcbebecee'))) //2
 }
 // findDisappearNumbers
 {
-    const findDisappearNumbers = nums => {
-        if (nums.length === 0) return 1;
-        let set = new Set(nums);
-        let len = nums.length;
-        let p = 0;
-        for (let i = 1; i <= len; i++) {
-            if (!set.has(i)) {
-                nums[p] = i;
-                p++;
-            }
-        }
-        return nums.slice(0, p);
-    }
-    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
-    console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
+
+    //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([4, 3, 2, 7, 8, 2, 3, 1])));
+    //console.log('findDisappearNumbers', JSON.stringify(findDisappearNumbers([1, 1])));
 }
 //threeSum
 {
-    const threeSum = nums => {
-        if (nums.length < 3) return [];
-        nums.sort((a, b) => a - b);
-        let len = nums.length;
 
-        if (nums[len - 1] < 0) return [];
-        if (nums[0] > 0) return [];
-
-        let result = [];
-        let i = 0;
-        while (i < len - 2) {
-            if (nums[i] > 0) break;
-            let left = i + 1;
-            let right = len - 1;
-            while (left < right) {
-                if (nums[i] * nums[right] > 0) break;
-                let sum = nums[i] + nums[left] + nums[right];
-                if (sum === 0) {
-                    result.push([nums[i], nums[left], nums[right]]);
-                }
-                if (sum <= 0) {
-                    while (nums[left] === nums[++left]) { };
-                } else {
-                    while (nums[right] === nums[--right]) { };
-                }
-            }
-            while (nums[i] === nums[++i]) { } // outside while (left < right)
-        }
-        return result;
-    }
-    console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
-    console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
-    console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
-    console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+    //console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    //console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    //console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
+    //console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
 }
+// sliding window : minSubArrayLen  
+// 209 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+// minSubArrayLen
+{
+    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
+    //console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
+    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
+    //console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
+}
+// sliding window : longestPalindrome
 // longestPalindrome : brute force
 // j <= len
 // checking len > maxStr.length before checking isPalindrome(tmpStr)
 {
-    const longestPalindrome = str => {
-        if (str.length === 1) return str;
-        const isPalindrome = str => {
-            //console.log('callIsPalindrome', str);
-            if (str.length === 1) return true;
-            let left = 0;
-            let right = str.length - 1;
-            while (left < right) {
-                if (str[left] !== str[right]) return false;
-                left++;
-                right--;
-            }
-            return true;
-        }
-        let maxStr = '';
-        for (let i = 0; i < str.length; i++) {
-            for (let j = i + 1; j <= str.length; j++) {
-                let tmpStr = str.slice(i, j);
-                //console.log('tmpStr : ', tmpStr);
-                let len = tmpStr.length;
-                if (len > maxStr.length && isPalindrome(tmpStr)) {
-                    maxStr = tmpStr;
-                    //console.log('maxStr : ', maxStr);
-                }
-            }
-        }
-        return maxStr;
-    }
+
     //console.log('longestPalindrome - 1', longestPalindrome("cbbd")) //bb
-    console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
+    //console.log('longestPalindrome - 2', longestPalindrome("racecar")) //racecar
     //console.log('longestPalindrome - 3', longestPalindrome("babad")) //bab
     //console.log('longestPalindrome - 4', longestPalindrome("babab")) //babab
     //console.log('longestPalindrome - 5', longestPalindrome("ababbad")) //abba
     //console.log('longestPalindrome - 6', longestPalindrome("c")) //c
     //console.log('longestPalindrome - 7', longestPalindrome("bb")) //bb
 }
-// repeatStrNTimes
+// sliding window : minSubArrayLen  
+// 209 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+// minSubArrayLen
 {
-    const repeatStrNTimes = (str, num) => {
-        let array = new Array(num + 1); //empty arr
-        return array.join(str);
-
-    }
-    console.log('repeatStrNTimes', repeatStrNTimes('abc', 3));
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
+    console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
+    console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
 }
-
-console.log('================ start top 100 ================');
-// maxWaterContainer
+// repeatStrNTimes
+// new Array(num + 1)
 {
-    const maxWaterContainer = arr => {
-        if (arr.length < 2) return 0;
-        let ai = 0;
-        let bi = arr.length - 1;
-        let maxArea = 0;
-        while (ai < bi) {
-            let height = Math.min(arr[ai], arr[bi]);
-            let width = bi - ai;
-            maxArea = Math.max(maxArea, height * width);
-            // not ai < bi
-            arr[ai] < arr[bi]
-                ? ai++
-                : bi--;
-        }
-        return maxArea;
-    }
+    //console.log('repeatStrNTimes', repeatStrNTimes('abc', 3));
+}
+// sliding window : maxWaterContainer
+{
 
     // area = height x width
     // height = min (a, b)
     // width = bi - ai
 
-    console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
-    console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
-    console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
+    //console.log('9-1: maxArea = ', maxWaterContainer([7])) //0
+    //console.log('9-2: maxArea = ', maxWaterContainer([7, 1])) // 1
+    //console.log('9-3: maxWaterContainer', JSON.stringify(maxWaterContainer([7, 1, 2, 3, 9]))); //28
 
 }
-// longestSubString
+// sliding window : longestSubString
 {
-    const longestSubString = str => {
-        if (str.length === 0) return 0;
-        if (str.length === 1) return 1;
-        let maxLen = 0;
-        let map = new Map();
-        let fast = 0;
-        let slow = 0;
-        while (fast < str.length) {
-            let key = str[fast];
-            let value = map.get(key);
-            if (value >= slow) {
-                slow = value + 1;
-            }
-            map.set(key, fast);
-            maxLen = Math.max(maxLen, fast - slow + 1);
-            fast++;
-        }
-        return maxLen;
-    }
-    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
-    console.log('10-3: longestSubString', longestSubString('au'));
+    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    //console.log('10-3: longestSubString', longestSubString('au'));
 }
-// longestSubString
+// sliding window : longestSubString
 {
-    const longestSubString = s => {
 
-        if (s.length < 2) return s.length;
-
-        let work = []
-        let len = 0;
-        for (let i = 0; i < s.length; i++) {
-            const index = work.indexOf(s[i]);
-            if (index < 0) { //not in the string
-                work.push(s[i]);
-                if (work.length >= len) {
-                    len = work.length;
-                }
-            } else {
-                work.push(s[i]);
-                work.splice(0, index + 1);
-            }
-        }
-        return len;
-    };
-    console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
-    console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
-    console.log('10-3: longestSubString', longestSubString('au'));
+    //console.log('10-1: longestSubString', JSON.stringify(longestSubString('asdfadsfasavcbdferes'))); // 9
+    //console.log('10-2: longestSubString', JSON.stringify(longestSubString('asdfads'))); // 4
+    //console.log('10-3: longestSubString', longestSubString('au'));
 }
-// passingFlowerWithQueue
+// Queue : passingFlowerWithQueue
 {
-    const passingFlowerWithQueue = num => {
-        let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-        while (queue.length > 1) {
-            for (let i = 0; i < num - 1; i++) {
-                queue.push(queue.shift());
-            }
-            let removed = queue.shift();
-        }
-        return queue;
-    }
     //let queue = ['a', 'b', 'c', 'd', 'e', 'f', 'g']; 
 
-    console.log('passingFlowerWithQueue 3:', passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
-    console.log('passingFlowerWithQueue 2:', passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
+    //console.log('passingFlowerWithQueue 3:', passingFlowerWithQueue(3)) // passFlower 3: [ 'd' ]
+    //console.log('passingFlowerWithQueue 2:', passingFlowerWithQueue(2)) // passFlower 2: [ 'g' ]
 }
-// ToBinary
+// Math : ToBinary
 {
     // 10 / 2 = 5 --- 0
     //  5 / 2 = 2 --- 1
     //  2 / 2 = 1 --- 0
-    const ToBinary = num => {
-        let str = "";
-        while (num) {
-            str = num % 2 + str;
-            num = parseInt(num / 2);
-        }
-        return str;
-    }
-    console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
-    console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
-    console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
-    console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
-    console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
+
+    //console.log('ToBinary 10 ->:', ToBinary(10)); // ToBinary 10 ->: 1010
+    //console.log('ToBinary 8 ->:', ToBinary(8)); // ToBinary 10 ->: 1000
+    //console.log('ToBinary 5 ->:', ToBinary(5)); // ToBinary 5 ->: 101
+    //console.log('ToBinary 10 ->:', (10).toString(2)); // ToBinary 10 ->: 1010
+    //console.log('ToBinary 5 ->:', (5).toString(2)); // ToBinary 5 ->: 101
 }
 
-// reverseInteger
+// Math : reverseInteger
 {
     // -321 -> - 123
-    const reverseInteger = num => {
-        if (num < 10 && num > -10) return num;
-        let isNegative = -1;
-        num > 0 ? isNegative = 1 : num = isNegative * num;
-        let result = 0;
-        while (num) {
-            result = result * 10 + num % 10;
-            num = parseInt(num / 10);
-        }
-        return result * isNegative;
-    }
-    console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
-    console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
-    console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
+
+    // console.log('1 - 1: reverseInteger', JSON.stringify(reverseInteger(-321))); // -123
+    // console.log('1 - 2: reverseInteger', JSON.stringify(reverseInteger(0))); // 0
+    // console.log('1 - 3: reverseInteger', JSON.stringify(reverseInteger(10))); // 0
 
 }
 // buySellStock
