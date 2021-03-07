@@ -10,7 +10,7 @@ size: 16:9
 
 # Code Interview
 
-- 数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构
+- 数组-> 链表-> 哈希表 -> 字符串 -> 栈与队列 -> 树 -> 回溯 -> 贪心 -> 动态规划 -> 图论 -> 高级数据结构
 - https://www.byte-by-byte.com/
 - https://github.com/youngyangyang04/leetcode-master
 
@@ -565,6 +565,94 @@ const map = new Map([
 ### xml => xhtml => html => html 2.0
 
 - xml element can be any
+
+---
+
+# Big O
+
+- https://mp.weixin.qq.com/s/LWBfehW1gMuEnXtQjJo-sw
+- https://adrianmejia.com/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/
+- https://www.bigocheatsheet.com/
+
+---
+
+# O(1)常数阶 < O(logn)对数阶 < O(n)线性阶 < O(n^2)平方阶 < O(n^3)(立方阶) < O(2^n) (指数阶)
+
+---
+
+### O(1) Constant
+
+- Odd or Even number
+- Look-up table (on average) O(log n)
+
+### Logarithmic
+
+- Finding element on sorted array with binary search
+
+### O(n) Linear
+
+- Find max element in unsorted array
+- Duplicate elements in array with Hash Map
+
+---
+
+### O(n log n) Linearithmic
+
+- Sorting elements in array with merge sort
+
+### O(n^2) Quadratic
+
+- Duplicate elements in array **(naïve)**, - Sorting array with bubble sort
+
+### O(n^3) Cubic
+
+- 3 variables equation solver
+
+---
+
+### O(2^n) Exponential
+
+- Find all subsets
+
+### O(n!) Factorial
+
+- Find all permutations of a given set/string
+
+---
+
+# sort
+
+- `quick sort` : `getPivotIndex`
+- `merge sort` : `mid`
+- `bubble sort` : `i < arr.length; i--; arr[j] > arr[j + 1]`
+- `select sort` : `smallIndex = i;`
+- `insertion sort` : `current = arr[i];`
+
+---
+
+# quick sort :
+
+- 快速排序是 O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是 O(n^2) 的，所以严格从大 O 的定义来讲，快速排序的时间复杂度应该是 O(n^2). 但是我们依然说快速排序是 O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的 O 代表的就是一般情况，而不是严格的上界
+
+---
+
+### 在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用 O(n^2)的算法比 O(n)的更合适（在有常数项的时候）
+
+### 大 O 就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量
+
+---
+
+# O(logn)中的 log 是以什么为底？
+
+- 平时说这个算法的时间复杂度是 logn 的，那么一定是 log 以 2 为底 n 的对数么？
+
+- 其实不然，也可以是以 10 为底 n 的对数，也可以是以 20 为底 n 的对数，但我们统一说 logn，也就是忽略底数的描述
+
+---
+
+# JavaScript Bitwise Operations
+
+- https://www.w3schools.com/js/js_bitwise.asp
 
 ---
 
