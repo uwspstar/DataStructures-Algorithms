@@ -3,6 +3,15 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// sliding window : minSubArrayLen  
+// 209 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+// minSubArrayLen
+{
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
+    console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
+    console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
+}
 // binary search : searchInsert
 {
     var searchInsert = function (nums, val) {
@@ -31,14 +40,6 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     //https://leetcode-cn.com/problems/3sum/
     //https://leetcode-cn.com/problems/4sum/
 }
-console.log("=====two pointers====START===================================================");
-
-console.log("=====two pointers====END=====================================================");
-//sliding window
-{
-    //https://leetcode-cn.com/problems/minimum-size-subarray-sum/
-}
-console.log("=====array====START=====================================================");
 // removeElement
 {
     var removeElement = function (nums, val) {
@@ -56,8 +57,6 @@ console.log("=====array====START================================================
     console.log('removeElement', removeElement([3, 2, 2, 3], 3));
     console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
-console.log("=====array====END=====================================================");
-console.log("=====string===START=====================================================");
 // reverseWords
 {
     //The plus sign + is a greedy quantifier, which means one or more times. For example, expression X+ matches one or more X characters. Therefore, the regular expression \s matches a single whitespace character, while \s+ will match one or more whitespace characters
@@ -67,6 +66,7 @@ console.log("=====string===START================================================
     };
     console.log(`result :`, reverseWords('a good   example'));
 }
+// reversWords
 {
     const reverseWords = function (s) {
 
@@ -97,6 +97,7 @@ console.log("=====string===START================================================
 }
 // arrUnionAndDifference
 {
+
     class arrUnionAndDifference {
         constructor() { };
         arrUnion(arr1, arr2) {
@@ -115,9 +116,9 @@ console.log("=====string===START================================================
     }
 
     let obj = new arrUnionAndDifference();
-    console.log('arr union', obj.arrUnion(arr1, arr2));
-    console.log('arr union', obj.arrAnd(arr1, arr2));
-    console.log('arr difference', obj.arrDifference(arr1, arr2));
+    console.log('arr union', obj.arrUnion([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr union', obj.arrAnd([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr difference', obj.arrDifference([1, 2, 3, 4], [3, 4, 5, 6]));
 }
 //isAnagram : https://www.byte-by-byte.com/anagrams/
 {
@@ -767,6 +768,17 @@ console.log('================ start linkedList ================');
             }
             return this;
         }
+        reversList(head = this.head) {
+            /*
+            if (head === null || head.next === null) return head;
+            console.log('this.head = ', JSON.stringify(this.head));
+            let current = this.reversList(head.next);
+            console.log('current = ', JSON.stringify(current));
+            head.next.next = head;
+            //head = null;
+            return this.head; current;
+            */
+        }
         reverse() {
             if (this.head === null) return null;
             let current = this.head;
@@ -832,6 +844,7 @@ console.log('================ start linkedList ================');
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
     console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+    console.log('*** reversList = ', JSON.stringify(linkedList.reversList()));
     console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
@@ -883,3 +896,48 @@ console.log('================ start tree ================');
 
 }
 console.log('================ end tree ================');
+{
+    //206. 反转链表
+    // https://leetcode.com/problems/reverse-linked-list/
+    /**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val === undefined ? 0 : val)
+ *     this.next = (nex t=== undefined ? null : next)
+ * }
+ */
+    /**
+     * @param {ListNode} head
+     * @return {ListNode}
+     */
+    var reverseList = function (head) {
+        if (head == null || head.next == null) {
+            return head
+        }
+        let current = head;
+        let next = null;
+        let pre = null;
+        // 1->2->3 , 3->2->1
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        head = pre;
+        return head;
+    };
+
+}
+{   //recursive
+    var reverseList = function (head) {
+        if (head == null || head.next == null) {
+            return head
+        }
+        console.log('head.val', head.val)
+        let curr = reverseList(head.next);
+        head.next.next = head
+        head.next = null
+        return curr
+    };
+}

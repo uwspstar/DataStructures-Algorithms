@@ -25,7 +25,7 @@ size: 16:9
 
 ### sliding window
 
-- [209. minimum size subarray sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+- [209. minimum size subarray sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
 ### Binary Search
 
