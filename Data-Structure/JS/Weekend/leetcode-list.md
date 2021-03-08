@@ -14,7 +14,7 @@ size: 16:9
 
 ---
 
-### two pointers
+### Array two pointers
 
 - [15. three sum](https://leetcode.com/problems/3sum/)
 - [27. remove element](https://leetcode.com/problems/remove-element/)
@@ -23,15 +23,30 @@ size: 16:9
 
 ---
 
-### sliding window
+### Array sliding window
 
 - [209. minimum size subarray sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 
-### Binary Search
+---
+
+### Array Binary Search
 
 - [35. search insert position](https://leetcode.com/problems/search-insert-position/)
--
 
-### Hash Table
+---
+
+### Array Hash Table
 
 - [1. two sum](https://leetcode.com/problems/two-sum/)
+
+---
+
+### Array Matrix
+
+- [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)
+
+---
+
+# Linked List
+
+- [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)

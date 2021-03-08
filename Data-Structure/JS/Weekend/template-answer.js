@@ -701,11 +701,54 @@ console.log('================ start top 100 ================');
     console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
     // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
 }
+// Spiral Matrix III : https://leetcode-cn.com/submissions/detail/152308727/
+{
+    //[[1,2,3],
+    // [8,9,4],
+    // [7,6,5]]
+    {
+        const generateMatrix = n => {
+            if (n === 0) return [];
+            if (n === 1) return [[1]];
+            //let result = [];
+            let rowStart = 0;
+            let rowEnd = n - 1;
+            let colStart = 0;
+            let colEnd = n - 1;
+            let count = 1;
+            let result = Array.from({ length: n }, () => new Array(n));
+            /*
+            for (let i = 0; i < n; i++) {
+                let arr = new Array(n);
+                result.push(arr);
+            }*/
+            while (rowStart <= rowEnd && colStart <= colEnd) {
+                for (let i = colStart; i <= colEnd; i++) {
+                    result[rowStart][i] = count++;
+                }
+                rowStart++;
+                for (let i = rowStart; i <= rowEnd; i++) {
+                    result[i][colEnd] = count++;
+                }
+                colEnd--;
+                for (let i = colEnd; i >= colStart; i--) {
+                    result[rowEnd][i] = count++;
+                }
+                rowEnd--;
+                for (let i = rowEnd; i >= rowStart; i--) {
+                    result[i][colStart] = count++;
+                }
+                colStart++;
+            }
+            return result;
+        };
 
-console.log('================ end top 100 ================');
-
-
-console.log('================ start sort ================');
+        console.log('generateMatrix(3) : ', generateMatrix(3));
+        console.log('generateMatrix(0) : ', generateMatrix(0));
+        console.log('generateMatrix(1) : ', generateMatrix(1));
+        console.log('generateMatrix(4) : ', generateMatrix(4));
+    }
+}
 //bubbleSort
 {
     const bubbleSort = arr => {
@@ -819,9 +862,7 @@ console.log('================ start sort ================');
     }
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
-console.log('================ end sort ================');
 
-console.log('================ start linkedList ================');
 // LinkList
 {
     class Node {

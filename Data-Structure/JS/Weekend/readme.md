@@ -10,9 +10,10 @@ size: 16:9
 
 # Code Interview
 
-- 数组-> 链表-> 哈希表 -> 字符串 -> 栈与队列 -> 树 -> 回溯 -> 贪心 -> 动态规划 -> 图论 -> 高级数据结构
+- https://adrianmejia.com/blog/
 - https://www.byte-by-byte.com/
 - https://github.com/youngyangyang04/leetcode-master
+- 数组-> 链表-> 哈希表 -> 字符串 -> 栈与队列 -> 树 -> 回溯 -> 贪心 -> 动态规划 -> 图论 -> 高级数据结构
 
 ---
 
@@ -21,7 +22,7 @@ size: 16:9
 - hash table, dictionary, Set, Map
 - stack, LIFO
 - queue, FIFO
-- linkList, double linklist, circle linklist
+- linkList, double linklist, circle linklist, delete, reverse
 - tree, binary tree
 - graph
 
@@ -29,11 +30,11 @@ size: 16:9
 
 ### 双指针法 : 很多考察数组和链表操作的面试题，都使用双指针法
 
-- 1: 快慢指针法 ：通过一个`快指针`和`慢指针`在一个 for 循环下完成两个 for 循环的工作。fast, and slow pointer
-  - array remove repeat item
-  - remove target value from array
-  - link list remove kth element
-  - link list find mid node value
+- 1: 快慢指针法 ：通过一个`快指针`和`慢指针`在一个 for 循环下完成两个 for 循环的工作。`fast`, and `slow` pointers
+  - array : remove repeat item (sort first)
+  - array : remove target value from array (arr address is continuous)
+  - linked list : remove kth element (address is NOT continuous)
+  - linked list : find mid node value
 - 2: left and right
   - reverse array
 - 双指针法将时间复杂度`O(n^2)`的解法优化为 `O(n)`的解法。也就是降一个数量级
@@ -45,11 +46,11 @@ size: 16:9
 - https://mp.weixin.qq.com/s/UrZynlqi4QpyLlLhBPglyg
 - 谓滑动窗口 : 就是不断的调节子序列的起始位置和终止位置，从而得出我们要想的结果
 - 实现滑动窗口，主要确定如下三点：
-  - 窗口内是什么？
-  - 如何移动窗口的起始位置？
-  - 如何移动窗口的结束位置？
+  - `窗口内是什么`？
+  - `如何移动窗口的起始位置`？
+  - `如何移动窗口的结束位置`？
 
-### find middle 防止溢出
+### find middle `防止溢出`
 
 ```js
 let middle = left + (right - left) / 2;
@@ -74,9 +75,9 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 
 ### 二分查找 Binary Search
 
-- Binary Search : 二分查找法是数组里的常用方法，彻底掌握它是十分必要的.
-- 数组是有序数组，这也是使用二分查找的基础条件
-- 一旦有重复元素，使用二分查找法返回的元素下表可能不是唯一的
+- `Binary Search` : 二分查找法是数组里的常用方法，彻底掌握它是十分必要的.
+- 使用二分查找的基础条件 : 数组是有序数组
+- `一旦有重复元素，使用二分查找法返回的元素下表可能不是唯一的`
 - 循环不变量（loop invariant）
 
 ---
@@ -92,7 +93,7 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 
 ---
 
-# 9 种数据类型
+# 9 种数据类型 `2SB NUB` + `nof`
 
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B
 - `6` 种原始类型，使用 `typeof` 运算符检查 : `2SB NUB`
@@ -117,16 +118,17 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 # 原始值( primitive values )
 
 - 除 `Object` 以外的所有类型都是不可变的（值本身无法被改变）。
-- 例如，与 C 语言不同，`JavaScript 中字符串是不可变的`
-- JavaScript 中对字符串的操作一定返回了一个新字符串，原始字符串并没有被改变。我们称这些类型的值为`“原始值”`
+- 例如，与 C 语言不同，`JavaScript 中字符串 string 是不可变的`
+- `JavaScript` 中对 `string` 字符串的操作一定返回了一个 `new string` 新字符串，原始字符串并没有被改变。我们称这些类型的值为`“原始值”`
 
 ---
 
 # Object
 
-- 在计算机科学中, 对象是指内存中的可以被 标识符引用的一块区域.
-- 在 `Javascript` 里，对象可以被看作是一组属性的集合。
-- 一个 `Javascript`, `对象就是键和值之间的映射`。键是一个`字符串`（或者 `Symbol`） ，值可以是`任意类型的值`。 这使得对象非常符合 `哈希表`。
+- 在计算机科学中, 对象 `Object` 是指`内存中的可以被标识符引用的一块区域`.
+- 在 `Javascript` 里，对象 `Object` 可以被看作是一组属性的集合。
+- 一个 `Javascript`, 对象 `Object` 就是键和值之间的映射。
+- `key` 键是一个`字符串`（或者 `Symbol`） ，`value` 值可以是`任意类型的值`。 这使得对象非常符合 `哈希表`。
 
 - `函数是一个附带可被调用功能的常规对象`。
 
@@ -149,10 +151,17 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 
 ---
 
+### 构造函数
+
+- http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function
+
+---
+
 # Set
 
-- 类似于数组，但是成员的值都是唯一的，没有重复的值。
-- `Set`本身是一个构造函数，用来生成 `Set` 数据结构
+- 类似于数组，但是成员的值都是唯一的，`没有重复的值`。
+- `Set`本身是一个`构造函数`，用来生成 `Set` 数据结构
 - `Set` 函数可以接受一个数组（或者具有 `iterable` 接口的其他数据结构）作为参数，用来初始化
 - 扩展运算符（`...`）内部使用 `for...of` 循环，所以也可以用于 `Set` 结构
 
@@ -570,6 +579,7 @@ const map = new Map([
 
 # Big O
 
+- https://adrianmejia.com/how-to-find-time-complexity-of-an-algorithm-code-big-o-notation/
 - https://mp.weixin.qq.com/s/LWBfehW1gMuEnXtQjJo-sw
 - https://adrianmejia.com/most-popular-algorithms-time-complexity-every-programmer-should-know-free-online-tutorial-course/
 - https://www.bigocheatsheet.com/
@@ -693,9 +703,35 @@ function removeDuplicate(array) {
 
 ---
 
+### Array.from(obj, mapFn, thisArg)
+
+- `let result = Array.from({length:n}, ()=>new Array(n));`
+
+```js
+// Generate a sequence of numbers
+// Since the array is initialized with `undefined` on each position,
+// the value of `v` below will be `undefined`
+Array.from({ length: 5 }, (v, i) => i);
+// [0, 1, 2, 3, 4]
+```
+
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+
+---
+
 ### arr.splice()
 
 - ***
+
+---
+
+# Linked List
+
+- 数组是在内存中是连续分布的，但是链表在内存中可不是连续分布的
+- 数组在定义的时候，长度就是固定的，如果想改动数组的长度，就需要重新定义一个新的数组。
+- 链表的长度可以是不固定的，并且可以动态增删， 适合数据量不固定，频繁增删，较少查询的场景。
+
+---
 
 # stack
 
