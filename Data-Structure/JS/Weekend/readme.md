@@ -252,25 +252,32 @@ let difference = new Set([...a].filter((x) => !b.has(x))); // Set {1}
 
 ---
 
-# WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。
+# WeakSet vs Set
 
-## 首先，WeakSet 的成员只能是`对象`，而不能是其他类型的值。
+- WeakSet 结构与 Set 类似，也是不重复的值的集合。
+- WeakSet 与 Set 有两个区别 :
+  - 首先，`WeakSet` 的成员只能是`对象`，而不能是其他类型的值。
+  - 垃圾回收机制不考虑 `WeakSet` 对该对象的引用
 
 ---
 
 # 垃圾回收机制不考虑 WeakSet 对该对象的引用
 
 - `WeakSet` 中的对象都是`弱引用`，即垃圾回收机制`不考虑` `WeakSet` 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，`不考虑`该对象还存在于 `WeakSet` 之中。
+- Even, when the obj has a refer by WeakSet, the garbage collection clearer still clean it
 
 ---
 
-# 垃圾回收机制依赖`引用计数`，如果一个值的引用次数不为 0，垃圾回收机制就不会释放这块内存。结束使用该值之后，有时会忘记取消引用，导致内存无法释放，进而可能会引发内存泄漏。
+# 垃圾回收机制依赖`引用计数`，and 内存泄漏
+
+- 如果一个值的引用次数`不为 0`，垃圾回收机制就不会释放这块内存。(except this one refer by WeakSet, WeakMap)
+- 结束使用该值之后，有时会忘记取消引用，导致内存无法释放，进而可能会引发`内存泄漏`。
 
 ---
 
 ## `WeakSet` 里面的引用，都`不计入垃圾回收机制`，所以就不存在这个问题。因此，`WeakSet` 适合临时存放一组对象，以及存放跟对象绑定的信息。只要这些对象在外部消失，它在 WeakSet 里面的引用就会自动消失。
 
-## 由于上面这个特点，`WeakSet` 的成员是不适合引用的，因为它会随时消失。另外，由于 `WeakSet` 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的，因此
+## 由于上面这个特点，`WeakSet` 的成员是不适合引用的，因为它会随时消失。另外，由于 `WeakSet` 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的，因此 `ES6 规定 WeakSet 不可遍历`
 
 ## ES6 规定 WeakSet 不可遍历
 
@@ -279,22 +286,25 @@ let difference = new Set([...a].filter((x) => !b.has(x))); // Set {1}
 # Map 和 WeakMaps 之间的差别
 
 - `Map`，对象键是`可枚举的`。这允许垃圾收集器优化后面的枚举(`This allows garbage collection optimizations in the latter case`)。
-- `WeakSet` 没有`size`属性，没有办法遍历它的成员
+- `WeakMap` and `WeakSet` 没有`size`属性，没有办法遍历它的成员
+- ES6 具有 `iterable` 接口的数据结构, `Array`, `Map`, `Set`, `String`, `TypedArray`, `函数的 arguments 对象`, `NodeList 对象` -- NOT `WeakSet`, and `WeakMap`
 
 ```js
-const a = [
+const arr = [
   [1, 2],
   [3, 4],
 ];
-const ws = new WeakSet(a);
-// WeakSet {[1, 2], [3, 4]}
+const ws = new WeakSet(arr); // WeakSet {[1, 2], [3, 4]}
 ```
 
-- 注意，是 a 数组的成员成为 WeakSet 的成员，而不是 a 数组本身。这意味着，数组的成员只能是`对象`
+- `注意`，是 arr 数组的成员成为 WeakSet 的成员，而不是 arr 数组本身。这意味着，数组的成员只能是`对象`
 
 ---
 
 # WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
+
+- `WeakSet` 里面的引用，都`不计入垃圾回收机制`，所以就不存在内存泄漏这个问题。
+- `WeakSet` 适合临时存放一组对象，以及存放跟对象绑定的信息。只要这些对象在外部消失，它在 `WeakSet` 里面的引用就会自动消失。
 
 ---
 
