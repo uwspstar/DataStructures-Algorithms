@@ -162,12 +162,19 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 
 - 类似于数组，但是成员的值都是唯一的，`没有重复的值`。
 - `Set`本身是一个`构造函数`，用来生成 `Set` 数据结构
-- `Set` 函数可以接受一个数组（或者具有 `iterable` 接口的其他数据结构）作为参数，用来初始化
+- `Set` 函数可以接受一个数组（或者具有 `iterable` 接口的其他数据结构, `Array`, `Map`, `Set`, `String`, `TypedArray`, `函数的 arguments 对象`, `NodeList 对象`）作为参数，用来初始化
+
+---
+
+### 具有 `iterable` 接口的其他数据结构 :
+
+- https://blog.csdn.net/ixygj197875/article/details/79188222
+- ES6 具有 `iterable` 接口的数据结构, `Array`, `Map`, `Set`, `String`, `TypedArray`, `函数的 arguments 对象`, `NodeList 对象`
 - 扩展运算符（`...`）内部使用 `for...of` 循环，所以也可以用于 `Set` 结构
 
 ---
 
-- 去除数组的重复成员 `[...Set()]`, `Array.from()`
+- 去除数组的重复成员 `[...Set()]`, `Array.from(new Set(array))`
 
 ```js
 [...new Set(array)];
@@ -179,15 +186,23 @@ function removeDuplicate(array) {
 }
 ```
 
-- 去除字符串里面的重复字符 : arr first, then join as str
+---
+
+- 去除字符串里面的重复字符 : arr first, then join as str, (new arr)
 
 ```js
 [...new Set('ababbc')].join('');
 ```
 
+```js
+let str = 'ababbc';
+let newStr = [...new Set(str)].join('');
+console.log('str', str, 'newStr', newStr);
+```
+
 ---
 
-# 向 `Set` 加入值的时候，不会发生类型转换，所以 5 和"5"是两个不同的值。
+# 向 `Set` 加入值的时候，`不会发生类型转换`，所以 5 和"5"是两个不同的值。
 
 - 在 `Set` 内部，两个`NaN`是`相等`的.
 - 在 `Set` 内部，两个`对象`总是`不相等`的.
@@ -197,7 +212,7 @@ function removeDuplicate(array) {
 
 # 精确相等运算符（===）
 
-- 精确相等运算符认为 `NaN` 不等于自身
+- 精确相等运算符认为 `NaN` 不等于自身, but Set NaN equal
 
 ```js
 console.log(NaN === NaN); // false
@@ -209,7 +224,7 @@ console.log(NaN == NaN); // false
 # 需要特别指出的是，Set 的遍历顺序就是插入顺序。
 
 - 这个特性有时非常有用，比如使用 `Set` 保存一个回调函数列表，调用时就能`保证按照添加顺序`调用。
-- 由于 `Se`t 结构没有键名，只有键值（或者说键名和键值是同一个值）
+- 由于 `Se`t 结构没有键名，只有键值（或者说`键名和键值是同一个值`）
 - Set 结构的实例默认可遍历，它的`默认`遍历器生成函数就是它的`values`方法
 - 扩展运算符（`...`）内部使用 `for...of` 循环，所以也可以用于 `Set` 结构
 
