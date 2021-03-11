@@ -50,3 +50,6 @@ size: 16:9
 # Linked List
 
 - [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
+- [707. Design Linked List](https://leetcode-cn.com/problems/design-linked-list/)
+- [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+- [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)

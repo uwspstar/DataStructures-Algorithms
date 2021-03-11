@@ -1063,3 +1063,16 @@ console.log('================ end tree ================');
         return curr
     };
 }
+{
+    const reverse = (pre, current) => {
+        if (current === null) return pre;
+        let next = current.next;
+        current.next = pre;
+        return (current, next);
+    }
+    var reverseList = function (head) {
+        if (head === null) return null;
+        return reverse(null, head);
+    }
+
+}
