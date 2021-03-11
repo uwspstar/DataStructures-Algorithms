@@ -8,11 +8,13 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 // minSubArrayLen
 {
     //console.log(undefined + 1);
-    var minSubArrayLen = function (nums, target) {
+    const minSubArrayLen = (nums, target) => {
         if (nums.length === 0) return o;
         let fast = 0, slow = 0;
         let currentMaxSum = 0 //nums[fast];
-        let minLen = nums.length + 1;
+
+        let minLen = nums.length + 1; // nice
+
         //console.log('nums[100000]', nums[100000]);
         //console.log('nums[100000] + 1', nums[100000] + 1);
         //let temp = ++fast;
@@ -20,7 +22,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         while (fast < nums.length) {
             //currentMaxSum += nums[++fast]; //nums[++fast] can be NaN
             currentMaxSum += nums[fast];
-            while (currentMaxSum >= target) {
+            while (currentMaxSum >= target) { // has to be >=, not >
                 let currentLen = fast - slow + 1;
                 minLen = Math.min(minLen, currentLen);
                 if (minLen === 1) return 1;
@@ -69,33 +71,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('minSubArrayLen-1', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
 
 }
-// sliding window : minSubArrayLen
-{
-    let minSubArrayLen = function (s, nums) {
-        if (!nums.length) return 0;
-        let minLen = nums.length + 1;
-        let sum = 0;
-        let left = 0;
-        let right = 0;
-        while (right < nums.length) {
-            sum += nums[right];
-            right++;
-            while (sum >= s) {
-                minLen = Math.min(minLen, right - left);
-                sum -= nums[left];
-                left++;
-            }
-        }
-        return minLen === nums.length + 1 ? 0 : minLen;
-    }
-    console.log('minSubArrayLen-1', minSubArrayLen([1, 4, 4], 4)); //1
-    console.log('minSubArrayLen-1', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
-    console.log('minSubArrayLen-1', minSubArrayLen([1, 4, 4], 3)); //1
-    console.log('minSubArrayLen-1', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
-}
 // binary search : searchInsert
 {
-    var searchInsert = function (nums, val) {
+    const searchInsert = (nums, val) => {
         if (nums.length === 0) return 0;
         if (nums[0] > val) return 0;
         let len = nums.length;
@@ -1074,5 +1052,37 @@ console.log('================ end tree ================');
         if (head === null) return null;
         return reverse(null, head);
     }
+
+}
+// linked list circular detectCycle
+// https://leetcode.com/problems/linked-list-cycle-ii/submissions/
+{
+    const detectCycle = head => {
+        if (head === null) return null;
+        let fast = head;
+        let slow = head;
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast === slow) {
+                let index = head;
+                while (index !== fast) {
+                    index = index.next;
+                    fast = fast.next;
+                }
+                return index1;
+            }
+        }
+        return null;
+    }
+
+}
+{
+    const getPermutations = str => {
+
+    }
+    console.log('getPermutations', getPermutations('a'));// => [ 'a']
+    console.log('getPermutations', getPermutations('ab'));// =>  [ 'ab', 'ba']
+    console.log('getPermutations', getPermutations('abc')); // => [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
 
 }

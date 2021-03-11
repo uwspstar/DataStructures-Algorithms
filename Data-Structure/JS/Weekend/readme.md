@@ -766,8 +766,13 @@ Array.from({ length: 5 }, (v, i) => i);
 
 ---
 
-# linkList
-- 
+# linked List
+
+- 虚拟头结点 dummy head
+- reverse linked list, `迭代法`和`递归法`
+- circular linked list, fast and slow (如果 fast 是一次走三个节点，那么可能会跳过 slow，因为相对于 slow 来说，fast 是两个节点移动的。)
+- find index, append, delete,
+
 ---
 
 # tree

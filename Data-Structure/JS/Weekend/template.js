@@ -2,7 +2,16 @@
 "use strict";
 
 //swap function 
-const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+//const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// minSubArrayLen
+{
+
+    //console.log('minSubArrayLen-1', minSubArrayLen([1], 4)); //0
+    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
+    //console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
+    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
+    //console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
+}
 
 // binary search : searchInsert
 {
@@ -19,15 +28,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     //console.log('removeElement', removeElement([3, 2, 2, 3], 3));
     //console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
-// reverseWords
-{
-    //The plus sign + is a greedy quantifier, which means one or more times. For example, expression X+ matches one or more X characters. Therefore, the regular expression \s matches a single whitespace character, while \s+ will match one or more whitespace characters
 
-    const reverseWords = function (s) {
-        return s.trim().split(/\s+/).reverse().join(' ')
-    };
-    console.log(`result :`, reverseWords('a good   example'));
-}
 // reversWords
 {
     //console.log(`result :`, reverseWords('a good   example'));
