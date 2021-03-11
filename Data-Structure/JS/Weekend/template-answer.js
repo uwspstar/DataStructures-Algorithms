@@ -84,6 +84,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         while (left <= right) {
             let mid = left + parseInt((right - left) / 2);
             if (nums[mid] === val) return mid;
+            //move mid => mid - 1 and mid + 1
             nums[mid] > val ? right = mid - 1 : left = mid + 1;
         }
         return right + 1;

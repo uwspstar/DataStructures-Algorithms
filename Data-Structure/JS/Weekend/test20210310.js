@@ -2,31 +2,69 @@
 "use strict";
 
 //swap function 
-//const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 // minSubArrayLen
 {
+    const minSubArrayLen = (nums, target) => {
+        if (nums.length === 0) return 0;
+        let fast = 0, slow = 0;
+        let minLen = nums.length + 1;
+        let maxSum = 0;
+        while (fast < nums.length) {
+            maxSum += nums[fast];
+            while (maxSum >= target) {
+                minLen = Math.min(minLen, fast - slow + 1);
+                if (minLen === 1) return 1;
+                maxSum -= nums[slow++];
+            }
+            fast++;
+        }
+        return minLen > nums.length ? 0 : minLen;
+    }
 
-    //console.log('minSubArrayLen-1', minSubArrayLen([1], 4)); //0
-    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
-    //console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
-    //console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
-    //console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
+    console.log('minSubArrayLen-1', minSubArrayLen([1], 4)); //0
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 4)); //1
+    console.log('minSubArrayLen', minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2
+    console.log('minSubArrayLen', minSubArrayLen([1, 4, 4], 3)); //1
+    console.log('minSubArrayLen', minSubArrayLen([1, 1, 1, 1, 1, 1, 1, 1], 11)); //0
 }
 
 // binary search : searchInsert
 {
-
-    //console.log('searchInsert', searchInsert([4, 5], 3)); //0
-    //console.log('searchInsert', searchInsert([0, 1, 2, 4, 5], 3)); //3 
-    //console.log('searchInsert', searchInsert([1, 2, 3], 3));//2
-    //console.log('searchInsert', searchInsert([0, 1, 2, 4], 3));//3
-    //console.log('searchInsert', searchInsert([0, 1, 2, 4], 5));//4
+    const searchInsert = (arr, num) => {
+        if (arr[0] >= num) return 0;
+        let len = arr.length;
+        if (arr[len - 1] < num) return len;
+        let left = 0, right = len - 1;
+        while (left <= right) {
+            let mid = left + parseInt((right - left) / 2);
+            if (arr[mid] === num) return mid;
+            arr[mid] > num ? right = mid - 1 : left = mid + 1;
+        }
+        return right + 1;
+    }
+    console.log('searchInsert', searchInsert([4, 5], 3)); //0
+    console.log('searchInsert', searchInsert([0, 1, 2, 4, 5], 3)); //3 
+    console.log('searchInsert', searchInsert([1, 2, 3], 3));//2
+    console.log('searchInsert', searchInsert([0, 1, 2, 4], 3));//3
+    console.log('searchInsert', searchInsert([0, 1, 2, 4], 5));//4
 }
 // removeElement
 {
-
-    //console.log('removeElement', removeElement([3, 2, 2, 3], 3));
-    //console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
+    const removeElement = (nums, val) => {
+        if (nums.length === 0) return [];
+        let point = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] !== val) {
+                nums[point] = nums[i];
+                point++;
+            }
+        }
+        nums.length = point;
+        return nums;
+    }
+    console.log('removeElement', removeElement([3, 2, 2, 3], 3));
+    console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
 
 // reversWords
