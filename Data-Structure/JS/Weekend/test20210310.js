@@ -66,18 +66,78 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('removeElement', removeElement([3, 2, 2, 3], 3));
     console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
-
 // reversWords
 {
-    //console.log(`result :`, reverseWords('a good   example'));
+    const reverseWords = str => {
+        return str.trim().split(/\s+/).reverse().join(' ');
+    }
+    console.log(`result :`, reverseWords('a good   example'));
+}
+{
+    const reverseWords = str => {
+        if (str.length < 2) return '';
+        let arr = str.trim().split(' '); // has empty space
+        let point = 0
+        for (let i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] !== '') {
+                arr[point] = arr[i];
+                point++;
+            }
+        }
+        arr.length = point;
+        return arr.join(' ');
+    }
+    console.log(`result :`, reverseWords('a good   example'));
+}
+{
+    const reverseWords = str => {
+        if (str.length < 2) return str;
+        let arr = str.split(' ');
+        const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+        const removeSpace = arr => {
+            let result = [];
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].trim().length ? result.push(arr[i]) : {};
+            }
+            return result;
+        }
+        const reverse = arr => {
+            let left = 0;
+            let right = arr.length - 1;
+            while (left < right) {
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+            return arr;
+        }
+        return reverse(removeSpace(arr)).join(' ')
+
+    }
+    console.log(`result :`, reverseWords('a good   example'));
 }
 // arrUnionAndDifference
 {
-
-    //let obj = new arrUnionAndDifference();
-    //console.log('arr union', obj.arrUnion([1, 2, 3, 4], [3, 4, 5, 6]));
-    //console.log('arr union', obj.arrAnd([1, 2, 3, 4], [3, 4, 5, 6]));
-    //console.log('arr difference', obj.arrDifference([1, 2, 3, 4], [3, 4, 5, 6]));
+    class arrUnionAndDifference {
+        constructor() { }
+        arrUnion(arr1, arr2) {
+            return [...new Set([...arr1, ...arr2])];
+        }
+        arrAnd(arr1, arr2) {
+            let a = [...new Set(arr1)];
+            let b = new Set(arr2)
+            return a.filter(x => b.has(x));
+        }
+        arrDifference(arr1, arr2) {
+            let a = [...new Set(arr1)];
+            let b = new Set(arr2)
+            return a.filter(x => !b.has(x));
+        }
+    }
+    let obj = new arrUnionAndDifference();
+    console.log('arr UNION', obj.arrUnion([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr AND', obj.arrAnd([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr DIFF', obj.arrDifference([1, 2, 3, 4], [3, 4, 5, 6]));
 }
 //isAnagram : https://www.byte-by-byte.com/anagrams/
 {

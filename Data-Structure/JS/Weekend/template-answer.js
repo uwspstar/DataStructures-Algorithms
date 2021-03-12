@@ -117,6 +117,24 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('removeElement', removeElement([3, 2, 2, 3], 3));
     console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
+// reverseWords : remove element concept
+{
+    const reverseWords = str => {
+        if (str.length < 2) return '';
+        let arr = str.trim().split(' '); // has empty space
+        //console.log(arr)
+        let point = 0
+        for (let i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] !== '') {
+                arr[point] = arr[i];
+                point++;
+            }
+        }
+        arr.length = point;
+        return arr.join(' ');
+    }
+    console.log(`result :`, reverseWords('a good   example'));
+}
 // reverseWords
 {
     //The plus sign + is a greedy quantifier, which means one or more times. For example, expression X+ matches one or more X characters. Therefore, the regular expression \s matches a single whitespace character, while \s+ will match one or more whitespace characters
@@ -166,7 +184,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         arrAnd(arr1, arr2) {
             let a = [...new Set(arr1)];
             let b = new Set(arr2);
-            return a.filter(x => b.has(x));
+            return arr1.filter(x => b.has(x));
         }
         arrDifference(arr1, arr2) {
             let a = [...new Set(arr1)];
@@ -176,9 +194,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 
     let obj = new arrUnionAndDifference();
-    console.log('arr union', obj.arrUnion([1, 2, 3, 4], [3, 4, 5, 6]));
-    console.log('arr union', obj.arrAnd([1, 2, 3, 4], [3, 4, 5, 6]));
-    console.log('arr difference', obj.arrDifference([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr UNION', obj.arrUnion([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr AND', obj.arrAnd([1, 2, 3, 4], [3, 4, 5, 6]));
+    console.log('arr DIFF', obj.arrDifference([1, 2, 3, 4], [3, 4, 5, 6]));
 }
 //isAnagram : https://www.byte-by-byte.com/anagrams/
 {

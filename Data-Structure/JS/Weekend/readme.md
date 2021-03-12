@@ -336,7 +336,7 @@ const ws = new WeakSet(arr); // WeakSet {[1, 2], [3, 4]}
 
 # JavaScript 的内存分配
 
-- 为了不让程序员费心分配内存，JavaScript 在定义变量时就完成了内存分配。
+- 为了不让程序员费心分配内存，`JavaScript` 在定义变量时就完成了内存分配。
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management#javascript_%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D
 - http://www.ruanyifeng.com/blog/2017/04/memory-leak.html
 
@@ -352,7 +352,7 @@ var o = {
 
 var a = [1, null, 'abcd']; // 给数组及其包含的值分配内存（就像对象一样）
 
-function f(a) {
+function f (a) {
   return a + 2;
 } // 给函数（可调用的对象）分配内存
 
@@ -379,12 +379,12 @@ var e = document.createElement('div'); // 分配一个 DOM 元素
 
 # 垃圾回收算法和它们的局限性
 
-- 1. 引用计数算法
+- 1. `引用计数算法`
 - 2. 标记-清除垃圾回收算法 : “对象是否不再需要”
 
 - `垃圾回收算法`主要依赖于`引用`的概念。
 - 在内存管理的环境中，一个对象如果有访问另一个对象的权限（`隐式`或者`显式`），叫做一个对象引用另一个对象。
-- Javascript 对象具有对它`原型的引用（隐式引用` 和对它`属性的引用（显式引用` 。
+- `Javascript` 对象具有对它`原型的引用（隐式引用` 和对它`属性的引用（显式引用` 。
 - For instance, a JavaScript object has a reference to `its prototype` (`implicit reference`) and to `its properties` values (`explicit reference`).
 
 ---
@@ -407,7 +407,7 @@ oa = null; // a属性的那个对象现在也是零引用了, 它可以被垃圾
 
 ---
 
-### 引用计数算法
+### 引用计数算法 : 限制
 
 - `IE 6, 7` 使用引用计数方式对 `DOM` 对象进行垃圾回收。该方式常常造成对象被循环引用时`内存发生泄漏`：
 - 此算法把“对象是否不再需要”简化定义为`“对象有没有其他对象引用到它”`。如果没有引用指向该对象（`零引用`），对象将被垃圾回收机制回收。
@@ -418,13 +418,13 @@ oa = null; // a属性的那个对象现在也是零引用了, 它可以被垃圾
 ### 标记-清除垃圾回收算法 : “对象是否不再需要”
 
 - 从 2012 年起，所有现代浏览器都使用了`标记-清除垃圾回收算法`。
-- 所有对 JavaScript 垃圾回收算法的改进都是基于`标记-清除算法`的改进，并没有改进标记-清除算法本身和它对`“对象是否不再需要”`的简化定义
+- 所有对 `JavaScript` 垃圾回收算法的改进都是基于`标记-清除算法`的改进，并没有改进标记-清除算法本身和它对`“对象是否不再需要”`的简化定义
 
 ---
 
 # 基本上，如果你要往对象上添加数据，又不想干扰垃圾回收机制，就可以使用 WeakMap。
 
-- 以 WeakMap 为例，看看它是怎么解决内存泄漏的。
+- 以 `WeakMap` 为例，看看它是怎么解决内存泄漏的。
 
 ```js
 const wm = new WeakMap();
@@ -437,16 +437,17 @@ wm.get(element); // "some information"
 
 ---
 
-- 上面代码中，先新建一个 Weakmap 实例。然后，将一个 DOM 节点作为键名存入该实例，并将一些附加信息作为键值，一起存放在 WeakMap 里面。这时，WeakMap 里面对 element 的引用就是弱引用，不会被计入垃圾回收机制。
+- 上面代码中，先新建一个 `Weakmap` 实例。然后，将一个 `DOM` 节点作为`键名`存入该实例，并将一些附加信息作为`键值`，一起存放在 WeakMap 里面。这时，WeakMap 里面对 element 的引用就是弱引用，不会被计入垃圾回收机制。
 
-- 也就是说，DOM 节点对象的引用计数是 1，而不是 2。这时，一旦消除对该节点的引用，它占用的内存就会被垃圾回收机制释放。Weakmap 保存的这个键值对，也会自动消失。
+- 也就是说，`DOM` 节点对象的`引用计数是 1`，而不是 `2`。这时，一旦消除对该节点的引用，它占用的内存就会被垃圾回收机制释放。Weakmap 保存的这个键值对，也会自动消失。
 
 ---
 
 # Map : 如果你需要“键值对”的数据结构，Map 比 Object 更合适
 
 - `ES6 提供了 Map 数据结构`。
-- 它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+- `key` can be `Object`
+- 它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（`包括对象`）都可以当作`键`。
 - 也就是说，`Object` 结构提供了“字符串—值”的对应，`Map` 结构提供了“值—值”的对应，是一种更完善的 `Hash` 结构实现。
 - `Map` 的遍历顺序就是插入顺序。
 
@@ -507,11 +508,11 @@ const map = new Map([
 
 ---
 
-# 字符编码
+# 字符编码 : 通常在 HTML 里声明 UTF-8 字符编码
 
 - 一套编码系统定义字节与文本间的映射。
 - https://developer.mozilla.org/zh-CN/docs/Glossary/character_encoding
-- 通常在 HTML 里声明 UTF-8 字符编码
+- `通常在 HTML 里声明 UTF-8 字符编码`
 
 ```html
 <meta charset="utf-8" />
@@ -533,8 +534,8 @@ const map = new Map([
 # ASCII and ASCII Extended
 
 - `ASCII was meant for English only`.
-- `ASCII` 是计算机中最常用的编码方式，用于将字母，数字，标点符号和控制字符转换为计算机可以理解的数字形式。 从 2007 年开始逐渐被 `UTF-8` 代替。
-- ASCII uses `7 bits` to represent a character. By using 7 bits, we can have a maximum of `2^7 (= 128)` distinct combinations\*. Which means that we can represent `128` characters maximum. `(0 ~ 127)`
+- `ASCII` 是计算机中最常用的编码方式，用于将`字母，数字，标点符号和控制字符`转换为计算机可以理解的数字形式。 从 2007 年开始逐渐被 `UTF-8` 代替。`look at your keyboard`
+- ASCII uses `7 bits` to represent a character. By using 7 bits, we can have a maximum of `2^7 (= 128), 0~ 127` distinct combinations. Which means that we can represent `128` characters maximum. `(0 ~ 127)`
 - using the `8th bit` (the bit used for parity) to encode more characters to support their language
 - `ASCII Extended` solves the problem for languages that are based on the Latin alphabet
 
@@ -637,7 +638,7 @@ const map = new Map([
 
 ### O(n^2) Quadratic
 
-- Duplicate elements in array **(naïve)**, - Sorting array with bubble sort
+- Duplicate elements in array **(naive)**, - Sorting array with bubble sort
 
 ### O(n^3) Cubic
 
