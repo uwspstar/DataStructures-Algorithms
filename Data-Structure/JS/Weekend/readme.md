@@ -134,20 +134,45 @@ if (k > 0 && nums[k] == nums[k - 1]) {
 
 ---
 
+# Dictionary / Map
+
+- https://www.youtube.com/watch?v=djcOVCrg5yM&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=16
+
+---
+
 # 散列表（Hash table，也叫哈希表）
 
+- https://www.youtube.com/watch?v=Yaf7bxiJNqg&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=18
+- 一般哈希表都是用来快速判断一个元素是否出现集合里
 - 是根据键（`Key`）而直接访问在`記憶體儲存位置`的`数据结构`。
 - 它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，`这加快了查找速度`。这个映射函数称做`散列函数`，存放记录的数组称做`散列表`。
-- https://www.youtube.com/watch?v=Yaf7bxiJNqg&list=PL9nxfq1tlKKmgTh_FSRzSIChwOsv7qr7v&index=18
+
+---
+
+# hash function ，也就是哈希函数
+
+- 通过 `hashCode` 把名字转化为数值，一般 `hashcode` 是通过特定编码方式，可以将其他数据格式转化为不同的数值
+- 当我们想使用哈希法来解决问题的时候，我们一般会选择如下三种数据结构。
+  - Array 数组
+  - Set （集合）
+  - Map(映射)
 
 ---
 
 # 键控集: Maps, Sets, WeakMaps, WeakSets
 
 - 这些数据结构把`对象`的`引用`当作`键`
-- `Map` 和 `WeakMap` 把一个值和对象关联起来的时候，
+- `Map` 和 `WeakMap` 把一个值和对象关联起来的时候，键的比较是基于 `sameValueZero` 算法. 一个 `Map`的键可以是任意值，包括`函数`、`对象`或任意`基本类型`。
 - `Set`和`WeakSet` 表示一组对象。
 - https://es6.ruanyifeng.com/#docs/set-map
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+---
+
+# Map
+
+- `Map.length` , 属性 length 的值为 0 。
+- 想要计算一个 Map 中的条目数量， 使用 `Map.prototype.size`.
 
 ---
 
@@ -352,7 +377,7 @@ var o = {
 
 var a = [1, null, 'abcd']; // 给数组及其包含的值分配内存（就像对象一样）
 
-function f (a) {
+function f(a) {
   return a + 2;
 } // 给函数（可调用的对象）分配内存
 
@@ -689,6 +714,10 @@ const map = new Map([
 # JavaScript Bitwise Operations
 
 - https://www.w3schools.com/js/js_bitwise.asp
+
+---
+
+# 一般哈希表都是用来快速判断一个元素是否出现集合里
 
 ---
 
