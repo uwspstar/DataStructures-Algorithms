@@ -774,9 +774,11 @@ Array.from({ length: 5 }, (v, i) => i);
 
 ---
 
-### arr.splice()
+### arr.splice() && Array(26).fill(0) && str.charCodeAt(i)
 
-- ***
+- `let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+- `let result = Array(26).fill(0);`
+- `str.charCodeAt(i)`
 
 ---
 

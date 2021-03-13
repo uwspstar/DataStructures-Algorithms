@@ -1,17 +1,7 @@
 {
-    const reverseWords = str => {
-        if (str.length < 2) return '';
-        let arr = str.trim().split(' '); // has empty space
-        console.log(arr)
-        let point = 0
-        for (let i = arr.length - 1; i >=0; i--) {
-            if (arr[i] !== '') {
-                arr[point] = arr[i];
-                point++;
-            }
-        }
-        arr.length =  point;
-        return arr.join(' ');
-    }
-    console.log(`result :`, reverseWords('a good   example'));
+    console.log('ab'.charCodeAt(0) - 'ab'.charCodeAt(0));
+    console.log('ab'.charCodeAt(1) - 'ab'.charCodeAt(0));
+    let result = Array(26).fill(0);
+    console.log('result =', result);
 }
+
