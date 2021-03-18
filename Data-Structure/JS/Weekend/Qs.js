@@ -3,50 +3,6 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-//
-// Power Set : all sub set
-{
-    function allSubsets(arr) {
-        if (arr.length === 0) { return [[]]; }
-        const prev = allSubsets(arr.slice(1));
-        const next = prev.map(el => [...el, arr[0]]);
-        return [...prev, ...next];
-    }
-}
-// Power Set : all sub set
-{
-    function allSubsets(arr) {
-        const maxIndex = arr.length - 1;
-        let result = [[]];
-        arr.forEach(el => {
-            result.forEach(subset => {
-                result.push([...subset, el]);
-            })
-        })
-        return result;
-    }
-}
-// Power Set : all sub set
-{
-    const set = ['x', 'y', 'z'];
-    const powerSet = (arr = []) => {
-        const res = [];
-        const { length } = arr;
-        const numberOfCombinations = 2 ** length;
-        for (let combinationIndex = 0; combinationIndex < numberOfCombinations; combinationIndex += 1) {
-            const subSet = [];
-            for (let setElementIndex = 0; setElementIndex < arr.length;
-                setElementIndex += 1) {
-                if (combinationIndex & (1 << setElementIndex)) {
-                    subSet.push(arr[setElementIndex]);
-                };
-            };
-            res.push(subSet);
-        };
-        return res;
-    };
-    console.log(powerSet(set));
-}
 // Ransom Note : Array
 // https://leetcode.com/problems/ransom-note/
 {
@@ -72,7 +28,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         console.log('arr3 :', arr);
         return true;
     }
-    console.log('canConstruct', canConstruct('aa', 'ab')); //false
+    console.log('canConstruct', canConstruct('aa', 'ab'));
 }
 {
     var canConstruct = function (ransomNote, magazine) {
@@ -113,7 +69,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     let B = [-2, -1]
     let C = [-1, 2]
     let D = [0, 2]
-    console.log('fourSum', fourSum(A, B, C, D)) //2
+    console.log('fourSum', fourSum(A, B, C, D))
 }
 // sliding window : minSubArrayLen  
 // 209 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
@@ -211,24 +167,6 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 {
     //https://leetcode-cn.com/problems/3sum/
     //https://leetcode-cn.com/problems/4sum/
-}
-//removeElement
-{
-    const removeElement = (nums, val) => {
-        if (nums.length === 0) return [];
-        let fast = 0;
-        let slow = 0;
-        while (fast < nums.length) {
-            if (nums[fast] !== val) {
-                nums[slow++] = nums[fast];
-            }
-            fast++;
-        }
-        nums.length = slow;
-        return nums;
-    }
-    console.log('removeElement', removeElement([3, 2, 2, 3], 3)); //[ 2, 2 ]
-    console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)); //[ 0, 1, 3, 0, 4 ]
 }
 // removeElement
 {

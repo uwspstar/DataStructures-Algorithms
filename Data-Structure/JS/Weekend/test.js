@@ -1,36 +1,83 @@
+let log = console.log;
 {
-    const canConstruct =  (ransomNote, magazine) =>{
-        //你可以假设两个字符串均只含有小写字母
-        if (magazine.length < ransomNote.length) return false;
-        let arr = Array(26).fill(0);
-        console.log('arr1 :', arr);
-        for (let i = 0; i < magazine.length; i++) {
-            let code = magazine.charCodeAt(i);
-            console.log('i', i, 'code1 :', code);
-            arr[code - 97]++;
+    const Swap = (a = 1, b = 2) => {
+        log('a:', a, 'b', b);
+        if (a !== b) {
+            a ^= b;
+            b ^= a;
+            a ^= b;
         }
-        console.log('arr2 :', arr);
-        for (let i = 0; i < ransomNote.length; i++) {
-            let code = ransomNote.charCodeAt(i);
-            console.log('i', i, 'code1 :', code);
-            arr[code - 97]--;
-            console.log('code : ', code, '-- arr[code - 97]', arr[code - 97]);
-            if (arr[code - 97] < 0) return false;
-            console.log('arr4 :', arr);
-        }
-        console.log('arr3 :', arr);
-        return true;
+        log('a:', a, 'b', b);
     }
-    console.log('canConstruct', canConstruct('aa', 'ab'));
+
+    Swap(1, 2);
 }
+
 {
-    var canConstruct = function(ransomNote, magazine) {
-        let magazineCopy = magazine
-        if (ransomNote.length > magazine.length) return false;
-        let ransomArr = ransomNote.split("")
-        ransomArr.forEach(function replacer(item, index) {
-          magazine = magazine.replace(item, "");
-        });
-        return magazine.length === magazineCopy.length - ransomArr.length;
-      };
+    const set = ['x', 'y', 'z'];
+    function allSubsets(arr) {
+        if (arr.length === 0) { return [[]]; }
+        const prev = allSubsets(arr.slice(1));
+        console.log('prev', prev)
+        const next = prev.map(el => [...el, arr[0]]);
+        return [...prev, ...next];
+    }
+    console.log('1: allSubsets', allSubsets(set));
 }
+/*
+{
+    const set = ['x', 'y', 'z'];
+    function allSubsets(arr) {
+        const maxIndex = arr.length - 1;
+        let result = [[]];
+        arr.forEach(el => {
+            result.forEach(subset => {
+                result.push([...subset, el]);
+            })
+        })
+        return result;
+    }
+    console.log('2: allSubsets', allSubsets(set));
+}
+// Power Set : all sub set
+{
+    const set = ['x', 'y', 'z'];
+    const powerSet = (arr = []) => {
+        const res = [];
+        const { length } = arr;
+        const numberOfCombinations = 2 ** length;
+        for (let combinationIndex = 0; combinationIndex < numberOfCombinations; combinationIndex += 1) {
+            const subSet = [];
+            for (let setElementIndex = 0; setElementIndex < arr.length;
+                setElementIndex += 1) {
+                if (combinationIndex & (1 << setElementIndex)) {
+                    subSet.push(arr[setElementIndex]);
+                };
+            };
+            res.push(subSet);
+        };
+        return res;
+    };
+    console.log(powerSet(set));
+}
+// Power Set : all sub set
+{
+    const set = ['x', 'y', 'z'];
+    const powerSet = (arr = []) => {
+        const res = [];
+        const { length } = arr;
+        const len = 2 ** length;
+        for (let i = 0; i < len; i++) {
+            const subSet = [];
+            for (let j = 0; j < arr.length; j++) {
+                if (i & (1 << j)) {
+                    subSet.push(arr[j]);
+                };
+            };
+            res.push(subSet);
+        };
+        return res;
+    };
+    console.log(powerSet(set));
+}
+*/
