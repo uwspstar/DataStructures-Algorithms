@@ -1,4 +1,105 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+{
+    const sortColor = arr => {
+        if (arr.length < 2) return arr;
+        let current = 0;
+        let p0 = 0;
+        let p2 = arr.length - 1;
+        while (current <= p2) {
+            if (arr[current] === 2) {
+                swap(arr, current, p2)
+                p2--;
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0)
+                p0++;
+                current++
+            } else current++;
+        }
+        return arr;
+    }
+    console.log('7 - 1: sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]))); // [0,0,0,0,0,1,1,1,1,2,2,2,2,2]
+    console.log('7 - 2: sortColor', JSON.stringify(sortColor([0, 1, 2])));// [0,1,2]
+    console.log('7 - 3: sortColor', JSON.stringify(sortColor([0, 0, 2, 1])));// [0,0,1,2]
+    console.log('7 - 4: sortColor', JSON.stringify(sortColor([2, 0])));// [0,2]
+    console.log('7 - 5: sortColor', JSON.stringify(sortColor([2])));// [2]
+}
+//matrixSpiral
+{
+    const arr = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20]
+    ]
+    const matrixSpiral = arr => {
+        if (arr.length === 0) return arr;
+        if (arr.length === 1) return arr[0]
+        let colStart = 0, colEnd = arr[0].length - 1;
+        let rowStart = 0, rowEnd = arr.length - 1;
+        let result = [];
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result.push(arr[rowStart][i]);
+            } rowStart++;
+
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result.push(arr[i][colEnd]);
+            } colEnd--;
+
+            for (let i = colEnd; i >= colStart; i--) {
+                result.push(arr[rowEnd][i]);
+            } rowEnd--;
+
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result.push(arr[i][colStart]);
+            } colStart++;
+        }
+        return result;
+
+    }
+    console.log('8: matrixSpiral', JSON.stringify(matrixSpiral(arr)));
+    // [1,2,3,4,5,10,15,20,19,18,17,16,11,6,7,8,9,14,13,12]
+}
+//generateMatrix
+{
+    //[[1,2,3],
+    // [8,9,4],
+    // [7,6,5]]
+    const generateMatrix = n => {
+        if (n === 0) return [];
+        if (n === 1) return [[1]]
+        let result = Array.from({ length: n }, () => new Array(n));
+        // exp : let result = Array.from(26).fill(0);
+        let rowStart = 0, rowEnd = n - 1, colStart = 0, colEnd = n - 1;
+        let count = 1;
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (let i = colStart; i <= colEnd; i++) {
+                result[rowStart][i] = count++;
+            }
+            rowStart++;
+            for (let i = rowStart; i <= rowEnd; i++) {
+                result[i][colEnd] = count++;
+            }
+            colEnd--;
+            for (let i = colEnd; i >= colStart; i--) {
+                result[rowEnd][i] = count++;
+            }
+            rowEnd--;
+            for (let i = rowEnd; i >= rowStart; i--) {
+                result[i][colStart] = count++;
+            }
+            colStart++;
+        }
+        return result;
+        // [ [ 1, 2, 3 ], 
+        //[ <1 empty item>, 9, 4 ], 
+        //[ 7, 6, 5 ] ]
+    }
+    console.log('generateMatrix(3) : ', generateMatrix(3));
+    console.log('generateMatrix(0) : ', generateMatrix(0));
+    console.log('generateMatrix(1) : ', generateMatrix(1));
+    console.log('generateMatrix(4) : ', generateMatrix(4));
+}
 // LinkedList
 {
     class Node {
@@ -61,6 +162,41 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
             }
             return false;
         }
+        reverse = () => {
+            if (this.head === null) return null;
+            let current = this.head;
+            let next = null;
+            let pre = null;
+            while (current) {
+                next = current.next;
+                current.next = pre;
+                pre = current;
+                current = next;
+            }
+            this.head = pre;
+            return this;
+        }
+        //better way : https://mp.weixin.qq.com/s/pnvVP-0ZM7epB8y3w_Njwg
+        reverseListRecursive = (pre = null, current = this.head) => {
+            if (current === null) return pre;
+            let next = current.next;
+            current.next = pre;
+            return this.reverseListRecursive(current, next);
+        }
+        reversList = (current = this.head) => {
+            // 1->2->3->4->5->NULL
+            if (current === null) return null;
+            // last node or only one node 
+            if (current.next === null) return current;
+            let newHeadNode = this.reversList(current.next);
+            console.log('current.next', current.next, 'newHeadNode : ', newHeadNode);
+            // change references for middle chain
+            current.next.next = current;
+            current.next = null;
+            // send back new head node in every recursion 
+            return newHeadNode;
+        }
+
     }
 
     let linkedList = new LinkedList(5);
@@ -72,8 +208,9 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('linkedList = ', JSON.stringify(linkedList));
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
     console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
-    console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    console.log('*** reversList = ', JSON.stringify(linkedList.reversList()));
+    //console.log('*** reversList = ', JSON.stringify(linkedList.reversList()));
+    //console.log('reverse = ', JSON.stringify(linkedList.reverse()));
+    console.log('*** reverseListRecursive = ', JSON.stringify(linkedList.reverseListRecursive()));
     console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 

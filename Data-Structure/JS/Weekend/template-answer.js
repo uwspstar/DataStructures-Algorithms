@@ -1019,16 +1019,25 @@ console.log('================ start top 100 ================');
             }
             return this;
         }
-        reversList(head = this.head) {
-            /*
-            if (head === null || head.next === null) return head;
-            console.log('this.head = ', JSON.stringify(this.head));
-            let current = this.reversList(head.next);
-            console.log('current = ', JSON.stringify(current));
-            head.next.next = head;
-            //head = null;
-            return this.head; current;
-            */
+        //Better way : https://mp.weixin.qq.com/s/pnvVP-0ZM7epB8y3w_Njwg
+        reverseListRecursive = (pre = null, current = this.head) => {
+            if (current === null) return pre;
+            let next = current.next;
+            current.next = pre;
+            return this.reverseListRecursive(current, next);
+        }
+        reverseList = (current = this.head) => {
+            // 1->2->3->4->5->NULL
+            if (current === null) return null;
+            // last node or only one node 
+            if (current.next === null) return current;
+            let newHeadNode = this.reverseList(current.next);
+            console.log('current.next', current.next, 'newHeadNode : ', newHeadNode);
+            // change references for middle chain
+            current.next.next = current;
+            current.next = null;
+            // send back new head node in every recursion 
+            return newHeadNode;
         }
         reverse() {
             if (this.head === null) return null;
@@ -1083,6 +1092,24 @@ console.log('================ start top 100 ================');
             }
             return false;
         }
+        detectCycleNode = head => {
+            if (head === null) return null;
+            let fast = head;
+            let slow = head;
+            while (fast && fast.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+                if (fast === slow) {
+                    let index = head;
+                    while (index !== fast) {
+                        index = index.next;
+                        fast = fast.next;
+                    }
+                    return index1;
+                }
+            }
+            return null;
+        }
 
     }
     let linkedList = new LinkedList(5);
@@ -1095,8 +1122,11 @@ console.log('================ start top 100 ================');
     console.log('findMid = ', JSON.stringify(linkedList.findMid())); //30
     console.log('findLastKth(4) = ', JSON.stringify(linkedList.findLastKth(4))); //20
     console.log('reverse = ', JSON.stringify(linkedList.reverse()));
-    console.log('*** reversList = ', JSON.stringify(linkedList.reversList()));
+
+    console.log('*** reverseListRecursive = ', JSON.stringify(linkedList.reverseListRecursive()));
+    //console.log('*** reverseList = ', JSON.stringify(linkedList.reverseList()));
     console.log('isCircularFastSlow', JSON.stringify(linkedList.isCircularFastSlow()));
+    console.log('detectCycleNode', JSON.stringify(linkedList.detectCycleNode()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
 console.log('================ end linkedList ================');
@@ -1208,7 +1238,7 @@ console.log('================ end tree ================');
 // linked list circular detectCycle
 // https://leetcode.com/problems/linked-list-cycle-ii/submissions/
 {
-    const detectCycle = head => {
+    const detectCycleNode = head => {
         if (head === null) return null;
         let fast = head;
         let slow = head;
