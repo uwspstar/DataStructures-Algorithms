@@ -1,4 +1,33 @@
 {
+    const reverseStr = (s, k) => {
+        if (s.length < 2) return s;
+        let n = 0, result = '';
+        for (let i = 0; i < s.length; i += k) {
+            let tmpStr = s.slice(i, i + k);
+            n++;
+            if (n & 1 === 1) {
+                tmpStr = tmpStr.split('').reverse().join('');
+            }
+            result += tmpStr;
+        }
+        return result;
+    };
+    console.log('abcdefg', reverseStr('abcdefg', 2));
+}
+{
+    const reverseStr = (s, k) => {
+        for (let i = 0; i < s.length; i += (2 * k)) {
+            if (i + k <= s.length) {
+                reverse(s.slice(k));
+                continue;
+            }
+            // 3. 剩余字符少于 k 个，则将剩余字符全部反转。
+            reverse(s.begin() + i, s.begin() + s.size());
+        }
+        return s;
+    }
+}
+{
     const reverseStr = (str, k) => {
         if (str.length < 2) return s;
         const reverse = s => {

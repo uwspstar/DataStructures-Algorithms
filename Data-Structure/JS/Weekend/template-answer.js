@@ -7,20 +7,20 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 {
     // 所以当需要固定规律一段一段去处理字符串的时候，要想想在在for循环的表达式上做做文章
     // https://mp.weixin.qq.com/s/XGSk1GyPWhfqj2g7Cb1Vgw
-    var reverseStr = function (s, k) {
-        if (s.length < k) return s;
-
+    const reverseStr = (s, k) => {
+        if (s.length < 2) return s;
         let n = 0, result = '';
         for (let i = 0; i < s.length; i += k) {
-            let t = s.slice(i, i + k);
+            let tmpStr = s.slice(i, i + k);
             n++;
-            if (n % 2 === 1) {
-                t = t.split('').reverse().join('');
+            if (n & 1 === 1) {
+                tmpStr = tmpStr.split('').reverse().join('');
             }
-            result += t;
+            result += tmpStr;
         }
         return result;
     };
+    console.log('abcdefg', reverseStr('abcdefg', 2));
 }
 // reverseStr jump kth
 {
@@ -47,7 +47,19 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
     console.log('abcdefg', reverseStr('abcdefg', 2));
 }
-//
+// reverseStr
+{
+    const reverseStr = (s, k) => {
+        let result = "";
+        for (let i = 0; i < s.length; i += 2 * k) {
+            let str1 = s.substr(i, k);
+            str1 = str1.split('').reverse().join('');  // reverse first half
+            let str2 = s.substr(i + k, k);
+            result += str1 + str1;
+        }
+        return result;
+    };
+}
 // Power Set : all sub set
 {
     function allSubsets(arr) {
