@@ -5,7 +5,11 @@
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 // reverseStr jump kth
 {
+    // 所以当需要固定规律一段一段去处理字符串的时候，要想想在在for循环的表达式上做做文章
+    // https://mp.weixin.qq.com/s/XGSk1GyPWhfqj2g7Cb1Vgw
     var reverseStr = function (s, k) {
+        if (s.length < k) return s;
+
         let n = 0, result = '';
         for (let i = 0; i < s.length; i += k) {
             let t = s.slice(i, i + k);

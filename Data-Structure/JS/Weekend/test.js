@@ -1,3 +1,22 @@
+{
+    const reverseStr = (str, k) => {
+        if (str.length < 2) return s;
+        const reverse = s => {
+            return s.split('').reverse().join('');
+        }
+        let len = str.length;
+        if (len <= k) return reverse(str);
+        let result = '';
+        while (len) {
+            result += reverse(str.slice(0, k));
+            result += str.slice(k, 2 * k); // not 2k
+            str = str.slice(2 * k);
+            len = str.length;
+        }
+        return result
+    }
+    console.log('abcdefg', reverseStr('abcdefg', 2));
+}
 
 {
     var reverseStr = function (s, k) {
