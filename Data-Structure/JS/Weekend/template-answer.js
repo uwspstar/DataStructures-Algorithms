@@ -1135,7 +1135,7 @@ console.log('================ start top 100 ================');
      将一个栈当作输入栈，用于压入 push 传入的数据；另一个栈当作输出栈，用于 pop 和 peek 操作。
      每次 pop 或 peek 时，若输出栈为空则将输入栈的全部数据依次弹出并压入输出栈，这样输出栈从栈顶往栈底的顺序就是队列从队首往队尾的顺序。
     */
-    class twoStackQueue {
+    class twoStackToQueue {
         // 使用栈来模式队列的行为，如果仅仅用一个栈，是一定不行的，所以需要两个栈
         constructor() {
             this.inStack = []
@@ -1167,6 +1167,34 @@ console.log('================ start top 100 ================');
         }
         isEmpty() {
             return this.inStack.length === 0 && this.outStack.length === 0;
+        }
+    }
+
+    {
+        class twoQueueToStack {
+            constructor() {
+                this.queue = [];
+                this._queue = [];
+            }
+            push(x) {
+                this.queue.push(x);
+            }
+            pop() {
+                while (this.queue.length > 1) {
+                    this._queue.push(this.queue.shift());
+                }
+                let ans = this.queue.shift();
+                while (this._queue.length) {
+                    this.queue.push(this._queue.shift());
+                }
+                return ans;
+            }
+            top() {
+                return this.queue.slice(-1)[0];
+            }
+            empty() {
+                return !this.queue.length;
+            }
         }
     }
 }
@@ -1352,7 +1380,7 @@ console.log('================ start top 100 ================');
     console.log('tree : ', JSON.stringify(t))
 
 }
-console.log('================ end tree ================');
+
 {
     //206. 反转链表
     // https://leetcode.com/problems/reverse-linked-list/

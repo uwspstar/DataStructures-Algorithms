@@ -8,30 +8,27 @@
 {
     class twoQueueToStack {
         constructor() {
-            this.inQueue = [];
-            this.outQueue = [];
+            this.queue = [];
+            this._queue = [];
         }
         push(x) {
-            if (this.inQueue.length > 0) {
-                this.outQueue.push(this.inQueue.pop());
-            }
-            this.inQueue.push(x);
-        };
+            this.queue.push(x);
+        }
         pop() {
-            if (this.empty()) return null;
-            if (this.inQueue.length == 0) {
-                this.inQueue.push(this.outQueue.pop())
+            while (this.queue.length > 1) {
+                this._queue.push(this.queue.shift());
             }
-            return this.inQueue.pop();
-        };
+            let ans = this.queue.shift();
+            while (this._queue.length) {
+                this.queue.push(this._queue.shift());
+            }
+            return ans;
+        }
         top() {
-            if (this.inQueue.length == 0 && this.outQueue.length > 0) {
-                this.inQueue.push(this.outQueue.pop());
-            }
-            return this.inQueue[0];
-        };
+            return this.queue.slice(-1)[0];
+        }
         empty() {
-            return this.inQueue.length == 0 && this.outQueue.length == 0;
+            return !this.queue.length;
         }
     }
 }
