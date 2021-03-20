@@ -821,8 +821,14 @@ console.log('================ start top 100 ================');
     }
     console.log('4: fibonacci', JSON.stringify(fibonacci(45))); //1, 1, 2, 3, 5,..., 1134903170
 }
+{
+    console.log(!2); // false
+    console.log(![2].length); // false
+    console.log(![].length); // true
+}
 // isBalance
 {
+    // 括号匹配是使用Stack栈解决的经典问题
     const isBalance = arr => {
         if (arr.length % 2 !== 0) return false;
         const map = { "(": ")", "{": "}", "[": "]" };
@@ -836,7 +842,7 @@ console.log('================ start top 100 ================');
                 if (map[last] !== key) return false;
             }
         }
-        return result.length === 0;
+        return !result.length; //result.length === 0;
     }
     console.log('5: isBalance: ', JSON.stringify(isBalance("[{()()}]")));//true
     console.log('5: isBalance: ', JSON.stringify(isBalance("[[[]")));//false
