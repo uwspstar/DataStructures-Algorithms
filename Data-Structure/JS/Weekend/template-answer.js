@@ -335,6 +335,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 // reverseWords : remove element concept
 // https://leetcode-cn.com/problems/reverse-words-in-a-string/
+// https://mp.weixin.qq.com/s/X3qpi2v5RSp08mO-W5Vicw
 {
     const reverseWords = str => {
         if (str.length < 2) return '';
@@ -361,6 +362,7 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log(`result :`, reverseWords('a good   example'));
 }
 // reversWords
+// https://mp.weixin.qq.com/s/X3qpi2v5RSp08mO-W5Vicw
 {
     const reverseWords = function (s) {
 
@@ -1077,7 +1079,91 @@ console.log('================ start top 100 ================');
     }
     console.log('5: quickSortHelp', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
-
+// Stack & Queue
+{
+    class Stack {
+        constructor() {
+            this.result = [];
+            this.empty
+        }
+        //[1, 2, 3]
+        push(x) {
+            this.result.push(x);
+        }
+        pop() {
+            return this.result.pop(x);
+        }
+        peek() {
+            return this.result[this.result.length - 1];
+        }
+        isEmpty() {
+            return this.result.length === 0;
+        }
+    }
+    class Queue {
+        constructor() {
+            this.result = [];
+        }
+        //3-> 2-> 1
+        push(x) {
+            this.result.shift(x);
+        }
+        pop() {
+            return this.result.pop(x);
+        }
+        peek() {
+            return this.result[0];
+        }
+        isEmpty() {
+            return this.result.length === 0;
+        }
+    }
+    /*
+    实现 MyQueue 类：
+        void push(int x) 将元素 x 推到队列的末尾
+        int pop() 从队列的开头移除并返回元素
+        int peek() 返回队列开头的元素
+        boolean empty() 如果队列为空，返回 true ；否则，返回 false
+    */
+    /*
+     将一个栈当作输入栈，用于压入 push 传入的数据；另一个栈当作输出栈，用于 pop 和 peek 操作。
+     每次 pop 或 peek 时，若输出栈为空则将输入栈的全部数据依次弹出并压入输出栈，这样输出栈从栈顶往栈底的顺序就是队列从队首往队尾的顺序。
+    */
+    class twoStackQueue {
+        // 使用栈来模式队列的行为，如果仅仅用一个栈，是一定不行的，所以需要两个栈
+        constructor() {
+            this.inStack = []
+            this.outStack = [];
+        }
+        in2Out() {
+            while (this.inStack.length) {
+                this.outStack.push(this.inStack.pop());
+            }
+        }
+        push(x) {
+            this.inStack.push(x);
+        }
+        pop() {
+            // 3 -> 2 -> 1
+            // 1 -> 2 -> 3
+            if (this.outStack.length === 0) {
+                this.in2Out();
+            }
+            return this.outStack.pop(x);
+        }
+        peek() {
+            // in  : 1, 2, 3
+            // out : 3, 2, 1
+            if (this.outStack.length === 0) {
+                this.in2Out();
+            }
+            return this.outStack[this.outStack.length - 1];
+        }
+        isEmpty() {
+            return this.inStack.length === 0 && this.outStack.length === 0;
+        }
+    }
+}
 // LinkList
 {
     class Node {
@@ -1215,9 +1301,7 @@ console.log('================ start top 100 ================');
     console.log('detectCycleNode', JSON.stringify(linkedList.detectCycleNode()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
-console.log('================ end linkedList ================');
 
-console.log('================ start tree ================');
 // Tree
 {
     class TreeNode {

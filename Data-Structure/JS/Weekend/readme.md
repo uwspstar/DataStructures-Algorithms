@@ -86,6 +86,13 @@ const Swap = (a, b) => {
 
 ---
 
+# Stack & Queue
+
+- https://mp.weixin.qq.com/s/VZRjOccyE09aE-MgLbCMjQ
+- Stack 栈提供 `push` 和 `pop` 等等接口，所有元素必须符合先进后出规则，所以栈`不提供`走访功能，也`不提供`迭代器(iterator)。不像是 `set` 或者 `map` 提供迭代器 `iterator` 来遍历所有元素。
+
+---
+
 # Array , String
 
 - Array : ASCII code, such as `let arr = Array(26).fill(0)`;
@@ -93,6 +100,25 @@ const Swap = (a, b) => {
 - `arr[code-97]++`
 - 首先`扩充数组`到每个空格替换成"%20"之后的大小, 从后向前填充. 从前向后填充就是 O(n^2)的算法了，因为每次添加元素都要将添加元素之后的所有元素向后移动。
 - 其实很多数组填充类的问题，都可以先预先给数组扩容带填充后的大小，然后在从后向前进行操作
+
+---
+
+# String 反转好多次字符串
+
+- https://mp.weixin.qq.com/s/PmcdiWSmmccHAONzU0ScgQ
+- 双指针法
+- 反转加上了一些条件
+- 先整体反转再局部反转
+- 先局部反转再 整体反转
+
+---
+
+# KMP
+
+- KMP 主要应用在字符串匹配上
+- https://mp.weixin.qq.com/s?__biz=MzUxNjY5NTYxNA==&mid=2247484428&idx=1&sn=c0e5573f5fe3b438dbe75f93f3f164fa&scene=21#wechat_redirect
+- https://mp.weixin.qq.com/s/Gk9FKZ9_FSWLEkdGrkecyg
+- `KMP` 的经典思想就是: 当出现字符串不匹配时，可以记录一部分之前已经匹配的文本内容，利用这些信息避免从头再去做匹配.
 
 ---
 
