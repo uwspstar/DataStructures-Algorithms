@@ -1,6 +1,12 @@
 // Whole-script strict mode syntax
 "use strict";
-
+{
+    // slice (-1)
+    console.log([0, 1, 2, 3, 4].slice(-1)[0]); // 4
+    console.log([0, 1, 2, 3, 4].slice(-1)); //[4]
+    console.log([0, 1, 2, 3, 4].slice(2, -1)); // [2, 3]
+    console.log([0, 1, 2, 3, 4].slice(2, -1)[0]); // 2
+}
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 // replaceSpace
