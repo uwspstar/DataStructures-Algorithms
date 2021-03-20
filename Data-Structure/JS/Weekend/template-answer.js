@@ -3,6 +3,36 @@
 
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// replaceSpace
+{
+    const replaceSpace = s => {
+        let count = 0;
+        let sOldSize = s.length;
+        let arr = s.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == ' ') {
+                count++;
+            }
+        }
+        arr.length = arr.length + (2 * count); // not 3 * count, because ' ' also need to use
+
+        let sNewSize = arr.length;
+        let j = sOldSize - 1;
+
+        for (let i = sNewSize - 1; j >= 0 && j < i && i >= 0; i--, j--) {
+            if (arr[j] != ' ') {
+                arr[i] = arr[j];
+            } else {
+                arr[i] = '0';
+                arr[i - 1] = '2';
+                arr[i - 2] = '%';
+                i -= 2;
+            }
+            console.log('arr 2 = ', JSON.stringify(arr));
+        }
+        return arr.join('');
+    }
+}
 // reverseStr jump kth
 {
     // 所以当需要固定规律一段一段去处理字符串的时候，要想想在在for循环的表达式上做做文章
@@ -304,11 +334,11 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     console.log('removeElement', removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
 // reverseWords : remove element concept
+// https://leetcode-cn.com/problems/reverse-words-in-a-string/
 {
     const reverseWords = str => {
         if (str.length < 2) return '';
         let arr = str.trim().split(' '); // has empty space
-        //console.log(arr)
         let point = 0
         for (let i = arr.length - 1; i >= 0; i--) {
             if (arr[i] !== '') {

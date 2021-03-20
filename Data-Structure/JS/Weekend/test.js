@@ -1,3 +1,34 @@
+{  // console.log(tmp.replace(/\s+/g,'%20'));
+
+    const replaceSpace = s => {
+        let count = 0;
+        let sOldSize = s.length;
+        let arr = s.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == ' ') {
+                count++;
+            }
+        }
+        arr.length = arr.length + (2 * count); // not 3 * count, because ' ' also need to use
+        
+        let sNewSize = arr.length;
+        let j = sOldSize - 1; 
+
+        for (let i = sNewSize - 1; j >= 0 && j < i && i >= 0; i--, j--) {
+            if (arr[j] != ' ') {
+                arr[i] = arr[j];
+            } else {
+                arr[i] = '0';
+                arr[i - 1] = '2';
+                arr[i - 2] = '%';
+                i -= 2;
+            }
+            console.log('arr 2 = ', JSON.stringify(arr));
+        }
+        return arr.join('');
+    }
+    console.log('replaceSpace : ', replaceSpace('We are happy.'));
+}
 {
     const reverseStr = (s, k) => {
         if (s.length < 2) return s;
