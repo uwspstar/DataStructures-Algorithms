@@ -9,6 +9,36 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+// https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+// 150. 逆波兰表达式求值
+// evalRPN
+{
+    var evalRPN = function (arr) {
+        if (arr.length < 2) return arr[0];
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let current = arr[i];
+            if (current !== '+' && current !== '-' && current !== '*' && current !== '/') {
+                result.push(current);
+            } else {
+                let n2 = parseInt(result.pop());
+                let n1 = parseInt(result.pop());
+                if (current === '+') result.push(parseInt(n1 + n2));
+                if (current === '-') result.push(parseInt(n1 - n2));
+                if (current === '*') result.push(parseInt(n1 * n2));
+                if (current === '/') result.push(parseInt(n1 / n2));
+                //console.log('n1', n1, 'n2', n2, 'result', result);
+            }
+        }
+        return result[0];
+    };
+
+    let tokens = ["2", "1", "+", "3", "*"];
+    let t2 = ["4", "13", "5", "/", "+"];
+    console.log('e1 :', evalRPN(tokens));
+    console.log('e2 :', evalRPN(t2));
+}
 // replaceSpace
 {
     const replaceSpace = s => {
@@ -829,6 +859,7 @@ console.log('================ start top 100 ================');
 // isBalance
 {
     // 括号匹配是使用Stack栈解决的经典问题
+    // 如果还记得编译原理的话，编译器在 词法分析的过程中处理括号、花括号等这个符号的逻辑，也是使用了Stack这种数据结构
     const isBalance = arr => {
         if (arr.length % 2 !== 0) return false;
         const map = { "(": ")", "{": "}", "[": "]" };

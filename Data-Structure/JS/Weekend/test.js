@@ -1,39 +1,28 @@
 {
-    console.log(!2); // false
-    console.log(![2].length); // false
-    console.log(![].length); // true
-}
-{
-    console.log([0, 1, 2, 3, 4].slice(-1)[0]);
-    console.log([0, 1, 2, 3, 4].slice(-1));
-    console.log([0, 1, 2, 3, 4].slice(2, -1));
-    console.log([0, 1, 2, 3, 4].slice(2, -1)[0]); // 2
-}
-
-{
-    class twoQueueToStack {
-        constructor() {
-            this.queue = [];
-            this._queue = [];
+    // brute force
+    const getMaxNum = (arr, start = 0, end = arr.length - 1) => {
+        let maxNum = -Infinity;
+        for (let i = start; i <= end; i++) {
+            maxNum = Math.max(arr[i], maxNum);
         }
-        push(x) {
-            this.queue.push(x);
-        }
-        pop() {
-            while (this.queue.length > 1) {
-                this._queue.push(this.queue.shift());
-            }
-            let ans = this.queue.shift();
-            while (this._queue.length) {
-                this.queue.push(this._queue.shift());
-            }
-            return ans;
-        }
-        top() {
-            return this.queue.slice(-1)[0];
-        }
-        empty() {
-            return !this.queue.length;
-        }
+        return maxNum
     }
+    var maxSlidingWindow = function (nums, k) {
+        if (nums.length < 2) return nums;
+        if (k < 2) return nums;
+        let result = [];
+        let p = k - 1;
+        let maxNum = -Infinity;
+        for (let i = 0; i <= p; i++) {
+            maxNum = getMaxNum(nums, 0, p);
+            result.push(maxNum);
+        }
+        //[1,3,-1,-3,5,3,6,7]
+        for (let i = p + 1; i < nums.length; i++) {
+            result.push(getMaxNum(nums, p + 1 - k, p));
+        }
+        return result;
+    };
+    let nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3;
+    console.log('maxSlidingWindow', maxSlidingWindow(nums, k));
 }
