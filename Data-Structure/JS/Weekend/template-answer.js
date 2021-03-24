@@ -1146,18 +1146,17 @@ console.log('================ start top 100 ================');
         constructor() {
             this.result = [];
         }
-        //3-> 2-> 1
-        push(x) {
-            this.result.shift(x);
+        enqueue(x) {
+            this.result.push(x);
         }
-        pop() {
-            return this.result.pop(x);
+        dequeue() {
+            return this.result.shift(x);
         }
         peek() {
             return this.result[0];
         }
         isEmpty() {
-            return this.result.length === 0;
+            return !this.result.length;
         }
     }
     /*
