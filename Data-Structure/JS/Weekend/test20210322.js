@@ -1,4 +1,41 @@
- 
+
+{
+    class Queue {
+        constructor() {
+            this.result = [];
+        }
+        enqueue(x) {
+            this.result.push(x);
+        }
+        dequeue() {
+            return this.result.shift(x);
+        }
+        peek() {
+            return this.result[0];
+        }
+        isEmpty() {
+            return !this.result.length;
+        }
+    }
+    class Stack {
+        constructor() {
+            this.result = [];
+        }
+        push(x) {
+            this.result.push(x);
+        }
+        pop() {
+            let item = this.result.pop();
+            return item;
+        }
+        peek() {
+            return this.result[this.result.length - 1];;
+        }
+        isEmpty() {
+            return !this.result.length
+        }
+    }
+}
 {
     const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     const sortColor = arr => {
@@ -6,10 +43,15 @@
         let p0 = 0, current = 0, p2 = arr.length - 1;
         while (current <= p2) {
             if (arr[current] === 2) {
-                swap(arr, )
+                swap(arr, current, p2)
                 p2--;
-            } else if (arr[current] === 0)
+            } else if (arr[current] === 0) {
+                swap(arr, current, p0);
+                p0++;
+                current++
+            } else current++;
         }
+        return arr;
     }
 
     console.log('sortColor', JSON.stringify(sortColor([0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]))); // [0,0,0,0,0,1,1,1,1,2,2,2,2,2]

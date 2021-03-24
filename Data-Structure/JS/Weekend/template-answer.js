@@ -1127,14 +1127,13 @@ console.log('================ start top 100 ================');
     class Stack {
         constructor() {
             this.result = [];
-            this.empty
         }
         //[1, 2, 3]
         push(x) {
             this.result.push(x);
         }
         pop() {
-            return this.result.pop(x);
+            return this.result.pop();
         }
         peek() {
             return this.result[this.result.length - 1];
