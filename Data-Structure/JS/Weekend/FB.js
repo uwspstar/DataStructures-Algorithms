@@ -2,6 +2,162 @@
 //b = a - b;
 //a = a - b;
 //array
+//
+{
+    {
+        var nextPermutation = function (nums) {
+            if (nums.length <= 1) return;
+            const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+            let pi = nums.length - 2; // need something to compare it
+            // [4, 5, 6, 2, 1]
+            //     pi
+            while (pi >= 0 && nums[pi] > nums[pi + 1]) {
+                pi--;
+            }
+            // Loop through the provided numbers from right to left
+            for (let i = nums.length - 1; i > pi; i--) {
+                if (nums[i] > nums[pi]) {
+                    swap(nums, i, pi);// Swap the numbers round
+                    // Reverse the rest of the array
+                    console.log('nums', nums);
+                    let chopped = nums.splice(pi + 1).sort((a, b) => a - b);
+                    console.log('chopped', chopped);
+                    nums.push(...chopped);
+                    return nums;
+                }
+            }
+
+            // Right-hand swap not found, return lowest permutation instead
+            return nums.sort((a, b) => a - b);
+        };
+        console.log(nextPermutation([4, 5, 8, 6, 2, 1])) // 4, 6, 1 , 2 , 5, 8
+    };
+}
+//addBinary
+{
+    var addBinary = function (a, b) {
+        let result = '';
+        let carry = 0;
+        for (let i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i--, j--) {
+            let sum = carry;
+            sum += i >= 0 ? parseInt(a[i]) : 0;
+            sum += j >= 0 ? parseInt(b[j]) : 0;
+            result = (sum % 2) + result;
+            carry = parseInt(sum / 2);
+        }
+        return carry === 1 ? '1' + result : result;
+    };
+
+    var addBinary2 = function (a, b) {
+        return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2);
+    };
+
+}
+//groupAnagrams 
+{
+    var groupAnagrams = function (strs) {
+        const map = new Map();
+        for (let str of strs) {
+            let arr = Array.from(str);
+            arr.sort();
+            let key = arr.toString();
+            let list = map.has(key) ? map.get(key) : [];
+            list.push(str);
+            map.set(key, list);
+        }
+        return Array.from(map.values());
+    };
+    let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+    console.log(groupAnagrams(strs));
+}
+//multiply
+{
+    var multiply = function (num1, num2) {
+
+        const m = num1.length;
+        const n = num2.length;
+
+        let res = Array(m + n).fill(0);
+
+        for (let i = m - 1; i >= 0; i--) {
+            for (let j = n - 1; j >= 0; j--) {
+                let temp = +num1.charAt(i) * +num2.charAt(j);
+                let posLow = i + j + 1;
+                let posHigh = i + j;
+                temp += res[posLow];
+                res[posLow] = temp % 10;
+                res[posHigh] += Math.trunc(temp / 10);
+            }
+        }
+        while (res[0] === 0) {
+            res.shift();
+        }
+
+        return res.length === 0 ? "0" : res.join('');
+    };
+}
+//26. Remove Duplicates from Sorted Array
+//https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+//https://www.youtube.com/watch?v=9Xxv6J88KVs
+{
+    var removeDuplicates = function (nums) {
+        if (nums.length < 2) return nums.length;
+        let slow = 0;
+        let fast = 0;
+        //[1,2,3,2,2,3]
+        //           f
+        //     s
+        while (fast < nums.length) {
+            if (nums[fast] !== nums[slow]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+            fast++;
+        }
+        return slow + 1;
+    };
+    console.log(removeDuplicates([1, 2, 3, 2, 2, 3]));
+}
+//threeSum
+// https://leetcode-cn.com/problems/3sum/
+{
+    const threeSum = (nums) => {// 总时间复杂度：O(n^2)
+        let result = [];
+        if (nums == null || nums.length <= 2) return result;
+
+        nums.sort((a, b) => a - b); // O(nlogn)
+
+        for (let i = 0; i < nums.length - 2; i++) { // O(n^2)
+            if (nums[i] > 0) break; // 第一个数大于 0，后面的数都比它大，肯定不成立了
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // 去掉重复情况
+            let target = -nums[i];
+            let left = i + 1;
+            let right = nums.length - 1;
+
+            while (left < right) {
+                if (nums[left] + nums[right] === target) {
+                    result.push([nums[i], nums[left], nums[right]]);
+                    left++; right--; // 首先无论如何先要进行加减操作
+
+                    // 现在要增加 left，减小 right，但是不能重复，比如: [-2, -1, -1, -1, 3, 3, 3], i = 0, left = 1, right = 6, [-2, -1, 3] 的答案加入后，需要排除重复的 -1 和 3
+                    while (left < right && nums[left] == nums[left - 1]) left++;
+                    while (left < right && nums[right] == nums[right + 1]) right--;
+                } else if (nums[left] + nums[right] < target) {
+                    left++;
+                } else {  // nums[left] + nums[right] > target
+                    right--;
+                }
+            }
+        }
+        return result;
+    }
+
+    console.log('threeSum - 1', threeSum([-4, -1, -1, 0, 1, 2,]));
+    console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
+    console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
+    console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
+    console.log('threeSum - 1 :', threeSum([-1, 0, 1, 2, -1, -4])) //[[-1,-1,2],[-1,0,1]
+}
 //13. 罗马数字转整数
 //https://leetcode-cn.com/problems/roman-to-integer/
 {
@@ -33,6 +189,24 @@
     console.log('romanToInt', romanToInt('IX')) //9
     console.log('romanToInt', romanToInt('LVIII')) //58
     console.log('romanToInt', romanToInt('MCMXCIV')) //1994
+}
+{
+    var romanToInt = function (s) {
+        if (s.length === 0) return 0;
+        const map = new Map();
+        map.set("I", 1).set("V", 5).set("X", 10).set("L", 50).set("C", 100).set("D", 500).set("M", 1000);
+        let result = 0;
+        for (let i = 0; i < s.length; i++) {
+            let key = s[i];
+            result += map.get(key);
+            //IV = 1 + 5 = 6
+            // 4 = 6 - 2*1
+            if (map.get(s[i]) > map.get(s[i - 1])) {
+                result = result - 2 * map.get(s[i - 1]);
+            }
+        }
+        return result;
+    };
 }
 //8. String to Integer (atoi)
 //https://baffinlee.com/leetcode-javascript/problem/string-to-integer-atoi.html

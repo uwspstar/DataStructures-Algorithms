@@ -591,36 +591,38 @@ console.log("=====string===END==================================================
 }
 //threeSum
 {
-    const threeSum = nums => {
-        if (nums.length < 3) return [];
-        nums.sort((a, b) => a - b);
-        let len = nums.length;
-
-        if (nums[len - 1] < 0) return [];
-        if (nums[0] > 0) return [];
-
+    const threeSum = (nums) => {// 总时间复杂度：O(n^2)
         let result = [];
-        let i = 0;
-        while (i < len - 2) {
-            if (nums[i] > 0) break;
+        if (nums == null || nums.length <= 2) return result;
+
+        nums.sort((a, b) => a - b); // O(nlogn)
+
+        for (let i = 0; i < nums.length - 2; i++) { // O(n^2)
+            if (nums[i] > 0) break; // 第一个数大于 0，后面的数都比它大，肯定不成立了
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // 去掉重复情况
+            let target = -nums[i];
             let left = i + 1;
-            let right = len - 1;
+            let right = nums.length - 1;
+
             while (left < right) {
-                if (nums[i] * nums[right] > 0) break;
-                let sum = nums[i] + nums[left] + nums[right];
-                if (sum === 0) {
+                if (nums[left] + nums[right] === target) {
                     result.push([nums[i], nums[left], nums[right]]);
-                }
-                if (sum <= 0) {
-                    while (nums[left] === nums[++left]) { };
-                } else {
-                    while (nums[right] === nums[--right]) { };
+                    left++; right--; // 首先无论如何先要进行加减操作
+
+                    // 现在要增加 left，减小 right，但是不能重复，比如: [-2, -1, -1, -1, 3, 3, 3], i = 0, left = 1, right = 6, [-2, -1, 3] 的答案加入后，需要排除重复的 -1 和 3
+                    while (left < right && nums[left] == nums[left - 1]) left++;
+                    while (left < right && nums[right] == nums[right + 1]) right--;
+                } else if (nums[left] + nums[right] < target) {
+                    left++;
+                } else {  // nums[left] + nums[right] > target
+                    right--;
                 }
             }
-            while (nums[i] === nums[++i]) { } // outside while (left < right)
         }
         return result;
     }
+
+    console.log('threeSum - 1', threeSum([-4, -1, -1, 0, 1, 2,]));
     console.log('threeSum - 2 :', threeSum([0, 0, 0, 0])) //[0,0,0]
     console.log('threeSum - 8 :', threeSum([-2, 0, 1, 1, 2])) //[[-2,0,2],[-2,1,1]]
     console.log('threeSum - 7 :', threeSum([-1, 0, 0, 0, 0, 1])) //[[0,0,0], [ -1, 0, 1 ]]
