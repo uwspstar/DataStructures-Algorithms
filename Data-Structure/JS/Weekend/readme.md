@@ -23,7 +23,7 @@ size: 16:9
 - stack, LIFO
 - queue, FIFO
 - linkList, double linklist, circle linklist, delete, reverse
-- tree, binary tree
+- tree, binary tree, DFS, BFS
 - graph
 
 ---
@@ -59,8 +59,8 @@ if ((a & 1) === 0)
 
 - 1、交换律
 - 2、结合律 (a^b)^c == a^(b^c)
-- 3、对于任何数 x，都有 x^x=0，x^0=x
-- 4、自反性: a^b^b=a^0=a;
+- 3、对于任何数 x，都有 x^x = 0，x^0 = x
+- 4、自反性: a^b^b = a^0 = a;
 
 ---
 
@@ -74,8 +74,8 @@ if ((a & 1) === 0)
 const Swap = (a, b) => {
   if (a !== b) {
     a ^= b; // a =  a ^ b
-    b ^= a; // b = b ^ (a ^ b) -> b = a
-    a ^= b; // a = (a ^ b ) ^ a -> a = b
+    b ^= a; // b = b ^ (a ^ b) ->a ^ b ^ b = a
+    a ^= b; // a = (a ^ b ) ^ a -> a ^ a ^ b = b
   }
 };
 ```

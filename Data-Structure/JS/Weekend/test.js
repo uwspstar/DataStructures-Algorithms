@@ -1,28 +1,34 @@
-{
-    var nextPermutation = function (nums) {
-        if (nums.length <= 1) return;
-        const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-        let pi = nums.length - 2; // need something to compare it
-        // [4, 5, 6, 2, 1]
-        //     pi
-        while (pi >= 0 && nums[pi] > nums[pi + 1]) {
-            pi--;
-        }
-        // Loop through the provided numbers from right to left
-        for (let i = nums.length - 1; i > pi; i--) {
-            if (nums[i] > nums[pi]) {
-                swap(nums, i, pi);// Swap the numbers round
-                // Reverse the rest of the array
-                console.log('nums', nums);
-                let chopped = nums.splice(pi + 1).sort((a, b) => a - b);
-                console.log('chopped', chopped);
-                nums.push(...chopped);
-                return nums;
-            }
-        }
+var minWindow = function (s, t) {
+    if (s.length === 0 || s.length < t.length) return '';
+    const need = new Map();
+    for (let c of t) {
+        need.set(c, need.has(c) ? need.get(c) + 1 : 1);
+    }
+    let needType = need.size;
 
-        // Right-hand swap not found, return lowest permutation instead
-        return nums.sort((a, b) => a - b);
-    };
-    console.log(nextPermutation([4, 5, 8, 6, 2, 1])) // 4, 6, 1 , 2 , 5, 8
+    let result = '';
+    let left = 0;
+    let right = 0;
+
+    while (right < s.length) {
+        const c = s[right];
+        if (need.has(c)) {
+            need.set(c, need.get(c) - 1);
+            if (need.get(c) === 0) needType -= 1;
+        }
+        while (needType === 0) {
+            let newResult = s.substring(left, right + 1);
+            if (!result.length || newResult.length < result.length) {
+                result = newResult;
+            }
+            const c2 = s[left];
+            if (need.has(c2)) {
+                need.set(c2, need.get(c2) + 1);
+                if (need.get(c2) === 1) needType += 1;
+            }
+            left++;
+        }
+        right++;
+    }
+    return result;
 };

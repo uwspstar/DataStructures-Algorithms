@@ -2,75 +2,96 @@
 //b = a - b;
 //a = a - b;
 //array
-//
-{
-    {
-        var nextPermutation = function (nums) {
-            if (nums.length <= 1) return;
-            const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
-            let pi = nums.length - 2; // need something to compare it
-            // [4, 5, 6, 2, 1]
-            //     pi
-            while (pi >= 0 && nums[pi] > nums[pi + 1]) {
-                pi--;
-            }
-            // Loop through the provided numbers from right to left
-            for (let i = nums.length - 1; i > pi; i--) {
-                if (nums[i] > nums[pi]) {
-                    swap(nums, i, pi);// Swap the numbers round
-                    // Reverse the rest of the array
-                    console.log('nums', nums);
-                    let chopped = nums.splice(pi + 1).sort((a, b) => a - b);
-                    console.log('chopped', chopped);
-                    nums.push(...chopped);
-                    return nums;
-                }
-            }
 
-            // Right-hand swap not found, return lowest permutation instead
-            return nums.sort((a, b) => a - b);
-        };
-        console.log(nextPermutation([4, 5, 8, 6, 2, 1])) // 4, 6, 1 , 2 , 5, 8
-    };
-}
-//addBinary
+// validPalindrome
 {
-    var addBinary = function (a, b) {
-        let result = '';
-        let carry = 0;
-        for (let i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i--, j--) {
-            let sum = carry;
-            sum += i >= 0 ? parseInt(a[i]) : 0;
-            sum += j >= 0 ? parseInt(b[j]) : 0;
-            result = (sum % 2) + result;
-            carry = parseInt(sum / 2);
+    const isPalindrome = str => {
+        if (str.length < 2) return true;
+        let left = 0;
+        let right = str.length - 1;
+        while (left < right) {
+            if (str[left] !== str[right]) return false;
+            left++;
+            right--;
         }
-        return carry === 1 ? '1' + result : result;
-    };
+        return true;
+    }
 
-    var addBinary2 = function (a, b) {
-        return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2);
-    };
-
-}
-//groupAnagrams 
-{
-    var groupAnagrams = function (strs) {
-        const map = new Map();
-        for (let str of strs) {
-            let arr = Array.from(str);
-            arr.sort();
-            let key = arr.toString();
-            let list = map.has(key) ? map.get(key) : [];
-            list.push(str);
-            map.set(key, list);
+    var validPalindrome = function (s) {
+        let left = 0;
+        let right = s.length - 1;
+        while (left < right) {
+            if (s[left] !== s[right]) {
+                let temp1 = s.substring(left + 1, right + 1);
+                let temp2 = s.substring(left, right);
+                //console.log(temp1, temp2, isPalindrome(temp1), isPalindrome(temp2)); 
+                return isPalindrome(temp1) || isPalindrome(temp2)
+            } else {
+                left++;
+                right--
+            }
         }
-        return Array.from(map.values());
+        return true;
     };
-    let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
-    console.log(groupAnagrams(strs));
+
 }
-//multiply
+// moveZeroes
+{
+    var moveZeroes = function (nums) {
+        let totalZero = 0;
+
+        for (let i = 0, p = 0; i < nums.length; i++) {
+            if (nums[i] === 0) {
+                totalZero++;
+            } else {
+                nums[p] = nums[i];
+                p++;
+            };
+        }
+        //console.log('nums=',nums, 'totalZero=',totalZero);
+
+        for (let i = nums.length - 1; i > nums.length - totalZero - 1; i--) {
+            nums[i] = 0;
+        }
+
+        //console.log(nums)
+    };
+
+}
+//isPalindrome
+{
+    var isPalindrome = function (s) {
+        if (s.length < 2) return true;
+        let left = 0;
+        let right = s.length - 1;
+        //A - 65 //a - 97
+        //0 - 48 //9 - 57
+        const isAlphanumeric = code => {
+            return (code >= 97 && code <= 122) || (code >= 48 && code <= 57)
+        }
+        while (left < right) {
+            let cl = s[left].toLowerCase().charCodeAt(0);
+
+            if (!isAlphanumeric(cl)) {
+                left++;
+                continue;
+            }
+
+            let cr = s[right].toLowerCase().charCodeAt(0);
+
+            if (!isAlphanumeric(cr)) {
+                right--;
+                continue;
+            }
+            if (cl !== cr) return false;  // has to compare after lower case
+            left++;
+            right--;
+        }
+        return true;
+    };
+
+}
+// multiply
 {
     var multiply = function (num1, num2) {
 
@@ -95,6 +116,167 @@
 
         return res.length === 0 ? "0" : res.join('');
     };
+}
+// nextPermutation
+{
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+    const nextPermutation = nums => {
+        //[1,2,4,6,3,1] -> [1,2,4,6,3,1] -> [1,2,6,4,3,1] -> [1,2,6,1,3,4]
+        //         pi           pi
+        if (nums.length === 1) return 1;
+        let pi = nums.length - 1;
+
+        for (let i = pi; i >= 0; i--) {
+            if (nums[i] > nums[i - 1]) {
+                pi = i - 1; break;
+            }
+        }
+        // if pi did not move, return reverse
+        if (pi === nums.length - 1) {
+            return nums.reverse();
+        }
+
+        for (let i = nums.length - 1; i > pi; i--) {
+            if (nums[i] > nums[pi]) {
+                swap(nums, i, pi);
+                break;
+            }
+        }
+
+        let tmp = nums.slice(pi + 1).sort((a, b) => a - b);
+        nums.length = pi + 1;
+        nums.push(...tmp);
+
+    };
+    console.log(nextPermutation([1, 2, 4, 6, 3, 1])) // [1,2,6,1,3,4]
+}
+//nextPermutation
+{
+
+    var nextPermutation = function (nums) {
+        if (nums.length <= 1) return;
+        const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+        let pi = nums.length - 2; // need something to compare it
+        // [4, 5, 6, 2, 1]
+        //     pi
+        while (pi >= 0 && nums[pi] > nums[pi + 1]) {
+            pi--;
+        }
+        // Loop through the provided numbers from right to left
+        for (let i = nums.length - 1; i > pi; i--) {
+            if (nums[i] > nums[pi]) {
+                swap(nums, i, pi);// Swap the numbers round
+                // Reverse the rest of the array
+                console.log('nums', nums);
+                let chopped = nums.splice(pi + 1).sort((a, b) => a - b);
+                console.log('chopped', chopped);
+                nums.push(...chopped);
+                return nums;
+            }
+        }
+
+        // Right-hand swap not found, return lowest permutation instead
+        return nums.sort((a, b) => a - b);
+    };
+    console.log(nextPermutation([4, 5, 8, 6, 2, 1])) // 4, 6, 1 , 2 , 5, 8
+
+}
+//removeDuplicates
+{
+    var removeDuplicates = function (nums) {
+        if (nums.length < 2) return nums.length;
+        let slow = 0;
+        let fast = 0;
+        //[1,2,3,2,2,3]
+        //           f
+        //     s
+        while (fast < nums.length) {
+            if (nums[fast] !== nums[slow]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+            fast++;
+        }
+        return slow + 1;
+    };
+
+}
+// merge two array
+{
+    var merge = function (nums1, m, nums2, n) {
+        //[1,2, 7, 0, 0, 0]  , [2,5, 6] 
+        //      p1                   p2
+        //[1,2, 7, 0, 0, 7] 
+        //[1,2, 7, 0, 6, 7] 
+        //[1,2, 7, 0, 6, 7] 
+        //[1,2, 7, 5, 6, 7] 
+        //[1,2, 2, 5, 6, 7] 
+        //[1,2, 2, 5, 6, 7]
+
+        let p1 = m - 1;
+        let p2 = n - 1;
+        for (let p = m + n - 1; p >= 0; p--) {
+            if (p2 < 0) break;
+            if (p1 >= 0 && nums1[p1] > nums2[p2]) {
+                nums1[p] = nums1[p1--];
+            } else {
+                nums1[p] = nums2[p2--];
+            }
+        }
+    };
+
+}
+//addBinary
+{
+    var addBinary = function (a, b) {
+        let result = '';
+        let carry = 0;
+        for (let i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i--, j--) {
+            let sum = carry;
+            sum += i >= 0 ? parseInt(a[i]) : 0;
+            sum += j >= 0 ? parseInt(b[j]) : 0;
+            result = (sum % 2) + result;
+            carry = parseInt(sum / 2);
+        }
+        return carry === 1 ? '1' + result : result;
+    };
+
+    var addBinary2 = function (a, b) {
+        return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2);
+    };
+
+}
+//groupAnagrams 
+{   // map = { "abc" :["abc", "bac", "cba"], "def" :["def", "edf", "fed"] }
+    var groupAnagrams = function (strs) {
+        const map = new Map();
+        for (let str of strs) {
+            let arr = Array.from(str);
+            arr.sort();
+            let key = arr.toString();
+            let list = map.has(key) ? map.get(key) : [];
+            list.push(str);
+            map.set(key, list);
+        }
+        return Array.from(map.values());
+    };
+
+}
+{
+    var groupAnagrams = function (strs) {
+        const map = new Map();
+        for (let str of strs) {
+            let arr = Array.from(str);
+            arr.sort();
+            let key = arr.toString();
+            let list = map.has(key) ? map.get(key) : [];
+            list.push(str);
+            map.set(key, list);
+        }
+        return Array.from(map.values());
+    };
+    let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+    console.log(groupAnagrams(strs));
 }
 //26. Remove Duplicates from Sorted Array
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array/
@@ -137,7 +319,8 @@
             while (left < right) {
                 if (nums[left] + nums[right] === target) {
                     result.push([nums[i], nums[left], nums[right]]);
-                    left++; right--; // 首先无论如何先要进行加减操作
+                    left++;
+                    right--; // 首先无论如何先要进行加减操作
 
                     // 现在要增加 left，减小 right，但是不能重复，比如: [-2, -1, -1, -1, 3, 3, 3], i = 0, left = 1, right = 6, [-2, -1, 3] 的答案加入后，需要排除重复的 -1 和 3
                     while (left < right && nums[left] == nums[left - 1]) left++;
@@ -212,11 +395,13 @@
 //https://baffinlee.com/leetcode-javascript/problem/string-to-integer-atoi.html
 {
     const myAtoi = (str) => {
-        var i = 0;
-        var sign = 1;
-        var res = 0;
+
+
         var INT_MAX = 2147483647;
-        var INT_MIN = -1 * INT_MAX - 1;
+        var INT_MIN = -1 * (INT_MAX + 1);
+        let sign = 1;
+        let res = 0;
+        let i = 0;
 
         while (str[i] === ' ') i++;
 
