@@ -1,34 +1,20 @@
-var minWindow = function (s, t) {
-    if (s.length === 0 || s.length < t.length) return '';
-    const need = new Map();
-    for (let c of t) {
-        need.set(c, need.has(c) ? need.get(c) + 1 : 1);
-    }
-    let needType = need.size;
+var moveZeroes = nums => {
+    // nums = [0,1,0,3,12] == 4
+    // [1,3,12,0,0]  
 
-    let result = '';
-    let left = 0;
-    let right = 0;
+    let totalZero = 0;
 
-    while (right < s.length) {
-        const c = s[right];
-        if (need.has(c)) {
-            need.set(c, need.get(c) - 1);
-            if (need.get(c) === 0) needType -= 1;
+    for (let i = 0,  p = 0; i < nums.length; i++) {
+        if (nums[i] === 0) {
+            totalZero++;
+        } else {
+            nums[p] = nums[i];
+            p++;
         }
-        while (needType === 0) {
-            let newResult = s.substring(left, right + 1);
-            if (!result.length || newResult.length < result.length) {
-                result = newResult;
-            }
-            const c2 = s[left];
-            if (need.has(c2)) {
-                need.set(c2, need.get(c2) + 1);
-                if (need.get(c2) === 1) needType += 1;
-            }
-            left++;
-        }
-        right++;
     }
-    return result;
-};
+
+    for (let i = nums.length - 1; i >= nums.length - totalZero; i--) {
+        nums[i] = 0;
+    }
+}
+
