@@ -6,15 +6,26 @@
         3: [3]
     };
 
-    const visited = new Set();
-    const dfs = node => {
-        console.log(node);
-        visited.add(node);
-        graph[node].forEach(c => {
-            if (!visited.has(c)) {
-                dfs(c)
-            }
-        })
+    const bfs = node => {
+        const visited = new Set();
+        visited.add(node)
+        const q = [node];
 
+        while (q.length) {
+            let n = q.shift();
+            console.log(n);
+
+            graph[n].forEach(c => {
+                if (!visited.has(c)) {
+                    q.push(c);
+                    visited.add(node);
+                }
+            })
+        }
     }
+    bfs(2);
+    //console.log(dfs(2));
+}
+{
+    
 }
