@@ -1,20 +1,20 @@
-var moveZeroes = nums => {
-    // nums = [0,1,0,3,12] == 4
-    // [1,3,12,0,0]  
+{
+    const graph = {
+        0: [1, 2],
+        1: [2],
+        2: [0, 3],
+        3: [3]
+    };
 
-    let totalZero = 0;
+    const visited = new Set();
+    const dfs = node => {
+        console.log(node);
+        visited.add(node);
+        graph[node].forEach(c => {
+            if (!visited.has(c)) {
+                dfs(c)
+            }
+        })
 
-    for (let i = 0,  p = 0; i < nums.length; i++) {
-        if (nums[i] === 0) {
-            totalZero++;
-        } else {
-            nums[p] = nums[i];
-            p++;
-        }
-    }
-
-    for (let i = nums.length - 1; i >= nums.length - totalZero; i--) {
-        nums[i] = 0;
     }
 }
-

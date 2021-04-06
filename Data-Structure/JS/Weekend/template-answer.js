@@ -9,7 +9,111 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+{
+    // array (M * N);
+    const spiralArray = (arr) => {
+        /*
+        [
+            [ 1, 2, 3 ],
+            [ 4, 5, 6 ],
+            [ 7, 8, 9 ]
+        ]
+        */
+        if (arr.length === 0) return [];
+        if (arr.length === 1) return arr[0];
+        let result = [];
+        let rowStart = 0;
+        let rowEnd = arr.length - 1;
+        let colStart = 0;
+        let colEnd = arr[0].length - 1;
 
+        while (rowStart <= rowEnd || colStart <= colEnd) {
+            if (rowStart <= rowEnd) {
+                for (let i = colStart; i <= colEnd; i++) {
+                    result.push(arr[rowStart][i]);
+                }
+                rowStart++;
+            }
+
+            if (colStart <= colEnd) {
+                for (let i = rowStart; i <= rowEnd; i++) {
+                    result.push(arr[i][colEnd]);
+                }
+                colEnd--;
+            }
+
+            if (rowStart <= rowEnd) {
+                for (let i = colEnd; i >= colStart; i--) {
+                    result.push(arr[rowEnd][i]);
+                }
+                rowEnd--;
+            }
+
+            if (colStart <= colEnd) {
+                for (let i = rowEnd; i >= rowStart; i--) {
+                    result.push(arr[i][colStart]);
+                }
+                colStart++;
+            }
+        }
+        return result;
+    }
+
+    let A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    let B = [[1, 2, 3, 4, 5], [6, 7, 8, 9], [10, 11, 12, 13, 14]];
+    console.log(spiralArray(A))
+    console.log(spiralArray(B))
+
+}
+{
+    const minRemoveToValid = str => {
+        const res = str.split('');
+        const stack = [];
+
+        for (let i = 0; i < res.length; i++) {
+            // if ...else if in order
+            if (res[i] === '(') {
+                stack.push(i);
+            } else if (res[i] === ')' && stack.length) {
+                // stack has value which is '('
+                stack.pop();
+            } else if (res[i] === ')') {
+                res[i] = '';
+            }
+        }
+
+        while (stack.length) {
+            const currIdx = stack.pop();
+            res[currIdx] = '';
+        }
+
+        return res;
+    }
+    //["(a())()","(a)()()"]
+
+    console.log(minRemoveToValid(["(a())()", "(a)()()"]));
+}
+//rotate
+{
+    let A = [
+        [1, 2],
+        [3, 4]
+    ]
+    const rotate = A => {
+        A = A.reverse(); // [ [ 3, 4 ], [ 1, 2 ] ]
+        console.log(A);
+        for (var i = 0; i < A.length; i++) {
+            for (var j = 0; j < i; j++) {
+                var temp = A[i][j];
+                A[i][j] = A[j][i];
+                A[j][i] = temp;
+
+            }
+        }
+        return A;
+    }
+    console.log(rotate(A)); // [ [ 3, 1 ], [ 4, 2 ] ]
+}
 // https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
 // 150. 逆波兰表达式求值
 // evalRPN
@@ -1507,4 +1611,22 @@ console.log('================ start top 100 ================');
     console.log('getPermutations', getPermutations('ab'));// =>  [ 'ab', 'ba']
     console.log('getPermutations', getPermutations('abc')); // => [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
 
+}
+// tree 
+// tree: dfs
+{
+
+}
+// tree: bfs
+{
+
+}
+//graph:
+{
+    const graph = {
+        0: [1, 2],
+        1: [2],
+        2: [0, 3],
+        3: [3]
+    };
 }
