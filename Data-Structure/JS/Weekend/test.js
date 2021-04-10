@@ -1,31 +1,15 @@
 {
-    const graph = {
-        0: [1, 2],
-        1: [2],
-        2: [0, 3],
-        3: [3]
-    };
+    const NumberOf1 = (n) => {
+        let count = 0;
+        while (n) {
+            ++ count;
+            console.log('n-1=', n-1, 'n=', n)
+            n = (n - 1) & n;
+            console.log('after n=', n)
+        } 
+        return count;
+    } 
 
-    const bfs = node => {
-        const visited = new Set();
-        visited.add(node)
-        const q = [node];
+    console.log(NumberOf1(15))
 
-        while (q.length) {
-            let n = q.shift();
-            console.log(n);
-
-            graph[n].forEach(c => {
-                if (!visited.has(c)) {
-                    q.push(c);
-                    visited.add(node);
-                }
-            })
-        }
-    }
-    bfs(2);
-    //console.log(dfs(2));
-}
-{
-    
 }
