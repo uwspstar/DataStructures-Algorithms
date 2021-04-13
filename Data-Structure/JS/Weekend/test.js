@@ -1,15 +1,11 @@
+
 {
-    const NumberOf1 = (n) => {
-        let count = 0;
-        while (n) {
-            ++ count;
-            console.log('n-1=', n-1, 'n=', n)
-            n = (n - 1) & n;
-            console.log('after n=', n)
-        } 
-        return count;
-    } 
-
-    console.log(NumberOf1(15))
-
+    var isAlienSorted = function(words, order) {
+        let map = new Map();
+        for (let i = 0; i < order.length; i++) {
+            map.set(i, order[i]);
+        }
+        console.log(JSON.stringify(map))
+    };
+    isAlienSorted()
 }
