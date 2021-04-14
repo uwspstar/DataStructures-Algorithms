@@ -10,6 +10,26 @@
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 {
+    //Medium https://leetcode.com/problems/powx-n/
+    var myPow = function (x, n) {
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        } 
+        let result = 1; 
+        while (n !== 0) {
+            if (n % 2 !== 0) {
+                result = result * x;
+            }
+            x = x * x;
+            n = parseInt(n / 2);
+        }
+        return result;
+    };
+
+    console.log(myPow(2, 10))
+}
+{
     // array (M * N);
     const spiralArray = (arr) => {
         /*
@@ -1644,5 +1664,5 @@ console.log('================ start top 100 ================');
     //console.log(dfs(2));
 }
 {
-    
+
 }

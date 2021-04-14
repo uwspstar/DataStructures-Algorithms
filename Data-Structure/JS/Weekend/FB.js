@@ -3,6 +3,27 @@
 //a = a - b;
 //array
 
+//fast power
+{
+    //Medium https://leetcode.com/problems/powx-n/
+    var myPow = function (x, n) {
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        } 
+        let result = 1; 
+        while (n !== 0) {
+            if (n % 2 !== 0) {
+                result = result * x;
+            }
+            x = x * x;
+            n = parseInt(n / 2);
+        }
+        return result;
+    };
+
+    console.log(myPow(2, 10))
+}
 // validPalindrome
 {
     const isPalindrome = str => {
