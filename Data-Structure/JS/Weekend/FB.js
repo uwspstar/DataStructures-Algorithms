@@ -2,7 +2,88 @@
 //b = a - b;
 //a = a - b;
 //array
+//2. Add Two Numbers
+{ // Medium https://leetcode.com/problems/add-two-numbers/
 
+    var addTwoNumbers = (l1, l2) => {
+        if (l1 === null) return l2;
+        if (l2 === null) return l1;
+        let dummy = new ListNode(0);
+        let p = dummy;
+        let carry = 0;
+        let p1 = l1;
+        let p2 = l2;
+        while (p1 || p2) {
+            let sum = carry;
+            sum += p1 ? p1.val : 0;
+            sum += p2 ? p2.val : 0;
+            carry = parseInt(sum / 10);
+            p.next = new ListNode(sum % 10); // p.next is a new node, p is dummy head
+
+            p = p.next;
+            p1 ? p1 = p1.next : {};
+            p2 ? p2 = p2.next : {};  
+        }
+
+        carry ? p.next = new ListNode(carry) : {};
+        return dummy.next;
+    }
+
+}
+// 143. Reorder List
+{   // Medium https://leetcode.com/problems/reorder-list/
+    //1. find mid
+    //2. second half reverse
+    //3. merge first half and second half
+    var reorderList = head => {
+
+        if (!head || !head.next || !head.next.next) return head;
+
+        let p1 = head;
+
+        // find mid
+        let fast = head;
+        let slow = head;
+        let preSlow = head;
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            preSlow = slow;
+            slow = slow.next;
+        }
+
+        // reverse
+        let p2 = slow;
+        let current = p2;
+        let pre = null;
+        let next = null;
+        // 3, 4
+        while (current) {
+            next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        p2 = pre;
+
+        preSlow.next = null; // important, all nodelist are referenced 
+
+        // merge list
+        let dummy = new ListNode();
+        let p = dummy;
+
+        while (p1 && p2) {
+            p.next = p1;
+            p = p.next;
+            p1 = p1.next;
+
+            p.next = p2;
+            p2 = p2.next;
+            p = p.next;
+        }
+
+        return dummy.next;
+    };
+}
 //138. Copy List with Random Pointer
 {
     //Medium  https://leetcode.com/problems/copy-list-with-random-pointer/
@@ -19,8 +100,8 @@
 
         curr = head;
         while (curr) {
-            map.get(curr).next =  curr.next ? map.get(curr.next) : null;
-            map.get(curr).random =  curr.random ? map.get(curr.random) : null;
+            map.get(curr).next = curr.next ? map.get(curr.next) : null;
+            map.get(curr).random = curr.random ? map.get(curr.random) : null;
             curr = curr.next;
         }
 
