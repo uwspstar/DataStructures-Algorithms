@@ -9,14 +9,31 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+// 101. Symmetric Tree
+{  // Easy https://leetcode.com/problems/symmetric-tree/submissions/
+    var isSymmetric = function (root) {
+        if (!root) return true;
+
+        const isMirror = (n1, n2) => {
+            if (n1 === null && n2 === null) return true;
+            if (n1 === null && n2 !== null) return false;
+            if (n2 === null && n1 !== null) return false;
+            if (n1.val !== n2.val) return false;
+            return isMirror(n1.left, n2.right) && isMirror(n1.right, n2.left);
+        }
+
+        return isMirror(root, root)
+    };
+}
 {
     //Medium https://leetcode.com/problems/powx-n/
     var myPow = function (x, n) {
         if (n < 0) {
             x = 1 / x;
             n = -n;
-        } 
-        let result = 1; 
+        }
+        let result = 1;
         while (n !== 0) {
             if (n % 2 !== 0) {
                 result = result * x;
