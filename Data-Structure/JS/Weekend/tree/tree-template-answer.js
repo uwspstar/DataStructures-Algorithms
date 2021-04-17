@@ -85,27 +85,31 @@ c.right = f;
             p = n.right; //d, d-right == null
         }
     }
-    console.log('dfs-inOrder',inOrder(a));//dbeacf
+    //console.log('dfs-inOrder',inOrder(a));//dbeacf
 }
 //postOrder
 {  
     const postOrder = root => {
         if (root === null) return;
         let stack = [root];
+        let outStack = []
         while (stack.length > 0) { 
             //FILO
-            let n = stack.pop();
-
-            if (n.right !== null) {
-                stack.push(n.right);
-            }
+            let n = stack.pop(); //stack : empty, d
+            outStack.push(n); //a,d
             if (n.left !== null) {
-                stack.push(n.left);
+                stack.push(n.left);//b
             } 
-            console.log(p.val);
+            if (n.right !== null) {
+                stack.push(n.right);//d
+            }
+        }
+        while(outStack.length > 0) {
+            let n = outStack.pop();
+            console.log(n.val);
         }
     }
-    //console.log('dfs-postOrder', postOrder(a)); //abdec
+    console.log('dfs-postOrder', postOrder(a)); //debfca
 }
 
 //preOrder recursive : Time: O(N), Space: O(N)
