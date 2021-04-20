@@ -1650,6 +1650,70 @@ console.log('================ start top 100 ================');
 
 }
 // tree 
+//////////////////////
+//       a
+//      / \
+//     b   c
+//    / \   \
+//   d   e   f
+/////////////////////
+class Node {
+    constructor (val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+let a = new Node('a');
+let b = new Node('b');
+let c = new Node('c');
+let d = new Node('d');
+let e = new Node('e');
+let f = new Node('f');
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+
+//preOrder recursive : Time: O(N), Space: O(N)
+{  
+    const dfs = root => {
+        if (root === null) return; 
+        console.log(root.val);
+        dfs(root.left);
+        dfs(root.right)
+
+    }
+    console.log('dfs-preOrder', dfs(a)); //abdecf
+
+}
+//inOrder recursive : Time: O(N), Space: O(N)
+{  
+    const dfs = root => {
+        if (root === null) return;  
+        
+        dfs(root.left);
+        console.log(root.val);
+        dfs(root.right) 
+
+    }
+    console.log('dfs-inOrder', dfs(a));
+
+}
+//postOrder recursive : Time: O(N), Space: O(N)
+{  
+    const dfs = root => {
+        if (root === null) return;  
+
+        dfs(root.left);
+        dfs(root.right)
+        console.log(root.val);
+
+    }
+    console.log('dfs-postOrder', dfs(a));
+}
 // tree: dfs
 {
 

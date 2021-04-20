@@ -27,7 +27,12 @@ size: 16:9
 - graph
 
 ---
-
+# ASCII
+```js
+let ascii = 'a'.charCodeAt(0); // 97
+let char = String.fromCharCode(ascii); // 'a'
+```
+---
 # JavaScript Bitwise Operators
 
 - https://wangdoc.com/javascript/operators/bit.html
