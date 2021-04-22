@@ -27,12 +27,36 @@ size: 16:9
 - graph
 
 ---
+
 # ASCII
+
 ```js
 let ascii = 'a'.charCodeAt(0); // 97
 let char = String.fromCharCode(ascii); // 'a'
 ```
+
 ---
+### Arrow function using {}, need return 
+```js
+var canAttendMeetings = function(intervals) {
+
+    intervals.sort((a, b) => a[0] - b[0]);
+    //not using {} in sort, if using {}, need return        
+    //intervals.sort((a, b) => { a[0] - b[0] }); wrong
+    //intervals.sort((a, b) => {return a[0] - b[0] }); right
+    for (let i = 1; i < intervals.length; i++) {
+        if (intervals[i][0] < intervals[i - 1][1]) {
+            return false;
+        }
+    }
+
+    return true;
+
+};
+```
+
+---
+
 # JavaScript Bitwise Operators
 
 - https://wangdoc.com/javascript/operators/bit.html
