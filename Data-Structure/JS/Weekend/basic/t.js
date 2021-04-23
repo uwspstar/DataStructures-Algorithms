@@ -1,4 +1,56 @@
+{
+    var removeInterval = function(intervals, toBeRemoved) {
+        let res  = [];
+        for (let curr of intervals) {
+            if (curr[1] <= toBeRemoved[0] || curr[0] >= toBeRemoved[1]) {//no overlap
+                res.push(curr);
+            } else {
+                if (curr[0] < toBeRemoved[0]) {
+                    curr[1] = toBeRemoved[0];
+                    res.push(curr);
+                } 
+                if (curr[1] >  toBeRemoved[1]) {
+                    curr[0] = toBeRemoved[1];
+                    res.push(curr); 
+                } 
+            }
+        }
+        
+        return res;
+    };
+    console.log(removeInterval([[0,2],[3,4],[5,7]],[1,6]))
+    return;
+}
 
+{
+    var insert = function(intervals, newInterval) {
+        // -----
+        //       ------
+        //                -----
+        //     ----
+        let res = []
+        for (let curr of intervals ) {
+            if (newInterval === null || curr[1] < newInterval[0]) { 
+                //Add to the output all the intervals starting before newInterval.
+               res.push(curr);
+            } else if (curr[0] > newInterval[1]) { 
+                // Add to the output all the intervals starting after newInterval. 
+                res.push(newInterval);
+                res.push(curr);
+                newInterval = null; //means newInterval added
+                
+            } else { //overlap  set newInterval continue loop
+                newInterval[0] = Math.min(curr[0],newInterval[0]);
+                newInterval[1] = Math.max(curr[1],newInterval[1]);
+            }  
+        }  
+
+        if (newInterval !== null) res.push(newInterval); 
+        return res;
+    };
+
+    console.log(insert([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]));
+}
 {
     var minMeetingRooms = function (intervals) {
         //[0,30],[5,10],[15,20]]
@@ -51,7 +103,6 @@
     //console.log(canAttendMeetings([[0, 30], [5, 10], [15, 20]])) //false
     //console.log(canAttendMeetings([[7, 10], [2, 4]])) //true
 }
-
 {
     const countOfAirplanes = intervals => { 
         let arr = [];
