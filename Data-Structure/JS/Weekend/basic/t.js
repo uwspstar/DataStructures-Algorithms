@@ -1,24 +1,87 @@
 {
+    var ladderLength = function(beginWord, endWord, wordList) {
+        let set = new Set(wordList);
+        
+        let queue = [{word: beginWord, seqLen : 1}];
+        while (queue.length > 0) {
+            console.log('q1 = ',queue);
+            let {word, seqLen} = queue.shift();
+            if (word == endWord) {
+                return seqLen;
+            }
+            for (let i = 0; i < word.length; i++) {
+                for (let j = 0; j < 26; j++) {
+                    let subseq = word.slice(0, i) + String.fromCharCode(97+j) + word.slice(i + 1);
+                    if (set.has(subseq)) {
+                        console.log('j', j, 'seqLen', seqLen)
+                        queue.push({word: subseq, seqLen: seqLen + 1});
+                        set.delete(subseq);
+                    }
+                }
+                    // We are doing level-order traversal so if some word has already been visited, it means it was on the same level or previous level. 
+                    // Hence, we don't need to consider it. We want to go down the tree and find the shortest path instead of moving around on the same level or go back to a previous level.
+            }
+        }
+        return 0;
+        // Time Complexity: O(maxWordLen * N * 26) = O(maxWordLen * N), N = # of words in wordList
+        // Space Complexity: O(N)
+    }; 
+
+    console.log(ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"]));
+    //console.log(ladderLength("hit", "cog", ["hot", "cog", "dot", "dog", "hit", "lot", "log"]));
     return;
 }
 {
-    var verticalOrder = function(root) {
+    var ladderLength = function (beginWord, endWord, wordList) {
+
+        let set = new Set(wordList);
+        let q = [[beginWord, 1]]; //q = [["hit", 1]];
+
+        while (q.length > 0) {
+            //q = [["hit", 1]];
+            console.log('q1=', q)
+            let [word, seq] = q.shift();
+            console.log('q2=', q)
+            //q = [];
+            if (word === endWord) return seq; // matched , returned
+
+            let flag = false;
+
+            for (let i = 0; i < word.length; i++) { // "hit".length = 3
+                // loop 26 
+                for (let j = 0; j < 26; j++) {
+                    let newWord = word.slice(0, i) + String.fromCharCode(97 + j) + word.slice(i + 1);
+                    if (set.has(newWord)) {
+                        set.delete(newWord);
+                        q.push([newWord, seq + 1]); //[["hot", seq + 1]]; 
+                    }
+                }
+            }
+        }
+        return 0;
+    };
+    console.log(ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"]));
+    //console.log(ladderLength("hit", "cog", ["hot", "cog", "dot", "dog", "hit", "lot", "log"]));
+    return;
+}
+{
+    var verticalOrder = function (root) {
         if (root === null) return [];
         let res = [];
-        let q = [[root,0]]; // [node, level]
+        let q = [[root, 0]]; // [node, level]
         let columnTable = new Map();
         let minLevel = null;
         let maxLevel = null
-        
+
         while (q.length > 0) {
-            let [n, level] = q.shift();  
+            let [n, level] = q.shift();
             let key = level;
             minLevel = minLevel !== null ? Math.min(minLevel, key) : key;
             maxLevel = maxLevel !== null ? Math.max(maxLevel, key) : key;
             let tmp = columnTable.has(key) ? columnTable.get(key) : [];
             tmp.push(n.val)
             columnTable.set(key, tmp);
-            
+
             if (n.left !== null) {
                 q.push([n.left, level - 1]);
             }
@@ -26,11 +89,11 @@
                 q.push([n.right, level + 1]);
             }
         }
-        
-        for (let i = minLevel; i<= maxLevel; i++) {
+
+        for (let i = minLevel; i <= maxLevel; i++) {
             res.push(columnTable.get(i));
         }
-        
+
         return res;
     };
 }
