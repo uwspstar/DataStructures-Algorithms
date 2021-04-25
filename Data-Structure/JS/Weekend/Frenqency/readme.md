@@ -8,20 +8,17 @@ paginate: true
 size: 16:9
 ---
 
-### 1041. Robot Bounded In Circle
+# 1041. Robot Bounded In Circle
 
-```js
-Input: instructions = "GGLLGG" Output: true
-Explanation: The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
-When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
+- Input: instructions = "GGLLGG" Output: true
+- Explanation: The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
+  When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
 
-Input: instructions = "GG" Output: false
-Explanation: The robot moves north indefinitely.
+- Input: instructions = "GG" Output: false
+- Explanation: The robot moves north indefinitely.
 
-Input: instructions = "GL" Output: true
-Explanation: The robot moves from (0, 0) -> (0, 1) -> (-1, 1) -> (-1, 0) -> (0, 0) -> ...
-
-```
+- Input: instructions = "GL" Output: true
+- Explanation: The robot moves from (0, 0) -> (0, 1) -> (-1, 1) -> (-1, 0) -> (0, 0) -> ...
 
 ---
 
@@ -55,3 +52,47 @@ var isRobotBounded = function (instructions) {
 ```
 
 ---
+
+# 146. LRU Cache
+
+- LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+- int get(int key) Return the value of the key if the key exists, otherwise return -1
+- void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys
+
+---
+
+```js
+// Map is perfect data structure for key value
+// to keep the most recently, 1) delete, then, 2) add
+
+var LRUCache = function (capacity) {
+  this.capacity = capacity;
+  this.map = new Map(); // Map is perfect data structure for key value
+};
+
+LRUCache.prototype.get = function (key) {
+  if (this.map.has(key)) {
+    // *** very important ***, to keeo the most rececently used as a new key into map iterated
+    let val = this.map.get(key);
+    this.map.delete(key); // remove the key pair
+    this.map.set(key, val); // the new entry will be the most recently used
+    return val;
+  }
+  return -1;
+};
+
+LRUCache.prototype.put = function (key, value) {
+  if (this.map.has(key)) {
+    this.map.delete(key);
+  } else if (this.map.size === this.capacity) {
+    //before add new key, check the capacity
+    // Map cannot be sorted, the order will be the order when the key added
+    let key1 = this.map.keys().next().value; // the earlest added
+    this.map.delete(key1);
+  }
+
+  this.map.set(key, value);
+};
+```
