@@ -9,7 +9,34 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+// put all zero to right side
+// FB mock interview
+{
+    // put all zero to right side
+    const putAllZeroToRight = nums => {
 
+        //[0,  -1,  0, 2, 0, 3, -2, 0]
+        //[-1, 2,  3, -2, 0, 3, -2, 0]
+        //                          S
+        //                P
+        let p = 0;
+        let start = 0;
+        while (start < nums.length) {
+            if (nums[start] !== 0) {
+                nums[p] = nums[start];
+                p++;
+            }
+            start++;
+        }
+
+        for (let i = p + 1; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+        return nums;
+    }
+
+    console.log('putAllZeroToRight', putAllZeroToRight([-1, 0, 2, 0, 3, -2, 0]));
+}
 // 101. Symmetric Tree
 {  // Easy https://leetcode.com/problems/symmetric-tree/submissions/
     var isSymmetric = function (root) {
@@ -1513,7 +1540,6 @@ console.log('================ start top 100 ================');
     console.log('detectCycleNode', JSON.stringify(linkedList.detectCycleNode()));
     console.log('linkedList = ', JSON.stringify(linkedList));
 }
-
 // Tree
 {
     class TreeNode {
@@ -1658,7 +1684,7 @@ console.log('================ start top 100 ================');
 //   d   e   f
 /////////////////////
 class Node {
-    constructor (val) {
+    constructor(val) {
         this.val = val;
         this.left = null;
         this.right = null;
@@ -1678,9 +1704,9 @@ b.right = e;
 c.right = f;
 
 //preOrder recursive : Time: O(N), Space: O(N)
-{  
+{
     const dfs = root => {
-        if (root === null) return; 
+        if (root === null) return;
         console.log(root.val);
         dfs(root.left);
         dfs(root.right)
@@ -1690,22 +1716,22 @@ c.right = f;
 
 }
 //inOrder recursive : Time: O(N), Space: O(N)
-{  
+{
     const dfs = root => {
-        if (root === null) return;  
-        
+        if (root === null) return;
+
         dfs(root.left);
         console.log(root.val);
-        dfs(root.right) 
+        dfs(root.right)
 
     }
     console.log('dfs-inOrder', dfs(a));
 
 }
 //postOrder recursive : Time: O(N), Space: O(N)
-{  
+{
     const dfs = root => {
-        if (root === null) return;  
+        if (root === null) return;
 
         dfs(root.left);
         dfs(root.right)
