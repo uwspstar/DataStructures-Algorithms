@@ -1,5 +1,15 @@
 {
-  // put all zero to right side
+  const putAllZeroToRight = nums => {
+    //O(NlogN)
+    return nums.sort((a, b) => Math.abs(b) - Math.abs(a)); //zero to right
+
+  }
+  console.log('putAllZeroToRight', putAllZeroToRight([-1, 0, 2, 0, 3, -2, 0]));
+}
+{
+  return;
+  // put all zero to right side 
+  // O(N)
   const putAllZeroToRight = nums => {
     
     //[0,  -1,  0, 2, 0, 3, -2, 0]

@@ -9,6 +9,26 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+//Permutation with a str
+{
+    const getPermutationStr = (prefix, suffix, res) {
+        if (suffix.length === 0) {
+             res.push(suffix);
+        } else {
+            for (let i = 0; i < suffix.length; i++) {
+             getPermutationStr( prefix + suffix[i],  suffix.slice(i+1) , res);
+           }
+       }
+       return res;
+    }
+    const permutationStr = str => {
+        let res = [];
+        return getPermutationStr('', str, res); 
+    }
+
+    console.log(permutationStr('abc'));
+}
+
 // put all zero to right side
 // FB mock interview
 {
@@ -35,6 +55,14 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
         return nums;
     }
 
+    console.log('putAllZeroToRight', putAllZeroToRight([-1, 0, 2, 0, 3, -2, 0]));
+}
+{
+    const putAllZeroToRight = nums => {
+        //O(NlogN)
+        return nums.sort((a, b) => Math.abs(b) - Math.abs(a)); //zero to right
+
+    }
     console.log('putAllZeroToRight', putAllZeroToRight([-1, 0, 2, 0, 3, -2, 0]));
 }
 // 101. Symmetric Tree
