@@ -9,21 +9,80 @@
 }
 //swap function 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+//count Of Airplanes
+{
+    const countOfAirplanes = (arr) => {
+        // write your code here
+        //[(1, 10), (2, 3), (5, 8), (4, 7)]
+        let maxNum = 0;
+        let map = new Map();
+        let line = [];
+        let curr = 0;
+        for (let i = 0; i < arr.length; i++) {
+            let key1 = [...arr[i]][0];
+            let key2 = [...arr[i]][1];
+            map.set(key1, 1);
+            map.set(key2, -1);
+        }
+        console.log(map);
+        // first minus, then plus
+
+        line = [...map.keys()].sort((a, b) => a - b);
+
+        console.log(line);
+
+        for (let i = 0; i < line.length; i++) {
+            let key = line[i];
+            let val = map.get(key);
+            curr = curr + val;
+            maxNum = Math.max(maxNum, curr);
+            console.log('key=', key, maxNum);
+        }
+        return maxNum;
+    }
+    console.log(countOfAirplanes[[(1, 10), (2, 3), (5, 8), (4, 7)]])//
+}
+
+//Permutation with a arr
+{
+    var permute = function (nums) {
+        const res = [];
+        const backtrack = (path) => {
+
+            if (path.length === nums.length) {
+                res.push(path);
+                return;
+            };
+
+            nums.forEach(n => {
+                if (path.includes(n)) return;
+                backtrack(path.concat(n));
+            });
+        };
+
+        backtrack([]);
+        return res;
+    };
+
+    console.log(permute([1, 2, 3]));
+}
 //Permutation with a str
 {
-    const getPermutationStr = (prefix, suffix, res) {
+    const getPermutationStr = (prefix, suffix, res) => {
         if (suffix.length === 0) {
-             res.push(suffix);
+            res.push(prefix);
         } else {
             for (let i = 0; i < suffix.length; i++) {
-             getPermutationStr( prefix + suffix[i],  suffix.slice(i+1) , res);
-           }
-       }
-       return res;
+                getPermutationStr(prefix + suffix[i], suffix.slice(0, i) + suffix.slice(i + 1), res);
+            }
+        }
+        return res;
     }
     const permutationStr = str => {
         let res = [];
-        return getPermutationStr('', str, res); 
+        getPermutationStr('', str, res);
+        return res;
     }
 
     console.log(permutationStr('abc'));
