@@ -15,8 +15,8 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
             nums.forEach(n => {
                 console.log('path=', path, 'n=', n);
-
-                if (path.includes(n)) return;
+                
+                if (path.indexOf(n) >= 0) return;
                 console.log('-----', n);
                 let tmp = path.concat(n);
                 console.log('tmp=', tmp);
@@ -30,5 +30,4 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     };
 
     console.log(permuteBacktrack([1, 2, 3]));
- 
 }

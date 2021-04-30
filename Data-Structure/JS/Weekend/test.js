@@ -1,5 +1,23 @@
 {
-  //const countOfAirplan
+    const getPermutationStr = (prefix, suffix, res) => {
+        if (suffix.length === 0) {
+            res.push(prefix);
+        } else {
+            for (let i = 0; i < suffix.length; i++) {
+                getPermutationStr(prefix + suffix[i], suffix.slice(0, i) + suffix.slice(i + 1), res);
+            }
+        }
+        return res;
+    }
+    const permutationStr = str => {
+        let res = [];
+        getPermutationStr('', str, res);
+        return res;
+    }
+
+    console.log(permutationStr('abc'));
+
+    return;
 }
 
 //Permutation with a arr
