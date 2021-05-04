@@ -8,10 +8,10 @@ size: 16:9
 ---
 
 # 算法與數據結構體系課"試看"
-
+- https://github.com/liuyubobobo
 - https://www.youtube.com/playlist?list=PLVK8Utuxl6BaIQmw8mOx7HAjhycJYmmyv
 - https://class.imooc.com/datastructure
-
+- 玩轉數據結構 https://www.youtube.com/watch?v=c2yLXzUiAIA&list=PLVK8Utuxl6BYC_3jYxM56YdcGnozjrnAn
 ---
 
 # installing Java

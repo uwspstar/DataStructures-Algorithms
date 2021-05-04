@@ -6,7 +6,6 @@
         let visit = Array(nums.length).fill(false);
 
         //console.log(visit);
-
         const backTrack = arrPath => {
             if (arrPath.length === nums.length) {
                 res.push(arrPath);
