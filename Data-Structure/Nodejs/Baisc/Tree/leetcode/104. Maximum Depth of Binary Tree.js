@@ -5,21 +5,41 @@ A binary tree's maximum depth is the number of nodes along the longest path from
 */
 {
     // DFS
-    var maxDepth = function(root) {
+    var maxDepth = function (root) {
         if (root === null) return 0;
         let maxLevel = 1;
         const dfs = (n, depth) => {
-            if (n === null) return; 
-            
+            if (n === null) return;
+
             if (n.left === null && n.right === null) {
-                maxLevel = Math.max (maxLevel, depth);
-            }  
-            
+                maxLevel = Math.max(maxLevel, depth);
+            }
+
             n.left && dfs(n.left, depth + 1);
             n.right && dfs(n.right, depth + 1);
-        } 
+        }
         dfs(root, 1);
         return maxLevel;
+    }
+}
+{
+    //BFS
+    var maxDepth = function (root) {
+        if (root === null) return 0;
+        let q = [root];
+        let depth = 0; // inside while has at least one ++
+        while (q.length > 0) {
+            let sz = q.length;
+            // each level
+            for (let i = 0; i < sz; i++) {
+                let n = q.shift();
+                n.left && q.push(n.left);
+                n.right && q.push(n.right);
+            }
+            depth++;
+        }
+
+        return depth;
     }
 }
 /*
@@ -27,3 +47,18 @@ Balanced Binary Tree
 Maximum Depth of N-ary Tree
 Time Needed to Inform All Employees
 */
+
+//先求它的左子树的深度，再求的右子树的深度，最后取左右深度最大的数值 再+1 （加1是因为算上当前中间节点）就是目前节点为根节点的树的深度
+/*
+int leftDepth = getDepth(node->left);       // 左
+int rightDepth = getDepth(node->right);     // 右
+int depth = 1 + max(leftDepth, rightDepth); // 中
+return depth;
+*/
+{
+
+    var maxDepth = function (root) {
+        if (root === null) return 0;
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
+}
