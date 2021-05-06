@@ -37,6 +37,32 @@ if (node->left != NULL && node->left->left == NULL && node->left->right == NULL)
         return res;
     };
 }
+{
+    var sumOfLeftLeaves = function (root) {
+        if (root === null) return 0;
+
+        //如果左节点不为空，且左节点没有左右孩子，那么这个节点就是左叶子
+        const isLeaf = n => {
+            return n !== null && n.left === null && n.right === null;
+        }
+
+        let res = 0;
+
+        let s = [root];
+        //DFS_preOrder
+        while (s.length > 0) {
+            let n = s.pop();
+
+            if (isLeaf(n.left)) {
+                res += n.left.val
+            }
+
+            n.right && s.push(n.right);
+            n.left && s.push(n.left);
+        }
+        return res;
+    };
+}
 /*
 Construct Binary Tree from Preorder and Postorder Traversal
 Complete Binary Tree Inserter
