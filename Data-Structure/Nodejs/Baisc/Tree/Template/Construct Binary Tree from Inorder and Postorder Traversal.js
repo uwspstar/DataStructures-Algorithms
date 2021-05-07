@@ -19,7 +19,7 @@ Given two integer arrays inorder and postorder where inorder is the inorder trav
             
             let delimiterIndex = inorder.indexOf(rootVal);
             
-            localRoot.right = dfs(delimiterIndex + 1, end);
+            localRoot.right = dfs(delimiterIndex + 1, end); // right first !!!!
             localRoot.left = dfs(start, delimiterIndex - 1);
             
             return localRoot;

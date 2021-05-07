@@ -21,7 +21,7 @@ if (node->left != NULL && node->left->left == NULL && node->left->right == NULL)
         const dfs = n => {
             if (n === null) return 0;
 
-            if (isLeaf(n.left)) {
+            if (isLeaf(n.left)) {//如果左节点不为空，且左节点没有左右孩子，那么这个节点就是左叶子
                 res += n.left.val;
             }
 
