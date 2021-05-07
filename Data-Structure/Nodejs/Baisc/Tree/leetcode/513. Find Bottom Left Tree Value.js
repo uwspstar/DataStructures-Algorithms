@@ -1,14 +1,8 @@
 //513. Find Bottom Left Tree Value
 //Given the root of a binary tree, return the leftmost value in the last row of the tree.
+//404. Sum of Left Leaves
 {
     //在树的最后一行找到最左边的值。深度最大的叶子节点一定是最后一行。
-
-    /*
-    Path With Maximum Minimum Value
-    Reorder Routes to Make All Paths Lead to the City Zero
-    Lexicographically Smallest String After Applying Operations
-    */
-
     //BFS :  leftmost value NOT the left leave
     var findBottomLeftValue = function (root) {
         if (root === null) return root;
@@ -39,3 +33,9 @@
 
     };
 }
+
+/*
+Path With Maximum Minimum Value
+Reorder Routes to Make All Paths Lead to the City Zero
+Lexicographically Smallest String After Applying Operations
+*/
