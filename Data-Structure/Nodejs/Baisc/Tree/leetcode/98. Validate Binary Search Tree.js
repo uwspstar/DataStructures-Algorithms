@@ -21,6 +21,7 @@ Both the left and right subtrees must also be binary search trees.
 我们要比较的是 左子树所有节点小于中间节点，右子树所有节点大于中间节点。
 */
 {
+    // perfect for inOrder , because of root is bigger than left
     //         5
     //       /   \
     //      4     6
