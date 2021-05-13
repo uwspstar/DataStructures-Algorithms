@@ -22,3 +22,17 @@ size: 16:9
 ---
 
 # max-heap and min-heap
+
+```js
+Node        (itself)  Parent      Left Child    Right Child
+Index          N      (N-1) / 2   (N*2) + 1     (N*2) + 2
+```
+---
+
+# Bubbling Up and Down
+# Heap Operations
+```js
+Deletion  (leads to“bubble down”)    O(log2(n)) 
+Insertion (leads to “bubble up”)     O(log2(n)) 
+Heap sort                            O(n log2(n))
+```
