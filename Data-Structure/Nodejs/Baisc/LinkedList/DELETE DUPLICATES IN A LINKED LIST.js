@@ -1,0 +1,1 @@
+//Deleting an item in a linked list is simple. Simply iterate and store visited nodes inside an array. Delete the current element if the current element has already been seen previously.
