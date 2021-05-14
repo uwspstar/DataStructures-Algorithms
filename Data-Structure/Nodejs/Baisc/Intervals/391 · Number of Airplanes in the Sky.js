@@ -23,7 +23,7 @@ Output: 1
 Explanation: Landing happen before taking off.
 */
 {
-    countOfAirplanes(arr) {
+    const countOfAirplanes = arr => {
         // write your code here
         //[[1, 10], [2, 3], [5, 8], [4, 7]]
         let maxNum = 0; // history, overall max
