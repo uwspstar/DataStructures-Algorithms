@@ -1,4 +1,6 @@
-{ //stack
+//stack
+// both iterative and recursion
+{ 
     const preorder = root => {
         if (!root) return;
         const stack = [root];
