@@ -13,37 +13,7 @@ where the largest sum among the two subarrays is only 18.
 Example 2: Input: nums = [1,2,3,4,5], m = 2 Output: 9
 Example 3: Input: nums = [1,4,4], m = 3 Output: 4
 */
-class Solution {
-    public int splitArray(int[] nums, int m) {
-        int sum = Arrays.stream(nums).sum();
-        int max = Arrays.stream(nums).max().getAsInt();
-        return binary(nums, m, sum, max);
-    }
-    //high =  sum; low = max;
-    private int binary(int[] nums, int m, int high, int low) {
-        int mid = 0; // subArraySum 
-        while (low <= high) {
-            mid = low + (high - low) / 2;// subArraySum 
-            if (valid(nums, m, mid)) high = mid - 1;
-            else low = mid + 1;
-        }
-        return low;
-    }
 
-    private boolean valid(int[] nums, int m, int subArraySum) {
-        int curSum = 0;
-        int count = 1;
-        for (int num: nums) {
-            curSum += num;
-            if (curSum > subArraySum) {
-                curSum = num;
-                count++;
-                if (count > m) return false;
-            }
-        }
-        return true;
-    }
-}
 /*
 Counting Bits
 Maximum Height by Stacking Cuboids
