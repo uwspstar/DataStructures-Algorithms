@@ -1,0 +1,16 @@
+---
+marp: true
+theme: default
+header: 'leetcode'
+footer: 'Code Interview'
+paginate: true
+size: 16:9
+---
+
+### 二分查找法主要是解决在“一堆数中找出指定的数”这类问题。
+
+- https://www.youtube.com/channel/UCYkHDxA4LCZ7XSluTtfDgYQ
+- https://www.youtube.com/watch?v=jB23XIQUSbI
+- 存储在数组中
+- 有序排列
+- 所以如果是用链表存储的，就无法在其上应用二分查找法了。
