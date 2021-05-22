@@ -8,14 +8,17 @@ size: 16:9
 ---
 
 # 算法與數據結構體系課"試看"
+
 - https://github.com/liuyubobobo
 - https://www.youtube.com/playlist?list=PLVK8Utuxl6BaIQmw8mOx7HAjhycJYmmyv
 - https://class.imooc.com/datastructure
 - 玩轉數據結構 https://www.youtube.com/watch?v=c2yLXzUiAIA&list=PLVK8Utuxl6BYC_3jYxM56YdcGnozjrnAn
+
 ---
 
 # installing Java
 
+- https://introcs.cs.princeton.edu/java/11cheatsheet/
 - Java SE Downloads : Java Platform, Standard Edition
 - https://www.oracle.com/java/technologies/javase-downloads.html
 - https://www.oracle.com/java/technologies/javase-jdk16-downloads.html
@@ -25,9 +28,6 @@ size: 16:9
 # installing IDE
 
 - Download IntelliJ IDEA : https://www.jetbrains.com/idea/download/#section=mac
-
-
-
 
 ---
 
