@@ -26,7 +26,7 @@ size: 16:9
 ---
 
 ### 回溯算法模板框架如下：做回溯法的题目都靠它了
-
+- https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
 ```
 void backtracking(参数) {
     if (终止条件) {
@@ -41,7 +41,24 @@ void backtracking(参数) {
     }
 }
 ```
+---
+```js
+const visited = {}
+function dfs(i) {
+	if (满足特定条件）{
+		// 返回结果 or 退出搜索空间
+	}
 
+	visited[i] = true // 将当前状态标为已搜索
+	dosomething(i) // 对i做一些操作
+	for (根据i能到达的下个状态j) {
+		if (!visited[j]) { // 如果状态j没有被搜索过
+			dfs(j)
+		}
+	}
+	undo(i) // 恢复i
+}
+```
 ---
 
 ### 递归的终止条件是：
