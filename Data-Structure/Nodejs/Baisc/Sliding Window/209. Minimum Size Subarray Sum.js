@@ -29,3 +29,23 @@ Example 3: Input: target = 11, nums = [1,1,1,1,1,1,1,1] Output: 0
         return minLen > nums.length ? 0 : minLen;
     };
 }
+{
+    //不要以为for里放一个while就以为是$O(n^2)$啊， 主要是看每一个元素被操作的次数，每个元素在滑动窗后进来操作一次，出去操作一次，每个元素都是被被操作两次，所以时间复杂度是2 * n 也就是$O(n)
+    
+    var minSubArrayLen = function (target, nums) {
+        // 长度计算一次
+        const len = nums.length;
+        let l = r = sum = 0,
+            res = len + 1; // 子数组最大不会超过自身
+        while (r < len) {
+            sum += nums[r++];
+            // 窗口滑动
+            while (sum >= target) {
+                // r始终为开区间 [l, r)
+                res = res < r - l ? res : r - l;
+                sum -= nums[l++];
+            }
+        }
+        return res > len ? 0 : res;
+    };
+}

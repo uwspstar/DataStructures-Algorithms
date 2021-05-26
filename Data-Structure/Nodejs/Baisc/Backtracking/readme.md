@@ -13,6 +13,7 @@ size: 16:9
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
 - https://www.jianshu.com/p/e6e9b8d516b8
 - https://www.jianshu.com/p/f6d3732e86fb
+- https://github.com/azl397985856/leetcode/blob/master/thinkings/backtrack.md
 
 ---
 

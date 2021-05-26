@@ -34,6 +34,20 @@ size: 16:9
 
     前中后序遍历的逻辑其实都是可以借助栈使用非递归的方式来实现的。
 
+---
+
+### When to use Pre-Order, In-order or Post-Order?
+
+- https://stackoverflow.com/questions/9456937/when-to-use-preorder-postorder-and-inorder-binary-search-tree-traversal-strate
+
+- `pre-order` : If you know you need to explore the roots before inspecting any leaves, you pick pre-order because you will encounter all the roots before all of the leaves.
+
+- `post-order` : If you know you need to explore all the leaves before any nodes, you select post-order because you don't waste any time inspecting roots in search for leaves.
+
+- `in-order` If you know that the tree has an inherent sequence in the nodes, and you want to flatten the tree back into its original sequence, than an in-order traversal should be used. The tree would be flattened in the same way it was created. A pre-order or post-order traversal might not unwind the tree back into the sequence which was used to create it.
+
+---
+
 ##### 广度优先遍历：一层一层的去遍历。
 
     - 层次遍历（迭代法）
