@@ -26,7 +26,9 @@ size: 16:9
 ---
 
 ### 回溯算法模板框架如下：做回溯法的题目都靠它了
+
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
+
 ```
 void backtracking(参数) {
     if (终止条件) {
@@ -41,7 +43,9 @@ void backtracking(参数) {
     }
 }
 ```
+
 ---
+
 ```js
 const visited = {}
 function dfs(i) {
@@ -59,6 +63,7 @@ function dfs(i) {
 	undo(i) // 恢复i
 }
 ```
+
 ---
 
 ### 递归的终止条件是：
@@ -70,6 +75,7 @@ function dfs(i) {
 
 ### 回溯法，一般可以解决如下几种问题：
 
+- 回溯的本质是穷举, 虽然回溯法很难，很不好理解，但是回溯法并不是什么高效的算法。
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
 - 组合问题：N 个数里面按一定规则找出 k 个数的集合
 - 切割问题：一个字符串按一定规则有几种切割方式
@@ -81,9 +87,10 @@ function dfs(i) {
 
 ### 什么是组合，什么是排列？
 
-- 组合是不强调元素顺序的，排列是强调元素顺序。
-- 例如：{1, 2} 和 {2, 1} 在组合上，就是一个集合，因为不强调顺序，而要是排列的话，{1, 2} 和 {2, 1} 就是两个集合了。
-- 记住组合无序，排列有序，就可以了。
+- `组合`是不强调元素顺序的，`排列`是强调元素顺序。
+- 例如：{1, 2} 和 {2, 1} 在组合上，就是`1个集合`，因为不强调顺序，而要是排列的话，{1, 2} 和 {2, 1} 就是`2个集合了`。
+- 记住`组合无序，排列有序`，就可以了。
+- https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
 
 ---
 

@@ -17,5 +17,12 @@ size: 16:9
 - Binary search is a search algorithm that find the position of a target value within a `sorted array.` O(logn)
 
 ### Basic
+
 - find target (single one)
-- find target (duplicate,  start index, end index)
+- find target (duplicate, start index, end index)
+
+---
+
+### Binary Search Recursive Method
+
+- https://www.youtube.com/watch?v=uEUXGcc2VXM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=31

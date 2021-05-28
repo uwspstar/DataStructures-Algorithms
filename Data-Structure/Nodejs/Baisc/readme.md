@@ -65,3 +65,5 @@ size: 16:9
 # two pointers
 
 ---
+# Knapsack Problem - Greedy Method
+- https://www.youtube.com/watch?v=oTTzNMHM05I&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=40
