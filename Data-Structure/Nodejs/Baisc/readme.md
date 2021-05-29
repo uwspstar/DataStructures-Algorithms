@@ -65,7 +65,19 @@ size: 16:9
 # two pointers
 
 ---
+
+# divide and conquer
+- check quick sort
+- https://brilliant.org/practice/recursive-functions/?p=2
+- These kinds of programs can be represented as binary trees with the initial call as the root.
+
+---
+
 # Greedy Method - Brute Force Approach
+
+- https://brilliant.org/wiki/recursive-backtracking/?quiz=recursive-backtracking#
 - it is a Brute Force Approach
+
 # Knapsack Problem - Greedy Method
+
 - https://www.youtube.com/watch?v=oTTzNMHM05I&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=40
