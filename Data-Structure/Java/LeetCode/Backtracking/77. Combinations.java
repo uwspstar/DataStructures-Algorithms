@@ -16,6 +16,11 @@ Example 1: Input: n = 4, k = 2 Output:
 ]
 Example 2: Input: n = 1, k = 1 Output: [[1]]
 */
+
+
+
+//https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0077.%E7%BB%84%E5%90%88.md
+
 class Solution {
   List<List<Integer>> result = new ArrayList<>();
   LinkedList<Integer> path = new LinkedList<>();
@@ -36,7 +41,8 @@ class Solution {
       result.add(new ArrayList<>(path));
       return;
     }
-    for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
+    //for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) 
+    for (int i = startIndex; i <= n; i++) {
       path.add(i);
       combineHelper(n, k, i + 1);
       path.removeLast();

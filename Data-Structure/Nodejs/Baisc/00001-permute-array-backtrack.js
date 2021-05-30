@@ -7,7 +7,6 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     var permuteBacktrack = function (nums) {
         const res = [];
         const backtrack = (path) => {
-
             if (path.length === nums.length) {
                 res.push(path);
                 return;

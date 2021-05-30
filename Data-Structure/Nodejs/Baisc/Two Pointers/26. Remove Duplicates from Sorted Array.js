@@ -15,9 +15,7 @@ Do not allocate extra space for another array, you must do this by modifying the
                 nums[++p] = nums[i];
             }
         }
-
         return p + 1;
-
     };
 }
 /*

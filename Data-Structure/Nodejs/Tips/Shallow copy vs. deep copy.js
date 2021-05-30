@@ -1,0 +1,2 @@
+//https://www.javascripttutorial.net/object/3-ways-to-copy-objects-in-javascript/
+//A deep copying means that value of the new variable is disconnected from the original variable while a shallow copy means that some values are still connected to the original variable.
