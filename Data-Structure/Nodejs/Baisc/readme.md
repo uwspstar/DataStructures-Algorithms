@@ -7,6 +7,10 @@ paginate: true
 size: 16:9
 ---
 
+- https://www.interviewbit.com/courses/programming/
+
+---
+
 # binary search
 
 ---
@@ -67,6 +71,7 @@ size: 16:9
 ---
 
 # divide and conquer
+
 - check quick sort
 - https://brilliant.org/practice/recursive-functions/?p=2
 - These kinds of programs can be represented as binary trees with the initial call as the root.

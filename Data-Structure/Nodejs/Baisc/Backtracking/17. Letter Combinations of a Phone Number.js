@@ -82,6 +82,7 @@ Input: digits = "2" Output: ["a","b","c"]
             } else {
                 //idx，就是用来遍历digits的（题目中给出数字字符串），同时idx也表示树的深度。
                 let str = nums[idx];
+                //取过的元素会重复取，for就是从0开始！
                 for (let i = 0; i < str.length; i++) {
                     path.push(str[i]);
                     backTrack(idx + 1);

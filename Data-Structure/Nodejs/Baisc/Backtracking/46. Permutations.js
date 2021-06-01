@@ -13,12 +13,9 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
                 return;
             };
 
-            nums.forEach(n => {
-                //console.log('path=', path, 'n=', n);
-                if (path.indexOf(n) >= 0) return;
-                //console.log('-----', n);
-                let tmp = path.concat(n);
-                //console.log('tmp=', tmp);
+            nums.forEach(n => { 
+                if (path.indexOf(n) >= 0) return; 
+                let tmp = path.concat(n); 
                 backtrack(tmp);
             });
         };
@@ -28,4 +25,29 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
     };
 
     console.log(permuteBacktrack([1, 2, 3]));
+}
+{
+    var permute = function (nums) {
+        if (nums.length < 2) return [[...nums]];
+        let res = [];
+        let path = [];
+        const backTrack = () => {
+            if (path.length === nums.length) {
+                res.push([...path]);
+                return;
+            } else {
+
+                for (let i = 0; i < nums.length; i++) {
+                    if (path.includes(nums[i])) continue;
+                    path.push(nums[i]);
+                    backTrack();
+                    path.pop();
+                }
+            }
+        }
+
+        backTrack();
+        return res;
+    };
+    //Permutation Sequence
 }

@@ -17,6 +17,10 @@ Input: candidates = [2], target = 1 Output: []
 Input: candidates = [1], target = 1 Output: [[1]]
 Input: candidates = [1], target = 2 Output: [[1,1]]
 */
+//题目中的无限制重复被选取，吓得我赶紧想想 出现0 可咋办，然后看到下面提示：1 <= candidates[i] <= 200，我就放心了
+//https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0039.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C.md
+//没有组合数量要求，仅仅是总和的限制，所以递归没有层数的限制，只要选取的元素总和超过target，就返回！
+
 class Solution {
     public List<List<Integer>> combinationSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -37,7 +41,6 @@ class Solution {
             for (int i = start; i < nums.length; i++) {
                 path.add(nums[i]);
                 this.backtrack(remain - nums[i], path, i, nums, res);
-                // backtrack, remove the number from the combination
                 path.remove(path.size() - 1);
             }
         }

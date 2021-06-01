@@ -117,4 +117,17 @@ size: 16:9
 
 ---
 
+### 刪除二分搜索樹的任意元素
+
+- 刪除二分搜索樹的任意元素
+- https://www.youtube.com/watch?v=96O7KXaBm-Q&list=PLVK8Utuxl6BYC_3jYxM56YdcGnozjrnAn&index=47
+
+---
+
+### Hibbard Deletion
+
+- http://math.oxford.emory.edu/site/cs171/hibbardDeletion/
+
+---
+
 ### All about Tree
