@@ -131,3 +131,6 @@ size: 16:9
 ---
 
 ### All about Tree
+
+### Tree Data Structures in JavaScript for Beginners
+- https://adrianmejia.com/data-structures-for-beginners-trees-binary-search-tree-tutorial/
