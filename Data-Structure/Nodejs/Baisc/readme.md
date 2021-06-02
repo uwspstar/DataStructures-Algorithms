@@ -86,3 +86,7 @@ size: 16:9
 # Knapsack Problem - Greedy Method
 
 - https://www.youtube.com/watch?v=oTTzNMHM05I&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=40
+
+# Data Structures in JavaScript: Arrays, HashMaps, and Lists
+
+- https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/
