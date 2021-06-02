@@ -1,5 +1,5 @@
 {
-    //t : O(2^(m + n))
+    //t : O(m * n))
     //s : O(m + n)
     const gridTraveler = (m, n, memo = {}) => {
         const key = m + ',' + 'n';
