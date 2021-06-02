@@ -108,3 +108,5 @@ if (终止条件) {
     return;
 }
 ```
+
+- Typically, backtracking is used to enumerate all possible solutions for a problem, in a trial-fail-and-fallback strategy.
