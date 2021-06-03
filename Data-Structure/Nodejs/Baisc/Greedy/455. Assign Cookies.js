@@ -1,4 +1,5 @@
 // /455. Assign Cookies
+// https://www.youtube.com/watch?v=BZqIP0o_pC8&list=PLwIrqQCQ5pQmjH6YyFvH2A9FYL6bBB4Ra&index=82
 /*
 Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
 
@@ -42,4 +43,16 @@ https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0455.%E5
     //Minimum Deletions to Make Character Frequencies Unique
     //Minimum Operations to Reduce X to Zero
     //Minimum Operations to Make a Subsequence
+}
+{
+    var findContentChildren = function (g, s) {
+        g.sort((a, b) => a - b);
+        s.sort((a, b) => a - b);
+        let i = 0;
+        s.forEach(n => {
+             if (n >= g[i]) i++;
+        })
+        return i;
+    };
+    console.log(findContentChildren([1,2],[1,2,3])); //2
 }
