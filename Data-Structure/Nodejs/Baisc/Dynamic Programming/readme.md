@@ -41,3 +41,6 @@ const lib = (n) =>{
     lib(n - 2);
 }
 ```
+- canSum : Decision Problem
+- howSum : Combinatorics Problem
+- bestSum : Optimization Problem
