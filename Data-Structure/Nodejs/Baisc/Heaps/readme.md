@@ -9,8 +9,9 @@ size: 16:9
 
 # Heaps
 
-- JavaScript Data Structures and Algorithms: An Introduction to Understanding and Implementing Core Data Structure and Algorithm Fundamentals : Sammie Bae
+- It is commonly used in Dijkstra’s Algorithm, Huffman Coding.
 
+- https://blog.bitsrc.io/implementing-heaps-in-javascript-c3fbf1cb2e65
 ---
 
 # A `heap` is an important data structure that returns the `highest` or `lowest` element in O(1) time.
