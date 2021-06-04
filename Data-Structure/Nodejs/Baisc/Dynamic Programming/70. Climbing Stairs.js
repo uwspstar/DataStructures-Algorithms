@@ -28,6 +28,39 @@ th step and ways of reaching (i-2)^{th} step.
 Let dp[i]dp[i] denotes the number of ways to reach on i th
   step: dp[i]=dp[i-1]+dp[i-2]
 */
+/*
+https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0070.%E7%88%AC%E6%A5%BC%E6%A2%AF.md
+
+从dp[i]的定义可以看出，dp[i] 可以有两个方向推出来。
+
+首先是dp[i - 1]，上i-1层楼梯，有dp[i - 1]种方法，那么再一步跳一个台阶不就是dp[i]了么。
+
+还有就是dp[i - 2]，上i-2层楼梯，有dp[i - 2]种方法，那么再一步跳两个台阶不就是dp[i]了么。
+
+那么dp[i]就是 dp[i - 1]与dp[i - 2]之和！
+
+所以dp[i] = dp[i - 1] + dp[i - 2] 。
+
+本题其实就不应该讨论dp[0]的初始化！
+
+我相信dp[1] = 1，dp[2] = 2，这个初始化大家应该都没有争议的。
+不考虑dp[0]如果初始化，只初始化dp[1] = 1，dp[2] = 2，然后从i = 3开始递推，这样才符合dp[i]的定义。
+
+
+*/
+{
+    var climbStairs = function (n) {
+        let dp = [];
+        dp[1] = 1;
+        dp[2] = 2;
+        for (let i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+    //Min Cost Climbing Stairs
+    //N-th Tribonacci Number
+}
 {
     var climbStairs = function (n) {
         if (n === 1) return 1;
@@ -42,4 +75,31 @@ Let dp[i]dp[i] denotes the number of ways to reach on i th
         }
         return dp2;
     };
+}
+{
+    // backTracking is the 2^N, try to avoid to use it
+    var climbStairs = function (n) {
+        let res = [];
+        let path = [];
+        let nums = [1, 2]
+        const backTracking = (remain) => {
+            if (remain === 0) {
+                res.push([...path]);
+                return;
+            } else if (remain < 0) {
+                return;
+            } else {
+                for (let i = 0; i < nums.length; i++) {
+                    path.push(nums[i]);
+                    backTracking(remain - nums[i]);
+                    path.pop();
+                }
+            }
+        }
+        backTracking(n);
+        return res;
+    }
+    console.log(climbStairs(2));
+    console.log(climbStairs(3));
+    console.log(climbStairs(100));//allocation failure scavenge might not succeed
 }
