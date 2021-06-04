@@ -48,7 +48,7 @@ https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0070.%E7
 
 
 */
-{
+{//一个严谨的思考过程，应该是初始化dp[1] = 1，dp[2] = 2，然后i从3开始遍历，代码如下
     var climbStairs = function (n) {
         let dp = [];
         dp[1] = 1;
