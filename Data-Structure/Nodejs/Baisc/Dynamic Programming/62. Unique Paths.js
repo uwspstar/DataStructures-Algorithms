@@ -19,6 +19,10 @@ Input: m = 7, n = 3 Output: 28
 Input: m = 3, n = 3 Output: 6
 
 */
+//dp[i][j]定义 ：表示从（0 ，0）出发，到(i, j) 有dp[i][j]条不同的路径
+//dp[i][0]一定都是1，因为从(0, 0)的位置到(i, 0)的路径只有一条，那么dp[0][j]也同理。
+//for (int i = 0; i < m; i++) dp[i][0] = 1;
+//for (int j = 0; j < n; j++) dp[0][j] = 1;
 {
     //m x n
     //深搜的算法就是遍历了整个满二叉树, will overtime

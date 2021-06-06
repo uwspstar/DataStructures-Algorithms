@@ -28,3 +28,63 @@ Explanation: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
     };
     //Maximize Number of Nice Divisors
 }
+/*
+找规律？
+
+n     乘积     组合
+2       1       1 1
+3       2       2
+4       4       4
+
+5       6       2 3
+6       9       3 3
+7       12      4 3
+
+8       18      2 3 3
+9       27      3 3 3
+10      36      4 3 3
+
+11      54      2 3 3 3
+12      81      3 3 3 3
+13      108     4 3 3 3
+
+14      162     2 3 3 3 3
+15      243     3 3 3 3 3
+16      324     4 3 3 3 3
+
+17      486     2 3 3 3 3 3
+18      729     3 3 3 3 3 3
+19      972     4 3 3 3 3 3
+
+20      1458    2 3 3 3 3 3 3
+21      2187    3 3 3 3 3 3 3
+22      2916    4 3 3 3 3 3 3
+
+23      4374    2 3 3 3 3 3 3 3
+24      6561    3 3 3 3 3 3 3 3
+25      8748    4 3 3 3 3 3 3 3
+
+26      13122   2 3 3 3 3 3 3 3 3
+27      19683   3 3 3 3 3 3 3 3 3
+28      26244   4 3 3 3 3 3 3 3 3
+
+29      39366   2 3 3 3 3 3 3 3 3 3
+30      59049   3 3 3 3 3 3 3 3 3 3
+……
+class Solution {
+    public int integerBreak(int n) {
+        if(n == 2) return 1;
+        if(n == 3) return 2;
+        long result = 1;
+        while(n > 4){
+            n -= 3;
+            result *= 3;
+        }
+        return (int)(n * result);
+    }
+}
+
+作者：rain-ru
+链接：https://leetcode-cn.com/problems/integer-break/solution/su-kan-shuang-100zhao-gui-lu-by-rain-ru-slw4/
+来源：力扣（LeetCode）
+*/
