@@ -10,31 +10,30 @@ Explanation:
 Notice that matches can overlap, see "aba" is found in [0,2] and [2,4].
 */
 //Trie solution
-
 {
 
 }
 // not using Trie
 {
     //All strings contains only lowercase English letters.
-//It's guaranteed that all strings in words are different.
-var indexPairs = function(text, words) {
-    let res = [];
-    for (let word of words) {
-        let len = word.length;
-        let idx = text.indexOf(word);
-        while (idx !== -1) {
-            res.push([idx, idx + len - 1]);
-            //JS indexOf take seconde input
-            idx = text.indexOf(word, idx+1); 
+    //It's guaranteed that all strings in words are different.
+    var indexPairs = function (text, words) {
+        let res = [];
+        for (let word of words) {
+            let len = word.length;
+            let idx = text.indexOf(word);
+            while (idx !== -1) {
+                res.push([idx, idx + len - 1]);
+                //JS indexOf take seconde input
+                idx = text.indexOf(word, idx + 1);
+            }
         }
-    }
-    res.sort((a,b) => {
-        return a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1];
-    })
-    return res;
-};
-//Flip Game
-//Concatenated Words
-//Evaluate the Bracket Pairs of a String
+        res.sort((a, b) => {
+            return a[0] !== b[0] ? a[0] - b[0] : a[1] - b[1];
+        })
+        return res;
+    };
+    //Flip Game
+    //Concatenated Words
+    //Evaluate the Bracket Pairs of a String
 }
