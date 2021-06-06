@@ -47,3 +47,20 @@ for(枚举选择)
 469. 水果成篮(中等)
 470. K 个不同整数的子数组（困难）
 471. 航班预订统计(中等)
+
+---
+
+### Sliding Window
+
+- https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+- The problem input is a `linear data structure` such as a `linked list`, `array`, or `string`
+- You’re asked to find the `longest/shortest substring`, `subarray`, or a desired value
+- `specific window size` of a given `array` or `linked list`, such as finding the longest subarray containing all 1s.
+
+---
+
+### Common problems you use the sliding window pattern with:
+
+- Maximum sum subarray of size ‘K’ (easy)
+- Longest substring with ‘K’ distinct characters (medium)
+- String anagrams (hard)
