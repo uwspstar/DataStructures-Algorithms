@@ -17,14 +17,33 @@ size: 16:9
 
 ---
 
-### Array , sorted ? (BS, 2 Points, remove duplicate ) : iterate
+### Array , sorted ? (BS, 2 Pointers, remove duplicate ) : iterate
 
 - If input array is sorted then
-  - Binary search
-  - Two pointers
+  - Binary search : O(logN) : very good solution
+  - Two pointers (fast, slow, left, right, palindrome)
   - remove duplicate
   - hashMap
   - hashSet
+  - iterate O(N) : good solution
+
+---
+
+### Two pointers (fast, slow, left, right)
+
+- palindrome
+- move zero
+- one point for loop, one point for position
+
+---
+
+### Binary search : anything Order (I mean Anything)
+
+- regular order one array
+- true false order
+- two sorted array
+- first part ASC, second half DESC, etc
+- O(logN) : very good solution
 
 ---
 
@@ -115,3 +134,7 @@ size: 16:9
 - Sort input for O(nlogn) time and O(1) space
   - chrome : quickSort
   - firefox : mergeSort
+
+---
+
+### Bit Manipulation
