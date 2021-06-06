@@ -13,7 +13,7 @@ Output: true
 
     // currSum (before check left leave) , targetSum (if it is leaf)
     var hasPathSum = function (root, targetSum) {
-        
+
         const dfs = (curr, currentSum, targetSum) => {
 
             if (curr === null) return false;
@@ -31,12 +31,13 @@ Output: true
     };
 }
 {
-
-    if (root == null) return false;
-    if (!root.left && !root.right && sum == root.val) {
-        return true;
+    var hasPathSum = function (root, sum) {
+        if (root == null) return false;
+        if (!root.left && !root.right && sum == root.val) {
+            return true;
+        }
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
     }
-    return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
 }
 /*
 Path Sum II
