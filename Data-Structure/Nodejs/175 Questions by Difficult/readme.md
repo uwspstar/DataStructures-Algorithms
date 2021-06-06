@@ -99,11 +99,15 @@ size: 16:9
   - Map
   - Trie
 
+---
+
 ### Sort
 
 - mergeSort
 - quickSort
 - heapSort
+
+---
 
 ### BigO
 
