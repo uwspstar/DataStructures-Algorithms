@@ -14,16 +14,20 @@ Input: prices = [7,6,4,3,1] Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 */
 {
+    // only buy and sell once
     var maxProfit = function (arr) {
         if (arr.length < 2) return 0;
+
         let maxProfit = 0;
         let maxCurr = 0;
+
         //[7,1,5,3,6,4]
         for (let i = arr.length - 1; i >= 0; i--) {
             let curr = arr[i];
             maxCurr = Math.max(maxCurr, curr);
             maxProfit = Math.max(maxProfit, maxCurr - curr);
         }
+
         return maxProfit;
     };
     //Best Time to Buy and Sell Stock III

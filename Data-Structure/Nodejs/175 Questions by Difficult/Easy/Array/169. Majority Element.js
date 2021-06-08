@@ -27,11 +27,13 @@ Input: nums = [2,2,1,1,1,2,2] Output: 2
         }
 
         let val = Math.max(...map.values());
+        
         for (let key of map.keys()) {
             if (map.get(key) === val) {
                 return key;
             }
         }
     };
-    //Majority Element II
+    
 }
+//Majority Element II

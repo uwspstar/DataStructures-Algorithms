@@ -3,6 +3,7 @@
 //Input: root = [4,2,7,1,3,6,9]
 //Output: [4,7,2,9,6,3,1]
 {
+    // recursive
     var invertTree = function (root) {
         if (root === null) return root;
         return {
@@ -13,7 +14,7 @@
     };
 }
 {
-
+    //BFS
     var invertTree = function (root) {
         if (root == null) return null;
         let q = [root];
@@ -21,7 +22,8 @@
             let sz = q.length;
             for (let i = 0; i < sz; i++) {
                 let n = q.shift();
-                [n.left, n.right] = [n.right, n.left]; // swap
+                // every level
+                [n.left, n.right] = [n.right, n.left]; // swap logic
                 n.left && q.push(n.left);
                 n.right && q.push(n.right);
             }

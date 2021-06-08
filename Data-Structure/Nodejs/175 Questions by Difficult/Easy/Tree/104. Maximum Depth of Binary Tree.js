@@ -1,42 +1,54 @@
 //104. Maximum Depth of Binary Tree
-/*Given the root of a binary tree, return its maximum depth.
 
+/*Given the root of a binary tree, return its maximum depth.
 A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 */
+
+// easy to think about dfs, maximum depth;
+// easy to think the bfs, min depth
 {
     // DFS : recursive
 
     var maxDepth = function (root) {
         if (root === null) return 0;
-        let maxLevel = 1;
+
+        let maxLevel = 1; //root
+
         const dfs = (n, depth) => {
             if (n === null) return;
-            //dfs recursion preOrder
+            
             if (n.left === null && n.right === null) { //self
                 maxLevel = Math.max(maxLevel, depth);
             }
-
+            //dfs recursion preOrder : self, left, right
             n.left && dfs(n.left, depth + 1); //left
             n.right && dfs(n.right, depth + 1); //right
         }
+
         dfs(root, 1);
+
         return maxLevel;
     }
 }
 {
     //BFS : iteration
+
     var maxDepth = function (root) {
         if (root === null) return 0;
+
         let q = [root];
+
         let depth = 0; // inside while has at least one ++
+
         while (q.length > 0) {
             let sz = q.length;
-            // each level
-            for (let i = 0; i < sz; i++) {
+            
+            for (let i = 0; i < sz; i++) {// each level
                 let n = q.shift();
                 n.left && q.push(n.left);
                 n.right && q.push(n.right);
             }
+
             depth++;
         }
 
@@ -60,7 +72,7 @@ int depth = 1 + max(leftDepth, rightDepth); // 中
 return depth;
 */
 {
-
+    //one line solution :  hard to see t: O(N?) and s
     var maxDepth = function (root) {
         if (root === null) return 0;
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));

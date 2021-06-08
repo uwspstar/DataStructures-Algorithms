@@ -12,13 +12,16 @@ Note: A leaf is a node with no children.
     //BFS
     var minDepth = function (root) {
         if (!root) return 0;
+
         let q = [root];
+
         let depth = 1;
+
         while (q.length) {
             const sz = q.length;
             for (let i = 0; i < sz; i++) {
                 const node = q.shift();
-                if (node.left === null && node.right === null) {
+                if (node.left === null && node.right === null) { //leaf
                     return depth;// this is the logic to find minDepth
                 } 
                 node.left && q.push(node.left);
@@ -41,6 +44,7 @@ Pseudo-Palindromic Paths in a Binary Tree
         let leftDepth = getDepth(node.left);    // 左
         let rightDepth = getDepth(node.right);  // 右
         // 中
+
         // 当一个左子树为空，右不为空，这时并不是最低点
         if (node.left === NULL && node.right !== NULL) {
             return 1 + rightDepth;
@@ -49,9 +53,11 @@ Pseudo-Palindromic Paths in a Binary Tree
         if (node.left !== NULL && node.right === NULL) {
             return 1 + leftDepth;
         }
+
         let result = 1 + min(leftDepth, rightDepth);
         return result;
     }
+    
     var minDepth = function (root) {
         if (!root) return 0;
         return getDepth(root);
