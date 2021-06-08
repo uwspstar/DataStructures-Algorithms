@@ -71,7 +71,7 @@ size: 16:9
 ---
 
 ### LinkedList
-
+- has recursive way
 - If given a linked list then
   - Two pointers
   - fast / slow : circle
