@@ -36,6 +36,17 @@ size: 16:9
 
 ---
 
+### Tree DFS
+
+- https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+- Tree DFS pattern works by starting at the root of the tree, if the node is not a leaf you need to do three things:
+- Decide whether to process the current node now (pre-order), or between processing two children (in-order) or after processing both children (post-order).
+- Make two recursive calls for both the children of the current node to process them.
+- Sum of Path Numbers (medium)
+- All Paths for a Sum (medium)
+
+---
+
 ### When to use Pre-Order, In-order or Post-Order?
 
 - https://stackoverflow.com/questions/9456937/when-to-use-preorder-postorder-and-inorder-binary-search-tree-traversal-strate
@@ -50,9 +61,10 @@ size: 16:9
 
 ##### 广度优先遍历：一层一层的去遍历。
 
-    - 层次遍历（迭代法）
-
-    而广度优先遍历的实现一般使用队列来实现，这也是队列先进先出的特点所决定的，因为需要先进先出的结构，才能一层一层的来遍历二叉树。
+- 层次遍历（迭代法）
+- 而广度优先遍历的实现一般使用队列来实现，这也是队列先进先出的特点所决定的，因为需要先进先出的结构，才能一层一层的来遍历二叉树。
+- Binary Tree Level Order Traversal (easy)
+- Zigzag Traversal (medium)
 
 ---
 
@@ -133,4 +145,5 @@ size: 16:9
 ### All about Tree
 
 ### Tree Data Structures in JavaScript for Beginners
+
 - https://adrianmejia.com/data-structures-for-beginners-trees-binary-search-tree-tutorial/

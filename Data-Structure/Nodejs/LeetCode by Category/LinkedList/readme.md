@@ -55,3 +55,8 @@ function reverse(head, k) {
   return prev;
 }
 ```
+
+### In-place reversal of linked list : without using extra memory
+
+- Reverse a Sub-list (medium)
+- Reverse every K-element Sub-list (medium)

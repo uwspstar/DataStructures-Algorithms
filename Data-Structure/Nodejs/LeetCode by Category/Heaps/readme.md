@@ -84,3 +84,14 @@ Heap sort                            O(n log2(n))
 # A binary heap is a heap data structure that takes the form of a binary tree. Binary heaps are a common way of implementing priority queues
 
 - https://www.geeksforgeeks.org/binary-heap/
+---
+### Two heaps
+- https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+- we are interested in knowing the smallest element in one part and the biggest element in 
+- This pattern uses two heaps; A Min Heap to find the smallest element and a Max Heap to find the biggest element.
+---
+### Ways to identify the Two Heaps pattern:
+- Useful in situations like Priority Queue, Scheduling
+- If the problem states that you need to find the smallest/largest/median elements of a set
+- Sometimes, useful in problems featuring a binary tree data structure
+- Find the Median of a Number Stream (medium)

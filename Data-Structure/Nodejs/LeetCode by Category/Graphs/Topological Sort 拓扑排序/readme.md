@@ -8,6 +8,7 @@ size: 16:9
 ---
 
 # Topological Sorting
+
 - https://zhuanlan.zhihu.com/p/135094687
 - https://www.jianshu.com/p/b59db381561a
 
@@ -109,9 +110,30 @@ def TopologicalSort(graph):
 
 print(TopologicalSort(graph)) # ['a', 'd', 'e', 'b', 'c']
 ```
+
 ---
+
 ### 实际应用 选课系统 关键路径问题
+
 - 一个 use case，就是选课系统，这也是最常考的题目。
 - 而拓扑排序最重要的应用就是关键路径问题，这个问题对应的是 AOE (Activity on Edge) 网络。
-    - AOE 网络：顶点表示事件，边表示活动，边上的权重来表示活动所需要的时间。
-    - AOV 网络：顶点表示活动，边表示活动之间的依赖关系。
+  - AOE 网络：顶点表示事件，边表示活动，边上的权重来表示活动所需要的时间。
+  - AOV 网络：顶点表示活动，边表示活动之间的依赖关系。
+
+---
+
+### Topological Sort
+
+- https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+- Topological Sort is used to find a linear ordering of elements that have dependencies on each other. For example, if event ‘B’ is dependent on event ‘A’, ‘A’ comes before ‘B’ in topological ordering.
+
+---
+
+### identify the Topological Sort pattern
+
+- The problem will deal with graphs that have no directed cycles
+- If you’re asked to update all objects in a sorted order
+- If you have a class of objects that follow a particular order
+  Problems featuring the Topological Sort pattern:
+- Task scheduling (medium)
+- Minimum height of a tree (hard)

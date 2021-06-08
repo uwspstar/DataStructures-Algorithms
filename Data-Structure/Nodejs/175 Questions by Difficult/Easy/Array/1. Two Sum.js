@@ -18,7 +18,7 @@ Input: nums = [3,3], target = 6 Output: [0,1]
     // Space complexity : O(n)
     var twoSum = function (arr, target) {
         if (arr.length < 2) return [];
-        let map = new Map();
+        let map = new Map(); // key is num, value is index
         for (let i = 0; i < arr.length; i++) {
             let key = target - arr[i];
             if (map.has(key)) {
