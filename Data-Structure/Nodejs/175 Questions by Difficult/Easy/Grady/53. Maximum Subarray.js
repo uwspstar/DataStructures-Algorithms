@@ -19,6 +19,7 @@ Input: nums = [5,4,-1,7,8] Output: 23
 
         for (let i = 1; i < nums.length; i++) {
             let num = nums[i];
+            // if currentSubarray + num < num, keep num, otherwise keep currentSubarray
             currentSubarray = Math.max(num, currentSubarray + num);
             maxSubarray = Math.max(maxSubarray, currentSubarray);
         }

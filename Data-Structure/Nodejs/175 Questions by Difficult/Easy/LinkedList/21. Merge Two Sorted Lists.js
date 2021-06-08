@@ -8,7 +8,6 @@ Input: l1 = [], l2 = [0] Output: [0]
 */
 
 //NOTE : new linkedlist, use a dummy head
-
 {
     var mergeTwoLists = function (l1, l2) {
         let dummy = new ListNode(0); // new linkedlist, use dummy head

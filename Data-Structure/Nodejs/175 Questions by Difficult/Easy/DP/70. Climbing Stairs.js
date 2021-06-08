@@ -1,6 +1,6 @@
 //70. Climbing Stairs
 /*
-ou are climbing a staircase. It takes n steps to reach the top.
+you are climbing a staircase. It takes n steps to reach the top.
 
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? 
 
@@ -20,13 +20,12 @@ One can reach i^{th} step in one of the two ways:
 
 Taking a single step from (i-1)^{th} step.
 
-Taking a step of 22 from (i-2)^{th} step.
+Taking a step of 2 from (i-2)^{th} step.
 
-So, the total number of ways to reach i^{th} is equal to sum of ways of reaching (i-1)^{th}
-th step and ways of reaching (i-2)^{th} step.
+So, the total number of ways to reach i^{th} is equal to sum of ways of reaching (i-1)^{th}step and ways of reaching (i-2)^{th} step.
 
-Let dp[i]dp[i] denotes the number of ways to reach on i th
-  step: dp[i]=dp[i-1]+dp[i-2]
+Let dp[i] denotes the number of ways to reach on i th
+  step: dp[i] = dp[i-1] + dp[i-2]
 */
 /*
 https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0070.%E7%88%AC%E6%A5%BC%E6%A2%AF.md
@@ -62,6 +61,8 @@ https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0070.%E7
     //N-th Tribonacci Number
 }
 {
+    // t: O(N)
+    // s: O(1)
     var climbStairs = function (n) {
         if (n === 1) return 1;
         if (n === 2) return 2;
@@ -70,18 +71,18 @@ https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0070.%E7
         let dp2 = 1;
         for (let i = 2; i <= n; i++) {
             let tmp = dp2;
-            dp2 = dp1 + dp2;
-            dp1 = tmp;
+            dp2 = dp1 + dp2;    //  dp2 <- dp1 + dp2
+            dp1 = tmp;          //  dp1 <- dp2
         }
         return dp2;
     };
 }
 {
-    // backTracking is the 2^N, try to avoid to use it
+    // backTracking is the 2^N, try to avoid to use it, so we use DP
     var climbStairs = function (n) {
         let res = [];
         let path = [];
-        let nums = [1, 2]
+        let nums = [1, 2];//only can do 1 or 2 step, combination of these 2
         const backTracking = (remain) => {
             if (remain === 0) {
                 res.push([...path]);

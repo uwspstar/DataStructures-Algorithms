@@ -22,7 +22,7 @@ size: 16:9
 - If input array is sorted then
   - Binary search : O(logN) : very good solution
   - Two pointers (fast, slow, left, right, palindrome)
-  - remove duplicate
+  - remove duplicate : Sorted List
   - hashMap
   - hashSet
   - iterate O(N) : good solution
