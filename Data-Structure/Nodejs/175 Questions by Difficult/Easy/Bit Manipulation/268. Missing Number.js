@@ -21,11 +21,14 @@ Explanation: n = 1 since there is 1 number, so all numbers are in the range [0,1
 
 */
 {
+    //(a ^ b) ^ b = a
+    //i = [0, 1, 2, 3] ^ n = [0, 2, 3] = 0 ^ 0 ^ 1 ^ 2 ^ 2 ^ 3 ^ 3 = 1
     var missingNumber = function (nums) {
-        let missing = nums.length;
+        let missing = nums.length; // n
 
-        for (let i = 0; i < nums.length; i++) {
-            missing ^= i ^ nums[i];
+        for (let i = 0; i < nums.length; i++) { //i = 0, 1, 2, 3, 
+            missing ^= i ^ nums[i];//
+            // n = n ^ i ^ nums[i] --> n = n ^ 0 ^ 0 ^ 1 ^ 1...(n-1) ^ (n-1) 
         }
         return missing;
     }
