@@ -23,9 +23,10 @@ size: 16:9
   - Binary search : O(logN) : very good solution
   - Two pointers (fast, slow, left, right, palindrome)
   - remove duplicate : Sorted List, (has duplicate, think about sort)
-  - hashMap
-  - hashSet
+  - hashMap : find missing number, duplicate
+  - hashSet : find missing number, duplicate
   - iterate O(N) : good solution
+  - find missing number
 
 ---
 

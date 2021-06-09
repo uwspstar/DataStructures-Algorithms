@@ -7,10 +7,11 @@ Input: nums = [4,3,2,7,8,2,3,1] Output: [5,6]
 Input: nums = [1,1] Output: [2]
 */
 {
+    //t: O(N) s: O(N)
     const findDisappearedNumbers = function (nums) {
-        const n = nums.length;
-        let set = new Set();
         const result = [];
+        let set = new Set();
+        const n = nums.length;
 
         for (const num of nums) {
             set.has(num) ? {} : set.add(num);

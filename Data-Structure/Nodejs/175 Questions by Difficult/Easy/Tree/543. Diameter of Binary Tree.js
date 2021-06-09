@@ -7,10 +7,11 @@ The diameter of a binary tree is the length of the longest path between any two 
 The length of a path between two nodes is represented by the number of edges between them. 
 
 Input: root = [1,2,3,4,5] Output: 3
-Explanation: 3is the length of the path [4,2,1,3] or [5,2,1,3].
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 
 Input: root = [1,2] Output: 1
 */
+//the longest path has to be between two leaf nodes.
 {
     var diameterOfBinaryTree = function (root) {
 
@@ -19,9 +20,11 @@ Input: root = [1,2] Output: 1
 
         const dfs = (n) => {
             if (!n) return 0;
-            let leftLevel = dfs(n.left);
-            let rightLevel = dfs(n.right);
 
+            let leftLevel = dfs(n.left); // has return
+            let rightLevel = dfs(n.right); // has return
+
+            //update the diameter if left_path plus right_path is larger
             max = Math.max(max, leftLevel + rightLevel);
             // return the longest one between left_path and right_path;
             // remember to add 1 for the path connecting the node and its parent
@@ -33,5 +36,4 @@ Input: root = [1,2] Output: 1
 
     };
     //Diameter of N-Ary Tree
-
 }
