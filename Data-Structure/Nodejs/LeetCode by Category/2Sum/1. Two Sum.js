@@ -35,3 +35,7 @@ Input: nums = [3,3], target = 6 Output: [0,1]
 //Two Sum IV - Input is a BST
 //Max Number of K-Sum Pairs
 //Count Good Meals
+/*
+Two Sum uses a hashmap to find complement values, and therefore achieves O(N) time complexity.
+Two Sum II uses the two pointers pattern and also has O(N) time complexity for a sorted array. **** We can use this approach for any array if we sort it first, which bumps the time complexity to O(nlogn).
+*/
