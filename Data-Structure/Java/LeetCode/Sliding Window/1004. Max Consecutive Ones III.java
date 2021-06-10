@@ -29,28 +29,31 @@ left 被动右移：判断此时窗口内 0 的个数，如果超过了 K，则 
 链接：https://leetcode-cn.com/problems/max-consecutive-ones-iii/solution/fen-xiang-hua-dong-chuang-kou-mo-ban-mia-f76z/
 
 */
-{
-    var longestOnes = function (nums, k) {
-        let res = 0;
-        let fast = 0;
-        let slow = 0;
-        let zeroCount = 0;
-        while (fast < nums.length) {
-            if (nums[fast] === 0) {
-                zeroCount++;
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int len = nums.length;
+        int res = 0;
+        int left = 0;
+        int right = 0;
+        int zeros = 0;
+
+        while (right < len) {
+
+            if (nums[right] == 0) {
+                zeros++;
             }
-            while (zeroCount > k) {
-                if (nums[slow] === 0) {
-                    zeroCount--;
-                }
-                slow++;
+
+            while (zeros > k) {
+                if (nums[left++] == 0)
+                    zeros--;
             }
-            res = Math.max(res, fast - slow + 1);
-            fast++;
+
+            res = Math.max(res, right - left + 1);
+            right++;
         }
         return res;
-    };
+    }
 }
-//Longest Repeating Character Replacement
-//Max Consecutive Ones
-//Max Consecutive Ones II 
+// Longest Repeating Character Replacement
+// Max Consecutive Ones
+// Max Consecutive Ones II
