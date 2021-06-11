@@ -10,8 +10,6 @@ Explanation: In this case it is not possible to get a pair sum less that 15.
 */
 
 {
-
-
     var twoSumLessThanK = function (nums, k) {
         nums.sort((a, b) => a - b);
         let ans = -1;
