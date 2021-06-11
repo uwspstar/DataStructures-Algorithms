@@ -45,3 +45,6 @@ const lib = (n) =>{
     lib(n - 2);
 }
 ```
+---
+# Factorial
+- https://en.wikipedia.org/wiki/Factorial
