@@ -21,9 +21,12 @@ size: 16:9
 
 # two pointers
 
+- 905. Sort Array By Parity
 
 # backward
+
 - 1299. Replace Elements with Greatest Element on Right Side
+
 ---
 
 # sorted array : O(NlogN)
