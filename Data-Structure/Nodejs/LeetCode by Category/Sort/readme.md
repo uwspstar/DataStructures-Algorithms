@@ -42,7 +42,12 @@ size: 16:9
 
 ---
 
-# divide and conquer 
+# Bucket sort
+- https://www.cnblogs.com/kkun/archive/2011/11/23/bucket_sort.html
+---
+
+# divide and conquer
+
 - Strassens Matrix Multiplication
 - https://www.youtube.com/watch?v=0oJyNmEbS4w&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=38
 - Strassens Matrix Multiplication

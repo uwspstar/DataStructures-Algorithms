@@ -19,13 +19,17 @@ size: 16:9
 
 ---
 
-# two pointers
+# two pointers : fast / slow, left / right
 
 - 905. Sort Array By Parity
 
 # backward
 
 - 1299. Replace Elements with Greatest Element on Right Side
+
+---
+
+# Circular Array
 
 ---
 
