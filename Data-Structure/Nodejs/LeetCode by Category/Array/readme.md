@@ -13,6 +13,12 @@ size: 16:9
 
 ---
 
+### In-place Array operations : reduce space complexity
+
+- interviewer often expects you to minimize the time and space complexity of your implementation. In-place Array operations help to reduce space complexity, and so are a class of techniques that pretty much everybody encounters regularly in interviews.
+
+---
+
 # two pointers
 
 # backward
