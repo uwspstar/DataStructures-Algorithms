@@ -18,3 +18,37 @@ Example 2:
 Input: arr = [400] Output: [-1]
 Explanation: There are no elements to the right of index 0.
 */
+{  //brute force
+    var replaceElements = function (arr) {
+        if (arr.length < 2) return [-1];
+
+        const getNextMaxValueIndex = (idx, arr) => {
+            let p = idx;
+            for (let i = idx; i < arr.length; i++) {
+                if (arr[p] < arr[i]) {
+                    p = i;
+                }
+            }
+            return p;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+
+            let currIdx = i;
+
+            let nextMaxValueIndex = getNextMaxValueIndex(currIdx + 1, arr);
+
+            while (i < nextMaxValueIndex) {
+                arr[i] = arr[nextMaxValueIndex];
+                i++; // when finished while loop, i need to back one step
+            }
+            i--;  // i back one step/
+
+        }
+        arr[arr.length - 1] = -1;
+        return arr;
+    };
+    //High Five
+    //Special Positions in a Binary Matrix
+    //Get Biggest Three Rhombus Sums in a Grid
+}
