@@ -21,8 +21,9 @@ size: 16:9
 
 # two pointers
 
-# backward
 
+# backward
+- 1299. Replace Elements with Greatest Element on Right Side
 ---
 
 # sorted array : O(NlogN)
