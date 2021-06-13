@@ -16,7 +16,7 @@ Output: [4,9,9,49,121]
         let result = Array(n); // O(N) space
         let left = 0;
         let right = n - 1;
-        for (let i = n - 1; i >= 0; i--) { // backword
+        for (let i = n - 1; i >= 0; i--) { // backward
 
             if (Math.abs(nums[left]) < Math.abs(nums[right])) {
                 result[i] = nums[right] * nums[right];
