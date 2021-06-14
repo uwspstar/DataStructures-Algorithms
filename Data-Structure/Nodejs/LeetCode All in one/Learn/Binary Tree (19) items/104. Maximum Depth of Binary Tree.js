@@ -60,9 +60,18 @@ int depth = 1 + max(leftDepth, rightDepth); // 中
 return depth;
 */
 {
-
     var maxDepth = function (root) {
         if (root === null) return 0;
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
+}
+//Time Needed to Inform All Employees
+// use template 
+{
+    var maxDepth = function (root) {
+        if (root === null) return 0;
+        let leftDepth = maxDepth(root.left);
+        let rightDepth = maxDepth(root.right);
+        return 1 + Math.max(leftDepth,rightDepth);
     }
 }
