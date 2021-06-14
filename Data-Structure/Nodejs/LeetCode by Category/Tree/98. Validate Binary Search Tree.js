@@ -54,3 +54,24 @@ Both the left and right subtrees must also be binary search trees.
 
 }
 //Find Mode in Binary Search Tree
+{
+    function helper(n, min, max) {
+        if (!n) {
+            return true; // We hit the end of the path
+        }
+
+        if ((min !== null && n.val <= min) || (max !== null && n.val >= max)) {
+            return false;  // current node's val doesn't satisfy the BST rules
+        }
+
+        // Continue to scan left and right
+        return helper(n.left, min, n.val) && helper(n.right, n.val, max);
+    }
+
+    var isValidBST = function (root) {
+        if (!root) {
+            return true; // Sanity check for passing test case '[]'
+        }
+        return helper(root, null, null);
+    };
+}

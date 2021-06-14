@@ -46,3 +46,37 @@ Merging the serialization of each level and removing trailing nulls we obtain:
 
 [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 */
+{
+  var flatten = function (head) {
+    if (head === null) return head;
+
+    const flattenList = (head) => {
+      let cur = head;
+      let tail = null;
+      while (cur !== null) {
+        if (cur.child) {
+          let next = cur.next;
+          let [flattenedHead, flattenedTail] = flattenList(cur.child);
+          cur.child = null;
+          cur.next = flattenedHead;
+
+          flattenedHead.prev = cur;
+          flattenedTail.next = next;
+
+          if (next) next.prev = flattenedTail;
+          cur = flattenedTail;
+        }
+        if (cur.next === null) {
+          tail = cur;
+        }
+        cur = cur.next;
+      }
+      return [head, tail];
+    }
+
+    flattenList(head);
+
+    return head;
+  };
+  //Correct a Binary Tree
+}
