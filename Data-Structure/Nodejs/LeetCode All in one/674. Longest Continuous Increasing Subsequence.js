@@ -14,7 +14,18 @@ Explanation: The longest continuous increasing subsequence is [2] with length 1.
 increasing.
 */
 {
+    //slide window
     var findLengthOfLCIS = function (nums) {
-
+        let res = 0;
+        let cur = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i - 1] >= nums[i]) {
+                cur = i;
+            }
+            res = Math.max(res, i - cur + 1);
+        }
+        return res;
     };
+    //Number of Longest Increasing Subsequence
+    //Minimum Window Subsequence
 }
