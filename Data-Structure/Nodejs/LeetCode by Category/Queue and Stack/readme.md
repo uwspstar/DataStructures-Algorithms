@@ -7,10 +7,10 @@ paginate: true
 size: 16:9
 ---
 
-# Queue
+# Queue : remember when you want to process the elements in order, using a queue might be a good choice.
 
 - https://leetcode.com/explore/learn/card/queue-stack/
-
+- remember when you want to process the elements `in order`, using a queue might be a good choice.
 - We may access a random element by index in Array. However, we might want to restrict the processing order in some cases.
 - First-in-First-out and Last-in-First-out and its two corresponding linear data structures, Queue and Stack.
 
@@ -42,3 +42,7 @@ size: 16:9
 - 622. Design Circular Queue
 
 ---
+
+### Queue - Usage
+
+- remember when you want to process the elements in order, using a queue might be a good choice.
