@@ -7,6 +7,14 @@ paginate: true
 size: 16:9
 ---
 
+# 连续子数组 vs 非连续子数组
+
+- https://leetcode-cn.com/problems/longest-arithmetic-subsequence/solution/dong-tai-gui-hua-jie-jue-zi-shu-zu-wen-t-zatn/
+- 对于数组问题，如果寻找连续子数组，可以使用双指针法或滑动窗口等方法，但是对于非连续子数组，最好使用动态规划。
+- 对于需要知道历史信息的遍历过程，我们使用哈希表作为暂存器，达到快速检索的功能。
+
+---
+
 # Array : sorted or not
 
 - remove duplicate : think about sort first
