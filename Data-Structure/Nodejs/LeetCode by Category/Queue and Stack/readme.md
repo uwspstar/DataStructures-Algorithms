@@ -46,3 +46,9 @@ size: 16:9
 ### Queue - Usage
 
 - remember when you want to process the elements in order, using a queue might be a good choice.
+
+---
+
+### Queue and BFS
+
+- Similar to tree's level-order traversal, the nodes closer to the root node will be traversed earlier.
