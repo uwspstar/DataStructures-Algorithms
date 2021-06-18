@@ -15,6 +15,18 @@ size: 16:9
 
 ---
 
+### How to traverse the tree
+
+- https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/
+
+---
+
+### How to construct the tree from two traversals: inorder and preorder/postorder/etc
+
+- https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/
+
+---
+
 ### Tree Traversal Summary
 
 - If you know you need to explore the roots before inspecting any leaves, choose `pre-order` traversal because you will encounter all the roots before all of the leaves.

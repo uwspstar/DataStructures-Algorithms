@@ -38,3 +38,30 @@ Output: [-1]
 
     //Construct Binary Tree from Preorder and Inorder Traversal
 }
+//105:
+//Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7] Output: [3,9,20,null,null,15,7]
+{
+    {
+        var buildTree = function (preorder, inorder) {
+            if (preorder === null) return preorder;
+    
+            const helpBuildTree = (start, end) => {
+    
+                if (end < start) return null;
+    
+                let rootVal =  preorder.shift();
+    
+                let root = new TreeNode(rootVal);
+    
+                let delimiter = inorder.indexOf(rootVal);
+    
+                root.left = helpBuildTree(start, delimiter);
+                root.right = helpBuildTree(delimiter + 1, end);
+    
+                return root;
+            }
+    
+            helpBuildTree(0, preorder.length - 1);
+        }
+    }
+}
