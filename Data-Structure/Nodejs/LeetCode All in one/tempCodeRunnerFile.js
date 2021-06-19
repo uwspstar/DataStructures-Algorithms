@@ -1,0 +1,1 @@
+max = Math.max(max, res);
