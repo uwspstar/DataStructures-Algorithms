@@ -16,9 +16,7 @@ Explanation: the maximum subarray is [-1], its sum is -1
 */
 //subarray : continues
 //2 for loops 
-// By using Kadane's algorithm:
-// Time complexity: O(n)
-// Space complexity: O(1)
+//O(N) / O(1)
 //https://www.udemy.com/course/50-problems/learn/lecture/21602146#overview
 {
     // kadane’s algorithm
