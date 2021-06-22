@@ -13,6 +13,12 @@ size: 16:9
 
 ---
 
+### 「图」的两种表示方法
+
+- 「图」的两种表示方法，邻接表就是链表，邻接矩阵就是二维数组。邻接矩阵判断连通性迅速，并可以进行矩阵运算解决一些问题，但是如果图比较稀疏的话很耗费空间。邻接表比较节省空间，但是很多操作的效率上肯定比不过邻接矩阵。
+
+---
+
 # Graph Data Structures in JavaScript for Beginners
 
 - https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/#Depth-first-search-DFS-Graph-search
@@ -44,4 +50,5 @@ size: 16:9
 # Breadth-first search (BFS) - Graph search
 
 ---
+
 # Depth-first search (DFS) - Graph search

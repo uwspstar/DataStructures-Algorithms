@@ -3,17 +3,42 @@
 
 Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.
 
- 
-
-Example 1:
-
-Input: nums = [1,1,1], k = 2
-Output: 2
-Example 2:
-
-Input: nums = [1,2,3], k = 3
-Output: 2
+Example 1: Input: nums = [1,1,1], k = 2 Output: 2
+Example 2: Input: nums = [1,2,3], k = 3 Output: 2
 */
+{
+    var subarraySum = function (nums, k) {
+        let count = 0
+        let preSum = 0
+        let hash = {}
+
+        for (let i = 0; i < nums.length; i++) {
+            preSum += nums[i];
+            const key = preSum - k;
+
+            if (hash[key]) {
+                count += hash[key];
+            }
+            
+            if (preSum === k) {
+                count += 1;
+            }
+
+            // 记录前缀和出现的次数
+            if (!hash[preSum]) {
+                hash[preSum] = 1
+            } else {
+                hash[preSum] += 1
+            }
+        }
+
+        return count
+    };
+
+    //作者：dyhtps
+    //链接：https://juejin.cn/post/6944913393627168798
+
+}
 {
     //**** continuous subarrays ****
     var subarraySum = function (nums, k) {
@@ -22,7 +47,7 @@ Output: 2
         //细节，这里需要预存前缀和为 0 的情况，会漏掉前几位就满足的情况
         //例如输入[1,1,0]，k = 2 如果没有这行代码，则会返回0,漏掉了1+1=2，和1+1+0=2的情况
         //输入：[3,1,1,0] k = 2时则不会漏掉
-        //因为presum[3] - presum[0]表示前面 3 位的和，所以需要map.put(0,1),垫下底
+        //因为 presum[3] - presum[0]表示前面 3 位的和，所以需要 map.put(0,1),垫下底
         let pre = 0;
         let count = 0;
         for (let x of nums) {
@@ -62,6 +87,6 @@ Output: 2
         return res;
     }
 
-    console.log(subarraySum([1,1,1],2))//3
-    console.log(subarraySum([1,2,3],3))//2
+    console.log(subarraySum([1, 1, 1], 2))//3
+    console.log(subarraySum([1, 2, 3], 3))//2
 }
