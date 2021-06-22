@@ -20,10 +20,40 @@ According to Wikipedia, every level, except possibly the last, is completely fil
             res += sz;
         }
         return res;
-    }; 
+    };
 }
 /*
 Kth Smallest Element in a Sorted Matrix
 Maximum Width of Binary Tree
 Path With Minimum Effort
 */
+{
+    // think about merge sort
+    var countNodes = function (root) {
+        if (root === null) return 0;
+        let leftCount = countNodes(root.left);
+        let rightCount = countNodes(root.right);
+        return 1 + leftCount + rightCount;
+    };
+    /*
+    Closest Binary Search Tree Value II
+    H-Index II
+    Depth of BST Given Insertion Order
+    */
+}
+{
+    // think about merge sort
+    var countNodes = function (root, count = 0) {
+        if (root === null) return 0;
+
+        if (root.left === null && root.right === null) {
+            return count;
+        }
+        let leftCount = countNodes(root.left, count = count + 1);
+        let rightCount = countNodes(root.right, count = count + 1);
+
+        return leftCount + rightCount;
+    }
+
+}
+//root != null ? 1 + countNodes(root.right) + countNodes(root.left) : 0;

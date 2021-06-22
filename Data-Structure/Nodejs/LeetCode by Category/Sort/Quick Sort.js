@@ -1,4 +1,5 @@
 //quickSort
+//# 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历.
 {
     const quickSortHelp = arr => {
         if (arr.length < 2) return arr;

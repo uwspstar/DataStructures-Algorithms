@@ -8,7 +8,7 @@ size: 16:9
 ---
 
 # 图的基本介绍和存储形式
-
+- DFS 是线，BFS 是面；一般来说在找最短路径的时候使用 BFS，其他时候还是 DFS 使用得多一些
 - https://www.youtube.com/watch?v=LX49fuzeaAs&list=PLmOn9nNkQxJFvyhDYx0ya4F75uTtUHA_f&index=146
 
 ---
