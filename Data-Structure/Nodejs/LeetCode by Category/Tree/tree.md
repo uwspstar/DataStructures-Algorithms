@@ -9,9 +9,144 @@ size: 16:9
 
 # Tree
 
-- 平衡二叉搜索树：又被称为 AVL（Adelson-Velsky and Landis）树
+- 写树相关的算法，先搞清楚当前 root 节点该做什么，然后根据函数定义递归调用子节点，递归调用会让孩子节点做相同的事情。
+
+---
+
+# 根据题意，思考一个二叉树节点需要做什么，到底用什么遍历顺序就清楚了
+
+- https://labuladong.github.io/algo/2/18/22/
+
+---
+
+### How to solve (almost) any binary tree coding problem
+
+- https://www.youtube.com/watch?v=s2Yyk3qdy3o
+
+# step
+
+- step 1: Finding one or more base cases
+- step 2: calling the same function on the left subtree
+- step 3: calling the same function on the right subtree
+- step 4: Join the results
+
+---
+
+```js
+//allTreeTemplate
+{
+  const treeSum = (root) => {
+    if (root === null) return 0; // 0
+
+    leftSum = treeSum(root.left);
+    rightSum = treeSum(root.right);
+
+    return root.val + leftSum + rightSum;
+  };
+}
+```
+
+---
+
+```js
+//allTreeTemplate
+{
+  const nodeCount = (root) => {
+    if (root === null) return 0; // 0
+
+    leftCount = leftCount(root.left);
+    rightCount = leftCount(root.right);
+
+    return 1 + leftCount + rightCount;
+  };
+}
+```
+
+---
+
+```js
+//allTreeTemplate
+{
+  const treeMaxValue = (root) => {
+    if (root === null) return 0; // 0
+
+    leftMaxValue = treeMaxValue(root.left);
+    rightMaxValue = treeMaxValue(root.right);
+
+    return Math.max(root.val + leftMaxValue + rightMaxValue);
+  };
+}
+```
+
+---
+
+```js
+//allTreeTemplate
+{
+  const treeMaxHeight = (root) => {
+    if (root === null) return 0; // 0
+
+    leftMaxHeight = treeMaxHeight(root.left);
+    rightMaxHeight = treeMaxHeight(root.right);
+
+    return 1 + Math.max(leftMaxHeight + rightMaxHeight);
+  };
+}
+```
+
+---
+
+- https://leetcode.com/problems/invert-binary-tree/
+
+```js
+//allTreeTemplate
+{
+  const reverseTree = (root) => {
+    if (root === null) return root; // 0
+
+    let leftTree = reverseTree(root.left);
+    let rightTree = reverseTree(root.right);
+    root.left = rightTree;
+    root.right = leftTree;
+    return root;
+  };
+}
+```
+
+---
+
+```js
+{
+  const reverseTree = (root) => {
+    if (root === null) return root; // 0
+    [root.left, root.right] = [root.right, root.left];
+    reverseTree(root.left);
+    reverseTree(root.right);
+    return root;
+  };
+}
+```
+
+---
+
+```js
+{
+  ////postOrder faster
+  const reverseTree = (root) => {
+    if (root === null) return root; // 0
+    reverseTree(root.left);
+    reverseTree(root.right);
+    [root.left, root.right] = [root.right, root.left];
+    return root;
+  };
+}
+```
+
+---
+
+- `平衡二叉搜索树`：又被称为 AVL（Adelson-Velsky and Landis）树
 - 二叉树可以链式存储，也可以顺序存储。那么链式存储方式就用指针， 顺序存储的方式就是用数组。
-- 用数组来存储二叉树如何遍历的呢？如果父节点的数组下表是 i，那么它的左孩子就是 i _ 2 + 1，右孩子就是 i _ 2 + 2。
+- 用数组来存储二叉树如何遍历的呢？如果父节点的数组下表是 `i`，那么它的左孩子就是 `i _ 2 + 1`，右孩子就是 `i _ 2 + 2`。
 
 ---
 
@@ -123,7 +258,7 @@ size: 16:9
 ---
 
 ### 二叉搜索树 : 中序遍历
-
+- BST，除了它的定义，还有一个重要的性质：BST 的中序遍历结果是有序的（升序）
 - 大多是二叉搜索树的题目，其实都离不开中序遍历，因为这样就是有序的。inOrder the name explain everything in order
 - 230. Kth Smallest Element in a BST
 
