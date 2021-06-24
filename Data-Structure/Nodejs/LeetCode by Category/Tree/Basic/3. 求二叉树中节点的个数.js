@@ -20,10 +20,22 @@ According to Wikipedia, every level, except possibly the last, is completely fil
             res += sz;
         }
         return res;
-    }; 
+    };
 }
-/*
-Kth Smallest Element in a Sorted Matrix
-Maximum Width of Binary Tree
-Path With Minimum Effort
-*/
+{
+    var countNodes = function (root) {
+        if (root === null) return 0;
+
+        let leftCount = countNodes(root.left);
+        let rightCount = countNodes(root.right);
+
+        return 1 + leftCount + rightCount;
+    };
+
+}
+//Lexicographical Numbers
+//All Elements in Two Binary Search Trees
+//Frequency of the Most Frequent Element
+//Kth Smallest Element in a Sorted Matrix
+//Maximum Width of Binary Tree
+//Path With Minimum Effort

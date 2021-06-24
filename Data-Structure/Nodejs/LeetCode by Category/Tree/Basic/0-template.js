@@ -26,7 +26,8 @@ class Node {
         return root.val + leftSum + rightSum;
     };
 }
-
+//222. Count Complete Tree Nodes
+//https://leetcode.com/problems/count-complete-tree-nodes/
 //nodeCount (total node)
 {
     const nodeCount = (root) => {
@@ -52,6 +53,7 @@ class Node {
 }
 
 //treeMaxHeight :  tree depth
+//https://leetcode.com/problems/maximum-depth-of-binary-tree/
 {
     const treeMaxHeight = (root) => {
         if (root === null) return 0; // 0
@@ -95,4 +97,36 @@ class Node {
         [root.left, root.right] = [root.right, root.left];
         return root;
     };
+}
+//111. Minimum Depth of Binary Tree
+{
+    var minDepth = function (root) {
+        if (root === null) return 0;
+
+        if (root.left === null && root.right === null) { //leaf node
+            return 1;
+        }
+
+        let treeMinDepth = Infinity;
+
+        if (root.left !== null) {
+            treeMinDepth = Math.min(minDepth(root.left), treeMinDepth);
+        }
+
+        if (root.right !== null) {
+            treeMinDepth = Math.min(minDepth(root.right), treeMinDepth);
+        }
+
+        return 1 + treeMinDepth;
+    };
+}
+// total leaf Nodes
+{
+    const leafNodesCount = root => {
+        if (root == NULL) return 0;
+        if (root.left === NULL && root.right === NULL) return 1; // think about root
+        let leftCount = leafNodesCount(root.left);
+        let rightCount = leafNodesCount(root.left);
+        return leftCount + rightCount;
+    }
 }

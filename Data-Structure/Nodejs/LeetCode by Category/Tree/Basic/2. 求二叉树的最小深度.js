@@ -18,9 +18,9 @@ Note: A leaf is a node with no children.
             const sz = q.length;
             for (let i = 0; i < sz; i++) {
                 const node = q.shift();
-                if (node.left === null && node.right === null) {
+                if (node.left === null && node.right === null) {// this is the logic to find minDepth
                     return depth;
-                } // this is the logic to find minDepth
+                }
                 node.left && q.push(node.left);
                 node.right && q.push(node.right)
             }
@@ -29,8 +29,30 @@ Note: A leaf is a node with no children.
         return depth;
     };
 }
-/*
-Lowest Common Ancestor of a Binary Search Tree
-Check if There is a Valid Path in a Grid
-Pseudo-Palindromic Paths in a Binary Tree
-*/
+
+var minDepth = function (root) {
+    if (root === null) return 0;
+
+    if (root.left === null && root.right === null) { //leaf node
+        return 1;
+    }
+
+    let treeMinDepth = Infinity;
+
+    if (root.left !== null) {
+        treeMinDepth = Math.min(minDepth(root.left), treeMinDepth);
+    }
+
+    if (root.right !== null) {
+        treeMinDepth = Math.min(minDepth(root.right), treeMinDepth);
+    }
+
+    return 1 + treeMinDepth;
+};
+
+//Design Add and Search Words Data Structure
+//As Far from Land as Possible
+//Change the Root of a Binary Tree
+//Lowest Common Ancestor of a Binary Search Tree
+//Check if There is a Valid Path in a Grid
+//Pseudo-Palindromic Paths in a Binary Tree
