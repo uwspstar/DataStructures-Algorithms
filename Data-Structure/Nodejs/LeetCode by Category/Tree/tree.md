@@ -16,6 +16,7 @@ size: 16:9
 # 根据题意，思考一个二叉树节点需要做什么，到底用什么遍历顺序就清楚了
 
 - https://labuladong.github.io/algo/2/18/22/
+- https://zhuanlan.zhihu.com/p/308150123
 
 ---
 
@@ -258,6 +259,7 @@ size: 16:9
 ---
 
 ### 二叉搜索树 : 中序遍历
+
 - BST，除了它的定义，还有一个重要的性质：BST 的中序遍历结果是有序的（升序）
 - 大多是二叉搜索树的题目，其实都离不开中序遍历，因为这样就是有序的。inOrder the name explain everything in order
 - 230. Kth Smallest Element in a BST

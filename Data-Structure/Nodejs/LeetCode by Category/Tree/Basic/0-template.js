@@ -130,3 +130,94 @@ class Node {
         return leftCount + rightCount;
     }
 }
+
+//617. Merge Two Binary Trees
+{
+    var mergeTrees = function (root1, root2) {
+        if (root1 === null) return root2;
+        if (root2 === null) return root1;
+        //DFS
+        root1.val += root2.val;  // 中     
+
+        root1.left = mergeTrees(root1.left, root2.left);     // 左
+
+        root1.right = mergeTrees(root1.right, root2.right);  // 右 
+
+        return root1;
+    };
+}
+//110. Balanced Binary Tree
+//a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+{
+    const height = (root) => {
+        if (root == null) return -1;
+        return 1 + Math.max(height(root.left), height(root.right));
+    }
+    var isBalanced = function (root) {
+        if (root === null) return true;
+
+        return Math.abs(height(root.left) - height(root.right)) < 2
+            && isBalanced(root.left)
+            && isBalanced(root.right);
+    };
+}
+{
+    const height = (root) => {
+        if (root == null) return -1;
+        let leftHigh = height(root.left);
+        let rightHigh = height(root.right);
+        return 1 + Math.max(leftHigh, rightHigh);
+    }
+    var isBalanced = function (root) {
+        if (root === null) return true;
+        let left = height(root.left);
+        let right = height(root.right);
+        if (Math.abs(left - right) > 1) return false;
+        return isBalanced(root.left) && isBalanced(root.right);
+    };
+}
+//101. Symmetric Tree
+{
+    const isMirror = (n1, n2) => {
+        //check step1 and step in order;
+        if (n1 === null && n2 === null) return true; //step1
+        if (n1 === null || n2 === null) return false; //step2
+        if (n1.val !== n2.val) return false;
+        return isMirror(n1.left, n2.right) && isMirror(n2.left, n1.right)
+    }
+
+    var isSymmetric = function (root) {
+        if (root === null) return true;
+        return isMirror(root, root)
+    };
+}
+{
+    {
+        var sumOfLeftLeaves = function (root) {
+            if (root === null) return 0;
+            let res = 0;
+            //如果左节点不为空，且左节点没有左右孩子，那么这个节点就是左叶子
+            const isLeaf = n => {
+                return n !== null && n.left === null && n.right === null;
+            }
+
+            const dfs = n => {
+                if (n === null) return 0;
+
+                if (isLeaf(n.left)) {//understand each node what's happen is the key
+                    res += n.left.val;
+                }
+
+                if (n.left !== null) {
+                    dfs(n.left);
+                }
+                if (n.right !== null) {
+                    dfs(n.right);
+                }
+            }
+
+            dfs(root);
+            return res;
+        };
+    }
+}

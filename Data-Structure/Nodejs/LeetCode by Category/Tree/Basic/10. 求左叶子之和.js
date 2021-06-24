@@ -21,7 +21,7 @@ if (node->left != NULL && node->left->left == NULL && node->left->right == NULL)
         const dfs = n => {
             if (n === null) return 0;
 
-            if (isLeaf(n.left)) {
+            if (isLeaf(n.left)) {//understand each node what's happen is the key
                 res += n.left.val;
             }
 
