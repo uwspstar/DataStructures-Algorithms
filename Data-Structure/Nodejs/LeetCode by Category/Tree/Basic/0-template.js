@@ -1,4 +1,20 @@
+/*
+How to solve (almost) any binary tree coding problem
+- https://www.youtube.com/watch?v=s2Yyk3qdy3o
+# steps
 
+- step 1: Finding one or more base cases
+- step 2: calling the same function on the left subtree
+- step 3: calling the same function on the right subtree
+- step 4: Join the results
+*/
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
 //allTreeTemplate
 {
     const treeSum = (root) => {
@@ -11,11 +27,10 @@
     };
 }
 
-
 //allTreeTemplate
 {
     const nodeCount = (root) => {
-        if (root === null) return 0; // 0
+        if (root === null) return 0; // 0, after this step, root is 1
 
         leftCount = leftCount(root.left);
         rightCount = leftCount(root.right);
@@ -29,7 +44,7 @@
 //allTreeTemplate
 {
     const treeMaxValue = (root) => {
-        if (root === null) return 0; // 0
+        if (root === null) return 0; // 0, after this step, compare with root val also
 
         leftMaxValue = treeMaxValue(root.left);
         rightMaxValue = treeMaxValue(root.right);

@@ -32,6 +32,7 @@ Example 2: Input: head = [5], left = 1, right = 1 Output: [5]
         tail.next = cur;
         return m === 1 ? prev : head;
     };
+    
     //Swap Nodes in Pairs
     //Remove Zero Sum Consecutive Nodes from Linked List
     //Remove Duplicates From an Unsorted Linked List
