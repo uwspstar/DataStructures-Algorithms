@@ -15,58 +15,56 @@ class Node {
         this.right = null;
     }
 }
-//allTreeTemplate
+//treeSum (sum all nodes' value)
 {
     const treeSum = (root) => {
         if (root === null) return 0; // 0
 
-        leftSum = treeSum(root.left);
-        rightSum = treeSum(root.right);
+        let leftSum = treeSum(root.left);
+        let rightSum = treeSum(root.right);
 
         return root.val + leftSum + rightSum;
     };
 }
 
-//allTreeTemplate
+//nodeCount (total node)
 {
     const nodeCount = (root) => {
         if (root === null) return 0; // 0, after this step, root is 1
 
-        leftCount = leftCount(root.left);
-        rightCount = leftCount(root.right);
+        let leftCount = leftCount(root.left);
+        let rightCount = leftCount(root.right);
 
         return 1 + leftCount + rightCount;
     };
 }
 
-
-
-//allTreeTemplate
+//treeMaxValue : max value of the tree
 {
     const treeMaxValue = (root) => {
         if (root === null) return 0; // 0, after this step, compare with root val also
 
-        leftMaxValue = treeMaxValue(root.left);
-        rightMaxValue = treeMaxValue(root.right);
+        let leftMaxValue = treeMaxValue(root.left);
+        let rightMaxValue = treeMaxValue(root.right);
 
         return Math.max(root.val + leftMaxValue + rightMaxValue);
     };
 }
 
-//allTreeTemplate
+//treeMaxHeight :  tree depth
 {
     const treeMaxHeight = (root) => {
         if (root === null) return 0; // 0
 
-        leftMaxHeight = treeMaxHeight(root.left);
-        rightMaxHeight = treeMaxHeight(root.right);
+        let leftMaxHeight = treeMaxHeight(root.left);
+        let rightMaxHeight = treeMaxHeight(root.right);
 
         return 1 + Math.max(leftMaxHeight + rightMaxHeight);
     };
 }
 
 //https://leetcode.com/problems/invert-binary-tree/
-//allTreeTemplate
+//reverseTree : left to right; right to left
 {
     const reverseTree = (root) => {
         if (root === null) return root; // 0
