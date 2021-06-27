@@ -13,12 +13,15 @@ size: 16:9
 - fibonacci 这其实就是一个树的后序遍历
 - merge sort 这其实就是一个树的后序遍历
 - quick sort 这其实就是一个树的前序遍历
+
 ---
 
 # 根据题意，思考一个二叉树节点需要做什么，到底用什么遍历顺序就清楚了
 
 - https://labuladong.github.io/algo/2/18/22/
 - https://zhuanlan.zhihu.com/p/308150123
+- 而遍历不是目的，遍历是为了更好地做处理，这里的处理包括搜索，修改树等。
+- 树虽然只能从根开始访问，但是我们可以「选择」在访问完毕回来的时候做处理，还是在访问回来之前做处理，这两种不同的方式就是「后序遍历」和「先序遍历」。
 
 ---
 
@@ -147,9 +150,38 @@ size: 16:9
 
 ---
 
-- `平衡二叉搜索树`：又被称为 AVL（Adelson-Velsky and Landis）树
-- 二叉树可以链式存储，也可以顺序存储。那么链式存储方式就用指针， 顺序存储的方式就是用数组。
-- 用数组来存储二叉树如何遍历的呢？如果父节点的数组下表是 `i`，那么它的左孩子就是 `i _ 2 + 1`，右孩子就是 `i _ 2 + 2`。
+### 概念
+
+- https://zhuanlan.zhihu.com/p/308150123
+- 树的`高度`：节点到叶子节点的最大值就是其高度。
+- 树的`深度`：高度和深度是相反的，高度是从下往上数，深度是从上往下。因此根节点的深度和叶子节点的高度是 0。
+- 树的`层`：根开始定义，根为第一层，根的孩子为第二层。
+- 二叉树，三叉树，。。。 N 叉树，由其`子节点最多可以有几个`决定，最多有 N 个就是 N 叉树。
+- 有没有想过为啥只有二叉树，而没有一叉树。实际上链表就是特殊的树，即一叉树。
+---
+
+### 二叉树分类
+
+- 完全二叉树
+- 满二叉树
+- 二叉搜索树
+- 平衡二叉树[4] : `平衡二叉搜索树`：又被称为 AVL（Adelson-Velsky and Landis）树
+- 红黑树
+
+---
+
+### 二叉树存储
+
+- 二叉树可以`链式存储`，也可以`顺序存储`。
+- 链式存储方式就用指针
+- 顺序存储的方式就是用数组。非常适合完全二叉树
+  - 用数组来存储二叉树如何遍历的呢？如果父节点的数组下表是 `i`，那么它的左孩子就是 `i _ 2 + 1`，右孩子就是 `i _ 2 + 2`。
+
+---
+
+### 一个中心，两个基本点，三种题型，四个重要概念，七个技巧
+
+- https://zhuanlan.zhihu.com/p/308150123
 
 ---
 
@@ -174,13 +206,20 @@ size: 16:9
 
 ---
 
+### 而遍历不是目的，遍历是为了更好地做处理，这里的处理包括搜索，修改树等。
+
+- 树虽然只能从根开始访问，但是我们可以「选择」在访问完毕回来的时候做处理，还是在访问回来之前做处理，这两种不同的方式就是「后序遍历」和「先序遍历」。
+
 # 二叉树主要有两种遍历方式：
 
-##### 深度优先遍历：先往深走，遇到叶子节点再往回走。root, left, right
+##### 深度优先遍历：先往深走，遇到叶子节点再往回走。root (position), left, right
 
-    - 前序遍历（root, left, right 递归法，迭代法）: quick Sort
-    - 中序遍历（left, root, right 递归法，迭代法）: build a tree, inorder (the name make sense)
-    - 后序遍历（left, right, root 递归法，迭代法）: 二叉树的属性 ,是否对称, fibonacci, merge sort
+    - 前序遍历
+      -（preOrder : root, left, right 递归法，迭代法）: quick Sort
+    - 中序遍历
+      -（inOrder : left, root, right 递归法，迭代法）: build a tree, inorder (the name make sense)
+    - 后序遍历
+      -（postOrder : left, right, root 递归法，迭代法）: 二叉树的属性 ,是否对称, fibonacci, merge sort
 
     前中后序遍历的逻辑其实都是可以借助栈使用非递归的方式来实现的。
 
@@ -206,6 +245,64 @@ size: 16:9
 - `post-order` : If you know you need to explore all the leaves before any nodes, you select post-order because you don't waste any time inspecting roots in search for leaves.
 
 - `in-order` If you know that the tree has an inherent sequence in the nodes, and you want to flatten the tree back into its original sequence, than an in-order traversal should be used. The tree would be flattened in the same way it was created. A pre-order or post-order traversal might not unwind the tree back into the sequence which was used to create it.
+
+---
+
+### preorder (self, left, right)
+
+```js
+{
+  // recursive
+  const preorder = (root) => {
+    if (!root) return;
+    console.log(root.val);
+    preorder(root.left);
+    preorder(root.right);
+  };
+}
+```
+
+---
+
+```js
+{
+  const preorder = (root) => {
+    if (!root) return;
+    const stack = [root];
+    while (stack.length) {
+      const n = stack.pop();
+      console.log(n.val);
+      if (n.right) stack.push(n.right); // right first , then left;
+      if (n.left) stack.push(n.left); //left
+    }
+  };
+}
+```
+
+---
+
+- iterative : stack, self, **_right_** , left,
+- 前序遍历是中左右，每次先处理的是中间节点，那么先将跟节点放入栈中，然后将右孩子加入栈，再加入左孩子。为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序
+
+---
+- let sz = stack.length;
+```js
+{
+  const preorder = (root) => {
+    if (!root) return;
+    const stack = [root];
+    while (stack.length) {
+      let sz = stack.length;
+      for (let i = 0; i < sz; i++) {
+        const n = stack.pop();
+        console.log(n.val);
+        if (n.right) stack.push(n.right); // right first , then left;
+        if (n.left) stack.push(n.left); //left
+      }
+    }
+  };
+}
+```
 
 ---
 

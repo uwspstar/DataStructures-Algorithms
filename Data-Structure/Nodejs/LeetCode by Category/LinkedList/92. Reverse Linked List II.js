@@ -9,6 +9,7 @@ Example 2: Input: head = [5], left = 1, right = 1 Output: [5]
     var reverseBetween = function (head, m, n) {
 
         if (m === n) return head;
+        
         let start = head;
         let cur = head;
         let i = 1;

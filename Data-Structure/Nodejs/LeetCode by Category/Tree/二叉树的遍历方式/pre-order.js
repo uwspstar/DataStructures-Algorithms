@@ -1,3 +1,6 @@
+//144. Binary Tree Preorder Traversal
+//https://leetcode.com/problems/binary-tree-preorder-traversal/
+
 //recursion vs iteration performance
 // self, left, right
 
@@ -26,4 +29,21 @@
         }
     }
 
+}
+{
+    {
+        const preorder = (root) => {
+            if (!root) return;
+            const stack = [root];
+            while (stack.length) {
+                let sz = stack.length;
+                for (let i = 0; i < sz; i++) {
+                    const n = stack.pop();
+                    console.log(n.val);
+                    if (n.right) stack.push(n.right); // right first , then left;
+                    if (n.left) stack.push(n.left); //left
+                }
+            }
+        };
+    }
 }

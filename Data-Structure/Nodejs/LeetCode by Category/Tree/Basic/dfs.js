@@ -7,6 +7,3 @@
         // 防止初学者懵逼，相当于 root.children.forEach(child => dfs(child))
     }
 }
-{
-    
-}
