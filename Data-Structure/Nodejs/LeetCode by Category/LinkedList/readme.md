@@ -24,11 +24,13 @@ size: 16:9
 ---
 
 ### 四个技巧
+
 - https://lucifer.ren/blog/2020/11/08/linked-list/
   - 虚拟头
   - 快慢指针
   - 穿针引线
   -
+
 ---
 
 - A Linked list is a recursive structure. A sub-list in itself is a linked list. So, if you think about it, reversing a list consisting of k nodes is simply a linked list reversal algorithm.
@@ -100,6 +102,8 @@ function reverse(head, k) {
 }
 ```
 
+---
+
 ### In-place reversal of linked list : without using extra memory
 
 - https://leetcode.com/problems/reverse-linked-list-ii/
@@ -108,3 +112,87 @@ function reverse(head, k) {
 - Reverse every K-element Sub-list (medium)
 
 ---
+
+```js
+const reverseLinkedList = (head) => {
+  let cur = head;
+  let pre = null;
+  let next = null;
+  while (cur) {
+    next = cur.next;
+    cur.next = pre;
+    pre = cur;
+    cur = next;
+  }
+};
+var reverseBetween = function (head, left, right) {
+  const dummyNode = new ListNode();
+  dummyNode.next = head;
+
+  let pre = dummyNode;
+  // 第 1 步：从虚拟头节点走 left - 1 步，来到 left 节点的前一个节点
+  // 建议写在 for 循环里，语义清晰
+  for (let i = 0; i < left - 1; i++) {
+    pre = pre.next;
+  }
+
+  // 第 2 步：从 pre 再走 right - left + 1 步，来到 right 节点
+  let rightNode = pre;
+  for (let i = 0; i < right - left + 1; i++) {
+    rightNode = rightNode.next;
+  }
+
+  // 第 3 步：切断出一个子链表（截取链表）
+  let leftNode = pre.next;
+  let curr = rightNode.next;
+
+  // 注意：切断链接
+  pre.next = null;
+  rightNode.next = null;
+
+  // 第 4 步：同第 206 题，反转链表的子区间
+  reverseLinkedList(leftNode);
+
+  // 第 5 步：接回到原来的链表中
+  pre.next = rightNode;
+  leftNode.next = curr;
+
+  return dummyNode.next;
+};
+```
+
+---
+
+- Q1: 如下代码 ans.next 指向什么？
+
+```js
+ans = ListNode(1); //ans address 9527
+ans.next = head; // head address 1234, ans.next point 1234
+head = head.next; //if head.next point 2234, head point 2234
+head = head.next; //if head.next point 3234, head point 3234
+```
+- A1: 最开始的 head。
+
+---
+
+- Q2：如下代码 ans.next 指向什么？
+
+```js
+ans = ListNode(1); //ans address 9527
+head = ans; //head address 9527
+head.next = ListNode(3); //if ListNode(3) address is 1234, head.next point 1234, ans.next same as head next 1234
+head.next = ListNode(4); //ListNode(4) address is 2234, head.next point 2234, ans.next same as head next 2234
+```
+- A2: ListNode(4)
+
+---
+- Q3: 如下代码 ans.next 指向什么？
+```js
+ans = ListNode(1) // ListNode(1) address 9527; ans address 9527
+head = ans // head address 9527
+head.next = ListNode(3) //ListNode(3) address 1234; head.next address 1234, ans.next address 1234
+head = ListNode(2) //ListNode(2) address 2234, head address 2234
+head.next = ListNode(4) // ListNode(4) address 3234,  head.next 3234
+```
+- A3: ListNode(3)
+
