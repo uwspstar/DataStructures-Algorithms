@@ -7,7 +7,6 @@ paginate: true
 size: 16:9
 ---
 
-
 # 数据结构的基本存储方式就是链式和顺序两种，基本操作就是增删查改，遍历方式无非迭代和递归
 
 ---
@@ -15,6 +14,21 @@ size: 16:9
 - https://www.interviewbit.com/courses/programming/
 - https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
 
+---
+
+### 常见的关键字以及对应的可能解法
+
+- 如果题目是求`极值`，`计数`，很有可能是`动态规划`，`堆`等。
+- 如果题目是`有序`的，则可能是`双指针`。比如`二分法`。
+- 如果题目要求`连续`，则可能是`滑动窗口`。
+- 如果题目要求`所有可能`，需要路径信息，则可能是`回溯`。
+
+---
+
+- https://lucifer.ren/blog/2020/12/21/shuati-silu3/
+- 如果 n 是 10 左右，那么算法通常是 n! 的时间复杂度。
+- 如果 n 是 20 左右，那么算法通常是 2^n 的时间复杂度
+- 比如一道题是 n 是 10^7，那很可能是 O(N) 复杂度
 ---
 
 # binary search
