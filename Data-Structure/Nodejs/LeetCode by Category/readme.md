@@ -69,14 +69,58 @@ size: 16:9
 - bfs
 - dfs : preOrder, inOrder, postOrder
 - 二叉树遍历的相关算法：
-    - 94.binary-tree-inorder-traversal
-    - 102.binary-tree-level-order-traversal
-    - 103.binary-tree-zigzag-level-order-traversal
-    - 144.binary-tree-preorder-traversal
-    - 145.binary-tree-postorder-traversal
-    - 199.binary-tree-right-side-view
-# heap
+  - 94.binary-tree-inorder-traversal
+  - 102.binary-tree-level-order-traversal
+  - 103.binary-tree-zigzag-level-order-traversal
+  - 144.binary-tree-preorder-traversal
+  - 145.binary-tree-postorder-traversal
+  - 199.binary-tree-right-side-view
 
+---
+
+### 二叉查找树 Binary Search Tree
+
+- 其中序遍历的结果是一个有序数组
+- 常规操作有插入，查找，删除，找父节点，求最大值，求最小值
+
+---
+
+### 平衡树 : 树在数据结构层面构造了二分查找算法
+
+- https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings/basic-data-structure#er-cha-ping-heng-shu
+
+---
+
+### 基本操作：
+
+    - 旋转
+    - 插入
+    - 删除
+    - 查询前驱
+    - 查询后继
+
+---
+
+# Trie 树 相关算法：
+
+- 208.implement-trie-prefix-tree
+- 211.add-and-search-word-data-structure-design
+- 212.word-search-ii
+
+---
+
+# 图的题目的算法比较适合套模板。题目类型主要有：
+
+- dijkstra
+- floyd_warshall
+- 最小生成树（Kruskal & Prim）
+- A 星寻路算法
+- 二分图（染色法）
+- 拓扑排序
+
+# heap : javascript 没有
+
+- 型的实现就是二叉堆
 - the kth biggest / smallest number
 
 ---
