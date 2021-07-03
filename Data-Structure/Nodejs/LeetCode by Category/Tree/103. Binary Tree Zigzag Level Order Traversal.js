@@ -7,7 +7,7 @@ Example 2: Input: root = [1] Output: [[1]]
 Example 3: Input: root = [] Output: []
 */
 {
-    //BFS : queue
+    //BFS : queue, push , unshift
     var zigzagLevelOrder = function (root) {
         if (root === null) return [];
         let q = [root];
