@@ -13,6 +13,8 @@ size: 16:9
 
 - https://www.interviewbit.com/courses/programming/
 - https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+- https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings
+- https://segmentfault.com/a/1190000017461380
 
 ---
 
