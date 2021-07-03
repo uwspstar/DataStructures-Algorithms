@@ -22,6 +22,32 @@ Example 3: Input: s = "pbbcggttciiippooaais", k = 2
 Output: "ps"
 */
 {
+    var removeDuplicates = function (s, k) {
+        if (s.length < k) return s;
+        let stack = [];
+        let count = [];
+        for (let i = 0; i < s.length; i++) {
+            if (i === 0 || stack[stack.length - 1] !== s[i]) {
+                stack.push(s[i]);
+                count.push(1);
+            } else {
+                if (count[count.length - 1] === k - 1) {
+                    let num = count.pop();
+                    while (num) {
+                        stack.pop();
+                        num--;
+                    }
+                } else {
+                    stack.push(s[i]);
+                    count[count.length - 1]++;
+                }
+            }
+        }
+
+        return stack.join("");
+    };
+}
+{
     //Output Limit Exceeded
     var removeDuplicates = function (s, k) {
         let stack = [];
@@ -78,4 +104,28 @@ Output: "ps"
     //Largest Rectangle in Histogram
     //Complex Number Multiplication
     //Find K-Length Substrings With No Repeated Characters
+}
+{
+    //1 <= s.length <= 105
+    //2 <= k <= 104
+    var removeDuplicates = function (s, k) {
+        let count = [];
+        let arr = s.split('');
+        for (let i = 0; i < arr.length; i++) {
+            if (i === 0 || arr[i] != arr[i - 1]) {
+                count.push(1)
+            } else {
+                let val = count.pop() + 1;
+                if (val === k) {
+                    //console.log('arr1=',arr);
+                    arr.splice(i - k + 1, k);
+                    //console.log('arr2=',arr);
+                    i = i - k;
+                } else {
+                    count.push(val);
+                }
+            }
+        }
+        return arr.join('');
+    };
 }

@@ -6,7 +6,10 @@ footer: 'Code Interview'
 paginate: true
 size: 16:9
 ---
+# basic
+`O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(n^3) < O(2^n) < O(n!) < O(n^n)`
 
+---
 - Eliminating coefficients/constants (coefficient rule)
 - Adding up Big-Os (sum rule)
 - Multiplying Big-Os (product rule)
@@ -17,7 +20,7 @@ size: 16:9
 - `T(n) = aT(n/b) + f(n)`
 ---
 - https://www.youtube.com/watch?v=oBt53YbR9Kk&t=891s
-```
+```js
 //t: O(2^n)  
 //s: O(n) max stack depth of n
 const dib = (n) =>{
@@ -27,7 +30,7 @@ const dib = (n) =>{
 }
 ```
 ---
-```
+```js
 // O(dib) <=O(fib) <=O(lob)
 //t: O(2^n)  
 //s: O(n) max stack depth of n
@@ -36,7 +39,7 @@ const fib = (n) =>{
     return fib(n - 1) + fib(n - 2)
 }
 ```
-```
+```js
 //t: O(2^n)  
 //s: O(n) max stack depth of n
 const lib = (n) =>{
