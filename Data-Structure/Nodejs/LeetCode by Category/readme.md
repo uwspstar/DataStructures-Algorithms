@@ -68,7 +68,13 @@ size: 16:9
 
 - bfs
 - dfs : preOrder, inOrder, postOrder
-
+- 二叉树遍历的相关算法：
+    - 94.binary-tree-inorder-traversal
+    - 102.binary-tree-level-order-traversal
+    - 103.binary-tree-zigzag-level-order-traversal
+    - 144.binary-tree-preorder-traversal
+    - 145.binary-tree-postorder-traversal
+    - 199.binary-tree-right-side-view
 # heap
 
 - the kth biggest / smallest number
