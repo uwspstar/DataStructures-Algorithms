@@ -111,8 +111,9 @@ size: 16:9
 
 # 图的题目的算法比较适合套模板。题目类型主要有：
 
-- dijkstra
-- floyd_warshall
+- https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings/basic-data-structure#zui-duan-ju-li-zui-duan-lu-jing
+- dijkstra : 主要解决的是图中任意两点的最短距离
+- floyd_warshall : 1462. 课程安排 IV
 - 最小生成树（Kruskal & Prim）
 - A 星寻路算法
 - 二分图（染色法）
