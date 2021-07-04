@@ -57,3 +57,14 @@ console.log(binarySearch(arr, 4));
 ### Binary Search Recursive Method
 
 - https://www.youtube.com/watch?v=uEUXGcc2VXM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=31
+
+---
+### 二分查找 : 二分查找是一种算法，其输入是一个`有序的元素列表`
+- Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People
+- 二分查找最多需要logN 步
+- 对数运算是幂运算的逆运算
+
+### 练习
+- 假设有一个包含128个名字的有序列表，你要使用二分查找在其中
+查找一个名字，请 问最多需要几步才能找到? (log128 = 7)
+- 面列表的长度翻倍后，最多需要几步? (8)
