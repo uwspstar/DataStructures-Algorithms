@@ -104,6 +104,12 @@ function reverse(head, k) {
 
 ---
 
+### linked list vs array
+
+- 链表的优势在插入, 删除, 元素方面, 当需要在中间插入, 删除, 元素时，链表是更好的选择。
+
+---
+
 ### In-place reversal of linked list : without using extra memory
 
 - https://leetcode.com/problems/reverse-linked-list-ii/
@@ -171,6 +177,7 @@ ans.next = head; // head address 1234, ans.next point 1234
 head = head.next; //if head.next point 2234, head point 2234
 head = head.next; //if head.next point 3234, head point 3234
 ```
+
 - A1: 最开始的 head。
 
 ---
@@ -183,16 +190,19 @@ head = ans; //head address 9527
 head.next = ListNode(3); //if ListNode(3) address is 1234, head.next point 1234, ans.next same as head next 1234
 head.next = ListNode(4); //ListNode(4) address is 2234, head.next point 2234, ans.next same as head next 2234
 ```
+
 - A2: ListNode(4)
 
 ---
-- Q3: 如下代码 ans.next 指向什么？
-```js
-ans = ListNode(1) // ListNode(1) address 9527; ans address 9527
-head = ans // head address 9527
-head.next = ListNode(3) //ListNode(3) address 1234; head.next address 1234, ans.next address 1234
-head = ListNode(2) //ListNode(2) address 2234, head address 2234
-head.next = ListNode(4) // ListNode(4) address 3234,  head.next 3234
-```
-- A3: ListNode(3)
 
+- Q3: 如下代码 ans.next 指向什么？
+
+```js
+ans = ListNode(1); // ListNode(1) address 9527; ans address 9527
+head = ans; // head address 9527
+head.next = ListNode(3); //ListNode(3) address 1234; head.next address 1234, ans.next address 1234
+head = ListNode(2); //ListNode(2) address 2234, head address 2234
+head.next = ListNode(4); // ListNode(4) address 3234,  head.next 3234
+```
+
+- A3: ListNode(3)

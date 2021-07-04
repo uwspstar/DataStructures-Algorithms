@@ -9,12 +9,14 @@ size: 16:9
 
 # Bubble Sort
 
-# Selection Sort
+---
+
+# Selection Sort : 选择排序 O (n^2)
+
+---
 
 # Insertion Sort
 
----
-# 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历.
 ---
 
 # Merge Sort
@@ -38,14 +40,17 @@ size: 16:9
 
 ---
 
-# QuickSort
+# QuickSort : O (n log n )
 
+- 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历.
 - https://www.youtube.com/watch?v=7h1s2SojIRw&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=36
 
 ---
 
 # Bucket sort
+
 - https://www.cnblogs.com/kkun/archive/2011/11/23/bucket_sort.html
+
 ---
 
 # divide and conquer

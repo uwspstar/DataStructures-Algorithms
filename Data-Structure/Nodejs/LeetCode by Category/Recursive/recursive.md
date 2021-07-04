@@ -7,7 +7,14 @@ paginate: true
 size: 16:9
 ---
 
+# basic
+
+- 递归只是让 解决方案更清晰，并没有性能上的优势。实际上，在有些情况下，使用 循环的性能更好
+
+---
+
 # Recursive 三要素
+
 - https://www.youtube.com/watch?v=GOs07Kn2W1E&t=1641s (2:0810)
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.md#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86
 
