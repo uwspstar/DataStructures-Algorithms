@@ -33,6 +33,14 @@ size: 16:9
 
 ---
 
+### 四个技巧 : 头结点
+
+- `头结点` : 为了更加方便地对链表进行操作，会在单链表的第一个结点前附设一个结点，称为头结点
+- 头结点的数据域可以不存储任何信息，也可以存储如线性表的长度等附加信息，头结点的指针域存储指向`第一个结点`的指针
+- 若线性表为空表，则头结点的指针域为“空”
+
+---
+
 - A Linked list is a recursive structure. A sub-list in itself is a linked list. So, if you think about it, reversing a list consisting of k nodes is simply a linked list reversal algorithm.
 
 ---
