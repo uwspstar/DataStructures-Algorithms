@@ -4,7 +4,6 @@ Given the heads of two singly linked-lists headA and headB, return the node at w
 
 For example, the following two linked lists begin to intersect at node c1:
 
-
 It is guaranteed that there are no cycles anywhere in the entire linked structure.
 
 Note that the linked lists must retain their original structure after the function returns.
