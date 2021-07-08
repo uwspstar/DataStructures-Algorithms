@@ -13,8 +13,6 @@ int get(int key) Return the value of the key if the key exists, otherwise return
 void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
 The functions get and put must each run in O(1) average time complexity.
 
- 
-
 Example 1:
 
 Input
@@ -59,7 +57,7 @@ lRUCache.get(4);    // return 4
         }
         return -1;
     };
-    
+
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys  
 
@@ -75,4 +73,32 @@ lRUCache.get(4);    // return 4
 
         this.map.set(key, value);
     };
+
+    //LFU Cache
+    //Design In-Memory File System
+    //Design Compressed String Iterator
+    //Design Most Recently Used Queue
+}
+{
+    const map1 = new Map();
+    map1.set('0', 'foo');
+    map1.set(1, 'bar');
+    const iterator1 = map1.keys();
+    console.log(iterator1.next().value);
+    // expected output: "0"
+    console.log(iterator1.next().value);
+    // expected output: 1
+}
+{
+    //Using keys()
+    var myMap = new Map();
+    myMap.set('0', 'foo');
+    myMap.set(1, 'bar');
+    myMap.set({}, 'baz');
+
+    var mapIter = myMap.keys();
+
+    console.log(mapIter.next().value); // "0"
+    console.log(mapIter.next().value); // 1
+    console.log(mapIter.next().value); // Object
 }
