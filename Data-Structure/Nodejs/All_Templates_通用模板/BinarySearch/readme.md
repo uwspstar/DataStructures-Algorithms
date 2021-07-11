@@ -7,12 +7,16 @@ paginate: true
 size: 16:9
 ---
 
+### Binary Search
+
 ```
 start + 1 < end
 mid = start +(end - start)/2;如果用(start + end)/2，如果start和end都很大相加就有可能溢出
 A[mid] = < > 三种情况讨论
 A[start] A[end]?target
 ```
+
+---
 
 ```java
 public int findPosition(int[] nums, int target) {
