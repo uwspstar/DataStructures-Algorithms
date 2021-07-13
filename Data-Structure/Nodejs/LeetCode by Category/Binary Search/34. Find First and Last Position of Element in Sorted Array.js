@@ -27,7 +27,8 @@ Example 3: Input: nums = [], target = 0 Output: [-1,-1]
         let right = nums.length - 1;
 
         while (left <= right) {
-            let mid = parseInt(left + ((right - left) >> 1));
+            let mid = left + ((right - left) >> 1);
+            //let mid = parseInt(left + ((right - left) >> 1)); // not use parseInt , >> work for int
 
             if (nums[mid] > target) {
                 right = mid - 1;

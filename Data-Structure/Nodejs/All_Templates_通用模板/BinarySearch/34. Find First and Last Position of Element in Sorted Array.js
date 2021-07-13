@@ -60,7 +60,8 @@ Input: nums = [], target = 0 Output: [-1,-1]
         if (nums[right] === target) {
             res[1] = right;
         }
-        
+
         return res;
     }
+    console.log(searchRange([5, 7, 7, 8, 8, 10], 8)) //[ 3, 4 ]
 }
