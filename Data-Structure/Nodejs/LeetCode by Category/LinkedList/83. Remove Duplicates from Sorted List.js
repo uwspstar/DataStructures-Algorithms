@@ -13,7 +13,7 @@ Input: head = [1,1,2,3,3] Output: [1,2,3]
 
         let res = deleteDuplicates(head.next);
 
-        if (head.val == head.next.val) {
+        if (head.val === head.next.val) {
             head = res;
         } else {
             head.next = res;
@@ -45,7 +45,9 @@ Input: head = [1,1,2,3,3] Output: [1,2,3]
     var deleteDuplicates = function (head, curr = head) {
 
         if (head === null || head.next === null) return head;
+        
         if (!curr || !curr.next) return head;
+
         if (curr.val === curr.next.val) {
             curr.next = curr.next.next;
         } else {
