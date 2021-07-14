@@ -6,9 +6,29 @@ Input: head = [1,1,2] Output: [1,2]
 Input: head = [1,1,2,3,3] Output: [1,2,3]
 */
 {
+    //recursive
     var deleteDuplicates = function (head) {
 
-        if (head === null) return null;
+        if (head === null || head.next === null) return head;
+
+        let res = deleteDuplicates(head.next);
+
+        if (head.val == head.next.val) {
+            head = res;
+        } else {
+            head.next = res;
+        }
+
+        return head;
+    };
+    //Remove Duplicates from Sorted List II
+    //Remove Duplicates From an Unsorted Linked List
+}
+{
+    var deleteDuplicates = function (head) {
+
+        if (head === null || head.next === null) return head;
+
         let current = head;
 
         while (current && current.next) {
@@ -17,6 +37,21 @@ Input: head = [1,1,2,3,3] Output: [1,2,3]
             } else current = current.next;
         }
         return head;
+    };
+    //Remove Duplicates from Sorted List II
+    //Remove Duplicates From an Unsorted Linked List
+}
+{
+    var deleteDuplicates = function (head, curr = head) {
+
+        if (head === null || head.next === null) return head;
+        if (!curr || !curr.next) return head;
+        if (curr.val === curr.next.val) {
+            curr.next = curr.next.next;
+        } else {
+            curr = curr.next;
+        }
+        return deleteDuplicates(head, curr);
     };
     //Remove Duplicates from Sorted List II
     //Remove Duplicates From an Unsorted Linked List
