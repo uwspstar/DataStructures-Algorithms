@@ -12,6 +12,10 @@ order = "cba" str = "abcd" Output: "cbad"
 Explanation: 
 "a", "b", "c" appear in order, so the order of "a", "b", "c" should be "c", "b", and "a". 
 Since "d" does not appear in order, it can be at any position in the returned string. "dcba", "cdba", "cbda" are also valid outputs.
+
+hint :  只包含小写字符 -->  int[] count = new int[26];   // but I did not use this info
+
+首先找出在 T 中出现的所有的 S 的元素，并且将这些元素按照 S 中出现的相对顺序排序，然后把 T 中出现的但不在 S 中的元素添加到排好序的字符串中。 
 */
 {
     var customSortString = function (order, str) {
