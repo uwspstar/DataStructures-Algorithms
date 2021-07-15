@@ -1,5 +1,5 @@
 //1. Two Sum
-// map {key = index : value = } 
+// map {key = arr[i] : value = index} 
 // one loop, O(N)
 
 /*
