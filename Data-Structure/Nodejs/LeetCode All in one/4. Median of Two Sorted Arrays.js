@@ -38,6 +38,5 @@ O(log(min(len1, len2)))，很可以
 
 作者：hexiaozhidi
 链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/4-xun-zhao-liang-ge-zheng-xu-shu-zu-de-z-ribu/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 */
