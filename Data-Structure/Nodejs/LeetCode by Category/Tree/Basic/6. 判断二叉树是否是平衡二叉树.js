@@ -6,6 +6,9 @@ Given a binary tree, determine if it is height-balanced.
 For this problem, a height-balanced binary tree is defined as:
 
 a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+
+根据二叉树的定义，我们可以递归遍历二叉树的每一个节点来，求出每个节点的左右子树的高度，如果每个节点的左右子树的高度相差不超过1，按照定义，它就是一颗平衡二叉树。
+
 */
 //因为代码的逻辑其实是求的根节点的高度，而根节点的高度就是这颗树的最大深度，所以才可以使用后序遍历
 //a binary tree in which the left and right subtrees of every node differ in height by no more than 1.

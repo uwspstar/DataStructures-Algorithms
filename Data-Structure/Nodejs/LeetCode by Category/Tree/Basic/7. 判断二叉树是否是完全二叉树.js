@@ -3,8 +3,9 @@
 //Given the root of a binary tree, determine if it is a complete binary tree. In a complete binary tree, every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
 
 //When level-order traversal in a complete tree, after the last node, all nodes in the queue should be null. Otherwise, the tree is not complete.
-
+//一棵二叉树至多只有最下面的两层上的结点的度数可以小于2，并且最下层上的结点都集中在该层最左边的若干位置上，则此二叉树成为完全二叉树
 {
+    //BFS
     var isCompleteTree = function (root) {
         if (root === null) return true;
         let q = [root];
