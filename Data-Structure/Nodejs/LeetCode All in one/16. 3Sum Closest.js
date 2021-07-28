@@ -43,3 +43,35 @@ If an interviewer asks you whether you can achieve O(1) memory complexity, you c
     };
 }
 // 3Sum Smaller
+{
+    const threeSumClosest = (nums, target) => {
+        nums.sort((a, b) => a - b);
+
+        let res = -Infinity;
+        let closeValue = Infinity;
+
+        for (let i = 0; i < nums.length; i++) {
+            let left = i + 1;
+            let right = nums.length - 1;
+            while (left < right) {
+                let sum = nums[i] + nums[left] + nums[right];
+
+                let tmp = Math.abs(target - sum);
+                if (tmp < closeValue) {
+                    closeValue = tmp;
+                    res = sum;
+                }
+                if (sum === target) return sum;
+                if (sum > target) {
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+        }
+        return res;
+    }
+    //Candy Crush
+    //Subarrays with K Different Integers
+    //Verbal Arithmetic Puzzle
+}

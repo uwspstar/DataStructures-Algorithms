@@ -33,5 +33,4 @@ Input: root = [1,2] Output: 1
 
     };
     //Diameter of N-Ary Tree
-
 }

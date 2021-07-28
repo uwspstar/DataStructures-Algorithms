@@ -1,4 +1,108 @@
 {
+    //二叉树的前序遍历: (self, left, right)
+    const preOrder = root => {
+        console.log(root.val); // self logic
+        preOrder(root.left) // left
+        preOrder(root.right) // right
+    }
+
+    //前序遍历是中左右，每次先处理的是中间节点，那么先将跟节点放入栈中，然后将右孩子加入栈，再加入左孩子。为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
+    const preOrder = root => {
+        let stack = [root];
+        while (stack.length > 0) {
+            let sz = stack.length;
+            for (let i = 0; i < sz; i++) {
+                const n = stack.pop();
+
+                console.log(n.val); // self logic
+
+                if (n.right !== null) {
+                    stack.push(n.right); //stack is LIFO 
+                }
+
+                if (n.left !== null) {
+                    stack.push(n.left);
+                }
+            }
+        }
+    }
+}
+{
+    //二叉树的中序遍历: (left, self, right)
+    const inOrder = root => {
+        inOrder(root.left) // left
+        console.log(root.val); // self logic
+        inOrder(root.right) // right
+    }
+    {
+        var inorderTraversal = function (root) {
+            if (root === null) return [];
+
+            let res = [];
+            let stack = [];
+            let p = root;
+
+            while (stack.length > 0 || p) {
+                while (p) { // push all left first
+                    stack.push(p);
+                    p = p.left;
+                }
+                let n = stack.pop();
+                res.push(n.val);
+                p = n.right;
+            }
+            return res;
+        };
+    }
+
+    {
+        var inorderTraversal = function (root) {
+            if (root === null) return [];
+
+            let res = [];
+
+            const dfs_inorderTraversal = n => {
+                n.left && dfs_inorderTraversal(n.left);
+                res.push(n.val);
+                n.right && dfs_inorderTraversal(n.right);
+            }
+
+            dfs_inorderTraversal(root);
+
+            return res;
+        };
+    }
+}
+{
+    //二叉树的后序遍历: (left, right, self)
+    const postOrder = root => {
+        postOrder(root.left) // left
+        postOrder(root.right) // right
+        console.log(root.val); // self logic
+    }
+
+    {
+        const postorder = root => {
+            if (!root) return;
+            const outputStack = [];
+            const stack = [root];
+
+            while (stack.length) {
+                const n = stack.pop();
+                outputStack.push(n);
+                if (n.left) stack.push(n.left);
+                if (n.right) stack.push(n.right);
+            }
+
+            while (outputStack.length) {
+                const n = outputStack.pop()
+                console.log(n.val)
+            }
+        }
+    }
+
+}
+{
     //求二叉树的最大深度 :DFS, postOrder
     //104. Maximum Depth of Binary Tree
     const maxDepth = root => {
@@ -174,8 +278,23 @@
     //Maximum Width of Binary Tree
     //Cracking the Safe
     //Find Elements in a Contaminated Binary Tree
+}
+{
+    //判断一个二叉树是否平衡。树平衡的定义是，对于树上的任意节点，其两侧节点的最大深度 的差值不得大于 1
+    //解法类似于求树的最大深度，但有两个不同的地方:一是我们需要先处理子树的深度再进行 比较，二是如果我们在处理子树时发现其已经不平衡了，则可以返回一个-1，使得所有其长辈节 点可以避免多余的判断(本题的判断比较简单，做差后取绝对值即可;但如果此处是一个开销较 大的比较过程，则避免重复判断可以节省大量的计算时间)。
+    const isBalanced = root => {
+        if (root === null) return true;
 
+        const help = n => {
+            if (n === null) return 0;
+            let leftDepth = help(n.left);
+            let rightDepth = help(n.right);
+            if (leftDepth === -1 || rightDepth === -1 || Math.abs(leftDepth - rightDepth) > 1) return -1;
+            return 1 + Math.max(leftDepth, rightDepth);
+        }
 
+        return help(root) === -1;
+    }
 }
 {
     //判断二叉树是否是完全二叉树 : BFS
@@ -203,8 +322,81 @@
 }
 {
     //两个二叉树是否完全相同
-    boolean isSameTreeNode(TreeNode t1, TreeNode t2){ if (t1 == null && t2 == null) { return true; } else if (t1 == null || t2 == null) { return false; } if (t1.val != t2.val) { return false; } boolean left = isSameTreeNode(t1.left, t2.left); boolean right = isSameTreeNode(t1.right, t2.right); return left && right; }
+    //100. Same Tree
+    var isSameTree = function (p, q) {
+        if (p === null && q === null) return true; // order is mater
+        if (p === null || q === null) return false;
+        if (p.val !== q.val) return false;
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    };
+    //Binary Tree Tilt
+    //Regions Cut By Slashes
+    //Smallest Common Region
 
+}
+{
+    //翻转二叉树or镜像二叉树: DFS
+    //226. Invert Binary Tree
+    const invertTree = function (root) {
+        if (root === null) return root;
+        let left = invertTree(root.left)
+        let right = invertTree(root.right);
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+
+    const invertTree = root => {
+        if (root === null) return root;
+        invertTree(root.left);
+        invertTree(root.right);
+        [root.left, root.right] = [root.right, root.left];
+        return root;
+    }
+
+    // 翻转二叉树or镜像二叉树: BFS
+    const invertTree = root => {
+        if (root == null) return null;
+        let q = [root];
+        while (q.length > 0) {
+            let sz = q.length;
+            for (let i = 0; i < sz; i++) {
+                let n = q.shift();
+                [n.left, n.right] = [n.right, n.left]; // swap
+                n.left && q.push(n.left);
+                n.right && q.push(n.right);
+            }
+        }
+        return root;
+    };
+}
+{
+    //求一个二叉树的最长直径 (直径的定义是二叉树上任意两节点之间的无向距离)
+    //543. Diameter of Binary Tree
+    const diameterOfBinaryTree = root => {
+
+        if (!root) return null;
+        let max = 0;
+
+        const dfs = (n) => {
+            if (!n) return 0;
+            let leftLevel = dfs(n.left);
+            let rightLevel = dfs(n.right);
+
+            max = Math.max(max, leftLevel + rightLevel);
+            // return the longest one between left_path and right_path;
+            // remember to add 1 for the path connecting the node and its parent
+            return Math.max(leftLevel, rightLevel) + 1; // 1  is root
+        }
+
+        dfs(root);
+        return max;
+
+    };
+    //Diameter of N-Ary Tree
+}
+{
+    // LCA求两个二叉树的最低公共祖先节点
 }
 {
 
