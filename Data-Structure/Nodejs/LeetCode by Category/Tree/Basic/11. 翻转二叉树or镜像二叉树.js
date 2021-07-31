@@ -1,5 +1,6 @@
 //翻转二叉树or镜像二叉树
 //226. Invert Binary Tree
+//只要把二叉树上的每一个节点的左右子节点进行交换，最后的结果就是完全翻转之后的二叉树。
 {
     //翻转二叉树or镜像二叉树: DFS
     const invertTree = function (root) {

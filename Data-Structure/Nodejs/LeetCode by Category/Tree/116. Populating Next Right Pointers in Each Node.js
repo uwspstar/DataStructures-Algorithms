@@ -12,9 +12,8 @@ Populate each next pointer to point to its next right node. If there is no next 
 
 Initially, all next pointers are set to NULL.
 */
-
-
 {
+    //BFS
     var connect = function (root) {
         if (root === null) return root;
 
@@ -42,7 +41,7 @@ Initially, all next pointers are set to NULL.
     };
 }
 //Populating Next Right Pointers in Each Node II
-
+// /https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-1/er-cha-shu-xi-lie-1
 {
     // 主函数
     const connect = root => {
@@ -54,7 +53,7 @@ Initially, all next pointers are set to NULL.
     // 辅助函数
     const connectTwoNode = (node1, node2) => {
         if (node1 === null || node2 === null) return;
-        /**** 前序遍历位置 ****/
+
         // 将传入的两个节点连接
         node1.next = node2;
 

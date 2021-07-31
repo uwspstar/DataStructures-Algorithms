@@ -50,14 +50,14 @@ size: 16:9
 
 ### 单链表插入和删除算法，都是由两部分组成：对于插入或删除数据越频繁的操作，单链表的效率优势就越是明显
 
-- 第一部分就是遍历查找第个结点；
+- 第一部分就是遍历查找第个结点
 - 第二部分就是插入和删除结点
 
 ---
 
 ### circular linked list 循环链表
 
-- 循环链表和单链表的主要差异就在于循环的判断条件上，原来是判断 p->next 是否为空，现在则是 `p->next 不等于头结点`，则循环未结束
+- 循环链表和单链表的主要差异就在于循环的判断条件上，原来是判断 p.next 是否为空，现在则是 `p.next 不等于头结点`，则循环未结束
 
 ---
 
@@ -65,7 +65,9 @@ size: 16:9
 
 ---
 
-- A Linked list is a recursive structure. A sub-list in itself is a linked list. So, if you think about it, reversing a list consisting of k nodes is simply a linked list reversal algorithm.
+### recursive : reversal
+
+- A Linked list is a `recursive structure`. A `sub-list` in itself is a linked list. So, if you think about it, reversing a list consisting of k nodes is simply a linked list `reversal` algorithm.
 
 ---
 
@@ -81,7 +83,7 @@ size: 16:9
 
 ### 逆序遍历
 
-- 如果是链表，通常需要借助于双向链表。而双向链表在力扣的题目很少，因此大多数你没有办法拿到前驱节点，这也是为啥很多时候会自己记录一个前驱节点 pre 的原因。
+- 如果是链表逆序遍历，通常需要借助于双向链表。而双向链表在力扣的题目很少，因此大多数你没有办法拿到前驱节点，这也是为啥很多时候会自己记录一个前驱节点 pre 的原因。
 
 ---
 
@@ -117,6 +119,8 @@ const myReverse = (head, tail) => {
 ```
 
 ---
+
+- 翻转一个 Kth nodes 链表
 
 ```js
 function reverse(head, k) {
@@ -163,6 +167,7 @@ const reverseLinkedList = (head) => {
     cur = next;
   }
 };
+
 var reverseBetween = function (head, left, right) {
   const dummyNode = new ListNode();
   dummyNode.next = head;
@@ -238,3 +243,19 @@ head.next = ListNode(4); // ListNode(4) address 3234,  head.next 3234
 ```
 
 - A3: ListNode(3)
+
+---
+
+# List problems
+
+- https://www.amazon.com/Elements-Programming-Interviews-Java-Insiders/dp/1517671272
+
+- often have a simple brute-force solution that uses 0(n) space, but a subtler solution that uses the existing list nodes to reduce space complexity to 0(1).
+
+- Very often, a problem on lists is conceptually simple, and is more about cleanly coding what's specified, rather than designing an algorithm.
+
+- Consider using a `dummy head` (sometimes referred to as a sentinel) to avoid having to check for empty lists. This simplifies code, and makes bugs less likely.
+
+- It's easy to forget to update next (and previous for double linked list) for the head and tail.
+
+- Algorithms operating on singly linked lists often benefit from using two iterators, one ahead of the other, or one advancing quicker than the other. 
