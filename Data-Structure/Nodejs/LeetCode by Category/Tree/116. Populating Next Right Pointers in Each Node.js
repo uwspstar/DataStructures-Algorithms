@@ -22,9 +22,7 @@ Initially, all next pointers are set to NULL.
         while (q.length > 0) {
             let sz = q.length;
             for (let i = 0; i < sz; i++) { //each level
-
                 let n = q.shift();
-
                 if (i !== sz - 1) { // not the rightest node
                     n.next = q[0];
                     //res.push('#');
