@@ -1,4 +1,25 @@
+{
+    var countKthLevelNodes = function (root, k) {
+        //1. only root
+        if (root === null) return 0;
+        if (root.left === null && root.right === null) return 1; 
+        if (k === 1) return 1;
 
+        let res = 0;
+
+        if (k === 0) return res;
+        //2. only left
+        let countLeftNodes = countKthLevelNodes(root.left, k - 1);
+        //3. only right
+        let countRightNodes = countKthLevelNodes(root.right, k - 1);
+     
+        //4. combine result
+        res = countLeftNodes + countRightNodes ;
+     
+        return res;
+     }
+     
+}
 {
     //求二叉树中第k层节点的个数 : DFS
     const numsOfkLevelTreeNode = (root, k) => {
@@ -14,9 +35,11 @@
     const numsOfkLevelTreeNode = (root, k) => {
         if (root === null || k < 1) return 0;
         if (k === 1) return 1;
+
         let level = 1;
         let s = [root];
         let res = 0;
+
         while (s.length > 0) {
             let sz = s.length;
             if (level === k) {

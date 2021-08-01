@@ -11,6 +11,7 @@ a binary tree in which the left and right subtrees of every node differ in heigh
 
 */
 //因为代码的逻辑其实是求的根节点的高度，而根节点的高度就是这颗树的最大深度，所以才可以使用后序遍历
+
 //a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
 {
     var isBalanced = function (root) {

@@ -9,6 +9,26 @@ Note: A leaf is a node with no children.
 
 //最小深度是从根节点到最近叶子节点的最短路径上的节点数量。，注意是叶子节点。
 {
+    //template recursion tree
+    var minDepth = function (root) {
+        //only root
+        if (root === null) return 0;
+        if (root.left === null && root.right === null) return 1;
+
+        let res = Infinity;
+
+        // only left
+        let leftMinDepth = minDepth(root.left);
+        // only right
+        let rightMinDepth = minDepth(root.right);
+
+        res = Math.min(leftMinDepth, rightMinDepth, res);
+        
+        return res;
+    }
+}
+
+{
     //BFS
     var minDepth = function (root) {
         if (!root) return 0;

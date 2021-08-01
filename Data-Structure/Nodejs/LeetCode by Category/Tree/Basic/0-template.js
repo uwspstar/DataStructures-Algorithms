@@ -8,11 +8,44 @@ How to solve (almost) any binary tree coding problem
 - step 3: calling the same function on the right subtree
 - step 4: Join the results
 */
+
+// my conclusion
+// recursion tree : only think about if you only have root node
+/*
+- step 1 : only, if only, have the root node
+- step 2 : only, if only, have root left subtree node
+- step 3 : only, if only, have root right subtree node
+- step 4 : combine the results, think about merge sort (postOrder)
+*/
+
+
 class Node {
     constructor(val) {
         this.val = val;
         this.left = null;
         this.right = null;
+    }
+}
+//计算一棵二叉树有多少个节点
+{
+    const countNode = root => {
+        //step 1 : only,if only, have root node
+        if (root === null) return 0;
+        if (root.left === null && root.right === null) return 1;
+
+        let res = 0;
+
+        //step 2 : only,if only, have root left subtree node
+        let leftCount = count(root.left);
+
+        //step 3 : only,if only, have root right subtree node
+
+        let rightCount = count(root.right);
+
+        // think about merge sort (postOrder)
+        res = leftCount + rightCount + 1; // 1 is root
+
+        return res;
     }
 }
 //treeSum (sum all nodes' value)
@@ -73,6 +106,7 @@ class Node {
 
         let leftTree = reverseTree(root.left);
         let rightTree = reverseTree(root.right);
+        // postOrder
         root.left = rightTree;
         root.right = leftTree;
         return root;
@@ -82,6 +116,7 @@ class Node {
 {
     const reverseTree = (root) => {
         if (root === null) return root; // 0
+        //preOrder
         [root.left, root.right] = [root.right, root.left];
         reverseTree(root.left);
         reverseTree(root.right);
@@ -89,7 +124,7 @@ class Node {
     };
 }
 {
-    ////postOrder faster
+    //postOrder faster
     const reverseTree = (root) => {
         if (root === null) return root; // 0
         reverseTree(root.left);
@@ -98,6 +133,7 @@ class Node {
         return root;
     };
 }
+
 //111. Minimum Depth of Binary Tree
 {
     var minDepth = function (root) {

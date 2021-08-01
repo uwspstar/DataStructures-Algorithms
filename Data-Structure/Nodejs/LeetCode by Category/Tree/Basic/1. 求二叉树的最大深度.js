@@ -3,6 +3,22 @@
 
 A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 */
+// use template recursion tree
+{
+    const maxDepth = root => {
+        // 1. only root
+        if (root === null) return 0;
+        if (root.left === null && root.right === null) return 1;
+        let res = 0;
+        // 2. only left
+        let leftMaxDepth = maxDepth(root.left);
+        // 3. only right
+        let rightMaxDepth = maxDepth(root.right);
+        // 4. combine result
+        res = Math.max(leftMaxDepth, rightMaxDepth) + 1;
+        return res;
+    }
+}
 {
     // DFS
     var maxDepth = function (root) {
