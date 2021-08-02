@@ -26,11 +26,16 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
 {
 
     var lowestCommonAncestor = function (root, p, q) {
-        if (!root || root === p || root === q) return root;
+        if (root === null) return root;
+        if (root === p || root === q) return root;
+
         let left = lowestCommonAncestor(root.left, p, q);
         let right = lowestCommonAncestor(root.right, p, q);
+        // not find in left side, it will be on right side
         if (!left) return right;
+        // not find in right side, it will be on left side
         if (!right) return left;
+        //else 
         return root;
     };
 }

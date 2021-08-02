@@ -38,6 +38,7 @@ Initially, all next pointers are set to NULL.
         return root;
     };
 }
+
 //Populating Next Right Pointers in Each Node II
 // /https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-1/er-cha-shu-xi-lie-1
 {

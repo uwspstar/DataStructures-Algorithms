@@ -11,7 +11,26 @@ Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 Output: 2
 Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 
 Input: root = [2,1], p = 2, q = 1 Output: 2
+
+根据BST性质可知：
+
+如果 p.val 和 q.val 都比 root.val 小，则 p、q 肯定在 root 的左子树，递归左子树
+如果 p.val 和 q.val 都比 root.val 大，则 p、q 肯定在 root 的右子树，递归右子树
+
 */
+{
+    //根据BST性质可知：
+    //如果 p.val 和 q.val 都比 root.val 小，则 p、q 肯定在 root 的左子树
+    //如果 p.val 和 q.val 都比 root.val 大，则 p、q 肯定在 root 的右子树
+    var lowestCommonAncestor = function (root, p, q) {
+        if (p.val < root.val && q.val < root.val)
+            return lowestCommonAncestor(root.left, p, q);
+        if (p.val > root.val && q.val > root.val)
+            return lowestCommonAncestor(root.right, p, q);
+        else
+            return root;
+    }
+}
 {
     var lowestCommonAncestor = function (root, p, q) {
 
@@ -20,7 +39,10 @@ Input: root = [2,1], p = 2, q = 1 Output: 2
         let left = lowestCommonAncestor(root.left, p, q);
         let right = lowestCommonAncestor(root.right, p, q);
 
-        if (left === null) return right; // leaf
+        //if not find in left side
+        if (left === null) return right;
+
+        //if not find in right side
         if (right === null) return left;
 
         return root;
@@ -32,16 +54,19 @@ Input: root = [2,1], p = 2, q = 1 Output: 2
 }
 {
     var lowestCommonAncestor = function (root, p, q) {
-        if (root === null) return null;
+        if ((root.val - p.val) * (root.val - q.val) <= 0) return root;
+        //否则，p和q位于root的同一侧，就继续往下找
+        return lowestCommonAncestor(p.val < root.val ? root.left : root.right, p, q);
+    }
+}
+{
+    var lowestCommonAncestor = function (root, p, q) {
+        if (root === null) return root;
 
         if (p.val < root.val && q.val < root.val) {
             return lowestCommonAncestor(root.left, p, q);
-        }
-
-        if (p.val > root.val && q.val > root.val) {
+        } else if (p.val > root.val && q.val > root.val) {
             return lowestCommonAncestor(root.right, p, q);
-        }
-        
-        return root;
+        } else return root;
     };
 }
