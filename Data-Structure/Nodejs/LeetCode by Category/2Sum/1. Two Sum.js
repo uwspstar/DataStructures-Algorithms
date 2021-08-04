@@ -1,3 +1,10 @@
+// Two Sum 系列问题就是想教我们如何使用哈希表处理问题
+/*
+对于 TwoSum 问题，一个难点就是给的数组无序。对于一个无序的数组， 我们似乎什么技巧也没有，只能暴力穷举所有可能。
+一般情况下，我们会首先把数组排序再考虑双指针技巧。TwoSum 启发我 们，HashMap 或者 HashSet 也可以帮助我们处理无序数组相关的简单问题。
+另外，设计的核心在于权衡，利用不同的数据结构，可以得到一些针对性的
+加强。
+*/
 //1. Two Sum
 /*
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.

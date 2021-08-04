@@ -9,6 +9,8 @@ size: 16:9
 
 ### 最长窗口模板
 
+- LeetCode 上至少有 9 道题目可以用此方法高效解决
+
 ```
 for(枚举选择)
     右边界
@@ -64,7 +66,9 @@ for(枚举选择)
 - Maximum sum subarray of size ‘K’ (easy)
 - Longest substring with ‘K’ distinct characters (medium)
 - String anagrams (hard)
----
-### Sliding Window
-- https://www.educative.io/courses/grokking-the-coding-interview
 
+---
+
+### Sliding Window
+
+- https://www.educative.io/courses/grokking-the-coding-interview
