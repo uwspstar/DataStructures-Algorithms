@@ -9,6 +9,7 @@ size: 16:9
 
 ### 二分查找法主要是解决在“一堆数中找出指定的数”这类问题。O(logn), Sorted
 
+- https://labuladong.github.io/algo/
 - https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95
 - https://www.youtube.com/channel/UCYkHDxA4LCZ7XSluTtfDgYQ
 - https://www.youtube.com/watch?v=jB23XIQUSbI
@@ -58,7 +59,7 @@ const  binarySearch(nums, target) {
 
 ---
 
-# 寻找一个数
+# 二分查找寻找一个数
 
 ```js
 var arr = [1, 3, 5, 7, 9, 10, 11, 12, 14, 15, 19, 20];
@@ -77,17 +78,18 @@ function binarySearch(arr, val) {
   }
   return -1;
 }
-console.log(binarySearch(arr, 4));
-console.log(binarySearch(arr, 10));
+console.log(binarySearch(arr, 14));
 ```
 
 ---
 
-# 为什么 while 循环的条件中是 <=，而不是 <
+### 为什么 while 循环的条件中是 <=，而不是 <
 
 - 区别是: `<=` 相当于两端都闭区 间 `[left, right]`，`<` 相当于左闭右开区间 `[left, right)`，因为索引大小为 nums.length 是越界的。
 - `while(left <= right)` 的终止条件是 `left == right + 1`，写成区间的形式就是 `[right + 1, right]`，或者带个具体的数字进去 `[3, 2]`，可⻅这时候区间为空
 - `while(left < right)` 的终止条件是 `left == right`，写成区间的形式就是 `[left, right]`，或者带个具体的数字进去 `[2, 2]`，这时候区间非空，还有一个数 `2`
+
+---
 
 - 如果你非要用 `while(left < right)` 也可以
 
@@ -103,19 +105,110 @@ return nums[left] == target ? left : -1;
 # 寻找左侧边界的二分搜索
 
 ```js
-int left_bound(int[] nums, int target) { if (nums.length == 0) return -1;
-int left = 0;
-int right = nums.length; // 注意
-while (left < right) { // 注意
-int mid = (left + right) / 2; if (nums[mid] == target) {
-            right = mid;
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else if (nums[mid] > target) {
-right = mid; // 注意 }
+const leftBoundarySearch = (nums, target) => {
+  if (nums.length === 0) return -1;
+  let left = 0;
+  let right = nums.length; // 注意
+  while (left < right) {
+    // 注意 [left, right)
+    let mid = left + parseInt((right - left) / 2);
+    if (nums[mid] === target) {
+      right = mid; // 注意
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid; // 注意
+    }
+  }
+  return left;
+};
+var nums = [1, 1, 2, 2, 2, 2, 10, 11];
+console.log(leftBoundarySearch(nums, 2));
+```
+
+---
+
+### 为什么 while(left < right) 而不是 <=
+
+- 因为 right = nums.length 而不是 nums.length - 1 。 因此每次循环的「搜索区间」是 [left, right) 左闭右开
+
+---
+
+### 为什么 left = mid + 1，right = mid ?和之前的算法不一样?
+
+- 「搜索区间」是 `[left, right)` 左闭右开，所以 当 `nums[mid]` 被检测之后，下一步的搜索区间应该去掉 mid 分割成两个区 间，即 `[left, mid)` 或 `[mid + 1, right)`。
+
+---
+
+### 「左侧边界」有什么特殊含义
+
+- 对于这个数组，算法会返回 1。这个 1 的含义可以这样解读:nums 中`小于` 2 的元素有 1 个。
+- 比如对于有序数组 nums = [2,3,5,7], target = 1，算法会返回 0，含义是: nums 中小于 1 的元素有 0 个。 再比如说 nums 不变，target = 8，算法会返回 4，含义是:nums 中小于 8 的 元素有 4 个。
+
+---
+
+### 为什么该算法能够搜索左侧边界? 找到 `target` 时不要立即返回
+
+- 关键在于对于 `nums[mid] == target` 这种情况的处理: 可⻅，找到 `target` 时`不要立即返回`，而是缩小「搜索区间」的上界 `right`，在 区间 `[left, mid)` 中继续搜索，即`不断向左收缩`，达到锁定左侧边界的目的。
+
+---
+
+### 为什么返回 left 而不是 right?
+
+- 都是一样的，因为 while 终止的条件是 left === right
+
+---
+
+- 函数的返回值(即 `left` 变量的值)取值区间是闭区间 `[0, nums.length]`，所以我们简单添加两行代码就能在正确的时候 `return -1`:
+
+```js
+while (left < right) {
+  //...
 }
-    return left;
+
+if (left === nums.length) return -1; // target 比所有数都大
+
+return nums[left] === target ? left : -1; // 类似之前算法的处理方式
+```
+
+---
+
+# 寻找右侧边界的二分查找
+
+- 搜索区间」是 [left, right) 左闭右开，所以 当 `nums[mid]` 被检测之后，下一步的搜索区间应该去掉 `mid` 分割成两个区 间，即 `[left, mid)` 或 `[mid + 1, right)`。
+
+---
+
+```js
+const rightBoundarySearch = (nums, target) => {
+  if (nums.length == 0) return -1;
+  let left = 0;
+  let right = nums.length;
+  while (left < right) {
+    let mid = left + parseInt((right - left) / 2);
+    if (nums[mid] === target) {
+      left = mid + 1; // 注意 mid = left - 1
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid;
+    }
+  }
+  return left - 1; // 注意 mid = left - 1
+};
+var nums = [1, 1, 2, 2, 2, 2, 10, 11];
+```
+
+---
+
+- 可以添加两行代码，正确地返回 -1:
+
+```js
+while (left < right) {
+  // ...
 }
+if (left == 0) return -1;
+return nums[left - 1] == target ? left - 1 : -1;
 ```
 
 ---

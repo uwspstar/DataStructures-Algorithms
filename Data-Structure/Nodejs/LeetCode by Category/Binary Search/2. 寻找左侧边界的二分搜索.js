@@ -19,7 +19,7 @@
         }
         return left;
     }
-    var nums = [1, 1, 2, 2, 2, 2, 10, 11, 12, 14];
+    var nums = [1, 1, 2, 2, 2, 2, 10, 11];
     console.log(leftBoundarySearch(nums, 2));
     console.log(leftBoundarySearch(nums, 10));
 }

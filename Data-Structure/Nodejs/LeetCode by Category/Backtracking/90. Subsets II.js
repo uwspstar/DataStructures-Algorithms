@@ -8,10 +8,6 @@
  * Input: nums = [0] Output: [[],[0]]
  */
 {
-    /**
- * @param {number[]} nums
- * @return {number[][]}
- */
     var subsetsWithDup = function (nums) {
         let res = [];
         let path = [];
@@ -35,9 +31,12 @@
 
         for (let len = 0; len <= nums.length; len++) {
             backTracking(len, 0);
+            console.log('len=', len, 'res=',res);
         }
         return res;
     };
+
+    console.log(subsetsWithDup([1,2,2]))
     //Wiggle Sort
     //Sort Array by Increasing Frequency
     //Count Sorted Vowel Strings
