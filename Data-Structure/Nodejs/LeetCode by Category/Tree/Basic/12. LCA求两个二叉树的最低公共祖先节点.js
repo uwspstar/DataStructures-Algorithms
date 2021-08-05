@@ -13,9 +13,13 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
         let leftLowestCommonAncestor = lowestCommonAncestor(root.left, p, q);
         let rightLowestCommonAncestor = lowestCommonAncestor(root.right, p, q);
 
+        // if left is not exist, return right
         if (leftLowestCommonAncestor === null) return rightLowestCommonAncestor;
+
+        // if right is not exist, return left
         if (rightLowestCommonAncestor === null) return leftLowestCommonAncestor;
 
+        // else return root
         return root;
     };
 }
@@ -26,10 +30,11 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
         let left = lowestCommonAncestor(root.left, p, q);
         let right = lowestCommonAncestor(root.right, p, q);
 
-        if (!left) return right;
-        if (!right) return left;
+        if (!left) return right;// if left is not exist, return right
+        
+        if (!right) return left;// if right is not exist, return left
 
-        return root;
+        return root;// else return root
     };
 }
 {

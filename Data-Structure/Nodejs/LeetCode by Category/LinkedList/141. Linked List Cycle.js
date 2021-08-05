@@ -26,7 +26,22 @@ Explanation: There is no cycle in the linked list.
             slow = slow.next;
             if (fast === slow) return true;
         }
-        
+
         return false;
     };
+}
+{
+    const hasCycle = head => {
+        if (head == null || head.next == null) return false;
+        let fast = head.next;
+        let slow = head;
+
+        while (fast !== slow) {
+            if (fast === null || fast.next === null) return false;
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return true;
+    }
 }

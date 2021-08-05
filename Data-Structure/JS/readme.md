@@ -9,7 +9,7 @@ marp: true
 - https://www.youtube.com/watch?v=IgeJmTKQlKs&list=PLpPXw4zFa0uKKhaSz87IowJnOTzh9tiBk&index=2
 - https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
 - https://www.geeksforgeeks.org/
-
+- https://labuladong.gitbook.io/algo/mu-lu-ye/xue-xi-shu-ju-jie-gou-he-suan-fa-de-gao-xiao-fang-fa
 ---
 
 ### key words
@@ -32,6 +32,10 @@ marp: true
 
 ---
 
+### 数据结构的存储方式 : 数据结构的存储方式只有两种：数组（顺序存储）和链表（链式存储）。
+
+- 数组和链表才是「结构基础」。因为那些多样化的数据结构，散列表、栈、队列、堆、树、图等等,究其源头，都是在链表或者数组上的特殊操作，API 不同而已。
+---
 ### SOME PATTERNS...
 
 - Frequency Counter

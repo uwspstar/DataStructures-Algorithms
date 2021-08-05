@@ -21,7 +21,19 @@ class ListNode {
     }
 }
 {
-    const reverse = (head, cur, pre, next) => {
+    //翻转链表(递归方式) 
+    const reverse = head => {
+        if (head.next === null || head === null) return head;
+
+        let reverseNode = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return reverseNode;
+    }
+}
+{
+    const reverse = (head, cur = head, pre = null, next = null) => {
         if (head === null || head.next === null) return head;
         if (cur === null) return head;
 
@@ -29,7 +41,7 @@ class ListNode {
         cur.next = pre;
         pre = cur;
         cur = next;
-        
-        return reverse(head, cur, pre, next)
+
+        return reverse(head, cur, pre, next);
     }
 }
