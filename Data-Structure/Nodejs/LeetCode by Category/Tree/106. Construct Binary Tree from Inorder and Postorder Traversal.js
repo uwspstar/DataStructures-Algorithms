@@ -1,11 +1,14 @@
 //106. Construct Binary Tree from Inorder and Postorder Traversal
 /*
 Given two integer arrays inorder and postorder where inorder is the inorder traversal of a binary tree and postorder is the postorder traversal of the same tree, construct and return the binary tree.
+
+https://mp.weixin.qq.com/s/OlpaDhPDTJlQ5MJ8tsARlA
+
 */
 // 切割点在后序数组的最后一个元素，就是用这个元素来切割中序数组的，所以必要先切割中序数组
 {
-    // no duplicate value
-
+    // 106. Construct Binary Tree from Inorder and Postorder Traversal
+    
     var buildTree = function(inorder, postorder) {
     
         if (postorder.length === 0) return postorder;
