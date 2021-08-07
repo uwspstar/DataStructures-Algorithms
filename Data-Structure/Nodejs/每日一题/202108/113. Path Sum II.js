@@ -17,9 +17,9 @@ Output: []
     var pathSum = function (root, targetSum) {
         let res = [];
         let path = [];
-        //递归函数不需要返回值，因为我们要遍历整个树
+        
         const backTracking = (root, target) => {
-            if (root === null) return;
+            if (root === null) return;//递归函数不需要返回值，因为我们要遍历整个树
             
             path.push(root.val);
 

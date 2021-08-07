@@ -16,12 +16,36 @@ size: 16:9
 
 ---
 
+# 二叉树可以链式存储，也可以顺序存储
+
+- 链式存储方式就用指针， 顺序存储的方式就是用数组
+
+---
+
+# Height vs Depth
+
+- https://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height
+- Tip: to avoid confusion between terminologies:
+- 1. `Height`: Imagine measuring a person's height, we do it from toe to head (leaf to root).
+- 2. `Depth`: Imagine measuring depth of a sea, we do it from earth's surface to ocean bed (root to leaf).
+
+---
+
+- The `depth` of a node is the `number of edges` from the `node to the tree's root` node.
+- A root node will have a depth of 0.
+
+- The `height` of a node is the `number of edges` on the `longest path` from the `node to a leaf`.
+- A leaf node will have a height of 0.
+
+---
+
 # 根据题意，思考一个二叉树节点需要做什么，到底用什么遍历顺序就清楚了
 
 - https://labuladong.github.io/algo/2/18/22/
 - https://zhuanlan.zhihu.com/p/308150123
 - 而遍历不是目的，遍历是为了更好地做处理，这里的处理包括搜索，修改树等。
 - 树虽然只能从根开始访问，但是我们可以「选择」在访问完毕回来的时候做处理，还是在访问回来之前做处理，这两种不同的方式就是「后序遍历」和「先序遍历」。
+- https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/
 
 ---
 
@@ -150,11 +174,11 @@ size: 16:9
 
 ---
 
-### 概念
+### 概念 : 高度是从下往上数，深度是从上往下。因此根节点的深度和叶子节点的高度是 0。
 
 - https://zhuanlan.zhihu.com/p/308150123
-- 树的`高度`：节点到叶子节点的最大值就是其高度。
-- 树的`深度`：高度和深度是相反的，高度是从下往上数，深度是从上往下。因此根节点的深度和叶子节点的高度是 0。
+- 树的`高度` height：节点到叶子节点的最大值就是其高度。
+- 树的`深度` depth：高度和深度是相反的，高度是从下往上数，深度是从上往下。因此根节点的深度和叶子节点的高度是 0。
 - 树的`层`：根开始定义，根为第一层，根的孩子为第二层。
 - 二叉树，三叉树，。。。 N 叉树，由其`子节点最多可以有几个`决定，最多有 N 个就是 N 叉树。
 - 有没有想过为啥只有二叉树，而没有一叉树。实际上链表就是特殊的树，即一叉树。
@@ -163,11 +187,11 @@ size: 16:9
 
 ### 二叉树分类
 
-- 完全二叉树 : 完全二叉树的所有结点与同样深度的满二叉树，它们按层序编号相同的结点，是一一对应的。关键词是按层序编号
-- 满二叉树 : 在一棵二叉树中,如果所有分支结点都存在左子树和右子树,并且所有叶子都在同一层上,这样的二叉树称为满二叉树
-- 二叉搜索树
-- 平衡二叉树[4] : `平衡二叉搜索树`：又被称为 AVL（Adelson-Velsky and Landis）树
-- 红黑树
+- `完全二叉树` : 完全二叉树的所有结点与同样深度的满二叉树，它们按层序编号相同的结点，是一一对应的。关键词是按层序编号
+- `满二叉树` : 在一棵二叉树中,如果所有分支结点都存在左子树和右子树,并且所有叶子都在同一层上,这样的二叉树称为满二叉树
+- `二叉搜索树`
+- `平衡二叉树` : `平衡二叉搜索树`：又被称为 AVL（Adelson-Velsky and Landis）树
+- `红黑树` : 其实红黑树就是一种二叉平衡搜索树
 
 ---
 
