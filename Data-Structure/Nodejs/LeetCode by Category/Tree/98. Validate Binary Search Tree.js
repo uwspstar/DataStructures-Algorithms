@@ -19,10 +19,28 @@ Both the left and right subtrees must also be binary search trees.
 
 可以递归中序遍历将二叉搜索树转变成一个数组
 
-
 不能单纯的比较左节点小于中间节点，右节点大于中间节点就完事了
 我们要比较的是 左子树所有节点小于中间节点，右子树所有节点大于中间节点。
+
 */
+{
+    var isValidBST = function (root) {
+        let arr = []; //递归中序遍历将二叉搜索树转变成一个数组
+        const buildArr = (root) => {
+            if (root) {
+                buildArr(root.left);
+                arr.push(root.val); //inOrder
+                buildArr(root.right);
+            }
+        }
+        buildArr(root);
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] <= arr[i - 1])
+                return false;
+        }
+        return true;
+    };
+}
 {
     // perfect for inOrder , because of root is bigger than left
     //         5
@@ -45,7 +63,7 @@ Both the left and right subtrees must also be binary search trees.
             let n = stack.pop();
 
             //二叉搜索树其中序遍历的结果是一个有序数组
-            if (pre !== null && n.val <= pre) {  
+            if (pre !== null && n.val <= pre) {
                 return false;
             }
 
@@ -57,25 +75,67 @@ Both the left and right subtrees must also be binary search trees.
     };
 
 }
+{
+    var isValidBST = function (root) {
+        let pre = null;
+        const inOrder = (root) => {
+            if (root === null) return true;
+            let left = inOrder(root.left);
+            if (pre !== null && pre.val >= root.val) return false;
+            pre = root;
+            let right = inOrder(root.right);
+            return left && right;
+        }
+        return inOrder(root);
+    };
+}
 //Find Mode in Binary Search Tree
 {
     function helper(n, min, max) {
-        if (!n) {
-            return true; // We hit the end of the path
-        }
-
-        if ((min !== null && n.val <= min) || (max !== null && n.val >= max)) {
-            return false;  // current node's val doesn't satisfy the BST rules
-        }
-
-        // Continue to scan left and right
+        if (!n) return true;
+        if ((min !== null && n.val <= min) || (max !== null && n.val >= max)) return false;
+        
         return helper(n.left, min, n.val) && helper(n.right, n.val, max);
     }
 
     var isValidBST = function (root) {
-        if (!root) {
-            return true; // Sanity check for passing test case '[]'
-        }
+        if (!root) return true;
         return helper(root, null, null);
+    };
+}
+
+{
+    const helper = (root, lower, upper) => {
+        if (root === null) {
+            return true;
+        }
+        if (root.val <= lower || root.val >= upper) {
+            return false;
+        }
+        return helper(root.left, lower, root.val) && helper(root.right, root.val, upper);
+    }
+    var isValidBST = function (root) {
+        return helper(root, -Infinity, Infinity);
+    };
+}
+{
+    var isValidBST = function (root) {
+        let stack = [];
+        let inorder = -Infinity;
+
+        while (stack.length || root !== null) {
+            while (root !== null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            // 如果中序遍历得到的节点的值小于等于前一个 inorder，说明不是二叉搜索树
+            if (root.val <= inorder) {
+                return false;
+            }
+            inorder = root.val;
+            root = root.right;
+        }
+        return true;
     };
 }
