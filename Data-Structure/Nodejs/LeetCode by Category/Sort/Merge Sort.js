@@ -1,4 +1,4 @@
-//mergeSort
+//mergeSort arr
 //# 快速排序就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历.
 {
     const mergeSortHelp = arr => {
@@ -25,4 +25,26 @@
     }
     console.log('4: mergeSortHelp', JSON.stringify(mergeSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 
+}
+// 88. Merge Sorted Array
+
+//mergeSort LinkedList : 21. Merge Two Sorted Lists
+{
+
+}
+//mergeSort tree : 617. 合并二叉树
+{
+    var mergeTrees = function (root1, root2) {
+        if (root1 === null) return root2;
+        if (root2 === null) return root1;
+
+        let node = new TreeNode(root1.val + root2.val);
+        // left : left tree node after merge left subtrees
+        let left = mergeTrees(root1.left, root2.left)
+        let right = mergeTrees(root1.right, root2.right);
+        node.left = left;
+        node.right = right;
+
+        return node;
+    }
 }
