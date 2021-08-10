@@ -8,28 +8,22 @@
 //二叉搜索树中序遍历得到的值序列是递增有序的，因此我们只要得到中序遍历后的值序列即能用上文提及的方法来解决。
 {
     var getMinimumDifference = function (root) {
-        if (root === null) return 0;
-
-        let pre = -1;
-
-        let minDiff = Infinity;
-
-        const dfsInOrder = n => {
-            n.left && dfsInOrder(n.left);
-
-            if (pre === -1) {
-                pre = n.val;
-            } else {
-                minDiff = Math.min(minDiff, n.val - pre);
-                pre = n.val;
+        let arr = [];
+        const buildArr = root => {
+            if (root) {
+                root.left && buildArr(root.left);
+                arr.push(root.val)
+                root.right && buildArr(root.right);
             }
-
-            n.right && dfsInOrder(n.right);
         }
-        dfsInOrder(root);
-        return minDiff;
+        buildArr(root);
+        //非负值的二叉搜索树
+        let res = arr[1] - arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            res = Math.min(arr[i] - arr[i - 1], res);
+        }
+        return res;
     };
-
 }
 {
     var getMinimumDifference = function (root) {
@@ -57,3 +51,23 @@
     }
 }
 //K-diff Pairs in an Array
+{
+    var getMinimumDifference = function (root) {
+        let pre = null;
+        let res = Infinity;
+        const dfs = (cur) => {
+            if (!cur) return;
+            dfs(cur.left);
+             
+            if (pre) {
+                res = Math.min(Math.abs(cur.val - pre.val), res);
+            }
+            
+            pre = cur; // cur node pass to pre;
+
+            dfs(cur.right);
+        }
+        dfs(root);
+        return res;
+    }
+}
