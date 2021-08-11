@@ -14,9 +14,9 @@ print findSmallest([1, 2, 3, 8, 9, 10])
 # 7
 */
 
-//t: O(N) s:O(1)
+//t: O(N) s: O(1)
 const findSmallest =  arr => {
-    let res = 1; // teh smallest num
+    let res = 1; // the smallest num
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > res) return res;
