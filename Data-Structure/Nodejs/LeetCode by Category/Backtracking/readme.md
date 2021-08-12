@@ -14,6 +14,7 @@ size: 16:9
 - https://www.jianshu.com/p/e6e9b8d516b8
 - https://www.jianshu.com/p/f6d3732e86fb
 - https://github.com/azl397985856/leetcode/blob/master/thinkings/backtrack.md
+- 回溯法并不是什么高效的算法
 
 ---
 
@@ -36,6 +37,8 @@ const backtrack(路径, 选择列表) => {
 
 ---
 
+- https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
+
 ### for 循环横向遍历，递归纵向遍历，回溯不断调整结果集，这个理念贯穿整个回溯法系列
 
 ### 在 for 循环上做剪枝操作是回溯法剪枝的常见套路
@@ -46,7 +49,7 @@ const backtrack(路径, 选择列表) => {
 
 ### 回溯
 
--
+- https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
 - 回溯是递归的副产品，只要有递归就会有回溯。
 - 回溯法解决的问题都可以`抽象为树形结构`，是的，我指的是`所有回溯法的问题都可以抽象为树形结构！`
 - `回溯搜索算法`就是在这棵多叉树上做`深度优先遍历` (深度优先遍历由于有“回头”的过程，在“回头”以后，状态变量需要设置成为和之前刚来到这个结点的时候一样。具体的表现就是：在回到上一层结点的时候，需要撤销上一次选择，这个操作也称之为“状态重置”，这里“状态重置”就是“回溯算法”里“回溯”的本意)
