@@ -1,9 +1,13 @@
-// 131. Palindrome Partitioning
+// 131. Palindrome Partitioning 131. 分割回文串
 /*
  * Given a string s, partition s such that every substring of the partition is a
  * palindrome. Return all possible palindrome partitioning of s.
  * 
  * A palindrome string is a string that reads the same backward as forward.
+ * 
+ * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
+
+回文串 是正着读和反着读都一样的字符串。
  * 
  * Input: s = "aab" Output: [["a","a","b"],["aa","b"]] Input: s = "a" Output:
  * [["a"]]
@@ -38,7 +42,7 @@
 
         const isPalindrome = (s, start, end) => {
             while (start < end) {
-                if (s[start++] != s[end--]) return false;
+                if (s[start++] !== s[end--]) return false;
             }
             return true;
         }
@@ -48,7 +52,7 @@
                 res.push(path.slice());//deep copy string
             } else {
                 for (let end = start; end < s.length; end++) {
-                    if (isPalindrome(s, start, end)) { 
+                    if (isPalindrome(s, start, end)) {
                         path.push(s.substring(start, end + 1));
                         backTracking(end + 1); //isPalindrome add 1 more
                         path.pop();
@@ -61,4 +65,40 @@
 
         return res;
     };
+}
+{
+    var partition = function (s) {
+        const res = [];
+        const path = [];
+        const isPalindrome = (str, left, right) => {
+            while (left < right) {
+                if (str[left] != str[right]) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        const backTracking = (path, startIndex) => {
+            if (startIndex === s.length) {
+                res.push(path.slice());
+                return;
+            }
+            for (let i = startIndex; i < s.length; i++) {
+                if (!isPalindrome(s, startIndex, i)) continue;
+
+                path.push(s.substring(startIndex, i + 1));
+                backTracking(path, i + 1);
+                path.pop();
+
+            }
+        }
+        backTracking(path, 0);
+        return res;
+    };
+    let s = "aab";
+    console.log()
+
 }
