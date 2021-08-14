@@ -72,7 +72,7 @@
         const path = [];
         const isPalindrome = (str, left, right) => {
             while (left < right) {
-                if (str[left] != str[right]) {
+                if (str[left] !== str[right]) {
                     return false;
                 }
                 left++;
@@ -82,23 +82,37 @@
         }
 
         const backTracking = (path, startIndex) => {
+
+            //console.log('backTracking(path=', path, 'startIndex=', startIndex, ')', 'res=', res);
+
             if (startIndex === s.length) {
                 res.push(path.slice());
                 return;
             }
             for (let i = startIndex; i < s.length; i++) {
-                if (!isPalindrome(s, startIndex, i)) continue;
 
+                if (!isPalindrome(s, startIndex, i)) {
+                    console.log('not isPalindrome', 'str=', s.substring(startIndex, i + 1));
+                    continue;
+                }
+
+                
+
+                console.log('--before path push-- (path=', path, 'startIndex=',startIndex,'i + 1 =',i + 1, 'res=', res);
                 path.push(s.substring(startIndex, i + 1));
+                console.log('--after path push-- (path=', path, 'startIndex=',startIndex,'i + 1 =',i + 1, 'res=', res);
                 backTracking(path, i + 1);
+                console.log('--before path pop -- (path=', path,'res=', res);
                 path.pop();
+                console.log('--after path pop -- (path=', path,'res=', res);
 
             }
         }
         backTracking(path, 0);
         return res;
     };
-    let s = "aab";
-    console.log()
-
+    let str = "aab";
+    console.log(partition(str));
+    //[a | a | b] and [aa | b]
+    //not answer [a|ab] [aab]
 }
