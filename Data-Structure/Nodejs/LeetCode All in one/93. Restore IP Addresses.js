@@ -28,6 +28,7 @@ Input: s = "101023" Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","10
     var restoreIpAddresses = function (s) {
         if (s.length > 12) return [];
         let res = [];
+
         const backTracking = (s, startIndex, dots) => {
             if (dots === 3) { // 4 blocks
                 if (isValid(s, startIndex, s.length - 1)) { // check last block
@@ -75,3 +76,60 @@ Input: s = "101023" Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","10
     }
 }
 //IP to CIDR
+{
+    var restoreIpAddresses = function (s) {
+        const ans = [];
+        const dfs = (n, str, rest) => {
+            // console.log(n, str);
+            if (n === 4 && rest.length === 0) {
+                const tmp = str.substring(0, str.length - 1);
+                if (!ans.includes(tmp)) {
+                    ans.push(tmp);
+                }
+                return;
+            }
+            if (n === 4 || rest.length === 0) {
+                return;
+            }
+            for (let j = 1; j <= 3; j++) {
+                const left = rest.substring(0, j);
+                const right = rest.substring(j);
+                if (left[0] === '0' && left.length > 1) {
+                    continue;
+                }
+                const cur = +left;
+                if (cur >= 0 && cur <= 255) {
+                    dfs(n + 1, str + cur + '.', right);
+                }
+            }
+        }
+        dfs(0, '', s);
+        return ans;
+    };
+}
+{
+    var restoreIpAddresses = function (s) {
+        if (s.length < 4) return [];
+        let res = new Set(); // remove repeat
+        let path = [];
+        function backTracking(remainStr, strLen) {
+            if (strLen === 4) {
+                let result = [...path].join('.');
+                if (result.length === s.length + 3) {
+                    res.add(result);
+                }
+                return;
+            }
+            for (let i = 1; i < 4; i++) {
+                let str = remainStr.slice(0, i);
+                if (+str > 255 || !str) continue;
+                if (str[0] == '0' && str.length > 1) continue;
+                path.push(str)
+                backTracking(remainStr.slice(i), strLen + 1); // remainStr.slice(i) as remainStr
+                path.pop();
+            }
+        }
+        backTracking(s, 0);
+        return [...res];
+    };
+}

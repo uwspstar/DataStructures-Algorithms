@@ -11,6 +11,28 @@ Input: nums = [0] Output: [[],[0]]
 //那么既然是无序，取过的元素不会重复取，写回溯算法的时候，for就要从startIndex开始，而不是从0开始！
 {
     var subsets = function (nums) {
+        let res = [];
+        let path = [];
+
+        const backTracking = (startIndex, len) => {
+            if (path.length === len) {
+                res.push([...path]);
+                return;
+            }
+            for (let i = startIndex; i < nums.length; i++) {
+                path.push(nums[i]);
+                backTracking(i + 1, len);
+                path.pop();
+            }
+        }
+        for (let len = 0; len <= nums.length; len++) {
+            backTracking(0, len); // 子集 len = 0, 1, 2
+        }
+        return res;
+    };
+}
+{
+    var subsets = function (nums) {
         const res = [];
 
         const backtrack = (path, len, startIndex) => {
@@ -36,3 +58,52 @@ Input: nums = [0] Output: [[],[0]]
     //Letter Case Permutation
 }
 
+{
+    var subsets = function (nums) {
+        let res = [];
+        let path = [];
+        let k = nums.length;
+
+        const backTracking = (startIndex) => {
+            if (path.length <= k) {
+                res.push([...path]);
+                //return; cannot use return here
+            }
+            console.log('res=', res);
+
+            for (let i = startIndex; i < nums.length; i++) {
+                path.push(nums[i]);
+                console.log('backTracking(startIndex=', startIndex + 1, ')', 'path=', path);
+                backTracking(i + 1);
+                path.pop();
+            }
+        }
+        backTracking(0);
+
+        return res;
+    };
+}
+{
+    var subsets = function (nums) {
+        let res = [];
+        let path = [];
+        //let k = nums.length;
+        const backTracking = (startIndex) => {
+            /*
+            if (path.length <= k) {
+                res.push([...path]);
+                //return; //cannot use return here
+            }*/
+            res.push([...path]);
+            for (let i = startIndex; i < nums.length; i++) {
+                path.push(nums[i]);
+                console.log('backTracking(startIndex=', startIndex + 1, ')', 'path=', path);
+                backTracking(i + 1);
+                path.pop();
+            }
+        }
+        backTracking(0);
+
+        return res;
+    };
+}
