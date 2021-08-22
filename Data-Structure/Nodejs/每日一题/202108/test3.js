@@ -1,3 +1,46 @@
+{
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+    const selectionSort = arr => {
+        if (arr.length < 2) return arr;
+        let len = arr.length;
+        for (let i = 0; i < len; i++) {
+            let smallIndex = i;
+            for (let j = i + 1; j < len; j++) {
+                if (arr[j] < arr[smallIndex]) {
+                    smallIndex = j;
+                }
+            }
+            if (smallIndex !== i) swap(arr, smallIndex, i);
+        }
+        return arr;
+    }
+    let selectionSortArr = [5, 3, 8, 6, 1, 2,];
+    console.log('selectionSort', selectionSort(selectionSortArr));
+
+}
+{
+
+    const insertionSort = arr => {
+        if (arr.length < 2) return arr;
+        let len = arr.length;
+        for (let i = 1; i < len; i++) {
+            let curr = arr[i];
+            let j = i - 1;
+            for (; j >= 0; j--) {
+                if (arr[j] > curr) {
+                    arr[j + 1] = arr[j];
+                } else break;
+            }
+            arr[j + 1] = curr;
+        }
+        return arr;
+    }
+    let arr = [5, 3, 8, 6, 1, 2,];
+    console.log('insertionSort', insertionSort(arr));
+
+}
+
+
 
 {
     const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];

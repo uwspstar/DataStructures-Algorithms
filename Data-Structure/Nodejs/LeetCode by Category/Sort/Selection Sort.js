@@ -21,3 +21,25 @@
     }
     console.log('2: selectionSort', JSON.stringify(selectionSort(arr)));
 }
+{
+    //where it is wrong
+
+    const selectionSort = arr => {
+        if (arr.length < 2) return arr;
+        let len = arr.length;
+
+        for (let i = 0; i < len; i++) {
+            let smallIndex = i;
+            for (let j = i + 1; j < len; j++) {
+                if (arr[j] < arr[smallIndex]) {
+                    smallIndex = i;
+                }
+            }
+            if (smallIndex !== i) swap(arr, smallIndex, i);
+        }
+        return arr;
+    }
+
+    // pay attention :  smallIndex = i; ??? or smallIndex = j;
+
+}
