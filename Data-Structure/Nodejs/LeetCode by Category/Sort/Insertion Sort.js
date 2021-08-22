@@ -8,9 +8,12 @@
             for (; j >= 0; j--) {
                 if (arr[j] > current) {
                     arr[j + 1] = arr[j];
+
+                    console.log('1 -> arr', arr, 'current=', current, 'j=', j, 'i=', i);
                 } else break;
             }
             arr[j + 1] = current;
+            console.log('2 -> arr', arr, 'current=', current, 'j=', j, 'i=', i);
         }
         return arr;
     }

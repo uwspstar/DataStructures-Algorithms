@@ -1,46 +1,29 @@
-var isValidSudoku = function (board) {
-    let map = {};
-    let m = board.length;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < m; j++) {
-            let tmp = board[i][j];
-            if (tmp === '.') continue; 
-
-            if (map['row_' + i + '_' + tmp]) {
-                return false;
-            } else {
-                map['row_' + i + '_' + tmp] = true;
-            }
-            if (map['col' + j + '_' + tmp]) {
-                return false;
-            } else {
-                map['col_' + j + '_' + tmp] = true;
-            }
-            if (map['block' + '_' + Math.floor(i / 3) + '_' + Math.floor(j / 3) + '_' + tmp]) {
-                return false;
-            } else {
-                map['block' + '_' + Math.floor(i / 3) + '_' + Math.floor(j / 3) + '_' + tmp] = true;
-            }
+var combine = function (n, k) {
+    let res = [];
+    let path = [];
+ 
+    const backTracking = (n, k, idx) => {
+        
+        if (path.length === k) {
+            res.push([...path]);
+            console.log('....res=', res);
+            return;
         }
+        // i <= n - (k - path.length) + 1;
+        for (let i = idx; i <= n; i++) {
+            path.push(i);
+            console.log('i=', i,'backTracking (idx=', idx,')','path=',path, 'path.push(',i,')');
+            backTracking(n, k, i + 1);
+            path.pop(i);
+            console.log('backTracking (idx=', idx,')', 'path=',path,'path.pop(',i,')');
+        }
+ 
     }
-    console.log('map=',map)
-    return true;
-};
+ 
+    backTracking(n, k, 1);
+ 
+    return res;
+ };
 
-let board1 = [
-    ["5", "3", ".", ".", "7", ".", ".", ".", "."]
-    , ["6", ".", ".", "1", "9", "5", ".", ".", "."]
-    , [".", "9", "8", ".", ".", ".", ".", "6", "."]
-    , ["8", ".", ".", ".", "6", ".", ".", ".", "3"]
-    , ["4", ".", ".", "8", ".", "3", ".", ".", "1"]
-    , ["7", ".", ".", ".", "2", ".", ".", ".", "6"]
-    , [".", "6", ".", ".", ".", ".", "2", "8", "."]
-    , [".", ".", ".", "4", "1", "9", ".", ".", "5"]
-    , [".", ".", ".", ".", "8", ".", ".", "7", "9"]];
-//Output: true
-console.log(isValidSudoku(board1));
-
-let board2 = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]];
-//Output: true
-console.log(isValidSudoku(board2));
-
+ console.log(combine(3, 2));
+ 
