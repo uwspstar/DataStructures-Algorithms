@@ -208,8 +208,17 @@ function countdown(i) {
 - 知道的算法中，图算法应该是最有用的
 - 创建网络模型
 - 到 X 的最短路径 shortest-path problem
-- 有向图和无向图
+- 有向图和无向图 : 无向图意味着两个节点彼此指向对方，其实就是环
 - 拓扑排序，这种排序算法指出了节点之间的依赖关系
+
+---
+
+### 图算法 广度优先 狄克斯特拉 贝尔曼-福德
+
+- 广度优先搜索用于在非加权图中查找最短路径。
+- 狄克斯特拉算法用于在加权图中查找最短路径。
+- 仅当权重为正时狄克斯特拉算法才管用。
+- 如果图中包含负权边，请使用贝尔曼-福德算法。
 
 ---
 
@@ -251,28 +260,112 @@ graph["you"] = ["alice", "bob", "claire"]
 ---
 
 ### 狄克斯特拉算法 Dijkstra's algorithm
+
+- 如果有负权边，就不能使用狄克斯特拉算法
+- 狄克斯特拉算法背后的关键理念:找出图中最便宜的节点，并确保没有到该节点的更便宜的路径
 - 起点到终点耗时最短的路径，你将使用狄克斯特拉算法
 - 加权图 : 提高或降低某些边的权重
 - 最短路径，因为段数最少，但不一定是最快路径
 
-### 狄克斯特拉算法包含4个步骤。
-- (1) 找出“最便宜”的节点，即可在最短时间内到达的节点。 
+---
+
+### 最短路径 : 指的并不一定是物理距离，也可能是让某种度量指标最小
+
+- 节点一旦被处理，就意味着没有前往该节点的更便宜途径
+- 在包含负权边的图中，要找出最短路径，可使用另一种算法——贝尔曼-福 德算法 (Bellman-Ford algorithm)
+
+---
+
+### 狄克斯特拉算法包含 4 个步骤。
+
+- (1) 找出“最便宜”的节点，即可在最短时间内到达的节点。
 - (2) 更新该节点的邻居的开销，其含义将稍后介绍。
-- (3) 重复这个过程，直到对图中的每个节点都这样做了。 
+- (3) 重复这个过程，直到对图中的每个节点都这样做了。
 - (4) 计算最终路径。
+
+---
+
+```python
+node = find_lowest_cost_node(costs) #←------在未处理的节点中找出开销最小的节点
+while node is not None: #←------这个while循环在所有节点都被处理过后结束
+  cost = costs[node]
+  neighbors = graph[node]
+  for n in neighbors.keys(): #←------遍历当前节点的所有邻居
+    new_cost = cost + neighbors[n]
+    if costs[n] > new_cost: #←------如果经当前节点前往该邻居更近，
+      costs[n] = new_cost #←------就更新该邻居的开销
+      parents[n] = node #←------同时将该邻居的父节点设置为当前节点
+  processed.append(node) #←------将当前节点标记为处理过
+  node = find_lowest_cost_node(costs) #←------找出接下来要处理的节点，并循环
+```
+
+---
+
+```python
+def find_lowest_cost_node(costs):
+  lowest_cost = float("inf")
+  lowest_cost_node = None
+  for node in costs: #←------遍历所有的节点
+    cost = costs[node]
+  if cost < lowest_cost and node not in processed: #←------如果当前节点的开销更低且未处理过，
+    lowest_cost = cost #←------就将其视为开销最低的节点
+    lowest_cost_node = node
+  return lowest_cost_node
+```
+
+---
+
+### 贪婪算法 : 每步都采取最优的做法。
+
+- 教室调度问题
+- 背包问题 : 贪婪策略显然不能获得最优解，但非常接近
+- 集合覆盖问题
+
+---
+
+### NP 完全问题 Non-deterministic Polynomial
+
+- NP 就是 Non-deterministic Polynomial 的问题，也即是多项式复杂程度的非确定性问题。
+- 而如果任何一个 NP 问题都能通过一个多项式时间算法转换为某个 NP 问题，那么这个 NP 问题就称为 NP 完全问题（Non-deterministic Polynomial complete problem）
+- NP 完全问题 : 要判断问题是不是 NP 完全问题很难，易于解决的问题和 NP 完全问题 的差别通常很小
+- 旅行商问题 : 阶乘函数 (factorial function)
+
+---
+
+### 集合
+
+- 并集意味着将集合合并。
+- 交集意味着找出两个集合中都有的元素。
+- 差集意味着将从一个集合中剔除出现在另一个集合中的元素。
+
+---
+
+```python
+>>> fruits = set(["avocado", "tomato", "banana"])
+>>> vegetables = set(["beets", "carrots", "tomato"])
+>>> fruits | vegetables #←------并集
+set(["avocado", "beets", "carrots", "tomato", "banana"])
+>>> fruits & vegetables #←------交集
+set(["tomato"])
+>>> fruits – vegetables #←------差集
+set(["avocado", "banana"])
+>>> vegetables – fruits ←------你觉得这行代码是做什么的呢?
+```
+
+---
+
+### 动态规划 dp (dynamic) : bottom up
+
+- fibonacci
+- stair way
+
+---
 
 # backtracking
 
 - permute arr
 - permute str
 - permute with duplicate
-
----
-
-# dp (dynamic) : bottom up
-
-- fibonacci
-- stair way
 
 ---
 

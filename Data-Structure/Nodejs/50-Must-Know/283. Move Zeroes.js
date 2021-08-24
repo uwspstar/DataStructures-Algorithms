@@ -27,3 +27,19 @@ Example 2: Input: nums = [0] Output: [0]
     //Range Sum of Sorted Subarray Sums
     //Rotating the Box
 }
+{
+    // move 0, on left, 1 on right, in place
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+    const sort01 = arr => {
+        if (arr.length < 2) return arr;
+        let p = -1;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === 0) {
+                p++;
+                swap(arr, i, p);
+            }
+        }
+    }
+    console.log(sort01([0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1]));
+
+}
