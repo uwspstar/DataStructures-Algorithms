@@ -9,6 +9,8 @@ Example 2: Input: nums = [0] Output: [0]
 */
 
 {
+    // T : O(N)
+    // S : O(1)
     var swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     var moveZeroes = function (nums) {
         let p = 0;
@@ -41,5 +43,32 @@ Example 2: Input: nums = [0] Output: [0]
         }
     }
     console.log(sort01([0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1]));
+
+}
+{
+    //75. Sort Colors : 3 way partition (Dutch National Flag problem)
+    //Input: nums = [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+    var sortColors = function (nums) {
+        let p0 = 0;
+        let curr = 0;
+        let p2 = nums.length - 1;
+        while (curr <= p2) { // < and ==
+            if (nums[curr] === 2) {
+                swap(nums, p2, curr);
+                p2--;
+            } else if (nums[curr] === 0) {
+                swap (nums, curr, p0);
+                curr++;
+                p0++;
+            } else {
+                curr++;
+            }
+        }
+        return nums;
+    }
+
+    console.log('sortColors = ',sortColors([2,0,1,2,0,1,1,2,2,1,1,0,0,1]))
 
 }
