@@ -356,8 +356,11 @@ set(["avocado", "banana"])
 
 ### 动态规划 dp (dynamic) : bottom up
 
+- 找到最优解
+- 动态规划先解决子问题，再逐步解决大问题。
 - fibonacci
 - stair way
+- 背包问题
 
 ---
 
