@@ -11,16 +11,19 @@ Input: nums = [1,0,1,1,0,1] Output: 4
     //flip at most one 0.
     //sliding window
     //[1,0,1,1,0]
+
     var findMaxConsecutiveOnes = function (nums) {
         let fast = 0;
         let slow = 0;
         let zeroCount = 0;
         let max = 0;
+
         while (fast < nums.length) {
             //only one '0'
             if (nums[fast] == 0) {
                 zeroCount++;
             }
+            
             //shrink the window
             while (zeroCount == 2) {
                 if (nums[slow] == 0) {
