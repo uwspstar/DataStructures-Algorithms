@@ -47,3 +47,22 @@ Input: nums = [3,3], target = 6 Output: [0,1]
 Two Sum uses a hashmap to find complement values, and therefore achieves O(N) time complexity.
 Two Sum II uses the two pointers pattern and also has O(N) time complexity for a sorted array. **** We can use this approach for any array if we sort it first, which bumps the time complexity to O(nlogn).
 */
+
+{
+    
+    var judgeSquareSum = function(c) {
+        let left = 0;
+        let right = Math.floor(Math.sqrt(c));
+        while (left <= right) {
+            const sum = left * left + right * right;
+            if (sum === c) {
+                return true;
+            } else if (sum > c) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return false;
+    };
+}

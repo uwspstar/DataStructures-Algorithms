@@ -43,7 +43,10 @@ Input: nums = [3,3], target = 6 Output: [0,1]
         return [];
     };
 
-    console.log(twoSum([1, 8, 1, 8, 1, 8, 1, 8, 12], 21));
+    //console.log(twoSum([1, 8, 1, 8, 1, 8, 1, 8, 12], 21));
+    let nums = [2, 7, 11, 15];
+    let target = 9;
+    console.log('twoSum', twoSum(nums, target));
 }
 /*
 Two Sum uses a hashmap to find complement values, and therefore achieves O(N) time complexity.
@@ -142,4 +145,39 @@ Output: false
         }
         return false
     };
+}
+
+//633. Sum of Square Numbers
+{
+    // two Pointers
+    // T: O(sqrt(c))
+    // S: O(1)
+    var judgeSquareSum = function (c) {
+        let left = 0;
+        let right = Math.floor(Math.sqrt(c));
+        while (left <= right) {
+            const sum = left * left + right * right;
+            if (sum === c) {
+                return true;
+            } else if (sum > c) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return false;
+    };
+}
+{
+    // T: O(sqrt(c))
+    // S: O(1)
+    const judgeSquareSum = c => {
+        for (let a = 0; a * a < c; a++) {
+            let b = Math.floor(Math.sqrt(c - a * a));
+            if ((b * b + a * a) === c) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

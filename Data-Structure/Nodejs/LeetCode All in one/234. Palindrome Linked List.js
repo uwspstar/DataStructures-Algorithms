@@ -4,10 +4,12 @@ Given the head of a singly linked list, return true if it is a palindrome.
 Input: head = [1,2,2,1] Output: true
 Input: head = [1,2] Output: false
 */
-//1.Copy into Array List and then Use Two Pointer Technique
-//2.reverse LinkedList,compare two LinkedList
+//1. Copy into Array List and then Use Two Pointer Technique
+//2. reverse LinkedList, compare two LinkedList
 //3. reverse seconde half to compare
 {
+    // T: O(N) 
+    // S: O(N)
     var isPalindrome = function (head) {
         let arr = [];
         let currentNode = head;
