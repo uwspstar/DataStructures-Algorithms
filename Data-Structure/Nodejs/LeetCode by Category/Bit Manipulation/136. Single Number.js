@@ -18,14 +18,18 @@ Follow up: Could you implement a solution with a linear runtime complexity and w
         return bits;
     };
 }
+
+// a ^ a = 0;
+// a ^ 0 = a;
 // (a ^ b) ^ b = a。
 // total b is even number, b is gone
 {
     var singleNumber = function (arr) {
-        let a = 0;
+        let a = 0; // a ^ 0 = a;
+
         for (let i = 0; i < arr.length; i++) {
             let b = arr[i]
-            a = a ^ b;
+            a = a ^ b; 
         }
         return a;
 
