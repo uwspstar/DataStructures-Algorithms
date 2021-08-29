@@ -9,7 +9,7 @@ size: 16:9
 
 ### 链表题目
 
-- [链表题目(js实现)]: (https://shorturl.at/fiCS0)
+- [链表题目(js实现)](https://shorturl.at/fiCS0)
 
 ---
 
