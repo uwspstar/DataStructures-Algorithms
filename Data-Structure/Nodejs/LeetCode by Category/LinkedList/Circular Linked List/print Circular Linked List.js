@@ -1,6 +1,7 @@
 // use do while to check the stop
 
 //[->8->3->9->6>2]
+
 {  //iteration
     const displayCircleLinkedListNode = head => {
 
@@ -9,18 +10,30 @@
             console.log(curr.val)
             curr = curr.next;
         } while (head !== curr)
-
     }
+
 }
-
-{ //recursive
-
+{
+    //iteration
     const displayCircleLinkedListNode = head => {
 
-        let flag  = 0;
+        console.log(head.val);
+
+        let curr = head.next;
+
+        while (head !== curr) {
+            console.log(curr.val)
+            curr = curr.next;
+        }
+    }
+}
+{ //recursive
+    const displayCircleLinkedListNode = head => {
+
+        let flag = 0;
         let curr = head;
         const helpDisplayCircleLinkedListNode = curr => {
-            if (curr !== head ||flag === 0 ) {
+            if (curr !== head || flag === 0) {
                 flag = 1;
                 console.log(curr.val);
                 helpDisplayCircleLinkedListNode(curr.next);
@@ -28,5 +41,22 @@
             flag = 0;
         }
         helpDisplayCircleLinkedListNode(curr);
+    }
+}
+{
+    {
+        //recursive
+        const displayCircleLinkedListNode = (head) => {
+            console.log(head.val);
+
+            const help = (curr) => {
+                if (head === curr) return;
+                console.log(curr.val)
+                curr = curr.next;
+                displayCircleLinkedListNode (curr)
+            }
+            
+            help(head.next);
+        }
     }
 }

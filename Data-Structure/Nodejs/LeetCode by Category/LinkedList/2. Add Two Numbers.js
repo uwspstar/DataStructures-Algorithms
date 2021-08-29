@@ -4,10 +4,8 @@ You are given two non-empty linked lists representing two non-negative integers.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 */
-
-
-
 {
+    // create new linked list
     var addTwoNumbers = function (l1, l2) {
         let dummy = new ListNode(0);
         let p = dummy;

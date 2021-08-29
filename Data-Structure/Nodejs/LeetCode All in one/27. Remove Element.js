@@ -46,4 +46,18 @@ Explanation: Your function should return length = 5, with the first five element
     Matrix Diagonal Sum
     Count Good Meals
     */
+   {
+    const removeElement = (nums, val) => {
+        let fast = 0, slow = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+        return slow;
+     }
+     
+   }
 }

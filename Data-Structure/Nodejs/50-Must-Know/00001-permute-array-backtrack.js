@@ -16,8 +16,11 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
                 console.log('path=', path, 'n=', n);
                 
                 if (path.indexOf(n) >= 0) return;
+
                 console.log('-----', n);
+
                 let tmp = path.concat(n);
+                
                 console.log('tmp=', tmp);
 
                 backtrack(tmp);

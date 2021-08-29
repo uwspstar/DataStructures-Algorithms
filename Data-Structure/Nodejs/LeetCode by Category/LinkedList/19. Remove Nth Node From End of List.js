@@ -3,37 +3,41 @@
 Given the head of a linked list, remove the nth node from the end of the list and return its head.
 */
 {
-    /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-    /**
-     * @param {ListNode} head
-     * @param {number} n
-     * @return {ListNode}
-     */
-
-    // Time Complexity: O(N)
-    // Space Complexity: O(1)
+    // T: O(N)
+    // S: O(1)
+    // two pointers, fast go n steps first, then, fast and slow both moving
+    // so the fast is n steps ahead the slow;
+    // when fast reach the end of the list, the slow is pointing the n node
+    // we need a pre node to remember the node before slow
     var removeNthFromEnd = function (head, n) {
+        if (head === null) return null;
+
         let pre = null;
         let slow = head;
         let fast = head;
-
+        
+        // this for loop may have problem, if n is bigger than linked list length;
+        /*
         for (let i = 0; i < n; i++) {
             fast = fast.next;
         }
+        */
+        while (n && fast) {
+            fast = fast.next;
+            n--;
+        }
+
+        if (n > 0) return null; // n is longer than the linked list
 
         while (fast) {
             pre = slow;
             slow = slow.next;
             fast = fast.next;
         }
+
         // Now, cur points to the n-th node from the end and prev points to the previous node
-        if (pre === null) return slow.next; // **** this is when head node is the node to be deleted
+        if (pre === null) return slow.next; // **** this is when head node is the node to be 
+        deleted
 
         pre.next = slow.next;
 

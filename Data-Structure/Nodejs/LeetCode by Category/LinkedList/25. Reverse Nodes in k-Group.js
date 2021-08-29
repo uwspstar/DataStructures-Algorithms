@@ -11,41 +11,53 @@ Input: head = [1,2,3,4,5], k = 3 Output: [3,2,1,4,5]
 Input: head = [1,2,3,4,5], k = 1 Output: [1,2,3,4,5]
 Input: head = [1], k = 1 Output: [1]
 */
-const reverse = (head, k) => {
-    let curr = head;
-    let pre = null;
-    let next = null;
-    while (curr && k > 0) {
-        next = curr.next;
-        curr.next = pre;
-        pre = curr;
-        curr = next;
-        k--;
+{
+    // create a reverse  help function;
+    // check 206. Reverse Linked List before start this one;
+
+    const reverse = (head, k) => {
+        let curr = head;
+        let pre = null;
+        let next = null;
+        while (curr && k > 0) {
+            next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+            k--;
+        }
+        //head = pre;
+        return pre;
     }
-    //head = pre;
-    return pre;
+    var reverseKGroup = function (head, k) {
+
+        if (head === null || k === 1) return head;
+
+        let dummy = new ListNode(0, head);
+
+        let curr = head;
+        let pre = dummy;
+
+        while (curr) {
+            let currHead = curr;
+            let count = 0;
+
+            while (curr && count < k) {
+                curr = curr.next;
+                count++;
+            }
+
+            if (count === k) { // reverse k-Group
+                pre.next = reverse(currHead, k);
+                pre = currHead;
+                
+            } else { // rest link
+                pre.next = currHead;
+            }
+        }
+        return dummy.next;
+    };
 }
-var reverseKGroup = function (head, k) {
-    if (head === null || k === 1) return head;
-    let dummy = new ListNode(0, head);
-    let curr = head;
-    let pre = dummy;
-    while (curr) {
-        let currHead = curr;
-        let count = 0;
-        while (curr && count < k) {
-            curr = curr.next;
-            count++;
-        }
-        if (count === k) { // reverse k-Group
-            pre.next = reverse(currHead, k);
-            pre = currHead;
-        } else { // rest link
-            pre.next = currHead;
-        }
-    }
-    return dummy.next;
-};
 
 {
     const myReverse = (head, tail) => {

@@ -5,6 +5,24 @@ class ListNode {
     }
 }
 {
+    //翻转链表(递归方式) 
+    const reverse = head => {
+        if (head.next === null || head === null) return head;
+
+        let reverseNode = reverse(head.next);
+        // after revise head.next, we have two node, head and reverseNode
+        // head.next is reverseNode; and we wan the reverseNode.next is head;
+        // reverseNode -> head;
+        // reverseNode.next = head;
+        // head.next.next is head;
+        head.next.next = head;
+        //reverseNode -> head -> null;
+        head.next = null;
+
+        return reverseNode;
+    }
+}
+{
     const reverse = head => {
         if (head === null || head.next === null) return head;
         let cur = head;
@@ -16,23 +34,13 @@ class ListNode {
             pre = cur;
             cur = next;
         }
-        head = pre;
+        head = pre; // pre is new head now;
+
         return head;
     }
 }
 {
-    //翻转链表(递归方式) 
-    const reverse = head => {
-        if (head.next === null || head === null) return head;
-
-        let reverseNode = reverse(head.next);
-        head.next.next = head;
-        head.next = null;
-
-        return reverseNode;
-    }
-}
-{
+    //翻转链表(递归方式) from while loop, not recommend,
     const reverse = (head, cur = head, pre = null, next = null) => {
         if (head === null || head.next === null) return head;
         if (cur === null) return head;

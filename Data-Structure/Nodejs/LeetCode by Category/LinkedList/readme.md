@@ -7,15 +7,25 @@ paginate: true
 size: 16:9
 ---
 
-### 线性表
+### 链表题目
 
-- 若线性表需要频繁查找，很少进行插入和删除操作时，宜采用顺序存储结构。
-- 若需要频繁插入和删除时，宜采用单链表结构.
-- 当线性表中的元素个数变化较大或者根本不知道有多大时，最好用单链表结构，这样可以不需要考虑存储空间的大小问题。
+- [链表题目(js实现)]: (https://shorturl.at/fiCS0)
+
+---
+
+### 线性表 vs 单链表
+
+- 链表的优势在插入, 删除, 元素方面, 当需要在中间插入, 删除, 元素时，链表是更好的选择。
+- 若线性表需要频繁查找，很少进行`插入`和`删除`操作时，宜采用`顺序存储结构`。
+- 若需要`频繁插入和删除`时，宜采用`单链表结构`.
+- 当线性表中的元素个数变化较大或者根本不知道有多大时，最好用`单链表结构`，这样可以`不需要考虑存储空间的大小问题`。
 - 如果事先知道线性表的大致长度，用顺序存储结构效率会高很多.
+
+---
 
 # Linked list
 
+- A Linked list is a `recursive structure`.
 - https://lucifer.ren/blog/2020/11/08/linked-list/
 - https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/k-ge-yi-zu-fan-zhuan-lian-biao-by-leetcode-solutio/
 - 链表的考点很单一
@@ -26,7 +36,8 @@ size: 16:9
 ---
 
 - https://lucifer.ren/blog/2020/11/08/linked-list/
-- 如果是前序遍历，那么你可以想象前面的链表都处理好了，怎么处理的不用管。相应地如果是后序遍历，那么你可以想象后面的链表都处理好了，怎么处理的不用管
+- 如果是前序遍历，那么你可以想象前面的链表都处理好了，怎么处理的不用管。
+- 相应地如果是后序遍历，那么你可以想象后面的链表都处理好了，怎么处理的不用管
 
 ---
 
@@ -36,7 +47,6 @@ size: 16:9
   - 虚拟头
   - 快慢指针
   - 穿针引线
-  -
 
 ---
 
@@ -57,7 +67,7 @@ size: 16:9
 
 ### circular linked list 循环链表
 
-- 循环链表和单链表的主要差异就在于循环的判断条件上，原来是判断 p.next 是否为空，现在则是 `p.next 不等于头结点`，则循环未结束
+- `循环链表`和`单链表`的主要差异就在于循环的判断条件上，原来是判断 p.next 是否为空，现在则是 `p.next 不等于头结点`，则循环未结束
 
 ---
 
@@ -83,31 +93,41 @@ size: 16:9
 
 ### 逆序遍历
 
-- 如果是链表逆序遍历，通常需要借助于双向链表。而双向链表在力扣的题目很少，因此大多数你没有办法拿到前驱节点，这也是为啥很多时候会自己记录一个前驱节点 pre 的原因。
+- 如果是链表逆序遍历，通常需要借助于`双向链表`。而双向链表在力扣的题目很少，因此大多数你没有办法拿到前驱节点，这也是为啥很多时候会自己记录一个前驱节点 pre 的原因。
 
 ---
 
 ### linked list and tree
 
-- 有没有想过为啥只有二叉树，而没有一叉树。实际上链表就是特殊的树，即一叉树。
+- 有没有想过为啥只有二叉树，而没有一叉树。实际上`链表就是特殊的树，即一叉树`。
 
 ---
 
-# dummy head : when need to return a new list, merger list,
+### dummy head
 
-# fast slow pointer : reverse, looking kth element, middle index, circle
+- when need to return a new list, merger list,
+
+---
+
+### fast slow pointer
+
+- reverse,
+- looking kth element,
+- middle index,
+- circle
 
 ---
 
 ### 如何翻转一个分组内的子链表
 
-- 翻转一个子链表，并且返回新的头与尾
+### 翻转一个子链表，并且返回新的头与尾
 
 ```js
 const myReverse = (head, tail) => {
   let prev = tail.next;
   let curr = head;
   let nex = null;
+
   while (prev !== tail) {
     nex = curr.next;
     curr.next = prev;
@@ -120,13 +140,14 @@ const myReverse = (head, tail) => {
 
 ---
 
-- 翻转一个 Kth nodes 链表
+### 翻转一个 Kth nodes 链表
 
 ```js
 function reverse(head, k) {
   let prev = null;
   let curr = head;
   let next = null;
+
   while (curr && k > 0) {
     next = curr.next;
     curr.next = prev;
@@ -137,12 +158,6 @@ function reverse(head, k) {
   return prev;
 }
 ```
-
----
-
-### linked list vs array
-
-- 链表的优势在插入, 删除, 元素方面, 当需要在中间插入, 删除, 元素时，链表是更好的选择。
 
 ---
 
@@ -166,8 +181,16 @@ const reverseLinkedList = (head) => {
     pre = cur;
     cur = next;
   }
-};
 
+  head = pre; // pre is the new head
+
+  return head;
+};
+```
+
+---
+
+```js
 var reverseBetween = function (head, left, right) {
   const dummyNode = new ListNode();
   dummyNode.next = head;
@@ -258,4 +281,4 @@ head.next = ListNode(4); // ListNode(4) address 3234,  head.next 3234
 
 - It's easy to forget to update next (and previous for double linked list) for the head and tail.
 
-- Algorithms operating on singly linked lists often benefit from using two iterators, one ahead of the other, or one advancing quicker than the other. 
+- Algorithms operating on singly linked lists often benefit from using two iterators, one ahead of the other, or one advancing quicker than the other.
