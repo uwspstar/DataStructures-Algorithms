@@ -31,7 +31,7 @@ Input: head = [1], k = 1 Output: [1]
     }
     var reverseKGroup = function (head, k) {
 
-        if (head === null || k === 1) return head;
+        if (head === null || head.next === null || k === 1) return head;
 
         let dummy = new ListNode(0, head);
 
@@ -50,7 +50,7 @@ Input: head = [1], k = 1 Output: [1]
             if (count === k) { // reverse k-Group
                 pre.next = reverse(currHead, k);
                 pre = currHead;
-                
+
             } else { // rest link
                 pre.next = currHead;
             }

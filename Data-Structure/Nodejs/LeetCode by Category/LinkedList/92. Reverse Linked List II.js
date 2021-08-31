@@ -8,20 +8,27 @@ Example 2: Input: head = [5], left = 1, right = 1 Output: [5]
 {
     var reverseBetween = function (head, m, n) {
 
+        if (head == null || head.next == null) return head;
+
         if (m === n) return head;
 
         let start = head;
         let cur = head;
+
         let i = 1;
+
+        // after this i = m;
         while (i < m) {
             start = cur;
             cur = cur.next;
             i++;
         }
 
+
         let prev = null;
         let tail = cur;
 
+        // reverse nodes between m and n
         while (i <= n) {
             let next = cur.next;
             cur.next = prev;
@@ -29,8 +36,10 @@ Example 2: Input: head = [5], left = 1, right = 1 Output: [5]
             cur = next;
             i++;
         }
+
         start.next = prev;
         tail.next = cur;
+        
         return m === 1 ? prev : head;
     };
 

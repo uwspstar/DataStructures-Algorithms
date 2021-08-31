@@ -8,8 +8,7 @@ Input: head = [0,1,2], k = 4 Output: [2,0,1]
 */
 {
     var rotateRight = function (head, k) {
-        if (head == null) return null;
-        if (head.next == null) return head;
+        if (head === null||head.next === null) return head;
 
         let len = 0;
         let curr = head;
@@ -43,7 +42,7 @@ Input: head = [0,1,2], k = 4 Output: [2,0,1]
 
         pre.next = null;
         last.next = head;
-        //console.log(head, pre, slow, fast, last);
+        
         return slow;
     };
     //Split Linked List in Parts

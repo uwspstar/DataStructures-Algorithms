@@ -5,7 +5,7 @@ You are given two non-empty linked lists representing two non-negative integers.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 */
 {
-    // create new linked list
+    // create new linked list, so we can use a dummy node;
     var addTwoNumbers = function (l1, l2) {
         let dummy = new ListNode(0);
         let p = dummy;
@@ -23,7 +23,9 @@ You may assume the two numbers do not contain any leading zero, except the numbe
             p1 ? p1 = p1.next : {};
             p2 ? p2 = p2.next : {};
         }
+
         if (carry > 0) p.next = new ListNode(carry) // do not forget this one
+        
         return dummy.next;
     };
 }
