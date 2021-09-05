@@ -3,6 +3,7 @@
 {
     const mergeSortHelp = arr => {
         if (arr.length < 2) return arr;
+        
         const merge = (left, right) => {
             if (left.length === 0) return right;
             if (right.length === 0) return left;
