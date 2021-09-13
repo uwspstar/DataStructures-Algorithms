@@ -9,6 +9,7 @@ size: 16:9
 
 # 图 Graph
 
+- https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-2/tu
 - https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)
 - https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
 
@@ -18,6 +19,36 @@ size: 16:9
 
 - 图的数据结构包含一个有限（可能是可变的）的集合作为`节点`集合，以及一个无序对（对应无向图）或有序对（对应有向图）的集合作为`边`（有向图中也称作弧）的集合。节点可以是图结构的一部分，也可以是用整数下标或引用表示的外部实体。
 - 图的数据结构还可能包含和每条边相关联的数值（edge value），例如一个标号或一个数值（即权重，weight；表示花费、容量、长度等）
+
+---
+
+# 图和多叉树节点几乎完全一样：图和多叉树最大的区别是，图是可能包含环的
+
+# 图节点的逻辑结构
+
+```java
+class Vertex {
+    int id;
+    Vertex[] neighbors;
+}
+```
+
+# 基本的 N 叉树节点
+
+```java
+class TreeNode {
+    int val;
+    TreeNode[] children;
+}
+```
+
+---
+
+# 为什么有这两种存储图的方式呢
+
+- 对于邻接表，好处是占用的空间少。
+- 邻接矩阵需要更多的存储空间。
+- 但是，邻接表无法快速判断两个节点是否相邻。 比如说我想判断节点 1 是否和节点 3 相邻，我要去邻接表里 1 对应的邻居列表里查找 3 是否存在。但对于邻接矩阵就简单了，只要看看 matrix[1][3] 就知道了，效率高。
 
 ---
 
@@ -66,6 +97,77 @@ Space: O(n)
 
 - Adjacency list : 邻接表
 - Adjacency Matrix : 邻接矩阵
+
+---
+
+# 多叉树遍历框架
+
+```js
+const traverse = (root) => {
+  if (root === null) return;
+
+  for (let child of root.children) {
+    traverse(child);
+  }
+};
+```
+
+---
+
+# 图遍历框架 : 回溯算法框架
+
+- 如果图包含环，遍历框架就要一个 visited 数组进行辅助：这个 visited 数组的操作很像回溯算法做「做选择」和「撤销选择」，区别在于位置，回溯算法的「做选择」和「撤销选择」在 for 循环里面，而对 visited 数组的操作在 for 循环外面。
+
+```java
+Graph graph;
+boolean[] visited;
+
+void traverse(Graph graph, int s) {
+    if (visited[s]) return;
+    // 经过节点 s
+    visited[s] = true;
+    for (TreeNode neighbor : graph.neighbors(s))
+        traverse(neighbor);
+    // 离开节点 s
+    visited[s] = false;
+}
+```
+
+---
+
+# 两种多叉树的遍历：
+
+```java
+void traverse(TreeNode root) {
+    if (root == null) return;
+    System.out.println("enter: " + root.val);
+    for (TreeNode child : root.children) {
+        traverse(child);
+    }
+    System.out.println("leave: " + root.val);
+}
+
+```
+
+---
+
+```java
+void traverse(TreeNode root) {
+    if (root == null) return;
+    for (TreeNode child : root.children) {
+        System.out.println("enter: " + child.val);
+        traverse(child);
+        System.out.println("leave: " + child.val);
+    }
+}
+```
+
+---
+
+- 前者会正确打印所有节点的进入和离开信息，而后者唯独会少打印整棵树根节点的进入和离开信息。
+- 为什么回溯算法框架会用后者？因为回溯算法关注的不是节点，而是树枝，不信你看 回溯算法核心套路 里面的图。
+- 显然，对于这里「图」的遍历，我们应该把 visited 的操作放到 for 循环外面，否则会漏掉起始点的遍历。
+- 当然，当有向图含有环的时候才需要 visited 数组辅助，如果不含环，连 visited 数组都省了，基本就是多叉树的遍历
 
 ---
 

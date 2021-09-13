@@ -6,7 +6,8 @@ Input: arr = [1, 1, 1, 1, 1, 1, 1, 1] Output: [1]
 Input: arr = [4, 4, 2, 3, 2, 2, 4, 3] Output: [4, 2, 3]
 */
 {
-    //O(N) / O(N)
+    //T: O(N)
+    //S: O(N)
     const removeDuplicate = arr => {
         if (arr.length < 2) return arr;
         let res = [];
@@ -25,7 +26,8 @@ Input: arr = [4, 4, 2, 3, 2, 2, 4, 3] Output: [4, 2, 3]
 }
 {
     //sort arr : since the output the order doesn't matter.
-    //O(nlogn) / O(N)
+    //T: O(nlogn)
+    //S: O(1) , the out put res not count; O(N) is the res count
     const removeDuplicate = arr => {
         if (arr.length < 2) return arr;
         arr.sort((a, b) => a - b);
