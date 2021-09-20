@@ -11,6 +11,15 @@ Explanation: Cheapest is: start on cost[1], pay that cost, and go to the top.
 
 Input: cost = [1,100,1,1,1,100,1,1,100,1] Output: 6
 Explanation: Cheapest is: start on cost[0], and only step on 1s, skipping cost[3].
+
+找出达到楼层顶部的最低花费
+
+
+1) if 楼层顶部 is i, then the 最低花费 dp[i];
+ = min(dp[i - 1],  dp[i - 2]) + cost[i]
+
+(注意这里认为是第一步一定是要花费）
+
 */
 {
     //dp[i]的定义：到达第i个台阶所花费的最少体力为dp[i]。

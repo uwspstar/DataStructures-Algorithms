@@ -7,16 +7,32 @@ paginate: true
 size: 16:9
 ---
 
-# 动态规划
+# 动态规划 : 某一问题有很多重叠子问题
 
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
-- `动态规划`中每一个状态一定是由上一个状态推导出来的，这一点就区分于`贪心`，贪心没有状态推导，而是从局部直接选最优的，
+
+# 动态规划 3 steps
+
+1. 确定 dp 数组以及下标的含义
+2. 确定递推公式
+3. dp 数组如何初始化
+
+---
+
+# 动态规划 vs 贪心
+
+- 动规是由前一个状态推导出来的，而贪心是局部最优的 : `动态规划`中每一个状态一定是由上一个状态推导出来的，这一点就区分于`贪心`，贪心没有状态推导，而是从局部直接选最优的，
+
 ---
 
 # Masters Theorem in Algorithms
 
 - https://www.youtube.com/watch?v=OynWkEj0S-s&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=27
 - `T(n) = aT(n/b) + f(n)`
+
+---
+
+# debug : 把 dp 数组打印出来
 
 ---
 
@@ -68,19 +84,9 @@ const lib = (n) =>{
 
 ---
 
-### 动态规划问题，我将拆解为如下五步曲，这五步都搞清楚了，才能说把动态规划真的掌握了！
-
-- 确定 dp 数组（dp table）以及下标的含义
-- 确定递推公式
-- dp 数组如何初始化
-- 确定遍历顺序
-- 举例推导 dp 数组
-
----
-
 ### 暴力的解法是指数级别的时间复杂度。进而才需要动态规划的解法来进行优化！
 
 ---
 
 - https://leetcode-cn.com/problems/longest-arithmetic-subsequence/solution/dong-tai-gui-hua-jie-jue-zi-shu-zu-wen-t-zatn/
-- 对于数组问题，如果寻找连续子数组，可以使用双指针法或滑动窗口等方法，但是对于非连续子数组，最好使用动态规划。
+- 对于数组问题，如果寻找`连续`子数组，可以使用`双指针法`或`滑动窗口`等方法，但是对于`非连续子数组`，最好使用`动态规划`。
