@@ -22,3 +22,9 @@ size: 16:9
 - Find: Determine which subset a particular element is in. This can be used for determining if two elements are in the same subset;
 - Union: Join two subsets into a single subset.
   Use to solve network connectivity problem.
+
+---
+
+# 按秩合并
+
+- 应该把简单的树往复杂的树上合并，而不是相反

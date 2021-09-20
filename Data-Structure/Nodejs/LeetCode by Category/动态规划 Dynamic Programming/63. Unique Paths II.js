@@ -1,4 +1,5 @@
 //63. Unique Paths II
+//63. 不同路径 II
 /*
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
@@ -18,7 +19,8 @@ There are two ways to reach the bottom-right corner:
 Example 2:
 Input: obstacleGrid = [[0,1],[0,0]] Output: 1
 */
-//本题难点在于初始化，如果(i, 0) 这条边有了障碍之后，障碍之后（包括障碍）都是走不到的位置了，所以障碍之后的dp[i][0]应该还是初始值0。
+//本题难点在于初始化，如果(i, 0) 这条边有了障碍之后，
+//障碍之后（包括障碍）都是走不到的位置了，所以障碍之后的dp[i][0]应该还是初始值0。
 
 {
     var uniquePathsWithObstacles = function (obstacleGrid) {

@@ -26,18 +26,31 @@ Explanation: Cheapest is: start on cost[0], and only step on 1s, skipping cost[3
     //可以有两个途径得到dp[i]，一个是dp[i-1] 一个是dp[i-2]。
     //一定是选最小的，所以dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     //注意这里为什么是加cost[i]，而不是cost[i-1],cost[i-2]之类的，因为题目中说了：每当你爬上一个阶梯你都要花费对应的体力值
+
     var minCostClimbingStairs = function (cost) {
         let dp = [];
         dp[0] = cost[0];
         dp[1] = cost[1];
         let n = cost.length;
         for (let i = 2; i < n; i++) {
-            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
+            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];// cost[i] 每当你爬上一个阶梯你都要花费对应的体力值
         }
-        // 注意最后一步可以理解为不用花费，所以取倒数第一步，第二步的最少值
-        return Math.min(dp[n - 1], dp[n - 2]);
+        return Math.min(dp[n - 1], dp[n - 2]);// 注意最后一步可以理解为不用花费，所以取倒数第一步，第二步的最少值
     };
     //Word Search
     //Greatest Sum Divisible by Three
     //Delivering Boxes from Storage to Ports
+}
+{
+    const minCostClimbingStairs = cost => {
+        let dp0 = cost[0];
+        let dp1 = cost[1];
+
+        for (let i = 2; i < cost.length; i++) {
+            let dpi = Math.min(dp0, dp1) + cost[i];
+            dp0 = dp1;
+            dp1 = dpi;
+        }
+        return min(dp0, dp1);
+    }
 }
