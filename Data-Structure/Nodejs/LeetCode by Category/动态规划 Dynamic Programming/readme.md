@@ -90,3 +90,10 @@ const lib = (n) =>{
 
 - https://leetcode-cn.com/problems/longest-arithmetic-subsequence/solution/dong-tai-gui-hua-jie-jue-zi-shu-zu-wen-t-zatn/
 - 对于数组问题，如果寻找`连续`子数组，可以使用`双指针法`或`滑动窗口`等方法，但是对于`非连续子数组`，最好使用`动态规划`。
+
+---
+
+### 背包问题 : 01背包和完全背包就够用
+- leetcode上没有纯01背包的问题，都是01背包应用方面的题目，也就是需要转化为01背包问题
+- https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.md
+- 暴力的解法回溯法

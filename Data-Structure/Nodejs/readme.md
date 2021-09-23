@@ -2,6 +2,10 @@
 marp: true
 ---
 
+# 10,000 hour rule
+
+---
+
 # 数据结构
 
 - https://algs4.cs.princeton.edu/cheatsheet/
