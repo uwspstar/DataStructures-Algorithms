@@ -81,6 +81,7 @@ const lib = (n) =>{
 ### 动态规划
 
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md
+- https://docs.google.com/presentation/d/1F_Qp3kzw7jZkPpb7ll7J6-02285bCA3Z9nmU1e7a2rk/edit#slide=id.g82af7adac0_0_466
 
 ---
 
@@ -93,7 +94,8 @@ const lib = (n) =>{
 
 ---
 
-### 背包问题 : 01背包和完全背包就够用
-- leetcode上没有纯01背包的问题，都是01背包应用方面的题目，也就是需要转化为01背包问题
+### 背包问题 : 01 背包和完全背包就够用
+
+- leetcode 上没有纯 01 背包的问题，都是 01 背包应用方面的题目，也就是需要转化为 01 背包问题
 - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.md
 - 暴力的解法回溯法
