@@ -3,6 +3,8 @@
 // two stacks, first stack is saving current item, second stack is keeping the min info
 {
 
+    // t : O(1)
+    // s : O(N)
     class Stack {
 
         constructor() {
