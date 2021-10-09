@@ -23,6 +23,9 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 Input: nums = [3,2,4], target = 6 Output: [1,2] 
 Input: nums = [3,3], target = 6 Output: [0,1]
 */
+
+// clarification : repeat, sorted, return 1 pair, return all, does 2+7 same as 7+2 , etc
+
 {
     // Hash Table :  If the complement exists, we need to look up its index
     // Time complexity : O(n)
