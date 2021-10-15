@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/design-in-memory-file-system/discuss/1288611/C-Trie-Approach
+
 // We will use Trie data structure to solve this
 public enum FileType
 {

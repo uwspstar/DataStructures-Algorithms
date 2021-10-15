@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/design-in-memory-file-system/discuss/517754/Simple-C-Solution
+
 public class FileSystem
 {
     private readonly FileTreeNode root;
