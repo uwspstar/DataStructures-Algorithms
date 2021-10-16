@@ -81,3 +81,51 @@ const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     console.log('Random - quickSort', JSON.stringify(quickSortHelp([8, 1, 2, 3, 4, 5, 6, 7])));
 }
+// 代码模板 : quick sort :  iteration
+{
+    process.stdout.write("\u001b[2J\u001b[0;0H");
+
+    const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+    const quickSort = (arr, start = 0, end = arr.length - 1) => {
+        if (start >= end) return;
+        let left = start;
+        let right = end;
+
+        console.log('left=', left, 'right=', right, 'start=', start, 'end=', end, 'arr=', arr.join(','));
+
+        // key point 1: pivot is the value, not the index
+        let pi = start + parseInt((end - start) / 2);
+        let pivot = arr[pi];
+
+        // key point 2: every time you compare left & right, it should be
+        // left <= right not left < right
+        while (left <= right) {
+            while (left <= right && arr[left] < pivot) {
+                console.log('arr=', arr.join(','), 'left=', left);
+                left++;
+
+            }
+            while (left <= right && arr[right] > pivot) {
+                console.log('arr=', arr.join(','), 'right=', right);
+                right--;
+            }
+
+            if (left <= right) {
+                swap(arr, left, right)
+                left++;
+                right--;
+            }
+        }
+        //console.log('first call start : pivot=', pivot, 'start=', start, 'right=', right, arr);
+        quickSort(arr, start, right);
+        //console.log('first 1 end : pivot=', pivot, 'start=', start, 'right=', right, arr);
+
+        quickSort(arr, left, end);
+        //console.log('second call end : pivot=', pivot, 'start=', start, 'right=', right, arr);
+
+    }
+    let arr = [1, 2, 8, 7, 5, 9, 6, 3, 4];
+    console.log(quickSort(arr), 'arr=', arr.join(','));
+
+}
