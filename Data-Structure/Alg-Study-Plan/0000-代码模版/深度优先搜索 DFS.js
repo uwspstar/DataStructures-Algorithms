@@ -6,7 +6,7 @@
 /*
 深度优先搜索 DFS 使用条件
 
-- 找满足某个条件的所有方案 (99%) 
+- 找满足某个条件的 [所有方案] (99%) 
 - 二叉树 Binary Tree 的问题 (90%) 
 - 组合问题(95%)
     - 问题模型:求出所有满足条件的“组合”
@@ -33,11 +33,30 @@
             记录答案;
             return;
         }
-        for (所有的拆解any可能性) {
+        for (所有的拆解any可能性; ;) {
             修改所有的参数;
             dfs(参数列表);
             还原所有被修改过的参数;
         }
         return something(如果需要的话, 很多时候不需要return值, 除了分治的写法)
     }
+}
+// https://github.com/azl397985856/leetcode/blob/master/thinkings/tree.md
+{
+    // 通用的 DFS 模板可能是这样的
+
+    const visited = {}
+    function dfs(i) {
+        if (满足特定条件) {
+            // 返回结果 or 退出搜索空间
+        }
+
+        visited[i] = true // 将当前状态标为已搜索
+        for (根据i能到达的下个状态j; ;) {
+            if (!visited[j]) { // 如果状态j没有被搜索过
+                dfs(j)
+            }
+        }
+    }
+
 }
