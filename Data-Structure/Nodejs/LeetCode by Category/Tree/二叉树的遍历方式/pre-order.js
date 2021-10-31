@@ -15,6 +15,32 @@
 }
 //stack self,  right , left,
 {
+    // two color ways
+    // https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings/tree
+
+    var preorderTraversal = function (root) {
+        if (root === null) return [];
+        
+        const res = [];
+        const white = 0;
+        const grey = 1;
+        const stack = [[white, root]];
+
+        while (stack.length > 0) {
+            const [color, node] = stack.pop();
+
+            if (color === white) {
+                node.right && stack.push([white, node.right]); //right
+                node.left && stack.push([white, node.left]); //left
+                stack.push([grey, node]); //self
+            } else {
+                res.push(node.val)
+            }
+        }
+        return res;
+    };
+}
+{
     //iterative
     //前序遍历是中左右，每次先处理的是中间节点，那么先将跟节点放入栈中，然后将右孩子加入栈，再加入左孩子。为什么要先加入 右孩子，再加入左孩子呢？ 因为这样出栈的时候才是中左右的顺序。
 
