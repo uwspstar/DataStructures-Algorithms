@@ -1,5 +1,9 @@
 # ALGORITHM 1.5 Union-find implementation
 
+- dynamic connectivity problem. We introduce `the union–find` data type and consider several implementations (`quick find`, `quick union`, `weighted quick union`, and `weighted quick union with path compression`).
+- 
+---
+
 ```java
   public class UF
   {

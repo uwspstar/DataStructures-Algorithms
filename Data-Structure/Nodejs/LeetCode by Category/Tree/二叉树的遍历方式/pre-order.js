@@ -31,6 +31,32 @@
 
 }
 {
+    // iteration
+    //self, left, right
+    var preorderTraversal = function (root) {
+        const res = [];
+        if (root === null) return res;
+
+        const stack = [];
+        let node = root; // using stack LIFO
+
+        while (node) {
+            if (node.right) {
+                stack.push(node.right);
+            }
+            if (node.left) {
+                stack.push(node.left);
+            }
+            res.push(node.val);
+            node = stack.pop();
+        }
+
+        return res;
+    };
+
+}
+
+{
     {
         const preorder = (root) => {
             if (!root) return;
