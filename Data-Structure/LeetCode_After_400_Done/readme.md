@@ -9,7 +9,9 @@
 # Basic
 
 - `class GenerateParenthesis`, no need use public
-- `public static void main (String[] args)` , do forget `static`
+- `public static void main (String[] args)` , do not forget `static`
+- `path.append(c);` StringBuilder append
+- `path.deleteCharAt(path.length() - 1);` StringBuilder delete Char
 
 ### HashMap
 
