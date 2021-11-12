@@ -10,4 +10,32 @@ You must write an algorithm with O(log n) runtime complexity.
 
 Input: nums = [4,5,6,7,0,1,2], target = 0 Output: 4
 Input: nums = [4,5,6,7,0,1,2], target = 3 Output: -1
+
+nums with distinct values
 */
+{
+    const search = (nums, target) => {
+
+        let N = nums.length;
+        let left = 0;
+        let right = N - 1;
+        let res = -1;
+
+        while (left <= right) {
+            let mid = parseInt(left + (right - left ) / 2);
+            if (target === nums[mid]) {
+                res = mid;
+                break;
+            }
+            if (nums[mid] > target) {
+                 if (nums[mid] > nums[left]) {
+                     left = mid + 1;
+                 }
+
+            } else {
+
+            }
+        }
+        return res;
+    }
+}
