@@ -4,15 +4,16 @@ public class SingleNonDuplicate {
         int hi = nums.length - 1;
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
-            boolean halvesAreEven = (hi - mid) % 2 == 0;
+            boolean isEven = (hi - mid) % 2 == 0;
+
             if (nums[mid + 1] == nums[mid]) {
-                if (halvesAreEven) {
+                if (isEven) {
                     lo = mid + 2;
                 } else {
                     hi = mid - 1;
                 }
             } else if (nums[mid - 1] == nums[mid]) {
-                if (halvesAreEven) {
+                if (isEven) {
                     hi = mid - 2;
                 } else {
                     lo = mid + 1;
