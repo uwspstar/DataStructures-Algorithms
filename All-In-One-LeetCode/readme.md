@@ -1,9 +1,6 @@
 ---
 marp: true
 theme: default
-header: 'C#'
-footer: ''
-paginate: true
 size: 16:9
 ---
 # All problems
@@ -17,6 +14,23 @@ size: 16:9
 - https://github.com/everthis/leetcode-js
 # C#
 - https://github.com/BigEggStudy/LeetCode-CS
+---
+
+# Java集合简介
+- https://www.liaoxuefeng.com/wiki/1252599548343744/1265109905179456
+
+# Java集合、泛型和枚举
+- http://c.biancheng.net/java/110/
+
+# C# 集合
+- https://www.runoob.com/csharp/csharp-collection.html
+
+# C# 泛型（Generic）
+- https://www.runoob.com/csharp/csharp-generic.html
+
+# Go语言中的Array、Slice、Map和Set使用详解
+- https://www.jb51.net/article/56828.htm
+
 ---
 # All problems (by Frequency)
 | First Header      | Second Header |
