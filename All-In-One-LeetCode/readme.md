@@ -17,16 +17,13 @@ size: 16:9
 - https://github.com/everthis/leetcode-js
 # C#
 - https://github.com/BigEggStudy/LeetCode-CS
-
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| 00001_twoSum  | https://leetcode.com/problems/two-sum/  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
-| Content  | Content  |
+---
+# All problems (by Frequency)
+| First Header      | Second Header |
+| -------------     | ------------- |
+| 00001_twoSum      | https://leetcode.com/problems/two-sum/  |
+| 00146_LRU_Cache   | https://leetcode.com/problems/lru-cache/  |
+| Content           | Content  |
+| Content           | Content  |
+| Content           | Content  |
+| Content           | Content  |
