@@ -65,7 +65,7 @@ const getPivotIndex = function (arr, low, high) {
     const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     let pivot = arr[high];
     let smallIndex = low;
-    for (let i = low; i < high; i++) {
+    for (let i = low; i <= high; i++) {
         if (arr[i] < pivot) {
             swap(arr, i, smallIndex);
             smallIndex++;
@@ -90,7 +90,7 @@ const getPivotIndex = function (arr, low, high) {
     let pivot = arr[high];// always select last one as pivot
     let pivotIndex = low; // important
     //[7, 3, 5] -> [3, 7, 5] -> [3, 5, 7]
-    for (let i = low; i < high; i++) {
+    for (let i = low; i <= high; i++) {
         if (arr[i] < pivot) {
             swap(arr, i, pivotIndex);
             pivotIndex++; // important
@@ -111,38 +111,6 @@ const quickSort = function (arr, low = 0, high = arr.length - 1) {
 }
 console.table(quickSort([15, 334, 222, 629, 29, 100]));
 
-// find the pivot index
-function getPivotIndex(arr, start = 0, end = arr.length - 1) {
-    // find the right position for the 1st item  
-    const swap = (arr, idx1, idx2) => {
-        [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-    };
-
-    // We are assuming the pivot is always the first element
-    let pivot = arr[start];
-    let swapIdx = start;
-
-    for (let i = start + 1; i <= end; i++) {
-        if (pivot > arr[i]) {
-            swapIdx++;
-            swap(arr, swapIdx, i);
-        }
-    }
-
-    // Swap the pivot from the start the swapPoint
-    swap(arr, start, swapIdx);
-    return swapIdx;
-}
-
-const quickSort = function (arr, left, right) {
-
-    if (left < right) {
-        let pi = getPivotIndex(arr, left, right)
-        quickSort(arr, left, pi - 1)
-        quickSort(arr, pi + 1, right)
-    }
-    return arr
-}
 
 /*
 function partition(a, left, right, pivotIndex)
