@@ -88,16 +88,19 @@ const quickSort = function (arr, low = 0, high = arr.length - 1) {
 const getPivotIndex = function (arr, low, high) {
     const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
     let pivot = arr[high];// always select last one as pivot
-    let pivotIndex = low; // important
+    let pi = low; // important
     //[7, 3, 5] -> [3, 7, 5] -> [3, 5, 7]
+    // pi       ->     pi
+
     for (let i = low; i <= high; i++) {
         if (arr[i] < pivot) {
-            swap(arr, i, pivotIndex);
-            pivotIndex++; // important
+            swap(arr, i, pi);
+            pi++; // important
         }
     }
-    swap(arr, high, pivotIndex);
-    return pivotIndex;
+
+    swap(arr, high, pi);
+    return pi;
 }
 
 const quickSort = function (arr, low = 0, high = arr.length - 1) {

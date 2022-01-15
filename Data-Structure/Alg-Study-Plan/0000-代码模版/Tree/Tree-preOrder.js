@@ -10,38 +10,6 @@
     3. 重复 2 的步骤
 */
 {
-    var preorderTraversal = function (root) {
-        const res = [];
-        if (root === null) return res;
-
-        const stack = [];
-        let node = root;
-
-        while (node) {
-            if (node.right) {
-                stack.push(node.right);
-            }
-            if (node.left) {
-                stack.push(node.left);
-            }
-            res.push(node.val);
-            node = stack.pop();
-        }
-
-        return res;
-    };
-
-}
-{
-    // 2. Recursive solution
-    var preorderTraversal = function (root) {
-        if (!root) return [];
-
-        return [root.val].concat(preorderTraversal(root.left)).concat(preorderTraversal(root.right));
-    }
-
-}
-{
     //iteratively
     var preorderTraversal = function (root) {
         const result = [];
