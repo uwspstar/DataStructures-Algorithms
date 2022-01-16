@@ -5,6 +5,7 @@
 // quickSort : pivot, swap, each step swap current index and pi, sort : low < hight
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
 const quickSortHelp = (arr) => {
 
     if (arr.length < 2) return arr;
@@ -58,6 +59,7 @@ const mergeSortHelp = (arr) => {
 
     return mergeSort(arr);
 }
+
 const insertionSort = (arr) => {
     if (arr.length < 2) return arr;
     for (let i = 1; i < arr.length; i++) {
