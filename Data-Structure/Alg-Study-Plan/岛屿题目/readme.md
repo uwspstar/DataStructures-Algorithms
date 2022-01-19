@@ -1,7 +1,20 @@
+---
+marp: true
+theme: default
+size: 16:9
+---
+
+# 岛屿题目
+
 - https://labuladong.gitee.io/algo/1/9/
 
 - 二维矩阵本质上是一幅「图」，所以遍历的过程中需要一个 visited 布尔数组防止走回头路
-- PS：这类 DFS 算法还有个别名叫做 FloodFill 算法，现在有没有觉得 FloodFill 这个名字还挺贴切的
+
+- PS：这类 `DFS` 算法还有个别名叫做 `FloodFill` 算法，现在有没有觉得 `FloodFill` 这个名字还挺贴切的
+
+- https://zh.wikipedia.org/wiki/Flood_fill
+
+- PS：处理这类岛屿题目除了 DFS/BFS 算法之外，Union Find 并查集算法也是一种可选的方法，前文 Union Find 算法运用 就用 Union Find 算法解决了一道类似的问题。
 
 ```java
 // 二叉树遍历框架

@@ -59,20 +59,24 @@ var closedIsland = function (grid) {
     let res = 0;
     let M = grid.length;
     let N = grid[0].length;
+
     for (let j = 0; j < N; j++) {
-        dfs(grid, 0, j);// 把靠上边的岛屿淹掉
+        // does not need to count res;
+        dfs(grid, 0, j); // 把靠上边的岛屿淹掉
         dfs(grid, M - 1, j); // 把靠下边的岛屿淹掉
     }
+
     for (let i = 0; i < M; i++) {
-        dfs(grid, i, 0);// 把靠左边的岛屿淹掉
-        dfs(grid, i, N - 1);// 把靠右边的岛屿淹掉
+        // does not need to count res;
+        dfs(grid, i, 0); // 把靠左边的岛屿淹掉
+        dfs(grid, i, N - 1); // 把靠右边的岛屿淹掉
     }
     // 遍历 grid，剩下的岛屿都是封闭岛屿
     for (let i = 0; i < M; i++) {
         for (let j = 0; j < N; j++) {
             if (grid[i][j] === 0) {
                 dfs(grid, i, j)
-                res++;
+                res++; //count res;
             }
         }
     }
