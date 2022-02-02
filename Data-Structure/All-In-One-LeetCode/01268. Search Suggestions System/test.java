@@ -20,7 +20,6 @@ public
         String prefix = new String();
         for (char c : searchWord.toCharArray()) {
             prefix += c;
-
             // Get the starting index of word starting with `prefix`.
             start = lower_bound(products, bsStart, prefix);
 
