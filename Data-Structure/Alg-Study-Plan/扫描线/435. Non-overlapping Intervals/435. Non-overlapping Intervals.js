@@ -24,7 +24,7 @@ var eraseOverlapIntervals = function (intervals) {
         return 0;
     }
 
-    intervals.sort((a, b) => (a[1] - b[1])); // sort with endtime
+    intervals.sort((a, b) => (a[1] - b[1])); // sort with end time
 
     let end = intervals[0][1];
     let count = 0;

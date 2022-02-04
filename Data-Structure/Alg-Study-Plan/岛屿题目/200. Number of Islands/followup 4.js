@@ -14,7 +14,7 @@ const dfs = (grid, i, j, m, n, ans, visit) => {
     // reached all turn to '0'
     //grid[i][j] = '0';
 
-    visit[i][j] = true;;
+    visit[i][j] = true;
     // 4 directions
     dfs(grid, i + 1, j, m, n, ans, visit);
     dfs(grid, i - 1, j, m, n, ans, visit);
