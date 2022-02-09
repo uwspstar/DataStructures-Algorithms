@@ -17,3 +17,27 @@ Input: s = "10101"
 Output: 4
 Explanation: There are 4 substrings: "10", "01", "10", "01" that have equal number of consecutive 1's and 0's.
 */
+//我们可以将字符串 ss 按照 00 和 11 的连续段分组，
+//存在 counts 数组中，例如 s = 00111011，
+//可以得到这样的 counts 数组：counts={2,3,1,2}。
+
+var countBinarySubstrings = function(s) {
+    const counts = [];
+    let p = 0;
+    let N = s.length;
+    while (p < N) {
+        const c = s[p];    
+        let count = 0;
+        while (p < N && s[p] === c) {
+            p++;
+            count++;
+        }
+        counts.push(count);
+    }
+    
+    let ans = 0; 
+    for (let i = 1; i < counts.length; ++i) {
+        ans += Math.min(counts[i], counts[i - 1]);
+    }
+    return ans;
+};
