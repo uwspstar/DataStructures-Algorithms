@@ -27,3 +27,17 @@
         }
     }
 }
+{
+    function bfs(root, i = 0, queue = [root]) {
+        if (i >= queue.length) return;
+        else {
+            let poppedNode = queue[i];
+            if (poppedNode !== null) {
+                console.log(poppedNode.data);
+                queue.push(poppedNode.left);
+                queue.push(poppedNode.right);
+            }
+            bfs(root, i + 1, queue);
+        }
+    }
+}
