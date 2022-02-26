@@ -30,7 +30,7 @@ var minAddToMakeValid = function (str) {
             stack.push(c);
         } else if (c === ')') {
             let last = stack[stack.length - 1];
-            if (last === '(') { 
+            if (last === '(') {
                 stack.pop(); // remove the last
             } else {
                 stack.push(c);
