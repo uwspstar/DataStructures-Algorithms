@@ -27,9 +27,9 @@ function deleteNodeBst(root, num) {
     } else if (root.right === null) {
       return root.left;
     } else {
-      let successor = getMinNode(root.right);
+      let successor = getMinNode(root.right); // find the right side smallest tree node; after replace with right data, and deleted
       root.data = successor.data;
-      root.right = deleteNodeBst(root.right, successor.data);
+      root.right = deleteNodeBst(root.right, successor.data); // recursive again
     }
   }
   return root;
