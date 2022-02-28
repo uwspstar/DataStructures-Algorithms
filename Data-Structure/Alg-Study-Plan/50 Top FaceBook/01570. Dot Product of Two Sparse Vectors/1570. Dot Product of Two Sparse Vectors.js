@@ -32,21 +32,22 @@ Output: 6
 {
     class SparseVector {
         constructor(nums) {
-            this.pairs = [];//separate storage for each vector
+            this.pairs = [];//only save not zero idx and val
             for (let i = 0; i < nums.length; i++) {
                 if (nums[i] !== 0) {
-                    this.pairs.push([i, nums[i]]);
+                    this.pairs.push([i, nums[i]]); //only save not zero idx and val
                 }
             }
         }
 
-        dotProduct(vec) { //sparse vector is being passed in that has our *pairs* in it 
-            let res = 0, p = 0, q = 0;
+        dotProduct(vec) {
+            let res = 0;
+            let p = 0, q = 0;
             let M = this.pairs.length, N = vec.pairs.length
 
             while (p < M && q < N) {
-
-                if (this.pairs[p][0] === vec.pairs[q][0]) {//same index for both storage 
+                //same index for both storage 
+                if (this.pairs[p][0] === vec.pairs[q][0]) {
                     res = res + (this.pairs[p][1] * vec.pairs[q][1]);
                     p++;
                     q++;
@@ -59,4 +60,5 @@ Output: 6
             return res;
         }
     }
+
 }

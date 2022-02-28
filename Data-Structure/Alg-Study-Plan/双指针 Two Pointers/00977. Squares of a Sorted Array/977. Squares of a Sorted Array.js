@@ -1,6 +1,10 @@
 //977. Squares of a Sorted Array
+/*
+Input: root = [3,9,8,4,0,1,7]
+Output: [[4],[9],[3,0,1],[8],[7]]
+*/
 {
-    /*
+/*
 For example, with [-3, -2, -1, 4, 5, 6], we have the negative part [-3, -2, -1] with squares [9, 4, 1], and the positive part [4, 5, 6] with squares [16, 25, 36]. Our strategy is to iterate over the negative part in reverse, and the positive part in the forward direction.
 */
     var sortedSquares = function (nums) {
