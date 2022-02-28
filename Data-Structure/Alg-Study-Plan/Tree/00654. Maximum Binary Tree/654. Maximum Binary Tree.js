@@ -1,4 +1,5 @@
 // 654. Maximum Binary Tree
+// T : O(N^2) , S: O(N)
 {
     const build = (nums, left, right) => {
         if (left === right) return null;
