@@ -26,3 +26,13 @@
         return arr.join('');
     };
 }
+{
+    var reverseWords = function (s) {
+        let arr = s.split(' ')
+        let reversed = '';
+        for (let i = 0; i < arr.length; i++) {
+            reversed += arr[i].split('').reverse().join('') + ' '
+        }
+        return reversed.trim()
+    };
+}
