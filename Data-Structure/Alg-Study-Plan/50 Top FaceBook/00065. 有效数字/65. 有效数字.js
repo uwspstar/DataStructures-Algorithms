@@ -1,36 +1,40 @@
 var isNumber = function(s) {
-    let state = 0, 
-        finals = [0,0,0,1,0,1,1,0,1],
-        transfer = [[ 0, 1, 6, 2,-1,-1],
-                    [-1,-1, 6, 2,-1,-1],
-                    [-1,-1, 3,-1,-1,-1],
-                    [ 8,-1, 3,-1, 4,-1],
-                    [-1, 7, 5,-1,-1,-1],
-                    [ 8,-1, 5,-1,-1,-1],
-                    [ 8,-1, 6, 3, 4,-1],
-                    [-1,-1, 5,-1,-1,-1],
-                    [ 8,-1,-1,-1,-1,-1]], 
-        make = (c) => {
-            switch(c) {
-                case " ": return 0;
-                case "+":
-                case "-": return 1;
-                case ".": return 3;
-                case "e": return 4;
-                default:
-                    let code = c.charCodeAt();
-                    if(code >= 48 && code <= 57) {
-                        return 2;
-                    } else {
-                        return 5;
-                    }
+    s = s.trim();
+// rules 
+// characters can be -- 0 ~ 9 . e + - 
+// + - => should be at index 0 or right after e
+// . => max 1, and must not be after e
+// e => max 1, and must have numbers before and after
+    
+    
+// loop over the characters and check if any of the rules is broken
+    
+    let hasDigit = false;
+    let hasDot = false;
+    let hasE = false;
+    
+    for(let i = 0; i< s.length; i++) {
+        const char = s[i];
+        if(char >=0 && char <=9) {
+            hasDigit = true;
+        } else if(char === "+" || char === "-") {
+            if(i != 0 && s[i-1] !== "e" && s[i-1] !== "E") {
+                return false;
+            } 
+        } else if(char === ".") {
+            if(hasDot || hasE) {
+                return false;
             }
-        };
-    for(let i=0; i < s.length; ++i) {
-        state = transfer[state][make(s[i])];
-        if (state < 0) return false;
+            hasDot = true;
+        } else if(char === "e" || char === "E") {
+            if(hasE || !hasDigit) {
+                return false;
+            }
+            hasE = true;
+            hasDigit = false;
+        } else {
+           return false;
+        }
     }
-    return finals[state];
+    return hasDigit;
 };
-
-// https://leetcode-cn.com/problems/valid-number/solution/biao-qu-dong-fa-by-user8973/
