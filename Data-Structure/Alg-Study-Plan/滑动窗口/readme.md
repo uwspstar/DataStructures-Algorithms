@@ -28,3 +28,7 @@ size: 16:9
 - 比如 longest substring with distinct character
 - Hard, size fix, 单限制条件
 - 比如 sliding window maximum
+
+# LeetCode 101
+- LeetCode 101:和你一起你轻松刷题(C++) LeetCode 101: A LeetCode Grinding Guide (C++ Version) 作者:高畅 Chang Gao
+- github.com/changgyhub/leetcode_101
