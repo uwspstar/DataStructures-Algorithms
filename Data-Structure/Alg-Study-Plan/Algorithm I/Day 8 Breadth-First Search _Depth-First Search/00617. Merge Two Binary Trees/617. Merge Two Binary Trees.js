@@ -1,4 +1,5 @@
 {
+    //BFS
     var mergeTrees = function (root1, root2) {
         if (root1 === null) return root2;
         if (root2 === null) return root1;
@@ -34,6 +35,7 @@
     };
 }
 {
+    // DFS
     var mergeTrees = function (root1, root2) {
         if (root1 === null) return root2;
         if (root2 === null) return root1;
