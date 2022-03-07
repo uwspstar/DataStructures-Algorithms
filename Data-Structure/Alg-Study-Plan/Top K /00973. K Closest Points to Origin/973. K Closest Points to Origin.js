@@ -1,4 +1,4 @@
-//973. K Closest Points to Origin
+// 973. K Closest Points to Origin
 /*
 Input: points = [[1,3],[-2,2]], k = 1
 Output: [[-2,2]]

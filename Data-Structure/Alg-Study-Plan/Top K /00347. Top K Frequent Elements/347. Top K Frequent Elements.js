@@ -16,33 +16,9 @@ Since frequency is within the range [1, n] for n is the number of elements, we c
 we divide frequencies into n + 1 buckets, in this way, the list in buckets[i] contains elements with the same frequency i
 then we go through the buckets from tail to head until we collect k elements.
 */
-{
-    var topKFrequent = function (nums, k) {
-        //O(nlogn) 
-        let map = new Map();
-        for (let n of nums) {
-            map.has(n) ? map.set(n, map.get(n) + 1) : map.set(n, 1);
-        }
-
-        let arr = [];
-        for (let [key, value] of map.entries()) {
-            arr.push([key, value]);
-        }
-
-        arr.sort((a, b) => b[1] - a[1]);
-        arr.length = k;
-        let res = [];
-        arr.map(x => res.push(x[0]));
-
-
-
-        return res;
-
-    };
-}
 
 //Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
-{
+{ // quick select
     /*
 [1,1,1,1,2,3,3, 5]
 2
@@ -76,5 +52,27 @@ res= [ 1, 3 ]
             }
         }
         return res;
+    };
+}
+
+{
+    var topKFrequent = function (nums, k) {
+        //O(nlogn) 
+        let map = new Map();
+        for (let n of nums) {
+            map.has(n) ? map.set(n, map.get(n) + 1) : map.set(n, 1);
+        }
+
+        let arr = [];
+        for (let [key, value] of map.entries()) {
+            arr.push([key, value]);
+        }
+
+        arr.sort((a, b) => b[1] - a[1]);
+        arr.length = k;
+        let res = [];
+        arr.map(x => res.push(x[0]));
+        return res;
+
     };
 }
