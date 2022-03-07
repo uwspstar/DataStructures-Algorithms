@@ -1,3 +1,7 @@
+// 21. Merge Two Sorted Lists
+
+// think about the merge sort
+
 var mergeTwoLists = function (l1, l2) {
     let dummy = new ListNode(0); // same as the merge sort new res = [];
 
