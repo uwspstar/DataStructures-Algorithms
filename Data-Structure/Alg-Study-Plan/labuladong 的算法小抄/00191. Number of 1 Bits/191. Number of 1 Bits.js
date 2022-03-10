@@ -31,9 +31,12 @@ Explanation: The input binary string 00000000000000000000000000001011 has a tota
     var hammingWeight = function (n) {
         let count = 0
         while (n) {
+            console.log('n=',n.toString(2),'(n - 1)=',(n - 1).toString(2));
             n = n & (n - 1);
             count++;
         }
         return count;
     };
+    let n = 00000000000000000000000000001011;
+    console.log(hammingWeight(n));
 }
