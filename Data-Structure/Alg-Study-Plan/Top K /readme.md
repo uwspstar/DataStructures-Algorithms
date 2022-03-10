@@ -6,3 +6,8 @@
 # Top K 的两种经典解法（堆/快排变形）与优劣比较
 
 - https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/solution/tu-jie-top-k-wen-ti-de-liang-chong-jie-fa-you-lie-/
+
+# 常见解法：
+- heap(max, min), 
+- quickSelect, 
+- bucket sort
