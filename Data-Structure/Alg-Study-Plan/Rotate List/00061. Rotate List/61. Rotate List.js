@@ -36,6 +36,9 @@ Given the head of a linked list, rotate the list to the right by k places
 }
 
 /*
+Camelcase Matching
+Maximum Distance Between a Pair of Values
+Find First Palindromic String in the Array
 Number of Subarrays with Bounded Maximum
 Number of Ways Where Square of Number Is Equal to Product of Two Numbers
 Next Palindrome Using Same Digits
