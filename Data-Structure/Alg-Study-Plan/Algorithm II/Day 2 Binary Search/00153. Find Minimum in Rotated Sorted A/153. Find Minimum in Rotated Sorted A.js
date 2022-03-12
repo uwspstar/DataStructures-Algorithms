@@ -16,3 +16,35 @@ Input: nums = [3,4,5,1,2]
 Output: 1
 Explanation: The original array was [1,2,3,4,5] rotated 3 times.
 */
+{
+    var findMin = function (nums) {
+
+        if (nums.length == 1) return nums[0];
+
+        let res = nums[0];
+        let left = 0;
+        let right = nums.length - 1;
+
+        while (left <= right) {
+
+            if (nums[left] < nums[right]) { // find the minum
+                res = Math.min(res, nums[left]);
+                break;
+            }
+
+            let mid = parseInt(left + (right - left) / 2);
+
+            res = Math.min(res, nums[mid]);
+
+            if (nums[mid] >= nums[left]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return res;
+
+    };
+    // Find Minimum in Rotated Sorted Array II
+}
