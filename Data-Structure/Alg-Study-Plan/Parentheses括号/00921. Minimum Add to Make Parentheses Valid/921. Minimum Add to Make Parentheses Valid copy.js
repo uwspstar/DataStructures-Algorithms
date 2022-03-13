@@ -20,6 +20,24 @@ Input: s = "((("
 Output: 3
 */
 {
+    var minAddToMakeValid = function(str) {
+        let res = 0;
+        let need = 0;
+        for (let s of str) {
+            if (s === '(') {
+                need ++;
+            } else {
+                need --;
+                if (need < 0) {
+                    need = 0;
+                    res++;
+                }
+            } 
+        }
+        return res + need;
+    }
+}
+{
     // T:O(N) , S:O(1)
     var minAddToMakeValid = function (s) {
         //Formally, a parentheses string is valid if and only if: 
