@@ -13,7 +13,7 @@ const leftBound = (nums, target) => {
         }
     }
     // 最后要检查 left 越界的情况
-    if (left >= nums.length || nums[left] != target) {
+    if (left >= nums.length || nums[left] !== target) {
         return -1;
     }
     return left;

@@ -8,14 +8,12 @@ Given the array nums after the possible rotation and an integer target, return t
 
 You must write an algorithm with O(log n) runtime complexity.
 
- 
-
 Example 1:
 
 Input: nums = [4,5,6,7,0,1,2], target = 0
 Output: 4
-Example 2:
 
+Example 2:
 Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 Example 3:
@@ -47,9 +45,41 @@ Example 3:
                 } else {
                     right = mid - 1;
                 }
-
             }
         }
         return res;
     };
+
+    console.log(search([4, 5, 6, 7, 0, 1, 2], 0)); // 4
+}
+{
+    const search = (arr, target) => {
+        if (arr === null || arr.length === 0) return -1;
+        let start = 0, end = arr.length - 1;
+        while (start + 1 < end) {
+            let mid = parseInt(start + (end - start) / 2);
+            if (arr[mid] === target) {
+                return mid;
+            }
+            if (arr[start] < arr[mid]) { //left side strictly increase (see pic)
+                if (target < arr[mid] && target >= arr[start]) { // >=, target can be start
+                    end = mid;
+                } else {
+                    start = mid
+                }
+            } else {
+                if (target <= arr[end] && target > arr[mid]) { // <=, target can be end
+                    start = mid;
+                } else {
+                    end = mid
+                }
+            }
+        }
+
+        if (arr[start] === target) return start;
+        if (arr[end] === target) return end;
+        return -1;
+    }
+
+    console.log(search([4, 5, 6, 7, 0, 1, 2], 0)); // 4
 }

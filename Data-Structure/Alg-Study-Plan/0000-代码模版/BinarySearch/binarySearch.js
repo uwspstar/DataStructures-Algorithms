@@ -1,3 +1,21 @@
+// regular suggest to use
+{
+    const binarySearch = (nums, target) => {
+        let left = 0, right = nums.length - 1;
+        while (left <= right) {
+            let mid = parseInt(left + (right - left) / 2);
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                return mid;
+            }
+        }
+        return -1;
+    }
+}
+
 /*
 本文作者:九章算法令狐冲
 官方网站:www.jiuzhang.com/?utm_source=lhc-cheatsheet-v4.0
@@ -48,22 +66,6 @@
         if (nums[start] === target) return start;
         if (nums[end] === target) return end;
 
-        return -1;
-    }
-}
-{
-    const binarySearch = (nums, target) => {
-        let left = 0, right = nums.length - 1;
-        while (left <= right) {
-            let mid = parseInt(left + (right - left) / 2);
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
-            } else if (nums[mid] == target) {
-                return mid;
-            }
-        }
         return -1;
     }
 }
