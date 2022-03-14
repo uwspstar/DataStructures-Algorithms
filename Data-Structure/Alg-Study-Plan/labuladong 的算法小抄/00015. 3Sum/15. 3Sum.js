@@ -1,9 +1,13 @@
 {
     var threeSum = function (nums) {
         if (nums.length < 3) return [];
+
         nums.sort((a, b) => a - b); // in order first
+
         if (nums[0] > 0) return [];
+
         if (nums[nums.length - 1] < 0) return [];
+
         let res = [];
 
         for (let i = 0; i < nums.length - 2; i++) {
@@ -30,3 +34,8 @@
         return res;
     };
 }
+/*
+Shortest Word Distance II
+Minimum Length of String After Deleting Similar Ends
+Watering Plants II
+*/
