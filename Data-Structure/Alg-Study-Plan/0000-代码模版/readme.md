@@ -9,3 +9,6 @@ marp: true
 - https://github.com/azl397985856/leetcode/tree/master/thinkings
 
 - www.jiuzhang.com/?utm_source=lhc-cheatsheet-v4.0
+
+- O(logn) : binary search, x power y, gcd,
+- O(n*logn) : sort, 

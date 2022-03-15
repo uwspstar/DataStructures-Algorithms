@@ -30,5 +30,21 @@ size: 16:9
 - 比如 sliding window maximum
 
 # LeetCode 101
+
 - LeetCode 101:和你一起你轻松刷题(C++) LeetCode 101: A LeetCode Grinding Guide (C++ Version) 作者:高畅 Chang Gao
 - github.com/changgyhub/leetcode_101
+
+# int j = 0;
+
+```js
+let j =0
+for (int i = 0; i < n; i++) {
+// 不满足则循环到满足搭配为止
+    while (j < n && i 到 j 之间不满足条件) {
+        j += 1;
+    }
+    if (i 到 j 之间满足条件) {
+        处理 i，j 这次搭配
+    }
+}
+```

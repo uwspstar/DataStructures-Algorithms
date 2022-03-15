@@ -20,12 +20,16 @@ Given an array of positive integers nums and a positive integer target, return t
 Input: target = 7, nums = [2,3,1,2,4,3] Output: 2
 Explanation: The subarray [4,3] has the minimal length under the problem constraint.
 */
+
+// positive integer , how about negative
 {
     var minSubArrayLen = function (target, A) {
-        let i = 0;
+
         let sum = 0;
         let ans = Infinity;
 
+        let i = 0;
+        
         for (let j = 0; j < A.length; j++) {
             sum += A[j];
             while (sum >= target) {

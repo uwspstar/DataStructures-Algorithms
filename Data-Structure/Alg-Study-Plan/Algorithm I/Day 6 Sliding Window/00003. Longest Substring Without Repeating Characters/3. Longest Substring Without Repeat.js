@@ -22,8 +22,7 @@
             maxLen = Math.max(maxLen, fast - slow + 1);
             map.set(key, fast)
             fast++;
-        }
-
+        } 
         return maxLen;
     };
 }
