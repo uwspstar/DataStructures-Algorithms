@@ -16,22 +16,13 @@ Example 1:
 Input: s = "lee(t(c)o)de)"
 Output: "lee(t(c)o)de"
 Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
-Example 2:
-
-Input: s = "a)b(c)d"
-Output: "ab(c)d"
-Example 3:
-
-Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
 */
 {
     var minRemoveToMakeValid = function (s) {
         if (s.length === 0) return s;
 
         let res = [];
-        let stack = [];
+        let stack = []; // save the idx
 
         for (let i = 0; i < s.length; i++) {
             res[i] = s[i];
@@ -41,9 +32,8 @@ Explanation: An empty string is also valid.
                 res[i] = '';
                 continue;
             }
-
+            //stack.length > 0 means has '('
             if (s[i] === ')' && stack.length > 0) {
-                //stack.length > 0 means has '('
                 stack.pop(); // pop '('
             } else if (s[i] === '(') {
                 stack.push(i);
@@ -51,7 +41,7 @@ Explanation: An empty string is also valid.
 
         }
 
-        // still have ')'
+        // still have '('
         while (stack.length) {
             let i = stack.pop();
             res[i] = '';

@@ -63,7 +63,3 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
         return this.preSum[j];
     };
 }
-
-// Range Sum Query 2D - Immutable Medium
-// Range Sum Query - Mutable Medium
-// RMaximum Size Subarray Sum Equals k Medium

@@ -26,9 +26,9 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 {  // Off by "1" , save base case when use 2D arr  
     var NumArray = function (nums) {
         const getPreSum = arr => {
-            let N = nums.length + 1;
-            let preSum = new Array(N + 1).fill(0); // N + 1 // Off by "1"
-            for (let i = 1; i < N; i++) {
+            let N = nums.length;
+            let preSum = new Array(N + 1).fill(0);
+            for (let i = 1; i <= N; i++) { //<= N important !!!
                 preSum[i] = preSum[i - 1] + nums[i - 1];
             }
             return preSum;
@@ -63,7 +63,3 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
         return this.preSum[j];
     };
 }
-
-// Range Sum Query 2D - Immutable Medium
-// Range Sum Query - Mutable Medium
-// RMaximum Size Subarray Sum Equals k Medium
