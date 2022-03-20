@@ -1,0 +1,4 @@
+- 贪心算法或贪心思想采用贪心的策略，保证每次操作都是局部最优的，从而使最 后得到的结果是全局最优的
+- 注意 对数组或字符串排序是常见的操作，方便之后的大小比较。
+- LeetCode 101:和你一起你轻松刷题(C++) LeetCode 101: A LeetCode Grinding Guide (C++ Version) 作者:高畅 Chang Gao
+- github.com/changgyhub/leetcode_101

@@ -20,6 +20,7 @@ size: 16:9
 # 滑动窗口基本题型
 
 - https://docs.google.com/presentation/d/1lGdnMBo_1w50NAPqVMzTTlnlgGBXUxzfHpIToGs2cgE/edit#slide=id.gb533e9b64a_0_22
+
 - Easy, size fixed
 - 窗口长度确定，比如 max sum of size = k
 - Median, size 可变，单限制条件
@@ -40,7 +41,7 @@ size: 16:9
 let j =0
 for (int i = 0; i < n; i++) {
 // 不满足则循环到满足搭配为止
-    while (j < n && i 到 j 之间不满足条件) {
+    while (j < n && i 到 j 之间不满足条件) { // j < n important
         j += 1;
     }
     if (i 到 j 之间满足条件) {
