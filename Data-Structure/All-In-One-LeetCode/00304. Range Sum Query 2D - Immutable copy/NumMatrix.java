@@ -5,7 +5,7 @@ class NumMatrix {
     public NumMatrix(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         if (m == 0 || n == 0) return;
-        // 构造前缀和矩阵 off by "1"
+        // 构造前缀和矩阵
         preSum = new int[m + 1][n + 1];
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {

@@ -26,7 +26,7 @@ marp: true
 
 ---
 
-# 模版
+# PreSum 模版
 
 ```js
 var NumArray = function (nums) {
