@@ -54,7 +54,7 @@ var numIslands = function (grid) {
 };
 
 {
-    // return the number of islands
+    // DFS: return the number of islands
     const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
     const dfs = (grid, M, N, i, j, visited) => {
@@ -94,4 +94,60 @@ var numIslands = function (grid) {
         }
         return res;
     };
+}
+{
+    // BFS: return the number of islands
+    const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+
+    const isValid = (grid, M, N, x, y, visited) => {
+        if (x < 0 || y < 0 || x >= M || y >= N) return false;
+        if (grid[x][y] === '0') return false;
+        if (visited[x][y]) return false;
+
+        return true;
+    }
+    const bfs = (grid, M, N, i, j, visited, que) => {
+
+        que.push([i, j]);
+        visited[i][j] = true;
+
+        while (que.length > 0) {
+            let sz = que.length;
+            for (let i = 0; i < sz; i++) {
+                let [row, col] = que.shift();
+                for (let d of dirs) {
+                    let x = row + d[0];
+                    let y = col + d[1];
+                    if (isValid(grid, M, N, x, y, visited)) {
+                        que.push([x, y])
+                        visited[x][y] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    var numIslands = function (grid) {
+        let res = 0
+        let M = grid.length;
+        let N = grid[0].length;
+        let visited = [...Array(M)].map(x => Array(N).fill(false));
+        let queue = [];
+
+        for (let i = 0; i < M; i++) {
+            for (let j = 0; j < N; j++) {
+                if (!visited[i][j] && grid[i][j] === '1') {
+                    res++;
+                    // push the "1" into queue
+                    bfs(grid, M, N, i, j, visited, queue);
+                }
+            }
+        }
+        return res;
+    };
+
+
+    // Number of Connected Components in an Undirected Graph
+    // Count Sub Islands
+    // Find All Groups of Farmland
 }
