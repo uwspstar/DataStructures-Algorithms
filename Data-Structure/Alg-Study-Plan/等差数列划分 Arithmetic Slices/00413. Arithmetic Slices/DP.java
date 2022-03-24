@@ -1,0 +1,1 @@
+// https://leetcode-cn.com/problems/arithmetic-slices/solution/fu-xue-ming-zhu-bao-li-shuang-zhi-zhen-d-fc1l/
