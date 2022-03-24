@@ -28,8 +28,7 @@ Explanation: The subarray [4,3] has the minimal length under the problem constra
         let sum = 0;
         let ans = Infinity;
 
-        let i = 0;
-        
+        let i = 0; 
         for (let j = 0; j < A.length; j++) {
             sum += A[j];
             while (sum >= target) {

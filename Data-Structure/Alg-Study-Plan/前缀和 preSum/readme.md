@@ -80,7 +80,7 @@ NumArray.prototype.sumRange = function (i, j) {
 
 ---
 
-- LintCode 1844: 求和 =k 的最短的子数组
+- LintCode 1844: 求和 = k 的最短的子数组
 - LintCode 1507: 求和 >=k 最短的子数组
 - LintCode 41: Maximum Subarray
 - LintCode 545: Top K Largest Number II
