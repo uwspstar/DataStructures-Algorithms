@@ -1,4 +1,6 @@
 /*
+A subarray is a contiguous subsequence of the array.
+
 初始化慢指针 = 0
 初始化 ans
 

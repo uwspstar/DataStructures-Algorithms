@@ -1,5 +1,5 @@
 // PreSum 模版
-
+// A subarray is a contiguous subsequence of the array.
  
 var NumArray = function (nums) {
   const getPreSum = (arr) => {

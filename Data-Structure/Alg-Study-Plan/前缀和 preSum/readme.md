@@ -20,7 +20,11 @@ marp: true
 - prefixSum[i] = prefixSum[j + 1] - prefixSum[i]
 - 定义 prefixSum[i] = 前 i 个数之和 (index from 0 to i-1) 对于 index from i to j 这一段区间的和 = prefixSum[j + 1] - prefixSum[i]
 
+---
+
 ### Subarray O(n^2) 连续 子数组
+
+- A subarray is a contiguous subsequence of the array.
 
 ### SubSequence O(2^n) 子字符串 不连续
 
