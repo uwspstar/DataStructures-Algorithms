@@ -29,6 +29,9 @@ size: 16:9
 - 比如 longest substring with distinct character
 - Hard, size fix, 单限制条件
 - 比如 sliding window maximum
+- 双子段问题:`隔板法`
+
+---
 
 # LeetCode 101
 

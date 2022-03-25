@@ -12,3 +12,9 @@ marp: true
 ---
 
 - https://docs.google.com/spreadsheets/d/12Js3E_dryYyCfqFil7VaQemb6_dolMZR_Fgc-l77wVA/edit#gid=0
+- https://github.com/changgyhub/leetcode_101/
+
+---
+
+- https://github.com/changgyhub/leetcode_101/
+- 这里要注意，深度优先搜索和广度优先搜索都可以处理可达性问题，即从一个节点开始是否 能达到另一个节点。因为深度优先搜索可以利用递归快速实现，很多人会习惯使用深度优先搜索 刷此类题目。实际软件工程中，笔者很少见到递归的写法，因为一方面难以理解，另一方面可能 产生栈溢出的情况;而用栈实现的深度优先搜索和用队列实现的广度优先搜索在写法上并没有太大差异，因此使用哪一种搜索方式需要根据实际的功能需求来判断。
