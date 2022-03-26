@@ -72,3 +72,27 @@ void dfs(int[][] grid, int i, int j, boolean[] visited) {
     // 离开节点 (i, j)
 }
 ```
+
+---
+
+### 2 D [n x m] array to 1 D arr
+
+- `(x, y) -> (x * m + y) = curr` 
+- `x = curr / m`
+- `y = cur  % m`
+```java
+// 4 x 3
+// for [[4,.,.] -> (1, 1) ->  1 * 3 + 1 = 4
+// for [[.,5,.] -> (1, 2) ->  1 * 3 + 2 = 5
+// for [[.,11,.] -> (3, 2) -> 3 * 3 + 2 = 11
+/* [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [10, 11, 12]
+]
+*/
+```
+---
+### 2 D boolean visited
+- `let visited = [...Array(M)].map(x => Array(N).fill(false));`
