@@ -27,3 +27,18 @@
  /
 1
 */
+export class Solution {
+  dfs(root, ans) {
+    if (root === null) return 0
+    let left = this.dfs(root.left, ans);
+    let right = this.dfs(root.right, ans)
+    ans[0] = Math.max(ans[0], left + right);
+    return Math.max(left, right) + 1;
+  }
+  diameterOfBinaryTree(root) {
+    // write your code here
+    let ans = [0];
+    this.dfs(root, ans);
+    return ans[0]
+  }
+}

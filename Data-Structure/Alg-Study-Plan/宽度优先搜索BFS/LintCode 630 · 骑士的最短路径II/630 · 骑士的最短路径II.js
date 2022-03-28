@@ -72,7 +72,6 @@ export class Solution {
                 }
             }
         }
-        if (visited[M - 1][N - 1]) return step
         return -1;
     }
 }

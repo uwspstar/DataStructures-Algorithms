@@ -31,6 +31,9 @@ Explanation: version1 does not specify revision 2, which means it is treated as 
     // Hexspeak (E)
     // Rearrange Spaces Between Words (E)
     // Delete the Middle Node of a Linked List (M)
+    // Distinct Echo Substrings (H)
+    // Reformat The String
+    // Find Longest Awesome Substring (H)
 }
 {
     var compareVersion = function (version1, version2) {

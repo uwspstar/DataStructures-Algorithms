@@ -13,6 +13,23 @@ Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
 Output: true
 */
 {
+    // from top - right corner
+    var searchMatrix = function(matrix, target) {
+        let M = matrix.length;
+        let N = matrix[0].length;
+        let i = 0;
+        let j = N - 1;
+        while ( i < M && j >= 0) {
+            if (matrix[i][j] === target) return true;
+            if (matrix[i][j] > target) {
+                j--;
+            } else i++;
+        }
+        return false;
+    };
+    // Search a 2D Matrix II (M)
+}
+{
     var searchMatrix = function (matrix, target) {
         const m = matrix.length
         const n = matrix[0].length;
