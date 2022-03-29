@@ -15,6 +15,9 @@ Example 2:
 
 Input: root = [1,2]
 Output: 1
+
+
+//check 104. Maximum Depth of Binary Tree
 */
 {
     //The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.

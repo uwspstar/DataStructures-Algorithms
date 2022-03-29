@@ -25,20 +25,30 @@ Output: [1,2]
 Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 */
 //因为数组已经排好序，我们可以采用方向相反的双指针来寻找这两个数字，
-var twoSum = function (nums, target) {
+{
+    // already sorted in non-decreasing order,
+    // exactly one solution. You may not use the same element twice.
+    // Your solution must use only constant extra space.
+    // numbers = [2,7,11,15], target = 9 -> [1,2]
 
-    let left = 0;
-    let right = nums.length - 1;
+    var twoSum = function (nums, target) {
 
-    while (left < right) {
-        let sum = nums[left] + nums[right];
-        if (sum === target) {
-            return [left + 1, right + 1];
+        let left = 0;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            let sum = nums[left] + nums[right];
+            
+            if (sum === target) {
+                return [left + 1, right + 1];
+            } 
+
+            sum > target? right-- : left++;
         }
 
-        if (sum > target) right--;
-        else left++;
-    }
-
-    return [];
-};
+        return [-1, -1];
+    };
+    // Decode XORed Array (E)
+    // Minimize Maximum Pair Sum in Array (M)
+    // Find the Student that Will Replace the Chalk (M)
+}

@@ -54,7 +54,6 @@ class Solution {
         if (root == null) {
             return;
         }
-
         // 前序遍历位置
         depth++;
         // 遍历的过程中记录最大深度
@@ -75,15 +74,17 @@ class Solution2 {
         if (root == null) {
             return 0;
         }
-        int leftMax = maxDepth(root.left);
-        int rightMax = maxDepth(root.right);
+        int leftMax = maxDepth(root.left); // 左子树深度
+        int rightMax = maxDepth(root.right); // 右子树深度
 
-        // 根据左右子树的最大深度推出原二叉树的最大深度
+        // 根据左右子树的最大深度 + 加上根节点自己
+        // 推出原二叉树的最大深度
         return 1 + Math.max(leftMax, rightMax);
     }
 }
 /*
-为什么主要的代码逻辑集中在后序位置？
-
-因为这个思路正确的核心在于，你确实可以通过子树的最大高度推导出原树的高度，所以当然要首先利用递归函数的定义算出左右子树的最大深度，然后推出原树的最大深度，主要逻辑自然放在后序位置
-*/
+ * 为什么主要的代码逻辑集中在后序位置？
+ * 
+ * 因为这个思路正确的核心在于，你确实可以通过子树的最大高度推导出原树的高度，所以当然要首先利用递归函数的定义算出左右子树的最大深度，然后推出原树的最大深度，
+ * 主要逻辑自然放在后序位置
+ */
