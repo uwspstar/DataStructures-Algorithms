@@ -50,3 +50,37 @@ Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
         return res.join('');
     };
 }
+{
+    /**
+ * @param {string} s
+ * @return {string}
+ */
+    // s = "lee(t(c)o)de)" -> "lee(t(c)o)de"
+    // lowercase English characters.
+
+    var minRemoveToMakeValid = function (s) {
+        let stk = [];
+        let res = [];
+        for (let i = 0; i < s.length; i++) {
+            res.push(s[i]);
+
+            if (s[i] === '(') {
+                stk.push(i);
+            } else if (s[i] === ')') {
+                let last = stk[stk.length - 1] // stk save idx 
+                if (s[last] === '(') {
+                    stk.pop();
+                } else {
+                    stk.push(i);
+                }
+            }
+        }
+        //stk has unmatched
+        for (let x of stk) {
+            res[x] = '';
+        }
+        return res.join('');
+    };
+    // Minimum Number of Swaps to Make the String Balanced (M)
+    // Check if a Parentheses String Can Be Valid (M) 
+}
