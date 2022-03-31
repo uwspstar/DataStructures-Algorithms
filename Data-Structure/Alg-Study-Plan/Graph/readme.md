@@ -6,6 +6,8 @@ marp: true
 
 - https://leetcode.com/explore/learn/card/graph/?ref=problem
 - https://learnersbucket.com/tutorials/data-structures/javascript-graph-data-structure/
+- Graph Algorithms for Technical Interviews - Full Course
+- https://www.youtube.com/watch?v=tWVWeAqZ0WU&t=2181s
 
 ---
 
