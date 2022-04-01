@@ -25,6 +25,7 @@ Explanation: There is no 3 in the array.
 
 空间O(n)
 */
+
 {
     // https://leetcode.com/problems/shortest-distance-to-target-color/discuss/1274735/Binary-Search-JS-Solution
 
@@ -51,7 +52,6 @@ Explanation: There is no 3 in the array.
                     let debug = Math.abs(indexCheck - x);
                     min = Math.min(min, debug);
                     // console.log(indexCheck, '-', x, ' debug=', debug, 'min=',min,'x=',x, 'currentColor=', currentColor, 'indexOfColor=', indexOfColor);
-
                 }
                 res.push(min);
             } else {
