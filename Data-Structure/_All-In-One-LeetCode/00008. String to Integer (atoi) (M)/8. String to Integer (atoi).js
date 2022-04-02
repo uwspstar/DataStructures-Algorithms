@@ -3,8 +3,8 @@ var myAtoi = function (s) {
     if (s.length === 0) return 0;
     let res = 0;
 
-    const MAX = Math.pow(2, 31) - 1;
-    const MIN = -1 * (MAX + 1);
+    const MAX = Math.pow(2, 31) - 1; // important
+    const MIN = -1 * (MAX + 1); // important
 
     let i = 0;
     let sign = 1;
@@ -13,11 +13,13 @@ var myAtoi = function (s) {
     while (s[i] === ' ') {
         i++;
     }
+
     // s[i] not s[0] , we do no modify s
     if (s[i] === '+' || s[i] === '-') {
         s[i] === '+' ? sign = 1 : sign = -1;
         i++;
     }
+    
     // get result
     while (s[i] >= '0' && s[i] <= '9') {
         res = res * 10 + (+s[i]);
