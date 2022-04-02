@@ -46,7 +46,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
         let n1000 = parseInt(num / 1000);
         let n100 = parseInt(num / 100) % 10; // make is idx between 0 ~ 9
         let n10 = parseInt(num / 10) % 100 % 10; //// make is idx between 0 ~ 9
-        let n1 = num % 10;
+        let n1 = num % 10; // important !
 
         return strM[n1000] + strC[n100] + strX[n10] + strI[n1];
 
@@ -54,4 +54,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     // Delete Columns to Make Sorted III (H)
     // Binary String With Substrings Representing 1 To N
     // Design Underground System
+    // Super Pow (M)
+    // Swap Adjacent in LR String (M)
+    // Find All Lonely Numbers in the Array (M)
 }
