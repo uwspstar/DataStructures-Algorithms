@@ -37,4 +37,5 @@ Explanation: The substring is "aabbb" which its length is 5.
         }
         return res;
     }
+    // Subarrays with K Different Integers (H)
 }
