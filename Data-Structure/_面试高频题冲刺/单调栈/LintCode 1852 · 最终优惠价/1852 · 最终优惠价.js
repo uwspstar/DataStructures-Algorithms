@@ -21,7 +21,7 @@ export class Solution {
         let res = [...prices];
         let N = prices.length;
         let stk = []; // index
-        console.log('res=', res, 'stk=', stk)
+
         for (let i = 0; i < N; i++) {
             while (stk.length && prices[stk[stk.length - 1]] >= prices[i]) {
                 res[stk[stk.length - 1]] = res[stk[stk.length - 1]] - prices[i];
