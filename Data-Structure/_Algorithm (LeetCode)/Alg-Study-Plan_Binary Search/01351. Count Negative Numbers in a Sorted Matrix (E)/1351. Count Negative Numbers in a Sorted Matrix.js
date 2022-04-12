@@ -25,18 +25,18 @@ Explanation: There are 8 negatives number in the matrix.
     };
 }
 {
+    // Time Complexity: O(m*n)
+    // Space Complexity: O(m*n)
     var countNegatives = function (grid) {
         let arr = [], res = 0;
         for (let row of grid) arr = arr.concat(row);
         for (let num of arr) if (num < 0) res++;
         return res;
-        // Time Complexity: O(m*n)
-        // Space Complexity: O(m*n)
     };
+    // Time Complexity: O(m*n)
+    // Space Complexity: O(n)
     var countNegatives = function (grid) {
         return grid.reduce((acc, row) => acc + row.filter(num => num < 0).length, 0);
-        // Time Complexity: O(m*n)
-        // Space Complexity: O(n)
     }
     // Maximal Square (M)
     // Check if Array Is Sorted and Rotated (E)

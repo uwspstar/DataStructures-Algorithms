@@ -8,25 +8,21 @@ The ocean is to the right of the buildings. A building has an ocean view if the 
 Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.
 
 Example 1:
-
-Input: heights = [4,2,3,1]
-Output: [0,2,3]
+Input: heights = [4,2,3,1] Output: [0,2,3]
 Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
+
 Example 2:
-
-Input: heights = [4,3,2,1]
-Output: [0,1,2,3]
+Input: heights = [4,3,2,1] Output: [0,1,2,3]
 Explanation: All the buildings have an ocean view.
-Example 3:
 
-Input: heights = [1,3,2,4]
-Output: [3]
+Example 3:
+Input: heights = [1,3,2,4] Output: [3]
 Explanation: Only building 3 has an ocean view.
 */
 {
     // Monotonic Stack
-
-    // Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.
+    // Return a list of indices (0-indexed) of buildings that have an ocean view, 
+    // sorted in increasing order.
 
     var findBuildings = function (arr) {
         let N = arr.length;
@@ -64,4 +60,24 @@ Explanation: Only building 3 has an ocean view.
         }
         return stk;
     }
+}
+{
+    // Monotonic stack
+    // Input: heights = [4,2,3,1] -> Output: [0,2,3]
+    // Return a list of indices (0-indexed) of buildings that have an ocean view, 
+    // sorted in increasing order.
+
+    var findBuildings = function (arr) {
+        let mtStack = [0];
+        const N = arr.length;
+        for (let i = 1; i < N; i++) {
+            while (mtStack.length > 0 && arr[i] >= arr[mtStack[mtStack.length - 1]]) {
+                mtStack.pop();
+            }
+            mtStack.push(i);
+        }
+        return mtStack;
+    };
+
+    // Number of Visible People in a Queue (H)
 }

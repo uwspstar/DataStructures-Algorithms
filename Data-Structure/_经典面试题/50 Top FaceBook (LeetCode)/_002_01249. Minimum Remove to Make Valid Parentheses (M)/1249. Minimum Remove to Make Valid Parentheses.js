@@ -22,26 +22,25 @@ Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
         if (s.length === 0) return s;
 
         let res = [];
-        let stack = []; // save the idx
+        let stack = []; // save not matched parentheses idx 
 
         for (let i = 0; i < s.length; i++) {
             res[i] = s[i];
-
+            // case 1
             if (stack.length === 0 && s[i] === ')') {
                 //stack has all matched, so ')' need to be removed     
                 res[i] = '';
                 continue;
             }
-            //stack.length > 0 means has '('
-            if (s[i] === ')' && stack.length > 0) {
+            // stack.length > 0 means has '('
+            if (s[i] === ')' && stack.length > 0) { // case 2
                 stack.pop(); // pop '('
-            } else if (s[i] === '(') {
+            } else if (s[i] === '(') { // case 3
                 stack.push(i);
             }
-
         }
 
-        // still have '('
+        // still have not matched parentheses idx 
         while (stack.length) {
             let i = stack.pop();
             res[i] = '';
@@ -51,33 +50,30 @@ Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
     };
 }
 {
-    /**
- * @param {string} s
- * @return {string}
- */
     // s = "lee(t(c)o)de)" -> "lee(t(c)o)de"
     // lowercase English characters.
 
     var minRemoveToMakeValid = function (s) {
-        let stk = [];
+        let stk = []; // stk save not matched parentheses idx 
         let res = [];
         for (let i = 0; i < s.length; i++) {
-            res.push(s[i]);
+            res.push(s[i]); // res[i] = s[i]; is better
 
             if (s[i] === '(') {
                 stk.push(i);
             } else if (s[i] === ')') {
                 let last = stk[stk.length - 1] // stk save idx 
-                if (s[last] === '(') {
+                if (s[last] === '(') { // case 1
                     stk.pop();
-                } else {
+                } else { // case 2
                     stk.push(i);
                 }
             }
         }
-        //stk has unmatched
-        for (let x of stk) {
-            res[x] = '';
+
+        // still have not matched parentheses idx 
+        for (let idx of stk) {
+            res[idx] = '';
         }
         return res.join('');
     };

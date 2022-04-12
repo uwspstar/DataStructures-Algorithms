@@ -10,8 +10,6 @@ A sparse vector is a vector that has mostly zero values, you should store the sp
 
 Follow up: What if only one of the vectors is sparse?
 
- 
-
 Example 1:
 
 Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
@@ -41,9 +39,10 @@ Output: 6
         }
 
         dotProduct(vec) {
+            // vec has the obj attribute pairs
             let res = 0;
             let p = 0, q = 0;
-            let M = this.pairs.length, N = vec.pairs.length
+            let M = this.pairs.length, N = vec.pairs.length;
 
             while (p < M && q < N) {
                 //same index for both storage 
@@ -60,5 +59,4 @@ Output: 6
             return res;
         }
     }
-
 }
