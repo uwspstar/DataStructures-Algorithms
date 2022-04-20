@@ -9,3 +9,17 @@
     - 找某段区间的最大值最小值(线段树 SegmentTree 可以解决)
     - O(n) 找第 k 大 (使用快排中的 partition 操作)
 */
+// https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/
+var findKthLargest = function (nums, k) {
+    let pq = new MinPriorityQueue();
+
+    for (let i = 0; i < nums.length; i++) {
+        pq.enqueue(nums[i]);
+
+        if (pq.size() > k) {
+            pq.dequeue();
+        }
+    }
+
+    return pq.dequeue().element;
+};
