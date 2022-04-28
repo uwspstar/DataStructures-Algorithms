@@ -26,17 +26,22 @@ var minWindow = function (s, t) {
 
     const map = new Map();
     // 先统计T中的字符情况
-    for (const char of t) map.set(char, (map.get(char) || 0) + 1);
-    let counter = map.size, right = 0, left = 0;
+    for (const char of t) {
+        map.set(char, (map.get(char) || 0) + 1);
+    }
+
+    let cnt = map.size, right = 0, left = 0;
     const res = [-1, 0];
     // 移动滑动窗口，不断更改统计数据
     while (right < s.length) {
         let rChar = s[right];
-        if (map.has(rChar)) map.set(rChar, (map.get(rChar) - 1));
-        if (map.get(rChar) === 0) counter--;
+        if (map.has(rChar)) {
+            map.set(rChar, (map.get(rChar) - 1));
+        }
+        if (map.get(rChar) === 0) cnt--;
         // 若目前滑动窗口已包含T中全部字符，
         // 则尝试将l右移，在不影响结果的情况下获得最短子字符串
-        while (counter === 0) {
+        while (cnt === 0) {
             // window shrink
             if (res[0] === -1 || right - left < res[1] - res[0]) {
                 res[0] = left;
@@ -44,7 +49,7 @@ var minWindow = function (s, t) {
             }
             let lChar = s[left];
             if (map.has(lChar)) map.set(lChar, (map.get(lChar) + 1));
-            if (map.get(lChar) > 0) counter++;
+            if (map.get(lChar) > 0) cnt++;
             left++;
         }
         right++;

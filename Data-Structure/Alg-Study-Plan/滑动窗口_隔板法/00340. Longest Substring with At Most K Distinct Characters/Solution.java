@@ -4,6 +4,7 @@ class Solution {
         if (n * k == 0) {
             return 0;
         }
+        
         int left = 0;
         int right = 0;
 

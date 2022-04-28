@@ -22,7 +22,7 @@ export class Solution {
      * @return: the maximum valued number
      */
     maximumSwap(num) {
-        // Write your code here
+
         const arr = new Array(10).fill(-1);
         num = Array.from(num.toString());
 
@@ -32,7 +32,7 @@ export class Solution {
         }
 
         for (let i = 0; i < N; i++) {
-            for (let d = 9; d > num[i] - '0'; d--) {
+            for (let d = 9; d > num[i]; d--) {
                 if (arr[d] > i) {
                     let idx = arr[d];
                     let temp = num[idx];

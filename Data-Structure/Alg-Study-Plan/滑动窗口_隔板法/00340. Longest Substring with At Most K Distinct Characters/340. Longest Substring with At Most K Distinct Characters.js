@@ -14,7 +14,6 @@ Explanation: The substring is "ece" with length 3.
 
         for (let i = 0; i < n; i++) {
             map.set(s[i], i);
-
             //shrink window
             if (map.size === k + 1) {
                 let index = Math.min(...map.values());

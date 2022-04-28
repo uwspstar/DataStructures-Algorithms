@@ -19,8 +19,10 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
     for (let i = 0; i < s.length; i++) {
         let curr = s[i];
         map.set(curr, (map.get(curr) || 0) + 1);
+        // shrink the window
         while (map.size > 2) {
             let c = s[left];
+            // shrink the cnt
             map.set(c, map.get(c) - 1);
             if (map.get(c) === 0) map.delete(c);
             left++
