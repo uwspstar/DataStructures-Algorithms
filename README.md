@@ -9,7 +9,7 @@
 
 ## DataStructures-Algorithms RoadMap
 
-![Algorithms RoadMap](roadmap.png)
+![Algorithms RoadMap](/roadmap.png)
 
 ### Objects vs. Maps
 
