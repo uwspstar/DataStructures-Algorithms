@@ -11,6 +11,32 @@
 
 ![Algorithms RoadMap](/roadmap.png)
 
+## TOP 10 Algorithms
+
+## Depth First Search. -stack
+
+## Breadth First Search. -queue
+
+## Matching Program
+
+## Hash Tables
+
+## Variable/Pointer multiple pointers , one pointer chase another pointer
+
+## reversing linklist (3 different pointers)
+
+## Sorting experts /quick sort, merge sort, bubble sort, insert sort (nlogn)
+
+## Recursion
+
+## custom data structure
+
+## Binary Search , sort list, find the bug commit
+
+## Sliding Window Technique - Algorithmic Mental Models
+
+- <https://www.youtube.com/watch?v=MK-NZ4hN7rs>
+
 ### Objects vs. Maps
 
 - Object is similar to Map—both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and because there were no built-in alternatives), ```Objects have been used as Maps historically```
