@@ -35,3 +35,6 @@ set() -> new empty set object set(iterable) -> new set object
 Build an unordered collection of unique elements.
 """
 # s2, sorting : O(NlogN)
+
+# Problem 219 Contains Duplicate II
+# Problem 220 Contains Duplicate III
