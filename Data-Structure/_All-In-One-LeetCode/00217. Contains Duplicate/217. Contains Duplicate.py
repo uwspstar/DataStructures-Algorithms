@@ -1,3 +1,9 @@
+"""
+Loop Invariant, Linear Search, Sorting and Hash Table.
+
+ when n is not sufficiently large, an O(n)O algorithm can be slower than an O(nlogn) algorithm.
+"""
+
 from typing import List
 
 # s1 t: O(N) s: O(N)
