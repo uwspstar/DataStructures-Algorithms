@@ -42,3 +42,11 @@ Build an unordered collection of unique elements.
 
 # Problem 219 Contains Duplicate II
 # Problem 220 Contains Duplicate III
+
+# s3 : add array to HashSet, compare the HashSet length with array length
+# s3 t: O(N) s: O(N)
+
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        return len(nums) != len(set(nums))

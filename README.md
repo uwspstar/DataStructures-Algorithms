@@ -1,5 +1,6 @@
 # DataStructures-Algorithms
 
+- <https://neetcode.io/practice>
 - <https://www.youtube.com/watch?v=v4cd1O4zkGw&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt>
 - <https://github.com/trekhleb/javascript-algorithms>
 - <https://medium.com/outco/the-algorithm-of-an-algorithm-28043fe47b51>
@@ -49,7 +50,7 @@
 - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set>
 - Use to remove duplicate elements from the array
 
-```
+```js
 const numbers = [2,3,4,4,2,3,3,4,4,5,5,6,6,7,5,32,3,4,5]
 console.log([...new Set(numbers)]) 
 // [2, 3, 4, 5, 6, 7, 32]
