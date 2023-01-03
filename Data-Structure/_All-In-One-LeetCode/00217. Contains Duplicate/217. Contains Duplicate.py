@@ -1,5 +1,9 @@
 """
-Loop Invariant, Linear Search, Sorting and Hash Table.
+- Loop Invariant
+- Linear Search
+- Sorting
+- Hash Table
+- Add array to a HashSet compare new HashSet length with original array length
 
  when n is not sufficiently large, an O(n)O algorithm can be slower than an O(nlogn) algorithm.
 """
