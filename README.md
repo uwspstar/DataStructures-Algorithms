@@ -273,14 +273,14 @@ for (let [key, value] of myMap.entries()) {
 
 ### graph
 
-  ```
+  ```text
   Vertex - a node
   Edge - connection between nodes
   Weighted/Unweighted - values assigned to distances between vertices
   Directed/Undirected - directions assigned to distanced between vertices
   ```
 
-  ```
+  ```js
   class Graph {
     constructor(){
         this.adjacencyList = {}
@@ -386,7 +386,7 @@ for (let [key, value] of myMap.entries()) {
 - A parity bit, or check bit
 <https://en.wikipedia.org/wiki/Parity_bit>
 
-```
+```text
 There is a limitation to parity schemes. 
 A parity bit is only guaranteed to detect an odd number of bit errors. 
 If an even number of bits have errors, the parity bit records the correct number of ones, 
@@ -396,7 +396,7 @@ even though the data is corrupt.
 - XOR . (both different show "1" )
 - console.log vs console.dir
 
-  ```
+  ```text
   log only prints out a toString representation, whereas dir prints out a navigable tree.
   ```
 
