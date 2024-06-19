@@ -1,100 +1,157 @@
 ### Binary Tree Preorder Traversal
 ### 二叉树的前序遍历
 
-#### Explanation
-Preorder traversal of a binary tree involves visiting the root node first, followed by the left subtree, and finally the right subtree.
-前序遍历二叉树的顺序是先访问根节点，然后访问左子树，最后访问右子树。
+**Preorder Traversal:** Visit the root node, then recursively visit the left subtree, and finally, the right subtree.
+**前序遍历:** 先访问根节点，然后递归访问左子树，最后递归访问右子树。
 
-#### Node.js Example
+Here is a detailed explanation and implementation in both Node.js and Python.
+以下是Node.js和Python中的详细解释和实现。
+
+#### Node.js Implementation
+#### Node.js 实现
+
 ```javascript
+// Definition for a binary tree node
+// 二叉树节点定义
 class TreeNode {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
+    constructor(val = 0, left = null, right = null) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
     }
 }
 
+// Preorder Traversal Function
+// 前序遍历函数
 function preorderTraversal(root) {
-    let result = [];
-    function traverse(node) {
-        if (node === null) return;
-        result.push(node.value); // Visit the root node
-        traverse(node.left); // Visit the left subtree
-        traverse(node.right); // Visit the right subtree
-    }
-    traverse(root);
+    const result = [];
+    traverse(root, result);
     return result;
 }
 
+// Helper function to perform the traversal
+// 执行遍历的辅助函数
+function traverse(node, result) {
+    if (node !== null) {
+        result.push(node.val); // Visit root
+        traverse(node.left, result); // Visit left subtree
+        traverse(node.right, result); // Visit right subtree
+    }
+}
+
 // Example Usage
-let root = new TreeNode(1);
-root.left = new TreeNode(2);
-root.right = new TreeNode(3);
-root.left.left = new TreeNode(4);
-root.left.right = new TreeNode(5);
+// 示例用法
+const root = new TreeNode(1);
+root.right = new TreeNode(2);
+root.right.left = new TreeNode(3);
 
-console.log(preorderTraversal(root)); // Output: [1, 2, 4, 5, 3]
+console.log(preorderTraversal(root)); // Output: [1, 2, 3]
 ```
-### 解释代码行
-1. 定义TreeNode类来表示二叉树的节点。
-2. 定义preorderTraversal函数来执行前序遍历。
-3. 初始化结果数组。
-4. 定义递归函数traverse来遍历树。
-5. 检查节点是否为null，如果是，返回。
-6. 将节点的值添加到结果数组中。
-7. 递归调用traverse遍历左子树。
-8. 递归调用traverse遍历右子树。
-9. 返回结果数组。
 
-#### Python Example
+#### Python Implementation
+#### Python 实现
+
 ```python
+# Definition for a binary tree node
+# 二叉树节点定义
 class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
+# Preorder Traversal Function
+# 前序遍历函数
 def preorder_traversal(root):
     result = []
-    def traverse(node):
-        if node is None:
-            return
-        result.append(node.value) # Visit the root node
-        traverse(node.left) # Visit the left subtree
-        traverse(node.right) # Visit the right subtree
-    traverse(root)
+    traverse(root, result)
     return result
 
+# Helper function to perform the traversal
+# 执行遍历的辅助函数
+def traverse(node, result):
+    if node is not None:
+        result.append(node.val)  # Visit root
+        traverse(node.left, result)  # Visit left subtree
+        traverse(node.right, result)  # Visit right subtree
+
 # Example Usage
+# 示例用法
 root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = TreeNode(3)
-root.left.left = TreeNode(4)
-root.left.right = TreeNode(5)
+root.right = TreeNode(2)
+root.right.left = TreeNode(3)
 
-print(preorder_traversal(root)) # Output: [1, 2, 4, 5, 3]
+print(preorder_traversal(root))  # Output: [1, 2, 3]
 ```
-### 解释代码行
-1. 定义TreeNode类来表示二叉树的节点。
-2. 定义preorder_traversal函数来执行前序遍历。
-3. 初始化结果列表。
-4. 定义递归函数traverse来遍历树。
-5. 检查节点是否为None，如果是，返回。
-6. 将节点的值添加到结果列表中。
-7. 递归调用traverse遍历左子树。
-8. 递归调用traverse遍历右子树。
-9. 返回结果列表。
 
-#### Big-O Analysis
-### 时间和空间复杂度分析
-| Complexity | Time | Space |
-| --- | --- | --- |
+### Complexity Analysis
+### 复杂度分析
+
+| Algorithm | Time Complexity | Space Complexity |
+| --------- | --------------- | ---------------- |
 | Preorder Traversal | O(n) | O(n) |
 
-- **Time Complexity 时间复杂度:** O(n) because each node is visited once. 因为每个节点都被访问一次。
-- **Space Complexity 空间复杂度:** O(n) in the worst case for the call stack due to recursion. 最坏情况下，递归调用栈的空间复杂度为O(n)。
+| 算法 | 时间复杂度 | 空间复杂度 |
+| ---- | ---------- | ---------- |
+| 前序遍历 | O(n) | O(n) |
 
-#### Tips
-- Iterative solution using a stack can be implemented to avoid recursion, which may be more efficient for deep trees.
-- 可以使用栈来实现迭代解决方案，以避免递归，这对于深度树可能更有效。
+**Time Complexity:**
+Traversing all nodes exactly once gives us O(n), where n is the number of nodes.
+**时间复杂度:**
+遍历所有节点一次，因此时间复杂度为O(n)，其中n是节点的数量。
+
+**Space Complexity:**
+In the worst case (a completely unbalanced tree), the space complexity is O(n) due to the recursive stack.
+**空间复杂度:**
+在最坏的情况下（完全不平衡的树），空间复杂度为O(n)，因为递归栈的存在。
+
+### Tips or Better Solutions
+### 提示或更好的解决方案
+
+1. **Iterative Approach:** Using a stack can avoid the overhead of recursion.
+2. **迭代方法:** 使用栈可以避免递归的开销。
+
+#### Node.js Iterative Implementation
+#### Node.js 迭代实现
+
+```javascript
+function preorderTraversalIterative(root) {
+    const result = [];
+    const stack = [];
+    let current = root;
+
+    while (current !== null || stack.length > 0) {
+        while (current !== null) {
+            result.push(current.val); // Visit root
+            stack.push(current);
+            current = current.left; // Visit left subtree
+        }
+        current = stack.pop();
+        current = current.right; // Visit right subtree
+    }
+    return result;
+}
+```
+
+#### Python Iterative Implementation
+#### Python 迭代实现
+
+```python
+def preorder_traversal_iterative(root):
+    result = []
+    stack = []
+    current = root
+
+    while current is not None or stack:
+        while current is not None:
+            result.append(current.val)  # Visit root
+            stack.append(current)
+            current = current.left  # Visit left subtree
+        current = stack.pop()
+        current = current.right  # Visit right subtree
+
+    return result
+```
+
+By understanding both recursive and iterative approaches, you can choose the one that best fits your needs.
+通过理解递归和迭代方法，你可以选择最适合你需求的方法。
