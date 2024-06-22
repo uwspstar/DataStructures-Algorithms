@@ -1,12 +1,6 @@
 # DataStructures-Algorithms
 
 - <https://neetcode.io/practice>
-- <https://www.youtube.com/watch?v=v4cd1O4zkGw&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt>
-- <https://github.com/trekhleb/javascript-algorithms>
-- <https://medium.com/outco/the-algorithm-of-an-algorithm-28043fe47b51>
-- <https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66>
-- <https://adrianmejia.com/analysis-of-recursive-algorithms/>
-- <https://humanwhocodes.com/blog/2019/01/computer-science-in-javascript-linked-list/>
 
 ## DataStructures-Algorithms RoadMap
 
