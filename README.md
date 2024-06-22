@@ -8,7 +8,6 @@
 
 ![Algorithms RoadMap](/roadmap.png)
 
-![Image with Links](/roadmap.png)
 
 <map name="imagemap">
     <area shape="rect" coords="400,10,550,60" href="https://example.com/array-hashing" alt="Array & Hashing">
@@ -31,7 +30,7 @@
     <area shape="rect" coords="270,850,410,900" href="https://example.com/math-geometry" alt="Math & Geometry">
 </map>
 
-<img src="image.png" usemap="#imagemap" alt="Graph with links">
+<img src="/roadmap.png" usemap="#imagemap" alt="Graph with links">
 
 
 
