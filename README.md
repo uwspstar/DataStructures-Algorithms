@@ -8,6 +8,33 @@
 
 ![Algorithms RoadMap](/roadmap.png)
 
+![Image with Links](/roadmap.png)
+
+<map name="imagemap">
+    <area shape="rect" coords="400,10,550,60" href="https://example.com/array-hashing" alt="Array & Hashing">
+    <area shape="rect" coords="220,130,360,180" href="https://example.com/two-pointers" alt="Two Pointers">
+    <area shape="rect" coords="570,130,710,180" href="https://example.com/stack" alt="Stack">
+    <area shape="rect" coords="90,250,230,300" href="https://example.com/sliding-window" alt="Sliding Window">
+    <area shape="rect" coords="270,250,410,300" href="https://example.com/linkedlist" alt="LinkedList">
+    <area shape="rect" coords="570,250,710,300" href="https://example.com/binary-search" alt="Binary Search">
+    <area shape="rect" coords="410,250,550,300" href="https://example.com/trees" alt="Trees">
+    <area shape="rect" coords="220,370,360,420" href="https://example.com/tries" alt="Tries">
+    <area shape="rect" coords="570,370,710,420" href="https://example.com/backtracking" alt="Backtracking">
+    <area shape="rect" coords="410,490,550,540" href="https://example.com/graphs" alt="Graphs">
+    <area shape="rect" coords="90,490,230,540" href="https://example.com/heap-priority-queue" alt="Heap / Priority Queue">
+    <area shape="rect" coords="220,610,360,660" href="https://example.com/intervals" alt="Intervals">
+    <area shape="rect" coords="570,610,710,660" href="https://example.com/1d-dp" alt="1D DP">
+    <area shape="rect" coords="410,610,550,660" href="https://example.com/greedy" alt="Greedy">
+    <area shape="rect" coords="90,730,230,780" href="https://example.com/advanced-graphs" alt="Advanced Graphs">
+    <area shape="rect" coords="410,730,550,780" href="https://example.com/2d-dp" alt="2D DP">
+    <area shape="rect" coords="570,730,710,780" href="https://example.com/bit-manipulation" alt="Bit Manipulation">
+    <area shape="rect" coords="270,850,410,900" href="https://example.com/math-geometry" alt="Math & Geometry">
+</map>
+
+<img src="image.png" usemap="#imagemap" alt="Graph with links">
+
+
+
 ## TOP 10 Algorithms
 
 ## Depth First Search. -stack
