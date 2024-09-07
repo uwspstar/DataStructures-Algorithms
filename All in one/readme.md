@@ -7,7 +7,7 @@ Leetcode rush
 | Easy       | [70 Climbing Stairs](https://codebitwave.com/leetcode-70-climbing-stairs/)                  | [Link](https://leetcode.com/problems/climbing-stairs/)     |
 | Easy       | [242 Valid Anagram](https://codebitwave.com/leetcode-242-valid-anagram/)                    | [Link](https://leetcode.com/problems/valid-anagram/)       |
 | Easy       | [408 Valid Word Abbreviation](https://codebitwave.com/leetcode-408-valid-word-abbreviation/)          | [Link](https://leetcode.com/problems/valid-word-abbreviation/) |
-| Easy       | Fibonacci Number                 | [Link](https://leetcode.com/problems/fibonacci-number/)    |
+| Easy       | [509 Fibonacci Number](https://codebitwave.com/leetcode-509-fibonacci-number/)                 | [Link](https://leetcode.com/problems/fibonacci-number/)    |
 | Medium     | LRU Cache                        | [Link](https://leetcode.com/problems/lru-cache/)           |
 | Medium     | Search in Rotated Sorted Array   | [Link](https://leetcode.com/problems/search-in-rotated-sorted-array/) |
 | Medium     | Merge Intervals                  | [Link](https://leetcode.com/problems/merge-intervals/)     |
