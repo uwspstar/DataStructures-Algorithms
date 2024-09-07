@@ -6,7 +6,7 @@ Leetcode rush
 | Easy       | [383 Ransom Note](https://codebitwave.com/leetcode-383-ransom-note/)                      | [Link](https://leetcode.com/problems/ransom-note/)         |
 | Easy       | [70 Climbing Stairs](https://codebitwave.com/leetcode-70-climbing-stairs/)                  | [Link](https://leetcode.com/problems/climbing-stairs/)     |
 | Easy       | [242 Valid Anagram](https://codebitwave.com/leetcode-242-valid-anagram/)                    | [Link](https://leetcode.com/problems/valid-anagram/)       |
-| Easy       | Valid Word Abbreviation          | [Link](https://leetcode.com/problems/valid-word-abbreviation/) |
+| Easy       | [408 Valid Word Abbreviation](https://codebitwave.com/leetcode-408-valid-word-abbreviation/)          | [Link](https://leetcode.com/problems/valid-word-abbreviation/) |
 | Easy       | Fibonacci Number                 | [Link](https://leetcode.com/problems/fibonacci-number/)    |
 | Medium     | LRU Cache                        | [Link](https://leetcode.com/problems/lru-cache/)           |
 | Medium     | Search in Rotated Sorted Array   | [Link](https://leetcode.com/problems/search-in-rotated-sorted-array/) |
