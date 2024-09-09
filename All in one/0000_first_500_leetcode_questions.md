@@ -318,46 +318,46 @@
 | 315 |         | [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self) | Hard       | Binary Search Tree | [Solution]()                                                |
 | 316 |         | [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters) | Hard       | Stack            | [Solution]()                                                |
 | 317 |         | [Shortest Distance from All Buildings](https://leetcode.com/problems/shortest-distance-from-all-buildings) | Hard       | Breadth-First Search | [Solution]()                                                |
-| 318 |         | [Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 318 |         | [Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths) | Medium     | Bit Manipulation | [Solution]()                                |
 | 319 |         | [Bulb Switcher](https://leetcode.com/problems/bulb-switcher)  | Medium     | Math             | [Solution]()                                                |
-| 320 |         | [Generalized Abbreviation](https://leetcode.com/problems/generalized-abbreviation) | Medium     | Backtracking     | [Solution]()                                                |
+| 320 |         | [Generalized Abbreviation](https://leetcode.com/problems/generalized-abbreviation) | Medium     | Backtracking     | [Solution]()                                              |
 | 321 |         | [Create Maximum Number](https://leetcode.com/problems/create-maximum-number) | Hard       | Greedy           | [Solution]()                                                |
 | 322 |         | [Coin Change](https://leetcode.com/problems/coin-change)      | Medium     | Dynamic Programming | [Solution]()                                                |
 | 323 |         | [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph) | Medium     | Union Find       | [Solution]()                                                |
 | 324 |         | [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii) | Medium     | Sort             | [Solution]()                                                |
-| 325 |         | [Maximum Size Subarray Sum Equals k](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k) | Medium     | Array            | [Solution]()                                                |
+| 325 |         | [Maximum Size Subarray Sum Equals k](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k) | Medium     | Array            | [Solution]()                          |
 | 326 |         | [Power of Three](https://leetcode.com/problems/power-of-three) | Easy       | Math             | [Solution]()                                                |
 | 327 |         | [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum) | Hard       | Binary Indexed Tree | [Solution]()                                                |
 | 328 |         | [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list) | Medium     | Linked List      | [Solution]()                                                |
-| 329 |         | [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix) | Hard       | Depth-First Search | [Solution]()                                                |
+| 329 |         | [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix) | Hard       | Depth-First Search | [Solution]()                      |
 | 330 |         | [Patching Array](https://leetcode.com/problems/patching-array) | Hard       | Greedy           | [Solution]()                                                |
 | 331 |         | [Verify Preorder Serialization of a Binary Tree](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree) | Medium     | Stack            | [Solution]()                                                |
 | 332 |         | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary) | Medium     | Depth-First Search | [Solution]()                                                |
 | 333 |         | [Largest BST Subtree](https://leetcode.com/problems/largest-bst-subtree) | Medium     | Tree             | [Solution]()                                                |
-| 334 |         | [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence) | Medium     | Array            | [Solution]()                                                |
+| 334 |         | [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence) | Medium     | Array            | [Solution]()                                  |
 | 335 |         | [Self Crossing](https://leetcode.com/problems/self-crossing)  | Hard       | Math             | [Solution]()                                                |
 | 336 |         | [Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs) | Hard       | Hash Table       | [Solution]()                                                |
 | 337 |         | [House Robber III](https://leetcode.com/problems/house-robber-iii) | Medium     | Tree             | [Solution]()                                                |
 | 338 |         | [Counting Bits](https://leetcode.com/problems/counting-bits)  | Medium     | Dynamic Programming | [Solution]()                                                |
 | 339 |         | [Nested List Weight Sum](https://leetcode.com/problems/nested-list-weight-sum) | Medium     | Depth-First Search | [Solution]()                                                |
 | 340 |         | [Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters) | Medium     | String           | [Solution]()                                                |
-| 341 |         | [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator) | Medium     | Design           | [Solution]()                                                |
+| 341 |         | [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator) | Medium     | Design           | [Solution]()                                      |
 | 342 |         | [Power of Four](https://leetcode.com/problems/power-of-four)  | Easy       | Math             | [Solution]()                                                |
 | 343 |         | [Integer Break](https://leetcode.com/problems/integer-break)  | Medium     | Dynamic Programming | [Solution]()                                                |
 | 344 |         | [Reverse String](https://leetcode.com/problems/reverse-string) | Easy       | String           | [Solution]()                                                |
-| 345 |         | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | Easy       | String           | [Solution]()                                                |
-| 346 |         | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream) | Easy       | Design           | [Solution]()                                                |
+| 345 |         | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | Easy       | String           | [Solution]()                                          |
+| 346 |         | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream) | Easy       | Design           | [Solution]()                                |
 | 347 |         | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements) | Medium     | Heap             | [Solution]()                                                |
 | 348 |         | [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe) | Medium     | Design           | [Solution]()                                                |
-| 349 |         | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays) | Easy       | Hash Table       | [Solution]()                                                |
-| 350 |         | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | Easy       | Hash Table       | [Solution]()                                                |
-| 351 |         | [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns) | Medium     | Dynamic Programming | [Solution]()                                                |
-| 352 |         | [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals) | Hard       | Tree             | [Solution]()                                                |
+| 349 |         | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays) | Easy       | Hash Table       | [Solution]()                                          |
+| 350 |         | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | Easy       | Hash Table       | [Solution]()                                    |
+| 351 |         | [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns) | Medium     | Dynamic Programming | [Solution]()                                             |
+| 352 |         | [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals) | Hard       | Tree             | [Solution]()                            |
 | 353 |         | [Design Snake Game](https://leetcode.com/problems/design-snake-game) | Medium     | Design           | [Solution]()                                                |
-| 354 |         | [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 354 |         | [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes) | Hard       | Dynamic Programming | [Solution]()                                               |
 | 355 |         | [Design Twitter](https://leetcode.com/problems/design-twitter) | Medium     | Design           | [Solution]()                                                |
 | 356 |         | [Line Reflection](https://leetcode.com/problems/line-reflection) | Medium     | Geometry         | [Solution]()                                                |
-| 357 |         | [Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 357 |         | [Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits) | Medium     | Dynamic Programming | [Solution]()                           |
 | 358 |         | [Rearrange String k Distance Apart](https://leetcode.com/problems/rearrange-string-k-distance-apart) | Hard       | Heap             | [Solution]()                                                |
 | 359 |         | [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter) | Easy       | Design           | [Solution]()                                                |
 | 360 |         | [Sort Transformed Array](https://leetcode.com/problems/sort-transformed-array) | Medium     | Math             | [Solution]()                                                |
