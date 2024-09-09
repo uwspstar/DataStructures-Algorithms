@@ -60,11 +60,6 @@
 | 58  |         | [Length of Last Word](https://leetcode.com/problems/length-of-last-word) | Easy       | String           | [Solution]()                                                |
 | 59  |         | [Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii) | Medium     | Array            | [Solution]()                                                |
 | 60  |         | [Permutation Sequence](https://leetcode.com/problems/permutation-sequence) | Hard       | Math             | [Solution]()           
-Certainly! Here's the completion of the markdown table up to problem 500, grouped with empty note and solution columns:
-
-```markdown
-| #   | Note    | Title                                                        | Difficulty | Type             | Solution                                                   |
-|-----|---------|---------------------------------------------------------------|------------|------------------|------------------------------------------------------------|
 | 61  |         | [Rotate List](https://leetcode.com/problems/rotate-list)      | Medium     | Linked List      | [Solution]()                                                |
 | 62  |         | [Unique Paths](https://leetcode.com/problems/unique-paths)    | Medium     | Dynamic Programming | [Solution]()                                                |
 | 63  |         | [Unique Paths II](https://leetcode.com/problems/unique-paths-ii) | Medium     | Dynamic Programming | [Solution]()                                                |
@@ -294,4 +289,225 @@ Certainly! Here's the completion of the markdown table up to problem 500, groupe
 | 281 |         | [Zigzag Iterator](https://leetcode.com/problems/zigzag-iterator) | Medium     | Design           | [Solution]()                                                |
 | 282 |         | [Expression Add Operators](https://leetcode.com/problems/expression-add-operators) | Hard       | Backtracking     | [Solution]()                                                |
 | 283 |         | [Move Zeroes](https://leetcode.com/problems/move-zeroes)      | Easy      
+| 283 |         | [Move Zeroes](https://leetcode.com/problems/move-zeroes)      | Easy       | Array            | [Solution]()                                                |
+| 284 |         | [Peeking Iterator](https://leetcode.com/problems/peeking-iterator) | Medium     | Design           | [Solution]()                                                |
+| 285 |         | [Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst) | Medium     | Tree             | [Solution]()                                                |
+| 286 |         | [Walls and Gates](https://leetcode.com/problems/walls-and-gates) | Medium     | Breadth-First Search | [Solution]()                                                |
+| 287 |         | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number) | Medium     | Array            | [Solution]()                                                |
+| 288 |         | [Unique Word Abbreviation](https://leetcode.com/problems/unique-word-abbreviation) | Medium     | Hash Table       | [Solution]()                                                |
+| 289 |         | [Game of Life](https://leetcode.com/problems/game-of-life)    | Medium     | Array            | [Solution]()                                                |
+| 290 |         | [Word Pattern](https://leetcode.com/problems/word-pattern)    | Easy       | Hash Table       | [Solution]()                                                |
+| 291 |         | [Word Pattern II](https://leetcode.com/problems/word-pattern-ii) | Hard       | Backtracking     | [Solution]()                                                |
+| 292 |         | [Nim Game](https://leetcode.com/problems/nim-game)            | Easy       | Math             | [Solution]()                                                |
+| 293 |         | [Flip Game](https://leetcode.com/problems/flip-game)          | Easy       | String           | [Solution]()                                                |
+| 294 |         | [Flip Game II](https://leetcode.com/problems/flip-game-ii)    | Medium     | Backtracking     | [Solution]()                                                |
+| 295 |         | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream) | Hard       | Heap             | [Solution]()                                                |
+| 296 |         | [Best Meeting Point](https://leetcode.com/problems/best-meeting-point) | Hard       | Math             | [Solution]()                                                |
+| 297 |         | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree) | Hard       | Design           | [Solution]()                                                |
+| 298 |         | [Binary Tree Longest Consecutive Sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence) | Medium     | Tree             | [Solution]()                                                |
+| 299 |         | [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows) | Medium     | Hash Table       | [Solution]()                                                |
+| 300 |         | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 301 |         | [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses) | Hard       | Breadth-First Search | [Solution]()                                                |
+| 302 |         | [Smallest Rectangle Enclosing Black Pixels](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels) | Hard       | Depth-First Search | [Solution]()                                                |
+| 303 |         | [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable) | Easy       | Array            | [Solution]()                                                |
+| 304 |         | [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable) | Medium     | Array            | [Solution]()                                                |
+| 305 |         | [Number of Islands II](https://leetcode.com/problems/number-of-islands-ii) | Hard       | Union Find       | [Solution]()                                                |
+| 306 |         | [Additive Number](https://leetcode.com/problems/additive-number) | Medium     | Backtracking     | [Solution]()                                                |
+| 307 |         | [Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable) | Medium     | Binary Indexed Tree | [Solution]()                                                |
+| 308 |         | [Range Sum Query 2D - Mutable](https://leetcode.com/problems/range-sum-query-2d-mutable) | Hard       | Binary Indexed Tree | [Solution]()                                                |
+| 309 |         | [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 310 |         | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees) | Medium     | Graph            | [Solution]()                                                |
+| 311 |         | [Sparse Matrix Multiplication](https://leetcode.com/problems/sparse-matrix-multiplication) | Medium     | Array            | [Solution]()                                                |
+| 312 |         | [Burst Balloons](https://leetcode.com/problems/burst-balloons) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 313 |         | [Super Ugly Number](https://leetcode.com/problems/super-ugly-number) | Medium     | Heap             | [Solution]()                                                |
+| 314 |         | [Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal) | Medium     | Tree             | [Solution]()                                                |
+| 315 |         | [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self) | Hard       | Binary Search Tree | [Solution]()                                                |
+| 316 |         | [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters) | Hard       | Stack            | [Solution]()                                                |
+| 317 |         | [Shortest Distance from All Buildings](https://leetcode.com/problems/shortest-distance-from-all-buildings) | Hard       | Breadth-First Search | [Solution]()                                                |
+| 318 |         | [Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 319 |         | [Bulb Switcher](https://leetcode.com/problems/bulb-switcher)  | Medium     | Math             | [Solution]()                                                |
+| 320 |         | [Generalized Abbreviation](https://leetcode.com/problems/generalized-abbreviation) | Medium     | Backtracking     | [Solution]()                                                |
+| 321 |         | [Create Maximum Number](https://leetcode.com/problems/create-maximum-number) | Hard       | Greedy           | [Solution]()                                                |
+| 322 |         | [Coin Change](https://leetcode.com/problems/coin-change)      | Medium     | Dynamic Programming | [Solution]()                                                |
+| 323 |         | [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph) | Medium     | Union Find       | [Solution]()                                                |
+| 324 |         | [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii) | Medium     | Sort             | [Solution]()                                                |
+| 325 |         | [Maximum Size Subarray Sum Equals k](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k) | Medium     | Array            | [Solution]()                                                |
+| 326 |         | [Power of Three](https://leetcode.com/problems/power-of-three) | Easy       | Math             | [Solution]()                                                |
+| 327 |         | [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum) | Hard       | Binary Indexed Tree | [Solution]()                                                |
+| 328 |         | [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list) | Medium     | Linked List      | [Solution]()                                                |
+| 329 |         | [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix) | Hard       | Depth-First Search | [Solution]()                                                |
+| 330 |         | [Patching Array](https://leetcode.com/problems/patching-array) | Hard       | Greedy           | [Solution]()                                                |
+| 331 |         | [Verify Preorder Serialization of a Binary Tree](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree) | Medium     | Stack            | [Solution]()                                                |
+| 332 |         | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary) | Medium     | Depth-First Search | [Solution]()                                                |
+| 333 |         | [Largest BST Subtree](https://leetcode.com/problems/largest-bst-subtree) | Medium     | Tree             | [Solution]()                                                |
+| 334 |         | [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence) | Medium     | Array            | [Solution]()                                                |
+| 335 |         | [Self Crossing](https://leetcode.com/problems/self-crossing)  | Hard       | Math             | [Solution]()                                                |
+| 336 |         | [Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs) | Hard       | Hash Table       | [Solution]()                                                |
+| 337 |         | [House Robber III](https://leetcode.com/problems/house-robber-iii) | Medium     | Tree             | [Solution]()                                                |
+| 338 |         | [Counting Bits](https://leetcode.com/problems/counting-bits)  | Medium     | Dynamic Programming | [Solution]()                                                |
+| 339 |         | [Nested List Weight Sum](https://leetcode.com/problems/nested-list-weight-sum) | Medium     | Depth-First Search | [Solution]()                                                |
+| 340 |         | [Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters) | Medium     | String           | [Solution]()                                                |
+| 341 |         | [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator) | Medium     | Design           | [Solution]()                                                |
+| 342 |         | [Power of Four](https://leetcode.com/problems/power-of-four)  | Easy       | Math             | [Solution]()                                                |
+| 343 |         | [Integer Break](https://leetcode.com/problems/integer-break)  | Medium     | Dynamic Programming | [Solution]()                                                |
+| 344 |         | [Reverse String](https://leetcode.com/problems/reverse-string) | Easy       | String           | [Solution]()                                                |
+| 345 |         | [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string) | Easy       | String           | [Solution]()                                                |
+| 346 |         | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream) | Easy       | Design           | [Solution]()                                                |
+| 347 |         | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements) | Medium     | Heap             | [Solution]()                                                |
+| 348 |         | [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe) | Medium     | Design           | [Solution]()                                                |
+| 349 |         | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays) | Easy       | Hash Table       | [Solution]()                                                |
+| 350 |         | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii) | Easy       | Hash Table       | [Solution]()                                                |
+| 351 |         | [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 352 |         | [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals) | Hard       | Tree             | [Solution]()                                                |
+| 353 |         | [Design Snake Game](https://leetcode.com/problems/design-snake-game) | Medium     | Design           | [Solution]()                                                |
+| 354 |         | [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 355 |         | [Design Twitter](https://leetcode.com/problems/design-twitter) | Medium     | Design           | [Solution]()                                                |
+| 356 |         | [Line Reflection](https://leetcode.com/problems/line-reflection) | Medium     | Geometry         | [Solution]()                                                |
+| 357 |         | [Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 358 |         | [Rearrange String k Distance Apart](https://leetcode.com/problems/rearrange-string-k-distance-apart) | Hard       | Heap             | [Solution]()                                                |
+| 359 |         | [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter) | Easy       | Design           | [Solution]()                                                |
+| 360 |         | [Sort Transformed Array](https://leetcode.com/problems/sort-transformed-array) | Medium     | Math             | [Solution]()                                                |
+| 361 |         | [Bomb Enemy](https://leetcode.com/problems/bomb-enemy)        | Medium     | Dynamic Programming | [Solution]()                                                |
+| 362 |         | [Design Hit Counter](https://leetcode.com/problems/design-hit-counter) | Medium     | Design           | [Solution]()                                                |
+| 363 |         | [Max Sum of Rectangle No Larger Than K](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 364 |         | [Nested List Weight Sum II](https://leetcode.com/problems/nested-list-weight-sum-ii) | Medium     | Depth-First Search | [Solution]()                                                |
+| 365 |         | [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem) | Medium     | Math             | [Solution]()                                                |
+| 366 |         | [Find Leaves of Binary Tree](https://leetcode.com/problems/find-leaves-of-binary-tree) | Medium     | Tree             | [Solution]()                                                |
+| 367 |         | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square) | Easy       | Math             | [Solution]()                                                |
+| 368 |         | [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 369 |         | [Plus One Linked List](https://leetcode.com/problems/plus-one-linked-list) | Medium     | Linked List      | [Solution]()                                                |
+| 370 |         | [Range Addition](https://leetcode.com/problems/range-addition) | Medium     | Array            | [Solution]()                                                |
+| 371 |         | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 372 |         | [Super Pow](https://leetcode.com/problems/super-pow)          | Medium     | Math             | [Solution]()                                                |
+| 373 |         | [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums) | Medium     | Heap             | [Solution]()                                                |
+| 374 |         | [Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower) | Easy       | Binary Search    | [Solution]()                                                |
+| 375 |         | [Guess Number Higher or Lower II](https://leetcode.com/problems/guess-number-higher-or-lower-ii) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 376 |         | [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 377 |         | [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 378 |         | [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | Medium     | Binary Search    | [Solution]()                                                |
+| 379 |         | [Design Phone Directory](https://leetcode.com/problems/design-phone-directory) | Medium     | Design           | [Solution]()                                                |
+| 380 |         | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1) | Medium     | Design           | [Solution]()                                                |
+| 381 |         | [Insert Delete GetRandom O(1) - Duplicates allowed](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed) | Hard       | Design           | [Solution]()                                                |
+| 382 |         | [Linked List Random Node](https://leetcode.com/problems/linked-list-random-node) | Medium     | Reservoir Sampling | [Solution]()                                                |
+| 383 |         | [Ransom Note](https://leetcode.com/problems/ransom-note)      | Easy       | String           | [Solution]()                                                |
+| 384 |         | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array) | Medium     | Math             | [Solution]()                                                |
+| 385 |         | [Mini Parser](https://leetcode.com/problems/mini-parser)      | Medium     | Stack            | [Solution]()                                                |
+| 386 |         | [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers) | Medium     | Depth-First Search | [Solution]()                                                |
+| 387 |         | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string) | Easy       | String           | [Solution]()                                                |
+| 388 |         | [Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path) | Medium     | String           | [Solution]()                                                |
+| 389 |         | [Find the Difference](https://leetcode.com/problems/find-the-difference) | Easy       | Bit Manipulation | [Solution]()                                                |
+| 390 |         | [Elimination Game](https://leetcode.com/problems/elimination-game) | Medium     | Math             | [Solution]()                                                |
+| 391 |         | [Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle) | Hard       | Geometry         | [
 
+Solution]()                                                |
+| 392 |         | [Is Subsequence](https://leetcode.com/problems/is-subsequence) | Easy       | Two Pointers     | [Solution]()                                                |
+| 393 |         | [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 394 |         | [Decode String](https://leetcode.com/problems/decode-string)  | Medium     | Stack            | [Solution]()                                                |
+| 395 |         | [Longest Substring with At Least K Repeating Characters](https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters) | Medium     | Divide and Conquer | [Solution]()                                                |
+| 396 |         | [Rotate Function](https://leetcode.com/problems/rotate-function) | Medium     | Math             | [Solution]()                                                |
+| 397 |         | [Integer Replacement](https://leetcode.com/problems/integer-replacement) | Medium     | Greedy           | [Solution]()                                                |
+| 398 |         | [Random Pick Index](https://leetcode.com/problems/random-pick-index) | Medium     | Reservoir Sampling | [Solution]()                                                |
+| 399 |         | [Evaluate Division](https://leetcode.com/problems/evaluate-division) | Medium     | Union Find       | [Solution]()                                                |
+| 400 |         | [Nth Digit](https://leetcode.com/problems/nth-digit)          | Medium     | Math             | [Solution]()                                                |
+| 401 |         | [Binary Watch](https://leetcode.com/problems/binary-watch)    | Easy       | Bit Manipulation | [Solution]()                                                |
+| 402 |         | [Remove K Digits](https://leetcode.com/problems/remove-k-digits) | Medium     | Stack            | [Solution]()                                                |
+| 403 |         | [Frog Jump](https://leetcode.com/problems/frog-jump)          | Hard       | Dynamic Programming | [Solution]()                                                |
+| 404 |         | [Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves) | Easy       | Tree             | [Solution]()                                                |
+| 405 |         | [Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal) | Easy       | Bit Manipulation | [Solution]()                                                |
+| 406 |         | [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height) | Medium     | Greedy           | [Solution]()                                                |
+| 407 |         | [Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii) | Hard       | Heap             | [Solution]()                                                |
+| 408 |         | [Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation) | Easy       | String           | [Solution]()                                                |
+| 409 |         | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome) | Easy       | Hash Table       | [Solution]()                                                |
+| 410 |         | [Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum) | Hard       | Binary Search    | [Solution]()                                                |
+| 411 |         | [Minimum Unique Word Abbreviation](https://leetcode.com/problems/minimum-unique-word-abbreviation) | Hard       | Bit Manipulation | [Solution]()                                                |
+| 412 |         | [Fizz Buzz](https://leetcode.com/problems/fizz-buzz)          | Easy       | Math             | [Solution]()                                                |
+| 413 |         | [Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 414 |         | [Third Maximum Number](https://leetcode.com/problems/third-maximum-number) | Easy       | Array            | [Solution]()                                                |
+| 415 |         | [Add Strings](https://leetcode.com/problems/add-strings)      | Easy       | String           | [Solution]()                                                |
+| 416 |         | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 417 |         | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow) | Medium     | Depth-First Search | [Solution]()                                                |
+| 418 |         | [Sentence Screen Fitting](https://leetcode.com/problems/sentence-screen-fitting) | Medium     | String           | [Solution]()                                                |
+| 419 |         | [Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board) | Medium     | Depth-First Search | [Solution]()                                                |
+| 420 |         | [Strong Password Checker](https://leetcode.com/problems/strong-password-checker) | Hard       | String           | [Solution]()                                                |
+| 421 |         | [Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 422 |         | [Valid Word Square](https://leetcode.com/problems/valid-word-square) | Easy       | String           | [Solution]()                                                |
+| 423 |         | [Reconstruct Original Digits from English](https://leetcode.com/problems/reconstruct-original-digits-from-english) | Medium     | String           | [Solution]()                                                |
+| 424 |         | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement) | Medium     | Two Pointers     | [Solution]()                                                |
+| 425 |         | [Word Squares](https://leetcode.com/problems/word-squares)    | Hard       | Backtracking     | [Solution]()                                                |
+| 426 |         | [Convert Binary Search Tree to Sorted Doubly Linked List](https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list) | Medium     | Tree             | [Solution]()                                                |
+| 427 |         | [Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree) | Medium     | Divide and Conquer | [Solution]()                                                |
+| 428 |         | [Serialize and Deserialize N-ary Tree](https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree) | Hard       | Design           | [Solution]()                                                |
+| 429 |         | [N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal) | Medium     | Tree             | [Solution]()                                                |
+| 430 |         | [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list) | Medium     | Linked List      | [Solution]()                                                |
+| 431 |         | [Encode N-ary Tree to Binary Tree](https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree) | Hard       | Design           | [Solution]()                                                |
+| 432 |         | [All O`one Data Structure](https://leetcode.com/problems/all-oone-data-structure) | Hard       | Design           | [Solution]()                                                |
+| 433 |         | [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation) | Medium     | Breadth-First Search | [Solution]()                                                |
+| 434 |         | [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string) | Easy       | String           | [Solution]()                                                |
+| 435 |         | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 436 |         | [Find Right Interval](https://leetcode.com/problems/find-right-interval) | Medium     | Binary Search    | [Solution]()                                                |
+| 437 |         | [Path Sum III](https://leetcode.com/problems/path-sum-iii)    | Medium     | Tree             | [Solution]()                                                |
+| 438 |         | [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string) | Medium     | String           | [Solution]()                                                |
+| 439 |         | [Ternary Expression Parser](https://leetcode.com/problems/ternary-expression-parser) | Medium     | Stack            | [Solution]()                                                |
+| 440 |         | [K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order) | Hard       | Math             | [Solution]()                                                |
+| 441 |         | [Arranging Coins](https://leetcode.com/problems/arranging-coins) | Easy       | Binary Search    | [Solution]()                                                |
+| 442 |         | [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array) | Medium     | Array            | [Solution]()                                                |
+| 443 |         | [String Compression](https://leetcode.com/problems/string-compression) | Medium     | Two Pointers     | [Solution]()                                                |
+| 444 |         | [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction) | Medium     | Graph            | [Solution]()                                                |
+| 445 |         | [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii) | Medium     | Linked List      | [Solution]()                                                |
+| 446 |         | [Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence) | Hard      
+
+ | Dynamic Programming | [Solution]()                                                |
+| 447 |         | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs) | Medium     | Hash Table       | [Solution]()                                                |
+| 448 |         | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) | Easy       | Array            | [Solution]()                                                |
+| 449 |         | [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst) | Medium     | Design           | [Solution]()                                                |
+| 450 |         | [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst) | Medium     | Tree             | [Solution]()                                                |
+| 451 |         | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency) | Medium     | Hash Table       | [Solution]()                                                |
+| 452 |         | [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons) | Medium     | Greedy           | [Solution]()                                                |
+| 453 |         | [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements) | Easy       | Math             | [Solution]()                                                |
+| 454 |         | [4Sum II](https://leetcode.com/problems/4sum-ii)              | Medium     | Hash Table       | [Solution]()                                                |
+| 455 |         | [Assign Cookies](https://leetcode.com/problems/assign-cookies) | Easy       | Greedy           | [Solution]()                                                |
+| 456 |         | [132 Pattern](https://leetcode.com/problems/132-pattern)      | Medium     | Stack            | [Solution]()                                                |
+| 457 |         | [Circular Array Loop](https://leetcode.com/problems/circular-array-loop) | Medium     | Two Pointers     | [Solution]()                                                |
+| 458 |         | [Poor Pigs](https://leetcode.com/problems/poor-pigs)          | Hard       | Math             | [Solution]()                                                |
+| 459 |         | [Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern) | Easy       | String           | [Solution]()                                                |
+| 460 |         | [LFU Cache](https://leetcode.com/problems/lfu-cache)          | Hard       | Design           | [Solution]()                                                |
+| 461 |         | [Hamming Distance](https://leetcode.com/problems/hamming-distance) | Easy       | Bit Manipulation | [Solution]()                                                |
+| 462 |         | [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii) | Medium     | Math             | [Solution]()                                                |
+| 463 |         | [Island Perimeter](https://leetcode.com/problems/island-perimeter) | Easy       | Depth-First Search | [Solution]()                                                |
+| 464 |         | [Can I Win](https://leetcode.com/problems/can-i-win)          | Medium     | Dynamic Programming | [Solution]()                                                |
+| 465 |         | [Optimal Account Balancing](https://leetcode.com/problems/optimal-account-balancing) | Hard       | Depth-First Search | [Solution]()                                                |
+| 466 |         | [Count The Repetitions](https://leetcode.com/problems/count-the-repetitions) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 467 |         | [Unique Substrings in Wraparound String](https://leetcode.com/problems/unique-substrings-in-wraparound-string) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 468 |         | [Validate IP Address](https://leetcode.com/problems/validate-ip-address) | Medium     | String           | [Solution]()                                                |
+| 469 |         | [Convex Polygon](https://leetcode.com/problems/convex-polygon) | Medium     | Math             | [Solution]()                                                |
+| 470 |         | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7) | Medium     | Randomization    | [Solution]()                                                |
+| 471 |         | [Encode String with Shortest Length](https://leetcode.com/problems/encode-string-with-shortest-length) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 472 |         | [Concatenated Words](https://leetcode.com/problems/concatenated-words) | Hard       | Dynamic Programming | [Solution]()                                                |
+| 473 |         | [Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 474 |         | [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 475 |         | [Heaters](https://leetcode.com/problems/heaters)              | Medium     | Binary Search    | [Solution]()                                                |
+| 476 |         | [Number Complement](https://leetcode.com/problems/number-complement) | Easy       | Bit Manipulation | [Solution]()                                                |
+| 477 |         | [Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance) | Medium     | Bit Manipulation | [Solution]()                                                |
+| 478 |         | [Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle) | Medium     | Math             | [Solution]()                                                |
+| 479 |         | [Largest Palindrome Product](https://leetcode.com/problems/largest-palindrome-product) | Hard       | Math             | [Solution]()                                                |
+| 480 |         | [Sliding Window Median](https://leetcode.com/problems/sliding-window-median) | Hard       | Heap             | [Solution]()                                                |
+| 481 |         | [Magical String](https://leetcode.com/problems/magical-string) | Medium     | Math             | [Solution]()                                                |
+| 482 |         | [License Key Formatting](https://leetcode.com/problems/license-key-formatting) | Easy       | String           | [Solution]()                                                |
+| 483 |         | [Smallest Good Base](https://leetcode.com/problems/smallest-good-base) | Hard       | Math             | [Solution]()                                                |
+| 484 |         | [Find Permutation](https://leetcode.com/problems/find-permutation) | Medium     | Greedy           | [Solution]()                                                |
+| 485 |         | [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones) | Easy       | Array            | [Solution]()                                                |
+| 486 |         | [Predict the Winner](https://leetcode.com/problems/predict-the-winner) | Medium     | Dynamic Programming | [Solution]()                                                |
+| 487 |         | [Max Consecutive Ones II](https://leetcode.com/problems/max-consecutive-ones-ii) | Medium     | Array            | [Solution]()                                                |
+| 488 |         | [Zuma Game](https://leetcode.com/problems/zuma-game)          | Hard       | Depth-First Search | [Solution]()                                                |
+| 489 |         | [Robot Room Cleaner](https://leetcode.com/problems/robot-room-cleaner) | Hard       | Depth-First Search | [Solution]()                                                |
+| 490 |         | [The Maze](https://leetcode.com/problems/the-maze)            | Medium     | Depth-First Search | [Solution]()                                                |
+| 491 |         | [Increasing Subsequences](https://leetcode.com/problems/increasing-subsequences) | Medium     | Depth-First Search | [Solution]()                                                |
+| 492 |         | [Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle) | Easy       | Math             | [Solution]()                                                |
+| 493 |         | [Reverse Pairs](https://leetcode.com/problems/reverse-pairs)  | Hard       | Binary Indexed Tree | [Solution]()                                                |
+| 494 |         | [Target Sum](https://leetcode.com/problems/target-sum)        | Medium     | Dynamic Programming | [Solution]()                                                |
+| 495 |         | [Teemo Attacking](https://leetcode.com/problems/teemo-attacking) | Medium     | Array            | [Solution]()                                                |
+| 496 |         | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i) | Easy       | Stack            | [Solution]()                                                |
+| 497 |         | [Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles) | Medium     | Randomization    | [Solution]()                                                |
+| 498 |         | [Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse) | Medium     | Array            | [Solution]()                                                |
+| 499 |         | [The Maze III](https://leetcode.com/problems/the-maze-iii)    | Hard       | Breadth-First Search | [Solution]()                                                |
+| 500 |         | [Keyboard Row](https://leetcode.com/problems/keyboard-row)    | Easy       | String           | [Solution]()                                                |
