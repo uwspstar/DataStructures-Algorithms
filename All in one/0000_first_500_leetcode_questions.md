@@ -391,9 +391,7 @@
 | 388 |         | [Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path) | Medium     | String           | [Solution]()                                                |
 | 389 |         | [Find the Difference](https://leetcode.com/problems/find-the-difference) | Easy       | Bit Manipulation | [Solution]()                                                |
 | 390 |         | [Elimination Game](https://leetcode.com/problems/elimination-game) | Medium     | Math             | [Solution]()                                                |
-| 391 |         | [Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle) | Hard       | Geometry         | [
-
-Solution]()                                                |
+| 391 |         | [Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle) | Hard       | Geometry         | [Solution]()                                                |
 | 392 |         | [Is Subsequence](https://leetcode.com/problems/is-subsequence) | Easy       | Two Pointers     | [Solution]()                                                |
 | 393 |         | [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation) | Medium     | Bit Manipulation | [Solution]()                                                |
 | 394 |         | [Decode String](https://leetcode.com/problems/decode-string)  | Medium     | Stack            | [Solution]()                                                |
