@@ -446,9 +446,7 @@
 | 443 |         | [String Compression](https://leetcode.com/problems/string-compression) | Medium     | Two Pointers     | [Solution]()                                                |
 | 444 |         | [Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction) | Medium     | Graph            | [Solution]()                                                |
 | 445 |         | [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii) | Medium     | Linked List      | [Solution]()                                                |
-| 446 |         | [Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence) | Hard      
-
- | Dynamic Programming | [Solution]()                                                |
+| 446 |         | [Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence) | Hard      | Dynamic Programming | [Solution]()                                                |
 | 447 |         | [Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs) | Medium     | Hash Table       | [Solution]()                                                |
 | 448 |         | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) | Easy       | Array            | [Solution]()                                                |
 | 449 |         | [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst) | Medium     | Design           | [Solution]()                                                |
@@ -464,7 +462,7 @@
 | 459 |         | [Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern) | Easy       | String           | [Solution]()                                                |
 | 460 |         | [LFU Cache](https://leetcode.com/problems/lfu-cache)          | Hard       | Design           | [Solution]()                                                |
 | 461 |         | [Hamming Distance](https://leetcode.com/problems/hamming-distance) | Easy       | Bit Manipulation | [Solution]()                                                |
-| 462 |         | [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii) | Medium     | Math             | [Solution]()                                                |
+| 462 |         | [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii) | Medium     | Math             | [Solution]()          |
 | 463 |         | [Island Perimeter](https://leetcode.com/problems/island-perimeter) | Easy       | Depth-First Search | [Solution]()                                                |
 | 464 |         | [Can I Win](https://leetcode.com/problems/can-i-win)          | Medium     | Dynamic Programming | [Solution]()                                                |
 | 465 |         | [Optimal Account Balancing](https://leetcode.com/problems/optimal-account-balancing) | Hard       | Depth-First Search | [Solution]()                                                |
