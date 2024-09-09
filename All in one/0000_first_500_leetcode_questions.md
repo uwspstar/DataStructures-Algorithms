@@ -33,7 +33,7 @@
 | 31  |         | [Next Permutation](https://leetcode.com/problems/next-permutation) | Medium     | Array            | [Solution]()                                                |
 | 32  |         | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses) | Hard       | String           | [Solution]()                                                |
 | 33  |         | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array) | Medium     | Array            | [Solution]()                                                |
-| 34  |         | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | Medium     | Array            | [Solution]()                                                |
+| 34  |         | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array) | Medium     | Array        | [Solution]()                                                |
 | 35  |         | [Search Insert Position](https://leetcode.com/problems/search-insert-position) | Easy       | Array            | [Solution]()                                                |
 | 36  |         | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku)    | Medium     | Hash Table       | [Solution]()                                                |
 | 37  |         | [Sudoku Solver](https://leetcode.com/problems/sudoku-solver)  | Hard       | Backtracking     | [Solution]()                                                |
@@ -53,9 +53,7 @@
 | 51  |         | [N-Queens](https://leetcode.com/problems/n-queens)            | Hard       | Backtracking     | [Solution]()                                                |
 | 52  |         | [N-Queens II](https://leetcode.com/problems/n-queens-ii)      | Hard       | Backtracking     | [Solution]()                                                |
 | 53  |         | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray) | Easy       | Array            | [Solution]()                                                |
-| 54 
-
- |         | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix)  | Medium     | Array            | [Solution]()                                                |
+| 54  |         | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix)  | Medium     | Array            | [Solution]()                                                |
 | 55  |         | [Jump Game](https://leetcode.com/problems/jump-game)          | Medium     | Greedy           | [Solution]()                                                |
 | 56  |         | [Merge Intervals](https://leetcode.com/problems/merge-intervals) | Medium     | Array            | [Solution]()                                                |
 | 57  |         | [Insert Interval](https://leetcode.com/problems/insert-interval) | Hard       | Array            | [Solution]()                                                |
