@@ -168,9 +168,7 @@
 | 166 |         | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal) | Medium     | Math             | [Solution]()                                                |
 | 167 |         | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) | Easy       | Array            | [Solution]()                                                |
 | 168 |         | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title) | Easy       | String           | [Solution]()                                                |
-| 169
-
- |         | [Majority Element](https://leetcode.com/problems/majority-element) | Easy       | Array            | [Solution]()                                                |
+| 169 |         | [Majority Element](https://leetcode.com/problems/majority-element) | Easy       | Array            | [Solution]()                                                |
 | 170 |         | [Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design) | Easy       | Design           | [Solution]()                                                |
 | 171 |         | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | Easy       | Math             | [Solution]()                                                |
 | 172 |         | [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes) | Medium     | Math             | [Solution]()                                                |
