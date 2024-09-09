@@ -113,9 +113,7 @@
 | 111 |         | [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree) | Easy       | Tree             | [Solution]()                                                |
 | 112 |         | [Path Sum](https://leetcode.com/problems/path-sum)            | Easy       | Tree             | [Solution]()                                                |
 | 113 |         | [Path Sum II](https://leetcode.com/problems/path-sum-ii)      | Medium     | Tree             | [Solution]()                                                |
-| 114 |         | [Flatten Binary Tree to Linked List](https://leetcode
-
-.com/problems/flatten-binary-tree-to-linked-list) | Medium     | Tree             | [Solution]()                                                |
+| 114 |         | [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list) | Medium     | Tree             | [Solution]()                                                |
 | 115 |         | [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences) | Hard       | Dynamic Programming | [Solution]()                                                |
 | 116 |         | [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node) | Medium     | Tree             | [Solution]()                                                |
 | 117 |         | [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii) | Medium     | Tree             | [Solution]()                                                |
