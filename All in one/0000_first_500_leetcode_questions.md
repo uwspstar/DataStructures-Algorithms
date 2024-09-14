@@ -1,4 +1,4 @@
-| #   | Note    | Title                                                        | Difficulty | Type             | Solution                                                   |
+| #   | Note    | Title (Leetcode links)                                                       | Difficulty | Type             | Solution (python)                                                 |
 |-----|---------|---------------------------------------------------------------|------------|------------------|------------------------------------------------------------|
 | 1   |         | [Two Sum](https://leetcode.com/problems/two-sum)              | Easy       | Array            | [Solution]()                                                |
 | 2   |         | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers) | Medium     | Linked List      | [Solution]()                                                |
